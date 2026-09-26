@@ -1,8 +1,9 @@
 {
   "name": "@zcode/desktop",
+  "version": "3.14.0",
   "private": true,
-  "description": "ZCode Desktop App",
-  "author": "ZCode",
+  "description": "DeepVibe Desktop App",
+  "author": "DeepVibe (RheaOS)",
   "type": "module",
   "main": "out/main/index.js",
   "scripts": {
