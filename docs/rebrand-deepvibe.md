@@ -7,13 +7,22 @@ machen — Login optional, Branding auf DeepVibe/DeepSeek, Agent = Mate.
 
 | Feld | Wert |
 | --- | --- |
-| Produktname | DeepVibe |
-| Bundle-ID | `eu.deepvibe.ide` (`.dev`, `.nightly`, `.prerelease`) |
-| Publisher / Author | DeepVibe (RheaOS) |
+| Produktname | DeepVibe (Preview: `DeepVibe Preview`) |
+| Bundle-ID | `eu.deepvibe.ide` (Preview: `eu.deepvibe.ide.preview`) |
+| Publisher / Author | DeepVibe (RheaOS) `<me@deepvibe.eu>` |
 | Homepage | `https://deepvibe.eu` |
 | Attribution | „built on ZCode (AGPLv3)"; DeepSeek nur beschreibend („works with DeepSeek models") |
 
 `com.deepseek.*` wird bewusst **nicht** verwendet: fremder Reverse-DNS-Namensraum.
+
+Entschieden (2026-09-26):
+
+- Flavor-Modell: die zwei bestehenden Flavors `production`/`preview` bleiben. Die
+  ursprünglich angedachten `.dev/.nightly/.prerelease` entfallen.
+- Linux Executable/Paket: `deepvibe` / `deepvibe-preview`.
+- **Unverändert** (Infrastruktur/Interop): CDN & Update-Feed (`cdn-zcode.z.ai`),
+  OAuth-Protokoll-Schema (`zcode`), interne IDs (`@zcode/*`, `ZCODE_*`, `.zcode-*`,
+  `zcode.cjs`). Infra-Umstellung erst, wenn `deepvibe.eu` provisioniert ist.
 
 ## 2. Login optional (Verhalten)
 
@@ -70,7 +79,9 @@ in `packages/ui/src/lib/rootStartupGate.ts` verankert.
 
 | Bereich | Datei(en) |
 | --- | --- |
+| Produkt-Identität | `packages/desktop/scripts/desktop-product-identity.mjs` (appId, productName, Linux-Namen) |
 | Installer/Metadaten | `packages/desktop/electron-builder.config.js` (homepage, author, maintainer) |
+| Paket-Name | `packages/desktop/package.json` (`name` bleibt `@zcode/desktop`; `productName`) |
 | CDN | `packages/desktop/src/main/remoteCdn.ts` (Basis-URL) |
 | IPC-Origins | `packages/desktop/src/main/desktopMainIpcRemote.ts`, `desktopWindowChrome.ts` |
 | UI-Texte | `packages/ui/src/WelcomeScreen.tsx`, `WorkspaceSidebarFooter.tsx`, `CodingPlanUsageRemainingPanel.tsx`, `useTheme.ts`, `styles.css` |
