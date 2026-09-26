@@ -186,3 +186,31 @@ auf die Pin bringen).
 - Domain `deepvibe.eu` in Registrierung (Strato, Wochenende).
 - GitHub-Org `deepvibe` ist belegt → Variante wählen (`deepvibe-eu` o. ä.).
 - npm-Org `deepvibe` prüfen (Scope `@deepvibe`), sonst bestehenden Scope nutzen.
+
+## 7. Dual: Multi-Provider + DeepSeek Standalone
+
+Entschieden (2026-09-26): die IDE existiert in **zwei Flavors** über die vorhandene
+Identitäts-Mechanik (`desktop-product-identity.mjs`, `__ZCODE_PRODUCT_FLAVOR__`):
+
+| Flavor | App-ID | Produktname | Linux |
+| --- | --- | --- | --- |
+| `production` | `eu.deepvibe.ide` | DeepVibe | `deepvibe` |
+| `preview` | `eu.deepvibe.ide.preview` | DeepVibe Preview | `deepvibe-preview` |
+| `deepseek` | `eu.deepvibe.ide.deepseek` | DeepVibe DeepSeek | `deepvibe-deepseek` |
+
+Auswahl zur Build-Zeit `ZCODE_DEEPSEEK_IDENTITY=1` (analog `ZCODE_PREVIEW_IDENTITY=1`);
+Dev: `pnpm dev:desktop:deepseek`. `preview` hat Vorrang, falls beide gesetzt sind.
+
+Verhalten im Flavor `deepseek` („Nur DeepSeek sichtbar"):
+
+- Provider-Navigation zeigt **nur** DeepSeek: der `DeepSeekPlatformCard`-Button
+  (`platform.deepseek.com`, extern) bleibt, die Custom-Provider-Gruppe wird auf
+  Provider mit `templateId === "deepseek"` gefiltert.
+- „+ Add provider" bietet **nur** das `deepseek`-Template an (keine Kimi/MiniMax/Z.ai/
+  BigModel/OpenAI/Ollama-Templates).
+- Presets/Coding-Plan-Einträge sind bereits leer (§4b) und bleiben es.
+- Kein Auto-Seed: DeepSeek wird über den Button bzw. das Template angelegt.
+
+Der Multi-Flavor (`production`/`preview`) bleibt unverändert: DeepSeek oben als Button,
+alle BYOK-Templates unter „+ Add provider".
+

@@ -5,6 +5,13 @@
  */
 export const ZCODE_PREVIEW_IDENTITY_ENV = "ZCODE_PREVIEW_IDENTITY";
 
+/**
+ * Build-Zeit-Schalter für die DeepSeek-Standalone-Identität (§7 der Spec): eigenes
+ * App-ID/Produktname, in dem nur DeepSeek als Anbieter sichtbar ist.
+ * `ZCODE_PREVIEW_IDENTITY` hat Vorrang, falls beide gesetzt sind.
+ */
+export const ZCODE_DEEPSEEK_IDENTITY_ENV = "ZCODE_DEEPSEEK_IDENTITY";
+
 const PRODUCTION_IDENTITY = Object.freeze({
   flavor: "production",
   appId: "eu.deepvibe.ide",
@@ -23,9 +30,19 @@ const PREVIEW_IDENTITY = Object.freeze({
   cuaHelperInstallVariant: "preview",
 });
 
+const DEEPSEEK_IDENTITY = Object.freeze({
+  flavor: "deepseek",
+  appId: "eu.deepvibe.ide.deepseek",
+  productName: "DeepVibe DeepSeek",
+  linuxExecutableName: "deepvibe-deepseek",
+  linuxPackageName: "deepvibe-deepseek",
+  cuaHelperInstallVariant: "deepseek",
+});
+
 export const desktopProductIdentities = Object.freeze({
   production: PRODUCTION_IDENTITY,
   preview: PREVIEW_IDENTITY,
+  deepseek: DEEPSEEK_IDENTITY,
 });
 
 function normalizeDesktopZCodeEnv(env) {
@@ -50,6 +67,20 @@ export function isPreviewIdentityRequested(env = process.env) {
   );
 }
 
+/** 与 Preview 相同的严格开关语义：只有 `1` 开启，空/`0` 关闭，其余构建期报错。 */
+export function isDeepSeekIdentityRequested(env = process.env) {
+  const value = env[ZCODE_DEEPSEEK_IDENTITY_ENV]?.trim() ?? "";
+  if (value === "1") {
+    return true;
+  }
+  if (value === "" || value === "0") {
+    return false;
+  }
+  throw new Error(
+    `invalid ${ZCODE_DEEPSEEK_IDENTITY_ENV}=${env[ZCODE_DEEPSEEK_IDENTITY_ENV]}; expected 1 or 0`,
+  );
+}
+
 /**
  * 产品身份（flavor）与后端环境（`ZCODE_ENV`）是两个轴：
  * - `ZCODE_ENV=test` 一律是 Preview，测试后端不能顶着正式 `ZCode` 身份覆盖用户的正式安装；
@@ -59,6 +90,9 @@ export function isPreviewIdentityRequested(env = process.env) {
 export function resolveDesktopProductFlavor(env = process.env) {
   if (isPreviewIdentityRequested(env)) {
     return "preview";
+  }
+  if (isDeepSeekIdentityRequested(env)) {
+    return "deepseek";
   }
   return normalizeDesktopZCodeEnv(env) === "production" ? "production" : "preview";
 }
@@ -86,7 +120,9 @@ export function resolveWindowsAppUserModelIdForFlavor(flavor, runtime = { isPack
   if (runtime.isPackaged === false) {
     return "eu.deepvibe.ide.dev";
   }
-  return desktopProductIdentities[flavor === "preview" ? "preview" : "production"].appId;
+  const flavorKey =
+    flavor === "preview" ? "preview" : flavor === "deepseek" ? "deepseek" : "production";
+  return desktopProductIdentities[flavorKey].appId;
 }
 
 export function resolveWindowsAppUserModelId(env = process.env, runtime = { isPackaged: true }) {

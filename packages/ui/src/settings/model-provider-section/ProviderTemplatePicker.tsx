@@ -3,6 +3,7 @@ import { ArrowLeftIcon, ChevronRightIcon, PlusIcon } from "lucide-react";
 import { resolveProviderTemplateName } from "@zcode/provider";
 import type { ReactNode } from "react";
 import {
+  IS_DEEPSEEK_STANDALONE,
   TID_MODEL_PROVIDER_TEMPLATE_BACK_BUTTON,
   TID_MODEL_PROVIDER_TEMPLATE_ITEM,
   TID_MODEL_PROVIDER_TEMPLATE_PICKER,
@@ -35,18 +36,23 @@ export function ProviderTemplatePicker({
   const { dismissFeedback, showFeedback } = useProviderDetailFeedback();
   const customLabel = intl.formatMessage({ id: "settings.modelProvider.newProviderName" });
   const zhipuIds = ["bigmodel-api", "zai-api", "bigmodel-standard-api", "zai-standard-api"];
+  // DeepSeek-Standalone (§7): nur das deepseek-Template und kein freier Custom-Provider.
+  const visibleTemplates = IS_DEEPSEEK_STANDALONE
+    ? templates.filter((template) => template.templateId === "deepseek")
+    : templates;
+  const showCustomCard = !IS_DEEPSEEK_STANDALONE;
   const groups = [
     {
       id: "zhipu",
       templates: zhipuIds.flatMap((id) =>
-        templates.filter((template) => template.templateId === id),
+        visibleTemplates.filter((template) => template.templateId === id),
       ),
     },
     {
       id: "other",
-      templates: templates.filter((template) => !zhipuIds.includes(template.templateId)),
+      templates: visibleTemplates.filter((template) => !zhipuIds.includes(template.templateId)),
     },
-  ] as const;
+  ].filter((group) => group.templates.length > 0 || (group.id === "other" && showCustomCard));
   const createWithFeedback = async (create: () => Promise<void>) => {
     const feedbackKey = "provider-template-create";
     dismissFeedback(feedbackKey);
@@ -93,7 +99,7 @@ export function ProviderTemplatePicker({
               {intl.formatMessage({ id: `settings.modelProvider.templateGroup.${group.id}` })}
             </h3>
             <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
-              {group.id === "other" ? (
+              {group.id === "other" && showCustomCard ? (
                 <ProviderTemplateCard
                   label={intl.formatMessage({ id: "settings.modelProvider.createCustomProvider" })}
                   disabled={creating}

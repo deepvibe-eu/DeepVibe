@@ -9,6 +9,7 @@ import type {
 } from "@zcode/shared";
 import {
   BUILTIN_MODEL_PROVIDER_IDS,
+  IS_DEEPSEEK_STANDALONE,
   isStartPlanModelProviderId,
   resolveModelProviderFamilySpecByProviderId,
   resolveProviderFamilyDomainFromOAuthProvider,
@@ -85,8 +86,12 @@ export function useModelProviderNavigation({
     const allCustomProviders = modelProviders.filter(
       (provider) => provider.config.group === "standard-personal",
     );
+    // DeepSeek-Standalone (§7): nur DeepSeek-Provider in der Navigation anzeigen.
+    const scopedProviders = IS_DEEPSEEK_STANDALONE
+      ? allCustomProviders.filter((provider) => provider.templateId === "deepseek")
+      : allCustomProviders;
     // 这里复用模型菜单的展示排序，确保设置页和聊天框供应商顺序一致。
-    return sortModelProvidersForDisplay(allCustomProviders, displayOrder);
+    return sortModelProvidersForDisplay(scopedProviders, displayOrder);
   }, [displayOrder, modelProviders]);
 
   const codingPlanItems = useMemo(

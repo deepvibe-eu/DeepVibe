@@ -7,8 +7,11 @@ import { quoteArgsForWindowsShell } from "./spawn-command.mjs";
 
 const requestedEnv = process.argv[2]?.trim().toLowerCase();
 const agentBytecode = process.argv.slice(3).includes("--agent-bytecode");
+const deepseekIdentity = process.argv.slice(3).includes("--deepseek");
 if (requestedEnv !== "test" && requestedEnv !== "production") {
-  console.error("Usage: node scripts/dev-desktop-env.mjs <test|production> [--agent-bytecode]");
+  console.error(
+    "Usage: node scripts/dev-desktop-env.mjs <test|production> [--agent-bytecode] [--deepseek]",
+  );
   process.exit(1);
 }
 
@@ -26,6 +29,7 @@ function run(command, args) {
         {
           ...process.env,
           ZCODE_ENV: requestedEnv,
+          ZCODE_DEEPSEEK_IDENTITY: deepseekIdentity ? "1" : "0",
           ZCODE_DESKTOP_AGENT_BYTECODE: agentBytecode ? "1" : "0",
         },
         process.execPath,
