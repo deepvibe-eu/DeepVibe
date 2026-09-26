@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import type { UserInfo } from "@zcode/shared";
 import type { ModelSelectionView } from "@zcode/services";
 import { resolveProviderAvailabilityState } from "@/lib/modelProviderAvailability.js";
+import { shouldOpenStartupProviderLoginEntry } from "@/lib/rootStartupGate.js";
 import { logger } from "@/logger.js";
 
 interface ProviderAvailabilityLoginEntryGuardResult {
@@ -54,10 +55,13 @@ export function useProviderAvailabilityLoginEntryGuard({
         : modelSelectionView;
       const availability = resolveProviderAvailabilityState({ modelSelectionView: refreshedView });
       const { hasUsableProvider, providerCount } = availability;
-      const shouldOpenLoginEntry = !providerFamilyDomain || (!user && !hasUsableProvider);
+      // DeepVibe：登录可选。启动阶段不因缺少账号/Provider 强制打开登录入口；
+      // 需要 Provider 时由模型请求经 loginEntryRequest → provider-request 打开。
+      const shouldOpenLoginEntry = shouldOpenStartupProviderLoginEntry();
 
-      // 未登录且没有可用模型配置时必须引导用户连接账号或填写 API Key。
-      // 启动检查、API Key 设置回流等入口统一走这里，避免各处复制判断后语义分叉。
+      // DeepVibe：启动检查只负责完成 startupCheckCompleted 并记录 Provider 可用性，
+      // 不再因未登录/无 Provider 强制打开登录入口。API-Key-回流等入口仍统一走这里，
+      // 避免各处复制判断后语义分叉；是否打开登录只由 shouldOpenStartupProviderLoginEntry 决定。
       logger.info("[Root] provider 可用性登录入口守卫完成检查", {
         reason: options.reason,
         source: availability.source,

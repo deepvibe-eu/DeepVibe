@@ -17,23 +17,54 @@ machen — Login optional, Branding auf DeepVibe/DeepSeek, Agent = Mate.
 
 ## 2. Login optional (Verhalten)
 
-Beobachtung im Code (Stand `3e80666`):
+### 2.1 Ursache des erzwungenen Starts — verifiziert (Stand `26b82f9`)
 
-- `packages/ui/src/Root.tsx:205-208` — Initialzustand ist bereits `null`; nur ein
-  JWT-invalid-Marker öffnet den Screen (`"session-expired"`).
-- `packages/ui/src/Root.tsx:988` — `<WelcomeScreen/>` wird gerendert, wenn
-  `welcomeScreenOpenReason` gesetzt ist.
-- `packages/ui/src/Root.tsx:867` — `"provider-request"` (wird ausgelöst, wenn ein
-  Provider/Login angefordert wird).
-- `packages/ui/src/Root.tsx:211` + `packages/ui/src/store/index.ts` — `loginEntryRequest`.
-- `packages/ui/src/WelcomeScreen.tsx` — konsumiert `loginEntryRequest`, ruft Login auf.
+Der WelcomeScreen wird beim Start **nicht** durch eine fehlende Session erzwungen,
+sondern durch den Provider-Verfügbarkeits-Guard:
 
-Zu klären (Reihenfolge einhalten!):
+- `packages/ui/src/root/useProviderAvailabilityLoginEntryGuard.ts:57` —
+  `shouldOpenLoginEntry = !providerFamilyDomain || (!user && !hasUsableProvider)`.
+  Ohne `providerFamilyDomain` (App-Setting, wird erst bei Login/API-Key gesetzt) ist
+  das unbedingt `true`.
+- `packages/ui/src/lib/rootStartupGate.ts:43` — `shouldEnableProviderAvailabilityLoginEntryGuard()`
+  liefert unbedingt `true`.
+- `packages/ui/src/Root.tsx:446-456` — `setLoginEntryOpen(true)` setzt
+  `welcomeScreenOpenReason = "startup-provider-required"`.
+- `packages/ui/src/Root.tsx:462-468` — `isStartupProviderLoginEntryOpen` blockiert
+  `canRestoreWorkspaceSession`.
+- `packages/ui/src/Root.tsx:784-799` — der Fallback-Workspace-Effekt bricht bei
+  `isStartupProviderLoginEntryOpen` ab und legt deshalb keinen Default-Workspace an.
+- `packages/ui/src/Root.tsx:982-988` — gesetzter Reason rendert `<WelcomeScreen/>`.
 
-1. Ursache des **erzwungenen** Screens verifizieren (kein Provider/Modell konfiguriert?
-   vs. `loginEntryRequest` vs. ein Service-Event). Erst Ursache, dann Fix.
-2. Spec für den Zielzustand ergänzen: Start direkt im Workspace; Login bleibt
-   **optional** über Settings erreichbar; kein Provider-Zwang beim Start.
+Ohne Login/Provider entsteht also kein Arbeitsbereich und der Login-Screen erscheint
+zwangsweise. Der Initialzustand bei `Root.tsx:205-208` ist bereits `null`; nur der
+JWT-invalid-Marker erzwingt `"session-expired"` (echter Auth-Fehler, bleibt).
+
+### 2.2 Zielzustand
+
+- Der Start rendert direkt den Workspace; fehlender Account/Provider öffnet den
+  Login-Screen **nicht** mehr.
+- Der Provider-Verfügbarkeitscheck bleibt für den Startup-Abschluss bestehen, öffnet
+  aber keinen Login mehr.
+- Login bleibt **optional** erreichbar:
+  - Settings, wenn nicht angemeldet (`manual-login`, `Root.tsx:870-872` / `:962`),
+  - Modell-/Provider-Anforderung (`provider-request`, `Root.tsx:861-868`),
+  - ungültiges JWT (`session-expired`, `Root.tsx:486-488`),
+  - expliziter Logout (`logout-provider-required`, `Root.tsx:520-522`).
+- Kein Provider-Zwang: Die erste Modellanfrage ohne Provider löst über
+  `loginEntryRequest` (Store) `provider-request` aus.
+
+### 2.3 Akzeptanzszenarien
+
+1. Frischer Start ohne Login und ohne Provider → Workspace erscheint (Default-Workspace
+   wird über `ensureConversationWorkspace()` angelegt), kein WelcomeScreen.
+2. „Login" in den Settings → WelcomeScreen erscheint (`manual-login`).
+3. Senden ohne Provider → WelcomeScreen erscheint (`provider-request`).
+4. Abgelaufenes JWT → WelcomeScreen erscheint (`session-expired`).
+
+Single Owner bleibt `useProviderAvailabilityLoginEntryGuard` für den Startup-Abschluss
+(`startupCheckCompleted`); die Öffnungsentscheidung wird als reine, testbare Funktion
+in `packages/ui/src/lib/rootStartupGate.ts` verankert.
 
 ## 3. De-Branding (Fundstellen)
 

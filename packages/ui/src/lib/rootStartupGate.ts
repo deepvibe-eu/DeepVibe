@@ -44,6 +44,15 @@ export function shouldEnableProviderAvailabilityLoginEntryGuard(): boolean {
   return true;
 }
 
+/**
+ * DeepVibe：登录是可选路径。启动时不因缺少账号或 Provider 强制打开登录入口，
+ * 登录只由用户操作（Settings → manual-login）或模型请求（provider-request）触发。
+ * 单一事实来源：Provider-Availability-Guard 与 Root 都读这一处。
+ */
+export function shouldOpenStartupProviderLoginEntry(): boolean {
+  return false;
+}
+
 export function shouldResolveProviderStartupState(state: ProviderStartupResolutionState): boolean {
   return state.providerStartupSyncPending || !state.providerAvailabilityStartupCheckCompleted;
 }
