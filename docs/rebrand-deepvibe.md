@@ -149,12 +149,19 @@ Entschieden (2026-09-26, Betreiber-Entscheidung: DeepVibe ist DeepSeeks IDE).
 - **„Onboard"-Einstieg:** Öffnet weiterhin die Onboarding-Auswahl (Occupation/Mode).
   Kein Lockout: `OccupationOnboarding` hat „Skip"/Close; nach App-Neustart startet
   DeepVibe dank optionalem Login wieder im Workspace.
-- **DeepSeek vorbelegen (offen):** `providerRules` dürfen laut
-  `packages/provider/src/config/rule-data-schema.ts:105` **kein** `standard-personal`
-  erzeugen; personal Provider entstehen nur über „+ Add provider". „DeepSeek
-  voreingetragen" braucht daher einen eigenen Seeder/Quick-Add-Entry.
-- **Ollama (offen):** Es gibt ein `deepseek`-Template, aber **kein** `ollama`-Template in
-  `config/provider/zcode-builtin.json`; lokaler Ollama-Provider fehlt in „+ Add provider".
+- **DeepSeek-Einstieg (umgesetzt 2026-09-26):** Fester „DeepSeek"-Button oben in der
+  Provider-Navigation (`Navigation.tsx` → `DeepSeekPlatformCard`, `ProviderLogo`-Asset
+  `deepseek`), Ziel `https://platform.deepseek.com`. Öffnet **ausschließlich extern**
+  (`platform.openExternal`), damit man nicht in einer eingebetteten Vendor-Seite
+  festhängt. `providerRules` dürfen laut
+  `packages/provider/src/config/rule-data-schema.ts:105` kein `standard-personal`
+  erzeugen; ein automatisch angelegter DeepSeek-Provider ist daher nicht umgesetzt.
+- **Ollama (umgesetzt 2026-09-26):** neues Template `ollama` in
+  `config/provider/zcode-builtin.json` („Ollama (Local)", `openai-chat-completions`,
+  `http://localhost:11434/v1`, leere `builtinModelIds` → Modelle trägt der Nutzer ein).
+  Erscheint unter „+ Add provider".
+- **Offen — „Dual":** Betreiber-Wunsch, die IDE zweimal zu denken: einmal als
+  Multi-Provider-IDE, einmal als „DeepSeek Standalone". Noch nicht spezifiziert.
 - **Logo:** Das Z-Logo (`packages/ui/src/assets/provider-icons/logo-zai.svg`
   + `ZCodeAboutLogo`/Wordmark) wird später durch das DeepVibe-Logo ersetzt, sobald der
   Asset vorliegt. Hintergrund auf der Hauptseite (`App.tsx` `appLogoUrl`) mitwechseln.

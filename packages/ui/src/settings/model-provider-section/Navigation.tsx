@@ -17,7 +17,7 @@ import {
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
-import { Loader2Icon } from "lucide-react";
+import { ExternalLinkIcon, Loader2Icon } from "lucide-react";
 import { ProviderStatusIndicator } from "./ProviderStatusIndicator.js";
 
 import {
@@ -28,6 +28,9 @@ import {
 } from "@zcode/shared";
 import { useCallback, useMemo, type KeyboardEvent } from "react";
 import { ControlHintTooltip } from "@/ControlHintTooltip.js";
+import { usePlatform } from "@/hooks/usePlatform.js";
+import { useZCodeIntl } from "@/i18n/IntlProvider.js";
+import { ProviderLogo } from "./ProviderLogo.js";
 import type { ModelProviderNavGroup, ModelProviderNavItem } from "./constants.js";
 import { useOptimisticReorder } from "./useOptimisticReorder.js";
 import { renderModelProviderNavIcon } from "./utils.js";
@@ -217,6 +220,28 @@ function SortableModelProviderNavigationButton({
   );
 }
 
+function DeepSeekPlatformCard() {
+  const platform = usePlatform();
+  const { intl } = useZCodeIntl();
+  return (
+    <button
+      type="button"
+      onClick={() => platform.openExternal("https://platform.deepseek.com")}
+      className="flex w-full items-center gap-2 rounded-lg border border-border bg-surface px-2 py-1.5 text-left transition-colors hover:border-foreground-subtle"
+      data-testid="model-provider-deepseek-platform-card"
+    >
+      <ProviderLogo logo={{ type: "builtin", key: "deepseek" }} className="size-5" />
+      <span className="flex min-w-0 flex-1 flex-col">
+        <span className="truncate text-ui-base font-semibold text-foreground">DeepSeek</span>
+        <span className="truncate text-ui-xs text-foreground-subtle">
+          {intl.formatMessage({ id: "settings.modelProvider.deepseekPlatform.hint" })}
+        </span>
+      </span>
+      <ExternalLinkIcon className="size-4 shrink-0 text-foreground-subtle" aria-hidden="true" />
+    </button>
+  );
+}
+
 function PresetProviderCardNavigation({
   group,
   selectedNodeKey,
@@ -386,6 +411,7 @@ export function ModelProviderSectionNavigation({
   return (
     <aside className="px-1.5 py-3 md:py-2 md:px-2">
       <div className="flex min-h-0 flex-col gap-3 max-md:gap-1">
+        <DeepSeekPlatformCard />
         {navigationGroups
           .filter((group) => group.items.length > 0)
           .map((group) => (
