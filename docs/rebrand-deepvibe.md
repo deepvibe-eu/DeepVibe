@@ -142,6 +142,19 @@ Entschieden (2026-09-26, Betreiber-Entscheidung: DeepVibe ist DeepSeeks IDE).
   (aus der Z.ai-Loginseite kam man nicht mehr heraus). Mit entfernten Coding-Plan-
   Providern ist der eingebettete Coding-Plan-Webview nicht mehr erreichbar; der
   Footer-„Upgrade"-Eintrag wird ohne auflösbares Ziel nicht mehr angezeigt.
+- **„🚀 Upgrade" + „Upgrade Plan"-Seite entfernt:** Der Eintrag im Profilmenü ist raus;
+  `CodingPlanUpgradeDialogProvider` ist ein zentraler No-op, sodass die eingebettete
+  „Upgrade Plan"-Seite (`settings.modelProvider.codingPlan.webview.title`) an keinem
+  Einstiegspunkt mehr aufgebaut wird.
+- **„Onboard"-Einstieg:** Öffnet weiterhin die Onboarding-Auswahl (Occupation/Mode).
+  Kein Lockout: `OccupationOnboarding` hat „Skip"/Close; nach App-Neustart startet
+  DeepVibe dank optionalem Login wieder im Workspace.
+- **DeepSeek vorbelegen (offen):** `providerRules` dürfen laut
+  `packages/provider/src/config/rule-data-schema.ts:105` **kein** `standard-personal`
+  erzeugen; personal Provider entstehen nur über „+ Add provider". „DeepSeek
+  voreingetragen" braucht daher einen eigenen Seeder/Quick-Add-Entry.
+- **Ollama (offen):** Es gibt ein `deepseek`-Template, aber **kein** `ollama`-Template in
+  `config/provider/zcode-builtin.json`; lokaler Ollama-Provider fehlt in „+ Add provider".
 - **Logo:** Das Z-Logo (`packages/ui/src/assets/provider-icons/logo-zai.svg`
   + `ZCodeAboutLogo`/Wordmark) wird später durch das DeepVibe-Logo ersetzt, sobald der
   Asset vorliegt. Hintergrund auf der Hauptseite (`App.tsx` `appLogoUrl`) mitwechseln.

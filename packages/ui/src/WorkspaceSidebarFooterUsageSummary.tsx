@@ -1,4 +1,3 @@
-import { useCodingPlanEntryGate } from "@/settings/CodingPlanEntryButton.js";
 /* eslint-disable max-lines -- footer 套餐徽标、升级入口与 entitlement 探测共用同一份
    provider 选择与 family 过滤上下文，拆文件会让 zai/bigmodel 对称性难以追踪。 */
 import { useEffect, useMemo } from "react";
@@ -8,7 +7,7 @@ import {
   resolveModelProviderFamilyIdByProviderId,
   TID_SIDEBAR_CODING_PLAN_USAGE_BUTTON,
 } from "@zcode/shared";
-import { BarChart3Icon, RocketIcon } from "lucide-react";
+import { BarChart3Icon } from "lucide-react";
 import { DropdownMenuItem, DropdownMenuSeparator } from "@/components/ui/dropdown-menu.js";
 import {
   resolveCodingPlanUsageRemainingState,
@@ -23,15 +22,8 @@ import {
   resolveEntitledAccountProviderAccessFingerprint,
 } from "@/lib/accountProviderAccess.js";
 import { buildUsageEntitlementCacheKey } from "@/lib/usageEntitlementCache.js";
-import {
-  isMaxCodingPlanSnapshot,
-  resolveSidebarCodingPlanUpgradeFallbackProviderId,
-} from "@/lib/sidebarCodingPlanUpgrade.js";
-import {
-  createCodingPlanFunnelContext,
-  resolveCodingPlanEntryPlanState,
-  type CodingPlanFunnelContext,
-} from "@/lib/codingPlanFunnelTelemetry.js";
+import { resolveSidebarCodingPlanUpgradeFallbackProviderId } from "@/lib/sidebarCodingPlanUpgrade.js";
+import { type CodingPlanFunnelContext } from "@/lib/codingPlanFunnelTelemetry.js";
 import { type SidebarUsageCodingPlanProviderId } from "@/lib/sidebarUsageCodingPlanProviderPreference.js";
 import { useEnterpriseCodingPlanProducts } from "@/settings/model-provider-section/useEnterpriseCodingPlanProducts.js";
 import {
@@ -50,8 +42,6 @@ export {
   resolveSidebarFooterPlanBadgeLabel,
   resolveSidebarFooterProfilePlanBadge,
 } from "@/WorkspaceSidebarFooterPlanBadgeHelpers.js";
-
-const TID_SIDEBAR_CODING_PLAN_UPGRADE_BUTTON = "sidebar-coding-plan-upgrade-button";
 
 export function WorkspaceSidebarFooterUsageSummary({
   enabled,
@@ -416,9 +406,11 @@ type WorkspaceSidebarFooterUsageSummaryState = ReturnType<
 >;
 
 export function WorkspaceSidebarFooterUsageSummaryContent({
-  state,
+  state: _state,
   onUsageClick,
-  onUpgradeClick,
+  // DeepVibe: Coding-Plan-Upgrades sind entfernt. Das Prop bleibt für die Aufrufer-
+  // Signatur, der „🚀 Upgrade"-Eintrag und die „Upgrade Plan"-Seite entfallen.
+  onUpgradeClick: _onUpgradeClick,
 }: {
   state: WorkspaceSidebarFooterUsageSummaryState;
   onUsageClick?: () => void;
@@ -428,14 +420,6 @@ export function WorkspaceSidebarFooterUsageSummaryContent({
   ) => void;
 }) {
   const { intl } = useZCodeIntl();
-  const entryGate = useCodingPlanEntryGate();
-  const { providerEntitlements, upgradeTargetProviderId } = state;
-  const upgradeProviderSnapshot =
-    providerEntitlements.find((item) => item.providerId === upgradeTargetProviderId)?.snapshot ??
-    null;
-  const upgradeActionLabelId = isMaxCodingPlanSnapshot(upgradeProviderSnapshot)
-    ? "sidebar.usage.plan.renew"
-    : "sidebar.usage.plan.upgrade";
 
   return (
     <>
@@ -450,37 +434,6 @@ export function WorkspaceSidebarFooterUsageSummaryContent({
         <BarChart3Icon className="size-4" />
         {intl.formatMessage({ id: "sidebar.usage.plan.openStats" })}
       </DropdownMenuItem>
-      {/* DeepVibe: Der Upgrade-Eintrag führte in einen eingebetteten Vendor-Webview
-          (z.ai/BigModel), aus dem man nicht mehr herauskam. Nach Entfernen der
-          Coding-Plan-Provider gibt es kein auflösbares Ziel mehr → Eintrag ausblenden. */}
-      {upgradeTargetProviderId ? (
-        <DropdownMenuItem
-          data-testid={TID_SIDEBAR_CODING_PLAN_UPGRADE_BUTTON}
-          disabled={entryGate.status === "loading"}
-          aria-busy={entryGate.status === "loading"}
-          onSelect={() => {
-            if (entryGate.status !== "ready") {
-              entryGate.retry?.();
-              return;
-            }
-            onUpgradeClick?.(
-              upgradeTargetProviderId,
-              createCodingPlanFunnelContext({
-                providerId: upgradeTargetProviderId,
-                upgradeSource: "profile_menu",
-                eventRegion: "app.profile",
-                eventText: intl.formatMessage({ id: upgradeActionLabelId }),
-                entryPlanState: resolveCodingPlanEntryPlanState({
-                  snapshot: upgradeProviderSnapshot,
-                }),
-              }),
-            );
-          }}
-        >
-          <RocketIcon className="size-4" />
-          {entryGate.label ?? intl.formatMessage({ id: upgradeActionLabelId })}
-        </DropdownMenuItem>
-      ) : null}
     </>
   );
 }
