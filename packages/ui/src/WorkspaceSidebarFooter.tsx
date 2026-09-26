@@ -3,7 +3,6 @@ import type { Locale, UserInfo } from "@zcode/shared";
 import { memo, useCallback, useEffect, useState } from "react";
 import {
   DesktopCommandIds,
-  TID_LOGIN_MENU_ITEM,
   TID_LOGIN_TRIGGER,
   TID_LOGOUT_BUTTON,
   TID_TASK_SETTINGS_BUTTON,
@@ -29,7 +28,6 @@ import {
   PencilRuler,
   Globe,
   Loader2,
-  LogInIcon,
   LogOut,
   Maximize,
   Palette,
@@ -92,7 +90,10 @@ export const WorkspaceSidebarFooter = memo(function WorkspaceSidebarFooterCompon
   onSettingsButtonClick,
   onUsageClick,
   onUpgradeClick,
-  onLogin,
+  // DeepVibe: Die frühere „Connect"-Umleitung auf den WelcomeScreen („Startseite") ist
+  // entfernt. Login bleibt optional über Settings erreichbar. Das Prop bleibt für die
+  // Aufrufer-Signatur, wird aber hier nicht mehr verwendet.
+  onLogin: _onLogin,
   onLogout,
   settingsButtonMode = "settings",
   user,
@@ -349,15 +350,6 @@ export const WorkspaceSidebarFooter = memo(function WorkspaceSidebarFooterCompon
               onUsageClick={usageButtonClick}
               onUpgradeClick={onUpgradeClick}
             />
-            {onLogin && !user ? (
-              <>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem onSelect={onLogin} data-testid={TID_LOGIN_MENU_ITEM}>
-                  <LogInIcon className="size-4" />
-                  {intl.formatMessage({ id: "app.login" })}
-                </DropdownMenuItem>
-              </>
-            ) : null}
             {onLogout ? (
               <>
                 <DropdownMenuSeparator />

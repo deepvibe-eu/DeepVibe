@@ -122,6 +122,30 @@ Finder-Workflow `eu.deepvibe.ide.finder-open-workflow` (statt `cn.aminer.zcode` 
 `Agent`/`agent` in sichtbaren Strings lokalisieren und auf „Mate"/„Mates" umstellen;
 interne IDs (`agentId`, `agentType`, RPC-Namen) **unverändert** lassen.
 
+## 4b. Provider-Bereinigung & Connect-Umleitung
+
+Entschieden (2026-09-26, Betreiber-Entscheidung: DeepVibe ist DeepSeeks IDE).
+
+- **Raus aus Settings → Model Settings → Providers:** „Z.ai", „BigModel" und die beiden
+  „Start Plan"-Einträge (Individuals/For Teams). Umgesetzt, indem
+  `PRESET_PROVIDER_SPECS` und `CODING_PLAN_PROVIDER_SPECS` in
+  `packages/ui/src/settings/model-provider-section/constants.ts` leer sind; leere
+  Navigationsgruppen werden in `Navigation.tsx` nicht mehr gerendert.
+- **Z.ai und BigModel bleiben erhalten** – aber untergeordnet als BYOK-Templates unter
+  „+ Add provider" (Templates in `config/provider/zcode-builtin.json` unverändert).
+  Kimi, MiniMax, DeepSeek, Qwen, OpenRouter usw. bleiben dort ebenfalls.
+- **Connect-Umleitung raus:** Der Footer-Eintrag „Connect" (`app.login`) öffnete den
+  WelcomeScreen („Startseite"). Der Eintrag wird entfernt; der Profil-Button samt Menü
+  bleibt. Login bleibt optional über Settings (`manual-login`) sowie die Pfade
+  `provider-request`/`session-expired` erreichbar.
+- **Falle vermeiden:** Externe Anbieter-/Kaufseiten dürfen nicht eingebettet werden
+  (aus der Z.ai-Loginseite kam man nicht mehr heraus). Mit entfernten Coding-Plan-
+  Providern ist der eingebettete Coding-Plan-Webview nicht mehr erreichbar; der
+  Footer-„Upgrade"-Eintrag wird ohne auflösbares Ziel nicht mehr angezeigt.
+- **Logo:** Das Z-Logo (`packages/ui/src/assets/provider-icons/logo-zai.svg`
+  + `ZCodeAboutLogo`/Wordmark) wird später durch das DeepVibe-Logo ersetzt, sobald der
+  Asset vorliegt. Hintergrund auf der Hauptseite (`App.tsx` `appLogoUrl`) mitwechseln.
+
 ## 5. Verifikation (ZCode-Prozess)
 
 ```bash
