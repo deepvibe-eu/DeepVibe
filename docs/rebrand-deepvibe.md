@@ -87,6 +87,36 @@ in `packages/ui/src/lib/rootStartupGate.ts` verankert.
 | UI-Texte | `packages/ui/src/WelcomeScreen.tsx`, `WorkspaceSidebarFooter.tsx`, `CodingPlanUsageRemainingPanel.tsx`, `useTheme.ts`, `styles.css` |
 | Doku/Recht | `LICENSE`, `DESIGN.md`, `NOTICE.md`, `README.md`/`README.en.md` |
 
+### 3.1 Sichtbare Strings — umgesetzt (2026-09-26)
+
+Ersetzt wurde ausschließlich der sichtbare Marken-Token `ZCode` → `DeepVibe`
+(Wortgrenzen-Muster `(?<![A-Za-z])ZCode(?![A-Za-z])`), u. a. in:
+
+- `packages/ui/src/i18n/locales/{en-US,zh-CN}.ts` (193 Strings; Locale-**Schlüssel**
+  wie `titleBar.menu.help.toggleZCodeStdioTap` bleiben unverändert).
+- `packages/shared/src/{desktopMenu,process-names,plugin-display-name,openrouter-attribution}.ts`.
+- `packages/services/src/paths.ts`, `packages/services/src/runtime-tools/appCaCert.ts`.
+- `packages/web/src/auth/webAuthLocale.ts`, `packages/web/src/share/ConversationShareLandingPage.tsx`.
+- UI: `WorkspaceSidebarFooter.tsx`, `WelcomeScreen.tsx`, `WorkspaceShellLayout.tsx`,
+  Logo-`alt`/`aria-label`-Stellen, `ConversationShareReadonlyTimeline.tsx`,
+  `lib/builtinSkillI18n.ts`.
+- Desktop: `desktopRuntimeEnv.ts`, `forceUpdatePrompt.ts`, `desktopOAuthDeepLink.ts`,
+  `desktopFinderOpenFolderWorkflow.ts`, `desktopWindowsOpenFolderContextMenu.ts`,
+  `desktopLinuxDeepLinkRegistration.ts`, `desktopCommandHandlers.ts`,
+  `windowsCuaOperationIndicatorContent.ts`, `renderer/cuaPermissionPanelMessages.ts`,
+  `host/browserControlMainBridge.ts`, `scripts/devElectronAppBundle.mjs`.
+
+Bewusst **unverändert** (Interop/Interna): `@zcode/*`, `ZCODE_*`-Env, Schema `zcode`,
+`__zcode*`-Globals, `zcodeBridge`, `zcode-browser-*`, `zcode-window-bounds`, `zcode.cjs`,
+`.zcode-install-manifest`, `zcode-playwright-*`, `zcode-embedded-browser`, `zcodeagentmcp`,
+`directorySource: "zcode"`, Legacy-Migrationspfade in `main/mcpUserDirectory/legacy.ts`,
+die Laufzeit-Matching-Strings in `v4/conversationProjectionStore.ts` und
+`lib/zcodeUiError.ts` (`GENERIC_ZCODE_UI_ERROR_MESSAGES` wird gegen Agent-Ausgaben gematcht).
+
+App-IDs: Dev-AUMID `eu.deepvibe.ide.dev`, Dev-Bundle `eu.deepvibe.ide.development`,
+Finder-Workflow `eu.deepvibe.ide.finder-open-workflow` (statt `cn.aminer.zcode` bzw.
+`dev.zcode.app.*`).
+
 ## 4. Agent → Mate
 
 `Agent`/`agent` in sichtbaren Strings lokalisieren und auf „Mate"/„Mates" umstellen;
