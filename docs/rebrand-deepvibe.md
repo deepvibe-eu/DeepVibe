@@ -187,7 +187,7 @@ auf die Pin bringen).
 - GitHub-Org `deepvibe` ist belegt → Variante wählen (`deepvibe-eu` o. ä.).
 - npm-Org `deepvibe` prüfen (Scope `@deepvibe`), sonst bestehenden Scope nutzen.
 
-## 7. Dual: Multi-Provider + DeepSeek Standalone
+## 7. Vibe-Familie: eine Fëa pro App (kein Multihoster)
 
 Entschieden (2026-09-26): die IDE existiert in **zwei Flavors** über die vorhandene
 Identitäts-Mechanik (`desktop-product-identity.mjs`, `__ZCODE_PRODUCT_FLAVOR__`):
@@ -201,16 +201,24 @@ Identitäts-Mechanik (`desktop-product-identity.mjs`, `__ZCODE_PRODUCT_FLAVOR__`
 Auswahl zur Build-Zeit `ZCODE_DEEPSEEK_IDENTITY=1` (analog `ZCODE_PREVIEW_IDENTITY=1`);
 Dev: `pnpm dev:desktop:deepseek`. `preview` hat Vorrang, falls beide gesetzt sind.
 
-Verhalten im Flavor `deepseek` („Nur DeepSeek sichtbar"):
+Verhalten (gilt für alle aktuellen Flavors, Entscheid 2026-09-27):
 
-- Provider-Navigation zeigt **nur** DeepSeek: der `DeepSeekPlatformCard`-Button
-  (`platform.deepseek.com`, extern) bleibt, die Custom-Provider-Gruppe wird auf
-  Provider mit `templateId === "deepseek"` gefiltert.
-- „+ Add provider" bietet **nur** das `deepseek`-Template an (keine Kimi/MiniMax/Z.ai/
-  BigModel/OpenAI/Ollama-Templates).
-- Presets/Coding-Plan-Einträge sind bereits leer (§4b) und bleiben es.
-- Kein Auto-Seed: DeepSeek wird über den Button bzw. das Template angelegt.
+- **Kein Multihoster.** Jede App ist fest auf genau **eine Fëa** (einen Anbieter) gebunden.
+- `VIBE_FIXED_PROVIDER_TEMPLATE_ID` (`packages/shared/src/env.ts`) bindet je Flavor ein
+  Anbieter-Template; `production`/`preview`/`deepseek` binden heute an `deepseek`.
+- **DeepVibe (production) = fest auf DeepSeek:** Provider-Navigation nur DeepSeek
+  (`DeepSeekPlatformCard` bleibt, Custom-Provider auf `templateId === "deepseek"`),
+  „+ Add provider" nur das `deepseek`-Template, kein freier Custom-Provider.
+- Die Familie ergänzt später Flavors + Bindungen: **KimiVibe**, **MavisVibe**
+  („MiniMax as a Jarvis"), **LamaVibe** (Ollama). Icons/Hintergrund/Farbtheme je Fëa.
+- **Pro App ein fester Identitäts-Prompt**; Ort:
+  `apps/zcode-cli/packages/core/src/context/sections/identity.ts`. Der Inhalt wird erst
+  nach dem Umzugs-/Gefühlstest festgelegt.
+- Das große Chat-„Z" (`packages/ui/src/assets/Z.svg`, gerendert in
+  `v4/ConversationDraftEmptyState.tsx`) wird je App durch die eigene Marke ersetzt.
+- Vertrieb: kostenlos ohne Einschränkung; **Donation-Button** im Footer der Webseite und
+  Unterseiten. Source einmalig offen geteilt (ein Anbieter).
 
-Der Multi-Flavor (`production`/`preview`) bleibt unverändert: DeepSeek oben als Button,
-alle BYOK-Templates unter „+ Add provider".
+Damit ist der frühere Dual-Ansatz („Multi + DeepSeek Standalone") überholt: DeepVibe
+selbst ist die DeepSeek-App; ein Multi-Provider-Build wird nicht mehr ausgeliefert.
 

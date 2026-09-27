@@ -9,10 +9,10 @@ import type {
 } from "@zcode/shared";
 import {
   BUILTIN_MODEL_PROVIDER_IDS,
-  IS_DEEPSEEK_STANDALONE,
   isStartPlanModelProviderId,
   resolveModelProviderFamilySpecByProviderId,
   resolveProviderFamilyDomainFromOAuthProvider,
+  VIBE_FIXED_PROVIDER_TEMPLATE_ID,
   type OAuthProviderId,
 } from "@zcode/shared";
 import { useZCodeIntl } from "@/i18n/IntlProvider.js";
@@ -86,9 +86,10 @@ export function useModelProviderNavigation({
     const allCustomProviders = modelProviders.filter(
       (provider) => provider.config.group === "standard-personal",
     );
-    // DeepSeek-Standalone (§7): nur DeepSeek-Provider in der Navigation anzeigen.
-    const scopedProviders = IS_DEEPSEEK_STANDALONE
-      ? allCustomProviders.filter((provider) => provider.templateId === "deepseek")
+    // Fëa-Bindung: nur Provider des festen Anbieter-Templates in der Navigation anzeigen.
+    const fixedTemplateId = VIBE_FIXED_PROVIDER_TEMPLATE_ID;
+    const scopedProviders = fixedTemplateId
+      ? allCustomProviders.filter((provider) => provider.templateId === fixedTemplateId)
       : allCustomProviders;
     // 这里复用模型菜单的展示排序，确保设置页和聊天框供应商顺序一致。
     return sortModelProvidersForDisplay(scopedProviders, displayOrder);

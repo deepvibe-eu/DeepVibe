@@ -38,8 +38,28 @@ export const ZCODE_PRODUCT_FLAVOR = normalizeZCodeProductFlavor(
   ZCODE_ENV,
 );
 
-/** DeepSeek-Standalone (§7): nur DeepSeek als Anbieter sichtbar. */
-export const IS_DEEPSEEK_STANDALONE = ZCODE_PRODUCT_FLAVOR === "deepseek";
+/** Anbieter-Bindung einer Vibe-App (Fëa): jede App ist fest auf genau einen Anbieter gelegt. */
+export type VibeFixedProviderTemplateId = "deepseek";
+
+/**
+ * Kein Multihoster: jede Vibe-App bindet genau eine Fëa. DeepVibe (production) und die
+ * Preview-/DeepSeek-Flavors binden an DeepSeek; die Familie (KimiVibe/MavisVibe/LamaVibe)
+ * ergänzt hier später weitere Template-IDs, sobald die jeweiligen Flavors existieren.
+ */
+const FIXED_PROVIDER_TEMPLATE_ID_BY_FLAVOR: Record<
+  ZCodeProductFlavor,
+  VibeFixedProviderTemplateId | null
+> = {
+  production: "deepseek",
+  preview: "deepseek",
+  deepseek: "deepseek",
+};
+
+export const VIBE_FIXED_PROVIDER_TEMPLATE_ID =
+  FIXED_PROVIDER_TEMPLATE_ID_BY_FLAVOR[ZCODE_PRODUCT_FLAVOR];
+
+/** DeepSeek-Filter (heute für alle Flavors, siehe Bindung oben). */
+export const IS_DEEPSEEK_STANDALONE = VIBE_FIXED_PROVIDER_TEMPLATE_ID === "deepseek";
 export const ZCODE_APP_VERSION_ENV = "ZCODE_APP_VERSION" as const;
 export const ZCODE_BUILD_COMMIT_ID_ENV = "ZCODE_BUILD_COMMIT_ID" as const;
 

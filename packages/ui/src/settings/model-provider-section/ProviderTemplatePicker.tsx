@@ -3,10 +3,10 @@ import { ArrowLeftIcon, ChevronRightIcon, PlusIcon } from "lucide-react";
 import { resolveProviderTemplateName } from "@zcode/provider";
 import type { ReactNode } from "react";
 import {
-  IS_DEEPSEEK_STANDALONE,
   TID_MODEL_PROVIDER_TEMPLATE_BACK_BUTTON,
   TID_MODEL_PROVIDER_TEMPLATE_ITEM,
   TID_MODEL_PROVIDER_TEMPLATE_PICKER,
+  VIBE_FIXED_PROVIDER_TEMPLATE_ID,
   testId,
 } from "@zcode/shared";
 import { Button } from "@/components/ui/button.js";
@@ -36,11 +36,12 @@ export function ProviderTemplatePicker({
   const { dismissFeedback, showFeedback } = useProviderDetailFeedback();
   const customLabel = intl.formatMessage({ id: "settings.modelProvider.newProviderName" });
   const zhipuIds = ["bigmodel-api", "zai-api", "bigmodel-standard-api", "zai-standard-api"];
-  // DeepSeek-Standalone (§7): nur das deepseek-Template und kein freier Custom-Provider.
-  const visibleTemplates = IS_DEEPSEEK_STANDALONE
-    ? templates.filter((template) => template.templateId === "deepseek")
+  // Fëa-Bindung: nur das feste Anbieter-Template, kein freier Custom-Provider.
+  const fixedTemplateId = VIBE_FIXED_PROVIDER_TEMPLATE_ID;
+  const visibleTemplates = fixedTemplateId
+    ? templates.filter((template) => template.templateId === fixedTemplateId)
     : templates;
-  const showCustomCard = !IS_DEEPSEEK_STANDALONE;
+  const showCustomCard = !fixedTemplateId;
   const groups = [
     {
       id: "zhipu",
