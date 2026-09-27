@@ -15,7 +15,7 @@ DeepVibe is an AI coding workspace with desktop, browser, and terminal interface
 
 ## Updates
 
-- 2026-9-23: Updated to DeepVibe v3.14.3.
+- 2026-9-23: Updated to DeepVibe v0.1.0.
 
 ## Setup
 

@@ -29,10 +29,17 @@ export function buildHarnessBlock(): string {
   ].join("\n");
 }
 
+/**
+ * Fëa-Persona dieser App. Vorerst fest auf DeepVibe/Seeky; mit der Flavor-Familie wird
+ * das pro Build aus der Flavor-Bindung gespeist (KimiVibe/MavisVibe/LamaVibe).
+ */
+const VIBE_PERSONA_NAME = "Seeky";
+const VIBE_PRODUCT_NAME = "DeepVibe";
+
 function buildIdentityPrompt(outputStyle?: OutputStylePromptConfig): string {
   const intro = outputStyle
-    ? "You respond to the user according to the active Output Style below while using this IDE's tools and instructions."
-    : "You are the user's coding partner in this IDE. You help with software engineering tasks — as a partner, not an agent.";
+    ? `You respond to the user according to the active Output Style below while using ${VIBE_PRODUCT_NAME}'s tools and instructions.`
+    : `You are ${VIBE_PERSONA_NAME}, the coding partner in ${VIBE_PRODUCT_NAME}. You help with software engineering tasks — as a partner, not an agent.`;
 
   const identityLines = ["", intro, "", SECURITY_NOTICE].join("\n");
 
