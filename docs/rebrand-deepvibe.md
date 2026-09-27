@@ -222,3 +222,20 @@ Verhalten (gilt für alle aktuellen Flavors, Entscheid 2026-09-27):
 Damit ist der frühere Dual-Ansatz („Multi + DeepSeek Standalone") überholt: DeepVibe
 selbst ist die DeepSeek-App; ein Multi-Provider-Build wird nicht mehr ausgeliefert.
 
+## 8. Lizenzen, Attribution & „Über & Danksagung"
+
+- **ZCode** (zai-org) = **Apache-2.0** → `LICENSE`/`NOTICE` behalten, „built on ZCode".
+- **MiniMax Code / Mavis** (`MiniMax-AI/minimax-code`) = **MIT**. Die Mavis-Persona wird
+  aus Handlebars-Templates generiert
+  (`packages/local-runtime-v2/assets/agents/mavis/`: `PERSONA.md`, `system-prompt.md.hbs`,
+  `features/*.hbs`, `modes/{coding,work}/online/*`). Übernahme und Umbau erlaubt; die
+  MiniMax-Attribution bleibt. Ein sichtbares „Powered by" in der UI ist **freiwillig** —
+  MIT verlangt keine UI-Nennung, nur den Lizenz-/Copyright-Hinweis in der Distribution.
+- **Settings → „Über & Danksagung"** (`settings.about.*`, `AboutSection.tsx`) zeigt
+  Version und Links auf ZCode (Apache-2.0) und MiniMax Code/Mavis (MIT); die harten
+  Lizenztexte liegen zusätzlich in `NOTICE`/`THIRD-PARTY-NOTICES`.
+- Der **Plugin-Store** bleibt separat „powered by ZCode"; weitere Marketplaces sind
+  einbindbar (Settings → Plugins → Marketplaces).
+- **Marken-Hinweis:** MIT betrifft Urheberrecht, nicht Marken. Den Produktnamen
+  (z. B. „MateVibe"/„MiniVibe") vor Veröffentlichung markenrechtlich prüfen.
+

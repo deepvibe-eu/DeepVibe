@@ -18,6 +18,7 @@ import {
   WandSparkles,
   Keyboard,
   FileSearch,
+  Info,
 } from "lucide-react";
 import { isSettingsSectionEnabled, type SettingsSectionId } from "@/lib/settingsNavigation.js";
 import type { Theme } from "@/useTheme.js";
@@ -154,6 +155,14 @@ const BASE_SETTINGS_SECTIONS: SettingsSectionDefinition[] = [
     id: "usage",
     icon: BarChart3,
     titleId: "settings.usageTitle",
+    groupId: "dataAndStats",
+  },
+  // „Über & Danksagung" ganz am Ende: Version, Lizenzen und Attributionen
+  // (ZCode Apache-2.0, MiniMax Code/Mavis MIT).
+  {
+    id: "about",
+    icon: Info,
+    titleId: "settings.about.title",
     groupId: "dataAndStats",
   },
 ];

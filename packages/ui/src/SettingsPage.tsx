@@ -74,6 +74,7 @@ import { BrowserSettingsSection } from "@/settings/BrowserSettingsSection.js";
 import { ComputerUseSection } from "@/settings/ComputerUseSection.js";
 import { ShortcutSettingsSection } from "@/settings/ShortcutSettingsSection.js";
 import { MigrationSection } from "@/settings/MigrationSection.js";
+import { AboutSection } from "@/settings/AboutSection.js";
 import { SETTINGS_FRAME_CONTENT_CLASSNAME } from "@/settings/SettingsPageParts.js";
 import {
   SettingsBreadcrumbProvider,
@@ -1947,6 +1948,8 @@ export function SettingsPage({
                             remoteTarget={activeWorkspaceTab?.remoteTarget}
                             localWorkspacePath={activeWorkspaceTab?.localWorkspacePath}
                           />
+                        ) : activeSection === "about" ? (
+                          <AboutSection />
                         ) : null}
                       </div>
                     </div>

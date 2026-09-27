@@ -2206,6 +2206,13 @@ const zhCN: Record<string, string> = {
   "settings.migration.reason.session_not_found_or_workspace_mismatch":
     "源会话不存在，或已经不匹配当前 workspace 筛选。",
   "settings.usageTitle": "使用统计",
+  "settings.about.title": "关于与致谢",
+  "settings.about.description": "版本、许可证，以及 DeepVibe 所基于的开源项目。",
+  "settings.about.app.detail":
+    "DeepVibe —— 以 DeepSeek 为固定提供方的编程伙伴 IDE。每个应用只绑定一个提供方，作为伙伴而非代理。",
+  "settings.about.builtOn": "基于开源构建：",
+  "settings.about.trademark":
+    "DeepVibe 是独立项目，与上述项目无隶属关系。DeepSeek、MiniMax 与 Mavis 归各自所有者所有。",
   "settings.usageDescription": "查看会话活跃度与模型用量的粗略统计。",
   "resourceManager.storage.summaryTotal": "DeepVibe 总占用",
   "resourceManager.storage.scanning": "正在计算…",

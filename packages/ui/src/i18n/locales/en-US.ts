@@ -2346,6 +2346,14 @@ const enUS: Record<string, string> = {
   "settings.migration.reason.session_not_found_or_workspace_mismatch":
     "The source session was not found, or it no longer matches the current workspace filter.",
   "settings.usageTitle": "Usage stats",
+  "settings.about.title": "About & credits",
+  "settings.about.description":
+    "Version, licenses, and the open-source projects DeepVibe is built on.",
+  "settings.about.app.detail":
+    "DeepVibe — the DeepSeek coding partner IDE. One provider per app, as a partner rather than an agent.",
+  "settings.about.builtOn": "Built on open source:",
+  "settings.about.trademark":
+    "DeepVibe is an independent project and is not affiliated with the projects above. DeepSeek, MiniMax and Mavis belong to their respective owners.",
   "settings.usageDescription":
     "Review rough activity and model usage aggregated from local sessions.",
   "resourceManager.storage.summaryTotal": "Total used by DeepVibe",
