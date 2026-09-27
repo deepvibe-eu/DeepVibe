@@ -2051,3 +2051,18 @@ body {
 .prompt-mention[data-mention-category="plugins"]::before {
   border-radius: var(--radius-sm);
 }
+
+/* Fëa-Farben: jede Vibe-App bekommt ihre eigene Markenfarbe. Das Attribut setzt
+   `useTheme.ts` aus ZCODE_PRODUCT_FLAVOR; die Spezifität ist höher als bei
+   `.theme-zai-*`, daher genügt der Zusatz hier. Neue Flavors ergänzen je zwei Regeln. */
+html[data-vibe-flavor="production"].theme-zai-light,
+html[data-vibe-flavor="preview"].theme-zai-light,
+html[data-vibe-flavor="deepseek"].theme-zai-light {
+  --color-brand: #4d6bfe;
+}
+
+html[data-vibe-flavor="production"].theme-zai-dark,
+html[data-vibe-flavor="preview"].theme-zai-dark,
+html[data-vibe-flavor="deepseek"].theme-zai-dark {
+  --color-brand: #7a93ff;
+}

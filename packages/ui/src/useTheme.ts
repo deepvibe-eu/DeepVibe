@@ -1,4 +1,5 @@
 import { useEffect, useState, useCallback } from "react";
+import { ZCODE_PRODUCT_FLAVOR } from "@zcode/shared";
 
 export type Theme = "light" | "dark" | "zai-light" | "zai-dark" | "system";
 export type ResolvedTheme = "light" | "dark";
@@ -66,6 +67,8 @@ export function applyTheme(theme: Theme) {
   document.documentElement.classList.toggle("dark", resolved === "dark");
   document.documentElement.classList.toggle("theme-zai-light", appliedTheme === "zai-light");
   document.documentElement.classList.toggle("theme-zai-dark", appliedTheme === "zai-dark");
+  // Fëa-Markenfarbe je Flavor (siehe styles.css).
+  document.documentElement.dataset.vibeFlavor = ZCODE_PRODUCT_FLAVOR;
   syncBrowserThemeSurface(resolved);
 }
 
