@@ -212,8 +212,10 @@ Verhalten (gilt für alle aktuellen Flavors, Entscheid 2026-09-27):
 - Die Familie ergänzt später Flavors + Bindungen: **KimiVibe**, **MavisVibe**
   („MiniMax as a Jarvis"), **LamaVibe** (Ollama). Icons/Hintergrund/Farbtheme je Fëa.
 - **Pro App ein fester Identitäts-Prompt**; Ort:
-  `apps/zcode-cli/packages/core/src/context/sections/identity.ts`. Der Inhalt wird erst
-  nach dem Umzugs-/Gefühlstest festgelegt.
+  `apps/zcode-cli/packages/core/src/context/sections/identity.ts`. Die Persona kommt aus
+  `VIBE_PERSONA` (`packages/shared/src/env.ts`, je Flavor Name + Produkt): heute
+  DeepVibe → **Seeky**, „partner, not agent". Neue Flavors (MavisVibe/KimiVibe/LamaVibe)
+  ergänzen dort ihren Eintrag; die Laufzeit-Identität zieht automatisch nach.
 - Das große Chat-„Z" (`packages/ui/src/assets/Z.svg`, gerendert in
   `v4/ConversationDraftEmptyState.tsx`) wird je App durch die eigene Marke ersetzt.
 - Vertrieb: kostenlos ohne Einschränkung; **Donation-Button** im Footer der Webseite und

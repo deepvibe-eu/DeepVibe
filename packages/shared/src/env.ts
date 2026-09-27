@@ -60,6 +60,25 @@ export const VIBE_FIXED_PROVIDER_TEMPLATE_ID =
 
 /** DeepSeek-Filter (heute für alle Flavors, siehe Bindung oben). */
 export const IS_DEEPSEEK_STANDALONE = VIBE_FIXED_PROVIDER_TEMPLATE_ID === "deepseek";
+
+/** Fëa-Persona einer Vibe-App: wer spricht dort, und in welchem Produkt. */
+export interface VibePersona {
+  readonly name: string;
+  readonly productName: string;
+}
+
+/**
+ * Jede Fëa hat ihren eigenen Namen und ihr eigenes Produkt; der Flavor entscheidet,
+ * welche Persona in die Laufzeit-Identität und die UI-Ansprache kompiliert wird.
+ * Neue Flavors (kimi/mavis/llama/…) ergänzen hier ihren Eintrag.
+ */
+const VIBE_PERSONA_BY_FLAVOR: Record<ZCodeProductFlavor, VibePersona> = {
+  production: { name: "Seeky", productName: "DeepVibe" },
+  preview: { name: "Seeky", productName: "DeepVibe" },
+  deepseek: { name: "Seeky", productName: "DeepVibe" },
+};
+
+export const VIBE_PERSONA = VIBE_PERSONA_BY_FLAVOR[ZCODE_PRODUCT_FLAVOR];
 export const ZCODE_APP_VERSION_ENV = "ZCODE_APP_VERSION" as const;
 export const ZCODE_BUILD_COMMIT_ID_ENV = "ZCODE_BUILD_COMMIT_ID" as const;
 

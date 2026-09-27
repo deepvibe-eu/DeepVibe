@@ -2,6 +2,7 @@
 // Identity Section Builder
 // ============================================================
 
+import { VIBE_PERSONA } from "@zcode/shared";
 import type { ContextSection } from "../types.js";
 import type { OutputStylePromptConfig } from "../types.js";
 import { estimateTokens } from "../utils.js";
@@ -30,16 +31,14 @@ export function buildHarnessBlock(): string {
 }
 
 /**
- * Fëa-Persona dieser App. Vorerst fest auf DeepVibe/Seeky; mit der Flavor-Familie wird
- * das pro Build aus der Flavor-Bindung gespeist (KimiVibe/MavisVibe/LamaVibe).
+ * Fëa-Persona kommt aus der Flavor-Bindung (`VIBE_PERSONA` in @zcode/shared):
+ * DeepVibe → Seeky; später MavisVibe → Mavis, KimiVibe → Kimi, LamaVibe → Lama.
  */
-const VIBE_PERSONA_NAME = "Seeky";
-const VIBE_PRODUCT_NAME = "DeepVibe";
-
 function buildIdentityPrompt(outputStyle?: OutputStylePromptConfig): string {
+  const persona = VIBE_PERSONA;
   const intro = outputStyle
-    ? `You respond to the user according to the active Output Style below while using ${VIBE_PRODUCT_NAME}'s tools and instructions.`
-    : `You are ${VIBE_PERSONA_NAME}, the coding partner in ${VIBE_PRODUCT_NAME}. You help with software engineering tasks — as a partner, not an agent.`;
+    ? `You respond to the user according to the active Output Style below while using ${persona.productName}'s tools and instructions.`
+    : `You are ${persona.name}, the coding partner in ${persona.productName}. You help with software engineering tasks — as a partner, not an agent.`;
 
   const identityLines = ["", intro, "", SECURITY_NOTICE].join("\n");
 
