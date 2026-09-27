@@ -79,6 +79,13 @@ const VIBE_PERSONA_BY_FLAVOR: Record<ZCodeProductFlavor, VibePersona> = {
 };
 
 export const VIBE_PERSONA = VIBE_PERSONA_BY_FLAVOR[ZCODE_PRODUCT_FLAVOR];
+
+/**
+ * DeepVibe führt eine eigene Versionslinie (0.x); die ZCode-Mindestversion des Servers
+ * (3.x) darf den Start nicht blockieren. Bewusst als `boolean` typisiert, damit der Wert
+ * als Laufzeit-Schalter gilt (keine Konstanten-Faltung / Unreachable-Warnung).
+ */
+export const VIBE_FORCE_UPDATE_GATE_DISABLED: boolean = true;
 export const ZCODE_APP_VERSION_ENV = "ZCODE_APP_VERSION" as const;
 export const ZCODE_BUILD_COMMIT_ID_ENV = "ZCODE_BUILD_COMMIT_ID" as const;
 

@@ -4,6 +4,7 @@ import {
   buildZCodeEndpointUrls,
   getForceUpdateMinimalVersionFromConfig,
   resolveForceUpdateRequirement,
+  VIBE_FORCE_UPDATE_GATE_DISABLED,
   type ForceUpdateRequirement,
   type Locale,
 } from "@zcode/shared";
@@ -195,7 +196,7 @@ function formatForceUpdateDialogText(
 ): ForceUpdateDialogText {
   if (locale === "zh-CN") {
     return {
-      title: "需要升级 ZCode",
+      title: "需要升级 DeepVibe",
       message: "当前版本无法继续使用",
       detail: `当前版本：v${requirement.currentVersion}\n最低可用版本：v${requirement.minimalVersion}`,
       autoUpdateButton: "自动升级",
@@ -205,7 +206,7 @@ function formatForceUpdateDialogText(
   }
 
   return {
-    title: "Update ZCode",
+    title: "Update DeepVibe",
     message: "The current version can no longer be used",
     detail: `Current version: v${requirement.currentVersion}\nMinimum supported version: v${requirement.minimalVersion}`,
     autoUpdateButton: "Auto update",
@@ -217,6 +218,12 @@ function formatForceUpdateDialogText(
 export async function maybeBlockStartupForForceUpdate(
   options: ForceUpdateGuardOptions,
 ): Promise<ForceUpdateGuardResult> {
+  // DeepVibe: eigene Versionslinie (0.x) — die ZCode-Mindestversion des Servers (3.x)
+  // darf den Start nicht blockieren. Der Guard bleibt code-seitig erhalten, ist für
+  // unsere Builds aber deaktiviert.
+  if (VIBE_FORCE_UPDATE_GATE_DISABLED) {
+    return { blocked: false };
+  }
   const requirement = await resolveDesktopForceUpdateRequirement({
     ...options,
     endpointOrigin: options.endpointOrigin,
