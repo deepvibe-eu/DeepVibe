@@ -7,7 +7,7 @@ import { resolveTheme, type ResolvedTheme } from "@/useTheme.js";
 import alibabaModelStudioLogo from "@/assets/provider-icons/model-provider-alibaba-cloud.png";
 import anthropicLogo from "@/assets/provider-icons/model-provider-anthropic.png";
 import bigModelLogo from "@/assets/provider-icons/logo-bigmodel.svg";
-import deepSeekLogo from "@/assets/provider-icons/model-provider-deepseek.png";
+import deepSeekLogo from "@/assets/brand/deepvibe-logo.png";
 import miniMaxLogo from "@/assets/provider-icons/model-provider-minimax.png";
 import moonshotKimiLogo from "@/assets/provider-icons/model-provider-moonshot-kimi.png";
 import openAiLogo from "@/assets/provider-icons/model-provider-openai.png";
