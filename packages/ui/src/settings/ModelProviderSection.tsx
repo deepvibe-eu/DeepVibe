@@ -18,6 +18,7 @@ import {
   resolveModelProviderFamilyIdByProviderId,
   resolveModelProviderFamilySpecByProviderId,
   resolveProviderFamilyDomainFromOAuthProvider,
+  VIBE_FIXED_PROVIDER_TEMPLATE_ID,
   ZAI_PROVIDER_ID,
 } from "@zcode/shared";
 import { useZCodeIntl } from "@/i18n/IntlProvider.js";
@@ -383,6 +384,7 @@ export function ModelProviderSection({
   const codingPlanStatusSyncAttemptsRef = useRef(
     new Map<string, "inFlight" | "succeeded" | "failed">(),
   );
+  const fixedProviderSeededRef = useRef(false);
   const requestLoginEntry = useZCodeStore((state) => state.requestLoginEntry);
   const setUser = useZCodeStore((state) => state.setUser);
   const oauthError = useZCodeStore((state) => state.oauthError);
@@ -1002,6 +1004,24 @@ export function ModelProviderSection({
     },
     [createPersonalProvider, locale],
   );
+
+  // Fëa-Bindung: ohne „+ Add provider" wird der feste Anbieter einmalig vorbelegt,
+  // damit das Api-Key-Feld direkt bereitsteht.
+  useEffect(() => {
+    if (!VIBE_FIXED_PROVIDER_TEMPLATE_ID) return;
+    if (loading || modelProvidersRefreshing) return;
+    if (
+      modelProviders.some((provider) => provider.templateId === VIBE_FIXED_PROVIDER_TEMPLATE_ID)
+    ) {
+      return;
+    }
+    if (fixedProviderSeededRef.current) return;
+    fixedProviderSeededRef.current = true;
+    void handleCreateProvider({ templateId: VIBE_FIXED_PROVIDER_TEMPLATE_ID }).catch((error) => {
+      fixedProviderSeededRef.current = false;
+      logger.warn("[ModelProviderSection] 无法自动创建固定供应商", error);
+    });
+  }, [handleCreateProvider, loading, modelProviders, modelProvidersRefreshing]);
 
   const handleReorderProviderIds = useCallback(
     async (orderedGroupProviderIds: string[]) => {

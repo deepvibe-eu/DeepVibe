@@ -1,5 +1,9 @@
 import type { ReactNode } from "react";
-import { TID_MODEL_PROVIDER_ADD_PROVIDER_BUTTON } from "@zcode/shared";
+import {
+  TID_MODEL_PROVIDER_ADD_PROVIDER_BUTTON,
+  VIBE_FIXED_PROVIDER_TEMPLATE_ID,
+} from "@zcode/shared";
+import { cn } from "@/components/lib/utils.js";
 import type { ModelProviderNavGroup } from "@/settings/model-provider-section/constants.js";
 import { ModelProviderSectionNavigation } from "@/settings/model-provider-section/Navigation.js";
 import { ProviderDetailFeedbackBoundary } from "@/settings/model-provider-section/ProviderDetailFeedback.js";
@@ -49,6 +53,9 @@ export function ModelProviderSectionLayout({
     presetLoading,
     customLoading,
   });
+  // Fëa-Bindung: in Single-Provider-Builds entfällt die linke Anbieter-Spalte und der
+  // „+ Add provider"-Button; das Detail füllt die Fläche.
+  const isSingleProvider = Boolean(VIBE_FIXED_PROVIDER_TEMPLATE_ID);
 
   return (
     <div className="space-y-4">
@@ -56,7 +63,7 @@ export function ModelProviderSectionLayout({
         <p className="text-ui-base leading-6 text-foreground-subtle">{description}</p>
         <SettingsResourceHeaderActions
           onRefresh={onRefresh}
-          onNew={onAddProvider}
+          onNew={isSingleProvider ? undefined : onAddProvider}
           refreshing={refreshButtonLoading}
           refreshLabel={refreshButtonLoading ? loadingLabel : refreshLabel}
           newLabel={addProviderLabel}
@@ -66,23 +73,30 @@ export function ModelProviderSectionLayout({
 
       <div className="overflow-clip rounded-xl border border-border bg-card">
         <div
-          className="grid min-h-[36rem] grid-cols-[56px_minmax(0,1fr)] gap-0 md:grid-cols-[224px_minmax(0,1fr)]"
+          className={cn(
+            "grid min-h-[36rem] gap-0",
+            isSingleProvider
+              ? "grid-cols-1"
+              : "grid-cols-[56px_minmax(0,1fr)] md:grid-cols-[224px_minmax(0,1fr)]",
+          )}
           data-model-provider-split-panel="true"
         >
-          <div
-            className="min-w-0 border-r border-border"
-            data-model-provider-navigation-scroll="true"
-          >
-            <ModelProviderSectionNavigation
-              navigationGroups={navigationGroups}
-              selectedNodeKey={selectedNodeKey}
-              presetLoading={presetLoading}
-              customLoading={customLoading}
-              onSelectNavItem={onSelectNavItem}
-              onReorderProviderIds={onReorderProviderIds}
-              reorderableProviderIds={reorderableProviderIds}
-            />
-          </div>
+          {isSingleProvider ? null : (
+            <div
+              className="min-w-0 border-r border-border"
+              data-model-provider-navigation-scroll="true"
+            >
+              <ModelProviderSectionNavigation
+                navigationGroups={navigationGroups}
+                selectedNodeKey={selectedNodeKey}
+                presetLoading={presetLoading}
+                customLoading={customLoading}
+                onSelectNavItem={onSelectNavItem}
+                onReorderProviderIds={onReorderProviderIds}
+                reorderableProviderIds={reorderableProviderIds}
+              />
+            </div>
+          )}
           <div
             className="relative min-w-0 p-4 pb-20 sm:p-6 sm:pb-24"
             data-model-provider-detail-scroll="true"
