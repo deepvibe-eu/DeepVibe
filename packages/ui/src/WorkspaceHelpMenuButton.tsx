@@ -2,6 +2,7 @@ import {
   DesktopCommandIds,
   TID_WORKSPACE_HELP_MENU_RESOURCE_MANAGER,
   TID_WORKSPACE_HELP_MENU_TRIGGER,
+  VIBE_SHOW_UPSTREAM_HELP_ENTRIES,
 } from "@zcode/shared";
 import {
   ActivityIcon,
@@ -92,18 +93,22 @@ export function WorkspaceHelpMenuButton({
           <BookOpenIcon className="size-4" />
           {intl.formatMessage({ id: "workspaceHeader.help.docs" })}
         </DropdownMenuItem>
-        <DropdownMenuItem onSelect={handleOpenCommunity}>
-          <UsersIcon className="size-4" />
-          {intl.formatMessage({ id: "workspaceHeader.help.community" })}
-        </DropdownMenuItem>
-        <DropdownMenuItem onSelect={helpMenuActions.openIssueReport}>
-          <MessageSquareIcon className="size-4" />
-          {intl.formatMessage({ id: "workspaceHeader.help.issueReport" })}
-        </DropdownMenuItem>
-        <DropdownMenuItem onSelect={openFeatureRequest}>
-          <LightbulbIcon className="size-4" />
-          {intl.formatMessage({ id: "workspaceHeader.help.productRequest" })}
-        </DropdownMenuItem>
+        {VIBE_SHOW_UPSTREAM_HELP_ENTRIES ? (
+          <>
+            <DropdownMenuItem onSelect={handleOpenCommunity}>
+              <UsersIcon className="size-4" />
+              {intl.formatMessage({ id: "workspaceHeader.help.community" })}
+            </DropdownMenuItem>
+            <DropdownMenuItem onSelect={helpMenuActions.openIssueReport}>
+              <MessageSquareIcon className="size-4" />
+              {intl.formatMessage({ id: "workspaceHeader.help.issueReport" })}
+            </DropdownMenuItem>
+            <DropdownMenuItem onSelect={openFeatureRequest}>
+              <LightbulbIcon className="size-4" />
+              {intl.formatMessage({ id: "workspaceHeader.help.productRequest" })}
+            </DropdownMenuItem>
+          </>
+        ) : null}
         {/* Windows/Linux 没有原生菜单栏，自绘标题栏箭头菜单也已下线，
             资源管理器只能从这里进；Web 端没有该窗口，不渲染。 */}
         {isDesktop ? (
@@ -116,7 +121,7 @@ export function WorkspaceHelpMenuButton({
               <ActivityIcon className="size-4" />
               {intl.formatMessage({ id: "titleBar.menu.help.resourceManager" })}
             </DropdownMenuItem>
-            {updateMenu.visible ? (
+            {VIBE_SHOW_UPSTREAM_HELP_ENTRIES && updateMenu.visible ? (
               <DropdownMenuItem
                 disabled={updateMenu.disabled}
                 onSelect={updateMenu.checkForUpdates}

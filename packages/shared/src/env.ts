@@ -86,6 +86,13 @@ export const VIBE_PERSONA = VIBE_PERSONA_BY_FLAVOR[ZCODE_PRODUCT_FLAVOR];
  * als Laufzeit-Schalter gilt (keine Konstanten-Faltung / Unreachable-Warnung).
  */
 export const VIBE_FORCE_UPDATE_GATE_DISABLED: boolean = true;
+
+/**
+ * Help-Menü: blendet Einträge aus, die (noch) auf ZCode-Ziele oder den ZCode-Updater
+ * zeigen — User community, Report/Request (In-App-Feedback an den ZCode-Backend) und
+ * „Update available". Wieder aktivieren, sobald wir eigene Ziele/Clients haben.
+ */
+export const VIBE_SHOW_UPSTREAM_HELP_ENTRIES: boolean = false;
 export const ZCODE_APP_VERSION_ENV = "ZCODE_APP_VERSION" as const;
 export const ZCODE_BUILD_COMMIT_ID_ENV = "ZCODE_BUILD_COMMIT_ID" as const;
 
