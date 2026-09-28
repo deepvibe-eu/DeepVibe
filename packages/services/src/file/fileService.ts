@@ -30,7 +30,9 @@ import {
 import { createServiceLogger } from "../logger/serviceLogger.js";
 import { getConversationWorkspaceDir } from "../paths.js";
 const DEFAULT_TEXT_READ_BYTES = 128 * 1024;
-const MAX_TEXT_READ_BYTES = 256 * 1024;
+// DeepVibe: hochgesetzt zusammen mit FILE_VIEWER_MAX_TEXT_BYTES
+// (`packages/ui/src/lib/codeViewer.ts`), damit die Dateivorschau größere Dateien zeigt.
+const MAX_TEXT_READ_BYTES = 5 * 1024 * 1024;
 const DEFAULT_MEDIA_PREVIEW_BYTES = 4 * 1024 * 1024;
 const MAX_MEDIA_PREVIEW_BYTES = 8 * 1024 * 1024;
 const DEFAULT_BINARY_READ_BYTES = 256 * 1024;

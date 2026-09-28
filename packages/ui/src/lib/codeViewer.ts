@@ -22,7 +22,12 @@ import {
 
 export { buildUnifiedDiff } from "@/lib/toolDiffPreview.js";
 
-export const FILE_VIEWER_MAX_TEXT_BYTES = 256 * 1024;
+/**
+ * DeepVibe: obere Grenze für die Text-Vorschau. Der PreviewPane liest die Datei einmalig
+ * in dieser Länge; der Service klemmt zusätzlich auf MAX_TEXT_READ_BYTES
+ * (`packages/services/src/file/fileService.ts`). Beide Werte gehören zusammen.
+ */
+export const FILE_VIEWER_MAX_TEXT_BYTES = 5 * 1024 * 1024;
 export interface FileCodeViewerSource extends CodeViewerWorkspaceScope {
   type: "file";
   title: string;
