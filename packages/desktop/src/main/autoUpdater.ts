@@ -8,6 +8,7 @@ import {
   getDesktopMenuMessage,
   PlatformChannels,
   resolveRuntimeZCodeEndpointOrigin,
+  VIBE_UPDATE_FEED_URL,
   ZCODE_VERSION,
   type ElectronReleaseChannel,
   type Locale,
@@ -1504,7 +1505,13 @@ export async function initAutoUpdater(options: InitAutoUpdaterOptions = {}): Pro
   // 这里仅在 Windows 关闭“退出即自动安装”，要求用户显式点更新；其他平台保持原有行为，避免改动既有升级链路。
   autoUpdater.autoInstallOnAppQuit = process.platform !== "win32";
   autoUpdater.logger = logger;
-  applyManifestUpdateProvider(options);
+  if (VIBE_UPDATE_FEED_URL) {
+    // DeepVibe: generischer Feed aus unserem GitHub-Hub statt ZCode-Server-Manifest.
+    autoUpdater.setFeedURL({ provider: "generic", url: VIBE_UPDATE_FEED_URL });
+    logger.info(`[auto-update] generic GitHub provider applied url=${VIBE_UPDATE_FEED_URL}`);
+  } else {
+    applyManifestUpdateProvider(options);
+  }
 
   const triggerCheckForUpdates = (reason: string) => {
     if (checkForUpdatesInFlight) {

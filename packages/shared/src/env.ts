@@ -93,6 +93,14 @@ export const VIBE_FORCE_UPDATE_GATE_DISABLED: boolean = true;
  * „Update available". Wieder aktivieren, sobald wir eigene Ziele/Clients haben.
  */
 export const VIBE_SHOW_UPSTREAM_HELP_ENTRIES: boolean = false;
+
+/**
+ * Update-Feed der Vibe-Familie (GH-generic): alle Installer liegen als Releases im
+ * öffentlichen Hub-Repo. Ist der Wert gesetzt, benutzt der Updater diesen generischen
+ * Feed statt des ZCode-Server-Manifests. `null` = ZCode-Manifest beibehalten.
+ */
+export const VIBE_UPDATE_FEED_URL: string | null =
+  "https://github.com/deepvibe-eu/deepvibe/releases/latest/download";
 export const ZCODE_APP_VERSION_ENV = "ZCODE_APP_VERSION" as const;
 export const ZCODE_BUILD_COMMIT_ID_ENV = "ZCODE_BUILD_COMMIT_ID" as const;
 
