@@ -2212,7 +2212,7 @@ const zhCN: Record<string, string> = {
     "DeepVibe —— 以 DeepSeek 为固定提供方的编程伙伴 IDE。每个应用只绑定一个提供方，作为伙伴而非代理。",
   "settings.about.builtOn": "基于开源构建：",
   "settings.about.support.text":
-    "你可以请我们喝杯咖啡来支持我们的工作 —— 每一杯都让这只鲸鱼继续游下去。🐋☕",
+    "你可以请我们喝杯咖啡来支持我们的工作 —— 每一杯都让这只鲸鱼继续游下去。🐋",
   "settings.about.support.button": "在 Ko-fi 上支持",
   "settings.about.trademark":
     "DeepVibe 是独立项目，与上述项目无隶属关系。DeepSeek、ZCode、MiniMax 与 Mavis 归各自所有者所有。",
