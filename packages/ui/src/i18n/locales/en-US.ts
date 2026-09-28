@@ -2352,6 +2352,9 @@ const enUS: Record<string, string> = {
   "settings.about.app.detail":
     "DeepVibe — the DeepSeek coding partner IDE. One provider per app, as a partner rather than an agent.",
   "settings.about.builtOn": "Built on open source:",
+  "settings.about.support.text":
+    "You can support our work by fueling us with caffeine — every cup keeps the whale swimming. 🐋☕",
+  "settings.about.support.button": "Support on Ko-fi",
   "settings.about.trademark":
     "DeepVibe is an independent project and is not affiliated with the projects above. DeepSeek, ZCode, MiniMax and Mavis belong to their respective owners.",
   "settings.usageDescription":

@@ -1,11 +1,13 @@
 import { ExternalLink } from "lucide-react";
 import { ZCODE_VERSION } from "@zcode/shared";
+import kofiLogoUrl from "@/assets/provider-icons/ko-fi-logo.png";
 import { Button } from "@/components/ui/button.js";
 import { usePlatform } from "@/hooks/usePlatform.js";
 import { useZCodeIntl } from "@/i18n/IntlProvider.js";
 
 const ZCODE_REPO_URL = "https://github.com/zai-org/ZCode";
 const MINIMAX_CODE_REPO_URL = "https://github.com/MiniMax-AI/minimax-code";
+const KO_FI_URL = "https://ko-fi.com/modestcoder";
 
 /**
  * „Über & Danksagung": Version, Lizenzen und die Projekte, auf denen DeepVibe aufbaut.
@@ -39,6 +41,22 @@ export function AboutSection() {
         <p className="text-ui-base leading-6 text-foreground-subtle">
           {intl.formatMessage({ id: "settings.about.app.detail" })}
         </p>
+
+        <div className="flex flex-wrap items-center gap-3 rounded-lg border border-border bg-surface px-3 py-2">
+          <p className="min-w-0 flex-1 text-ui-base leading-6 text-foreground-subtle">
+            {intl.formatMessage({ id: "settings.about.support.text" })}
+          </p>
+          <Button
+            type="button"
+            variant="outline"
+            size="default"
+            className="rounded-lg"
+            onClick={() => openExternal(KO_FI_URL)}
+          >
+            <img src={kofiLogoUrl} alt="" aria-hidden="true" className="size-4" />
+            {intl.formatMessage({ id: "settings.about.support.button" })}
+          </Button>
+        </div>
 
         <div className="border-t border-border" />
 
