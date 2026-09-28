@@ -10,7 +10,9 @@ const listeners = new Set<() => void>();
 /** task row 或 membership mutation 后调用：通知所有 sessions-index 派生列表重新拉取左表。 */
 export function bumpTaskListMembershipVersion(): void {
   version += 1;
-  for (const listener of [...listeners]) {
+  // Snapshot: Listener dürfen sich während der Benachrichtigung abmelden.
+  const snapshot = [...listeners];
+  for (const listener of snapshot) {
     listener();
   }
 }
