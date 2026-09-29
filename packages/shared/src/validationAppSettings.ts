@@ -32,8 +32,16 @@ export const appSettingsOccupationEnum = appSettingsOccupationSchema;
 
 const nonEmptyStringSchema = z.string().trim().min(1);
 
-export const localeSchema = z.enum(["zh-CN", "en-US"]);
-const localePreferenceSchema = z.enum(["system", "zh-CN", "en-US"]);
+export const localeSchema = z.enum(["zh-CN", "en-US", "de-DE", "es-ES", "fr-FR", "ru-RU"]);
+const localePreferenceSchema = z.enum([
+  "system",
+  "zh-CN",
+  "en-US",
+  "de-DE",
+  "es-ES",
+  "fr-FR",
+  "ru-RU",
+]);
 const zcodeInteractionBehaviorSchema = z.enum(["queue", "guide"]);
 const electronReleaseChannelSchema = z.enum(["stable", "preview"]);
 const desktopZoomLevelSchema = z.number().int().min(-3).max(5);

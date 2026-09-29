@@ -16,13 +16,21 @@ import {
   readSafeLocalStorage,
   writeSafeLocalStorage,
 } from "@/lib/browserEnvironment.js";
-import zhCN from "./locales/zh-CN.js";
+import deDE from "./locales/de-DE.js";
 import enUS from "./locales/en-US.js";
+import esES from "./locales/es-ES.js";
+import frFR from "./locales/fr-FR.js";
+import ruRU from "./locales/ru-RU.js";
+import zhCN from "./locales/zh-CN.js";
 
 /** 语言 → 翻译消息映射 */
 const MESSAGES: Record<Locale, Record<string, string>> = {
   "zh-CN": zhCN,
   "en-US": enUS,
+  "de-DE": deDE,
+  "es-ES": esES,
+  "fr-FR": frFR,
+  "ru-RU": ruRU,
 };
 
 /** 简易 intl 工具：根据 id 查找翻译，支持 {key} 占位符替换 */
@@ -39,7 +47,7 @@ interface LocaleBroadcastPayload {
 }
 
 function isLocale(value: unknown): value is Locale {
-  return value === "zh-CN" || value === "en-US";
+  return typeof value === "string" && value in MESSAGES;
 }
 
 function isLocalePreference(value: unknown): value is LocalePreference {
@@ -164,7 +172,11 @@ export function ZCodeIntlProvider({
       return DEFAULT_LOCALE;
     }
 
-    return language.toLowerCase().startsWith("zh") ? "zh-CN" : "en-US";
+    const lower = language.toLowerCase();
+    const match = (Object.keys(MESSAGES) as Locale[]).find((locale) =>
+      lower.startsWith(locale.split("-")[0] ?? ""),
+    );
+    return match ?? "en-US";
   }, []);
   const resolveSystemLocale = useCallback(async (): Promise<Locale> => {
     const resolvedLocale = await resolveHostSystemLocale?.();

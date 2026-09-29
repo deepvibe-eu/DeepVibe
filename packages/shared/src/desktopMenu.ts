@@ -58,7 +58,7 @@ export type DesktopMenuMessageId =
 
 type DesktopMenuLocaleMessages = Record<DesktopMenuMessageId, string>;
 
-export const desktopMenuMessages: Record<Locale, DesktopMenuLocaleMessages> = {
+const desktopMenuBaseMessages: Record<"zh-CN" | "en-US", DesktopMenuLocaleMessages> = {
   "zh-CN": {
     "titleBar.menu.file": "文件",
     "titleBar.menu.edit": "编辑",
@@ -163,6 +163,15 @@ export const desktopMenuMessages: Record<Locale, DesktopMenuLocaleMessages> = {
     "tray.menu.openZCode": "Open DeepVibe",
     "tray.menu.quit": "Quit",
   },
+};
+
+// Neue Sprachen nutzen vorerst die englischen Menütexte (Fallback).
+export const desktopMenuMessages: Record<Locale, DesktopMenuLocaleMessages> = {
+  ...desktopMenuBaseMessages,
+  "de-DE": desktopMenuBaseMessages["en-US"],
+  "es-ES": desktopMenuBaseMessages["en-US"],
+  "fr-FR": desktopMenuBaseMessages["en-US"],
+  "ru-RU": desktopMenuBaseMessages["en-US"],
 };
 
 export function getDesktopMenuMessage(locale: Locale, id: DesktopMenuMessageId): string {

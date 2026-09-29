@@ -276,7 +276,7 @@ export interface RuntimeConfigPatch {
   ui?: Partial<RuntimeConfig["ui"]>;
 }
 
-export type SupportedLocale = "en-US" | "zh-CN";
+export type SupportedLocale = "en-US" | "zh-CN" | "de-DE" | "es-ES" | "fr-FR" | "ru-RU";
 export type UiLocale = SupportedLocale | "auto";
 export type UiThemeMode = "dark" | "light";
 export type UiThemePreference = UiThemeMode | "auto";

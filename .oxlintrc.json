@@ -61,7 +61,6 @@
     ".agents/skills",
     "packages/formal-proof",
     "apps/zcode-cli",
-    "docs/electron",
-    "pending-locales"
+    "docs/electron"
   ]
 }

@@ -1,5 +1,9 @@
 import type { UiLocale, SupportedLocale } from "@zcode/contracts";
+import { deDE } from "./locales/de-DE.js";
 import { enUS } from "./locales/en-US.js";
+import { esES } from "./locales/es-ES.js";
+import { frFR } from "./locales/fr-FR.js";
+import { ruRU } from "./locales/ru-RU.js";
 import { zhCN } from "./locales/zh-CN.js";
 import {
   DEFAULT_LOCALE,
@@ -25,6 +29,10 @@ export type { CliCopy, TuiCopy, UiLocale, SupportedLocale, ZCodeCopy } from "./t
 const CATALOGS: Record<SupportedLocale, ZCodeCopy> = {
   "en-US": enUS,
   "zh-CN": zhCN,
+  "de-DE": deDE,
+  "es-ES": esES,
+  "fr-FR": frFR,
+  "ru-RU": ruRU,
 };
 
 export function getZCodeCopy(locale?: UiLocale | string, detected?: string | null): ZCodeCopy {

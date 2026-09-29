@@ -7,6 +7,10 @@ const helpConfigSchema = z.object({
     .object({
       "zh-CN": z.string().optional().catch(undefined),
       "en-US": z.string().optional().catch(undefined),
+      "de-DE": z.string().optional().catch(undefined),
+      "es-ES": z.string().optional().catch(undefined),
+      "fr-FR": z.string().optional().catch(undefined),
+      "ru-RU": z.string().optional().catch(undefined),
     })
     .optional()
     .catch(undefined),
