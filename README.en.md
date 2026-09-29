@@ -4,18 +4,25 @@
   <img src="packages/ui/src/assets/brand/deepvibe-logo.png" alt="DeepVibe" width="128" height="128" />
 </div>
 <p align="center">
-  <a href="https://applink.feishu.cn/client/chat/chatter/add_by_link?link_token=47ag983c-8fcb-4d6d-814b-5395193a712c&amp;qr_code=true">Feishu community</a> ·
-  <a href="https://discord.gg/z9aBcQXZQ3">Discord</a>
+  <a href="https://deepvibe.eu">deepvibe.eu</a>
 </p>
 <p align="center">
   <a href="README.md">简体中文</a> | English
 </p>
 
-DeepVibe is an AI coding workspace with desktop, browser, and terminal interfaces. This repository contains the clients, backend services, shared UI, and Agent CLI and runtime source code.
+DeepVibe is a **fork of ZCode**, focused on a single provider: DeepSeek.
+
+ZCode is an excellent multi-provider agentic workspace. DeepVibe intentionally does one thing differently — **one provider per app**. Every model has its own character and system prompt, and we think that character deserves its own IDE instead of a switch in a dropdown. So the *Vibe* family ships one focused app per provider — DeepVibe (DeepSeek), LamaVibe (Ollama), KimiVibe (Kimi), MavisVibe (MiniMax), and so on — each of them a partner, not an agent.
+
+That is why this project exists **alongside** ZCode, not instead of it: ZCode for the multi-provider workflow; the Vibe apps for people who want one model, one workspace, one partner.
+
+Built on ZCode (Apache-2.0); its license and NOTICE are preserved. DeepVibe is an independent project and is not affiliated with Z.ai, DeepSeek, MiniMax or their respective owners.
+
+This repository contains the clients, backend services, shared UI, and the CLI and runtime source code.
 
 ## Updates
 
-- 2026-9-23: Updated to DeepVibe v0.1.0.
+- 2026-9-23: Updated to DeepVibe v1.0.1.
 
 ## Setup
 

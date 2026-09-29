@@ -4,8 +4,7 @@
   <img src="packages/ui/src/assets/brand/deepvibe-logo.png" alt="DeepVibe" width="128" height="128" />
 </div>
 <p align="center">
-  <a href="https://applink.feishu.cn/client/chat/chatter/add_by_link?link_token=47ag983c-8fcb-4d6d-814b-5395193a712c&amp;qr_code=true">飞书社群</a> ·
-  <a href="https://discord.gg/z9aBcQXZQ3">Discord</a>
+  <a href="https://deepvibe.eu">deepvibe.eu</a>
 </p>
 <p align="center">
   简体中文 | <a href="README.en.md">English</a>
@@ -13,11 +12,19 @@
 
 
 
-DeepVibe 是 AI 编程工作台，提供桌面应用、浏览器界面和终端 Agent。本仓库包含客户端、后端服务、共享 UI，以及 Agent CLI 与运行时源码。
+DeepVibe 是 **ZCode 的一个分支（Fork）**，专注于单一模型供应商：DeepSeek。
+
+ZCode 是一个出色的多供应商 Agentic 工作台。DeepVibe 有意做出了一个不同的选择——**每个应用只绑定一个供应商**。每个模型都有自己的性格与系统提示词，我们认为这种性格值得拥有专属的 IDE，而不是下拉框里的一个切换项。因此 *Vibe* 家族为每个供应商提供一个专注的应用——DeepVibe（DeepSeek）、LamaVibe（Ollama）、KimiVibe（Kimi）、MavisVibe（MiniMax）等等——每一个都是伙伴（partner），而不是代理（agent）。
+
+这正是本项目**与 ZCode 并存**、而非取而代之的原因：ZCode 面向多供应商工作流；Vibe 系列面向只想要一个模型、一个工作空间、一个伙伴的用户。
+
+本项目基于 ZCode（Apache-2.0）构建，保留其 LICENSE 与 NOTICE。DeepVibe 是独立项目，与 Z.ai、DeepSeek、MiniMax 及其各自所有者无隶属关系。
+
+本仓库包含客户端、后端服务、共享 UI，以及 CLI 与运行时源码。
 
 ## 更新
 
-- 2026-9-23：更新至 DeepVibe v0.1.0 版本。
+- 2026-9-23：更新至 DeepVibe v1.0.1 版本。
 
 ## 初始化
 
