@@ -38,6 +38,7 @@ import {
   type SettingsSectionId,
 } from "@/settings/settingsPageConfig.js";
 
+import { LOCALE_DISPLAY_NAMES } from "@zcode/shared";
 export type { Locale, LocalePreference } from "@zcode/shared";
 export { type SettingsSectionId };
 export { createSettingsPageConfig, resolveSettingsSectionForPlatform };
@@ -301,18 +302,15 @@ export function GeneralSectionContent({
                 >
                   {intl.formatMessage({ id: "settings.locale.system" })}
                 </SelectItem>
-                <SelectItem
-                  value="zh-CN"
-                  data-testid={testId(TID_SETTINGS_LOCALE_SELECT_ITEM, "zh-CN")}
-                >
-                  {intl.formatMessage({ id: "settings.locale.zh-CN" })}
-                </SelectItem>
-                <SelectItem
-                  value="en-US"
-                  data-testid={testId(TID_SETTINGS_LOCALE_SELECT_ITEM, "en-US")}
-                >
-                  {intl.formatMessage({ id: "settings.locale.en-US" })}
-                </SelectItem>
+                {Object.entries(LOCALE_DISPLAY_NAMES).map(([value, label]) => (
+                  <SelectItem
+                    key={value}
+                    value={value}
+                    data-testid={testId(TID_SETTINGS_LOCALE_SELECT_ITEM, value)}
+                  >
+                    {label}
+                  </SelectItem>
+                ))}
               </SelectContent>
             </Select>
           }

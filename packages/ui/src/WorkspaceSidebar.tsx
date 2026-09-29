@@ -742,9 +742,8 @@ export const WorkspaceSidebar = memo(function WorkspaceSidebarComponent({
         setLocalePreference("system");
         return;
       }
-      if (value === "zh-CN" || value === "en-US") {
-        setLocalePreference(value as Locale);
-      }
+      // Jede unterstützte Sprache akzeptieren; "system" ist oben bereits abgefangen.
+      setLocalePreference(value as Locale);
     },
     [setLocalePreference],
   );

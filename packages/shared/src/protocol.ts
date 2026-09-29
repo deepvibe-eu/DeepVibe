@@ -77,6 +77,16 @@ export type Locale = "zh-CN" | "en-US" | "de-DE" | "es-ES" | "fr-FR" | "ru-RU";
 /** 界面语言偏好；system 表示跟随当前运行端系统语言。 */
 export type LocalePreference = "system" | Locale;
 
+/** Endonyme Anzeigenamen je Sprache (in jeder UI-Sprache gleich). */
+export const LOCALE_DISPLAY_NAMES: Record<Locale, string> = {
+  "en-US": "English",
+  "zh-CN": "中文简体",
+  "de-DE": "Deutsch",
+  "es-ES": "Español",
+  "fr-FR": "Français",
+  "ru-RU": "Русский",
+};
+
 /** ZCode 运行中继续输入时的交互行为 */
 export type ZCodeInteractionBehavior = "queue" | "guide";
 
