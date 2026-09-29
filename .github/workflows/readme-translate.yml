@@ -1,0 +1,37 @@
+name: Translate README
+
+# Übersetzt README.md (englischer Standard) automatisch in die weiteren
+# UI-Sprachen (de/fr/es/ru) und committet die Ergebnisse. Der Schlüssel liegt
+# als Repository-Secret TRANSLATE_API_KEY; Base/Modell als Variable oder Secret.
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ["README.md"]
+
+permissions:
+  contents: write
+
+jobs:
+  translate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24.14.0
+
+      - name: Translate README
+        env:
+          TRANSLATE_API_KEY: ${{ secrets.TRANSLATE_API_KEY }}
+          TRANSLATE_API_BASE: ${{ vars.TRANSLATE_API_BASE || secrets.TRANSLATE_API_BASE }}
+          TRANSLATE_MODEL: ${{ vars.TRANSLATE_MODEL || secrets.TRANSLATE_MODEL }}
+        run: node scripts/translate-readme.mjs
+
+      - name: Commit translations
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "docs: update translated READMEs"
+          file_pattern: "README.*.md"
