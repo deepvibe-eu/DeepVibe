@@ -14,7 +14,7 @@
 
 DeepVibe 是 **ZCode 的一个分支（Fork）**，专注于单一模型供应商：DeepSeek。
 
-ZCode 是一个出色的多供应商 Agentic 工作台。DeepVibe 有意做出了一个不同的选择——**每个应用只绑定一个供应商**。每个模型都有自己的性格与系统提示词，我们认为这种性格值得拥有专属的集成开发环境 (IDE)，而不是下拉框里的一个切换项。因此 *Vibe* 家族**将**为每个供应商提供专属的应用——DeepVibe（DeepSeek）、LamaVibe（Ollama）、KimiVibe（Kimi）、MavisVibe（MiniMax）等等——每一个都是伙伴，而非代理。
+ZCode 是一个出色的多供应商 Agentic 工作台。DeepVibe 有意做出了一个不同的选择——**每个应用只绑定一个供应商**。每个模型都有自己的性格与系统提示词，我们认为这种性格值得拥有专属的集成开发环境 (IDE)，而不是下拉框里的一个切换项。因此 *Vibe* 家族**将**为每个供应商提供专属的应用——DeepVibe（DeepSeek）、LamaVibe（Ollama）、KimiVibe（Kimi）、MavisVibe（MiniMax）等等。每个供应商都是伙伴，而非代理。
 
 这正是本项目**与 ZCode 并存**、而非取而代之的原因：ZCode 面向多供应商工作流；Vibe 系列面向只想要一个模型、一个工作空间、一个伙伴的用户。
 
