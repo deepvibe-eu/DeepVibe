@@ -12,7 +12,7 @@
 
 DeepVibe is a **fork of ZCode**, focused on a single provider: DeepSeek.
 
-ZCode is an excellent multi-provider agentic workspace. DeepVibe intentionally does one thing differently — **one provider per app**. Every model has its own character and system prompt, and we think that character deserves its own IDE instead of a switch in a dropdown. So the *Vibe* family ships one focused app per provider — DeepVibe (DeepSeek), LamaVibe (Ollama), KimiVibe (Kimi), MavisVibe (MiniMax), and so on — each of them a partner, not an agent.
+ZCode is an excellent multi-provider agentic workspace. DeepVibe intentionally does one thing differently — **one provider per app**. Every model has its own character and system prompt, and we think that character deserves its own IDE instead of a switch in a dropdown. The *Vibe* family will offer a focused app for each provider — DeepVibe (DeepSeek), LamaVibe (Ollama), KimiVibe (Kimi), MavisVibe (MiniMax), and so on — each of them a partner, not an agent.
 
 That is why this project exists **alongside** ZCode, not instead of it: ZCode for the multi-provider workflow; the Vibe apps for people who want one model, one workspace, one partner.
 
