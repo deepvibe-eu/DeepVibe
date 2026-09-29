@@ -1,0 +1,76 @@
+name: Release
+
+# Baut die DeepVibe-Installer für macOS und Windows und hängt sie als Release
+# an dieses Repository. Linux bauen wir lokal; die Linux-Pakete können in
+# dasselbe Release hochgeladen werden.
+#
+# Der Updater zeigt auf …/releases/latest/download, also muss das Release
+# "latest" sein (kein Draft, kein Prerelease) und die latest-*.yml enthalten.
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Release-Tag (z. B. v1.0.1)"
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: Build (${{ matrix.target }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - target: mac
+            os: macos-latest
+            arch: arm64
+          - target: win
+            os: windows-latest
+            arch: x64
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.33.2
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24.14.0
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build and package
+        env:
+          ZCODE_ENV: production
+          # Noch unsigniert: Signierung/Notarisierung folgt später über Secrets.
+          CSC_IDENTITY_AUTO_DISCOVERY: "false"
+        run: pnpm bundle:desktop -- --os ${{ matrix.target }} --arch ${{ matrix.arch }}
+
+      - name: Publish release assets
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.event.inputs.tag || github.ref_name }}
+          name: ${{ github.event.inputs.tag || github.ref_name }}
+          draft: false
+          prerelease: false
+          fail_on_unmatched_files: false
+          files: |
+            packages/desktop/dist/*.dmg
+            packages/desktop/dist/*.zip
+            packages/desktop/dist/*.exe
+            packages/desktop/dist/*.msi
+            packages/desktop/dist/*.blockmap
+            packages/desktop/dist/latest-mac.yml
+            packages/desktop/dist/latest.yml
