@@ -1,7 +1,7 @@
 import { Component } from "react";
 import type { ErrorInfo, ReactNode } from "react";
 import type { Locale } from "@zcode/shared";
-import { DEFAULT_LOCALE } from "@zcode/shared";
+import { DEFAULT_LOCALE, LOCALE_DISPLAY_NAMES } from "@zcode/shared";
 import { DesktopWindowFrame } from "@/DesktopWindowFrame.js";
 import zhCN from "@/i18n/locales/zh-CN.js";
 import enUS from "@/i18n/locales/en-US.js";
@@ -66,8 +66,10 @@ function resolveBoundaryLocale(): Locale {
   if (typeof localStorage !== "undefined" && typeof localStorage.getItem === "function") {
     try {
       const storedPreference = localStorage.getItem(LOCALE_PREFERENCE_KEY);
-      if (storedPreference === "zh-CN" || storedPreference === "en-US") {
-        return storedPreference;
+      // Jede unterstützte Sprache akzeptieren; die Boundary-Texte gibt es (noch) nur zh/en,
+      // daher fallen die übrigen Sprachen hier auf Englisch zurück.
+      if (storedPreference && storedPreference in LOCALE_DISPLAY_NAMES) {
+        return storedPreference === "zh-CN" ? "zh-CN" : "en-US";
       }
     } catch {
       // 在 Node 测试环境里，可能出现“localStorage 对象存在但能力不完整/不可读”的场景

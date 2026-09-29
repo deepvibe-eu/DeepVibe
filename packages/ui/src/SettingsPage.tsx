@@ -1276,14 +1276,13 @@ export function SettingsPage({
         });
         return;
       }
-      if (value === "zh-CN" || value === "en-US") {
-        runUserAction({
-          input: { featureId: "settings.locale", action: "change_locale", trigger: "select" },
-          operation: () => setLocalePreference(value as Locale),
-          completed: { resultSource: "local_commit", valueAfter: value },
-          failureStage: "local_commit",
-        });
-      }
+      // Jede unterstützte Sprache akzeptieren; "system" ist oben bereits abgefangen.
+      runUserAction({
+        input: { featureId: "settings.locale", action: "change_locale", trigger: "select" },
+        operation: () => setLocalePreference(value as Locale),
+        completed: { resultSource: "local_commit", valueAfter: value },
+        failureStage: "local_commit",
+      });
     },
     [setLocalePreference],
   );
