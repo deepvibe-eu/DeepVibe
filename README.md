@@ -22,6 +22,8 @@ ZCode 是一个出色的多供应商 Agentic 工作台。DeepVibe 有意做出�
 
 本仓库包含客户端、后端服务、共享 UI，以及 CLI 与运行时源码。
 
+应用界面提供 **English、简体中文、Deutsch、Español、Français 与 Русский** 六种语言。
+
 ## 更新
 
 - 2026-9-23：更新至 DeepVibe v1.0.1 版本。

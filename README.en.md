@@ -20,6 +20,8 @@ Built on ZCode (Apache-2.0); its license and NOTICE are preserved. DeepVibe is a
 
 This repository contains the clients, backend services, shared UI, and the CLI and runtime source code.
 
+The app interface ships in **English, Simplified Chinese, German, Spanish, French and Russian**.
+
 ## Updates
 
 - 2026-9-23: Updated to DeepVibe v1.0.1.
