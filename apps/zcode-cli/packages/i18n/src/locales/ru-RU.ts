@@ -15,7 +15,7 @@ export const ruRU: ZCodeCopy = {
 Без команды zcode открывает полноэкранный TUI.
 
 Команды:
-  app-server Запустить stdio-сервер приложения ZCode Protocol
+  app-server Запустить stdio-сервер приложения DeepVibe Protocol
   commands   Показать пользовательские слэш-команды (\`commands list\`)
   doctor     Проверить предположения о среде выполнения и упаковке
   login [zai|bigmodel]  Войти через авторизацию в браузере
@@ -287,7 +287,7 @@ export const ruRU: ZCodeCopy = {
     },
     terminal: {
       requiresInteractive: "TUI требует интерактивного терминала.",
-      starting: "Запуск ZCode... Ctrl+C для выхода",
+      starting: "Запуск DeepVibe... Ctrl+C для выхода",
     },
     transcript: {
       compact: {

@@ -12,7 +12,7 @@ const ruRU: Record<string, string> = {
   "startPlan.recommendation.dismiss": "Больше не показывать",
   "occupationOnboarding.stepMode": "Режим интерфейса",
   "occupationOnboarding.modeTitle": "Выберите режим интерфейса",
-  "occupationOnboarding.modeDescription": "Как ZCode должен показывать свою работу?",
+  "occupationOnboarding.modeDescription": "Как DeepVibe должен показывать свою работу?",
   "occupationOnboarding.coding": "Режим разработки",
   "occupationOnboarding.codingDescription":
     "Я хочу видеть код, вывод команд и подробности изменений на всех этапах разработки.",
@@ -22,8 +22,10 @@ const ruRU: Record<string, string> = {
   "chat.officeSuggestions.setting": "Проактивные предложения задач",
   "chat.officeSuggestions.settingDescription": "Доступно только в офисном режиме.",
   "chat.plugins.browseMarketplace": "Открыть магазин плагинов",
-  "chat.plugins.loadError": "Не удалось загрузить плагины. Откройте меню заново и попробуйте снова.",
-  "chat.officeSuggestions.saveError": "Не удалось сохранить настройки предложений. Попробуйте ещё раз.",
+  "chat.plugins.loadError":
+    "Не удалось загрузить плагины. Откройте меню заново и попробуйте снова.",
+  "chat.officeSuggestions.saveError":
+    "Не удалось сохранить настройки предложений. Попробуйте ещё раз.",
   "chat.officeSuggestions.refresh": "Показать ещё",
   "chat.officeSuggestions.closeTitle": "Отключить предложения задач?",
   "chat.officeSuggestions.closeDescription": "Включить их снова можно в Настройках.",
@@ -61,27 +63,28 @@ const ruRU: Record<string, string> = {
   "occupationOnboarding.migration": "Перенести диалоги",
   "occupationOnboarding.migrationDescription": "Перенести историю диалогов из Claude Code",
   "occupationOnboarding.memory": "Включить память рабочей области",
-  "occupationOnboarding.memoryDescription": "Пусть ZCode запоминает ваши предпочтения и рабочий контекст.",
+  "occupationOnboarding.memoryDescription":
+    "Пусть DeepVibe запоминает ваши предпочтения и рабочий контекст.",
   "occupationOnboarding.suggestions": "Включить проактивные предложения задач",
   "occupationOnboarding.suggestionsDescription":
     "Показывать предложения в новых диалогах. Нажмите, чтобы подставить в поле ввода.",
   "occupationOnboarding.close": "Выйти из онбординга",
-  "startup.global.silent": "Запуск ZCode",
+  "startup.global.silent": "Запуск DeepVibe",
   "startup.global.upgrading": "Обновление локальных данных",
   "startup.global.initializing": "Инициализация локальных данных",
   "startup.global.waiting": "Ожидание подготовки базы данных",
   "startup.global.saving": "Сохранение обновлений",
   "startup.global.finishing": "Завершение запуска",
   "startup.global.servicesFailed":
-    "Локальные данные готовы, но службы приложения не запустились. Скопируйте диагностику, затем закройте и снова откройте ZCode.",
+    "Локальные данные готовы, но службы приложения не запустились. Скопируйте диагностику, затем закройте и снова откройте DeepVibe.",
   "startup.global.starting": "Подготовка локальных данных",
   "startup.global.preparing_host_storage": "Подготовка индекса задач",
   "startup.global.preparing_session_storage": "Подготовка истории чатов",
-  "startup.global.starting_services": "Запуск ZCode",
+  "startup.global.starting_services": "Запуск DeepVibe",
   "startup.global.ready": "Локальные данные готовы",
   "startup.global.failed": "Не удалось подготовить данные к запуску",
   "startup.global.help":
-    "ZCode откроется, когда подготовка завершится. Обработка большой истории может занять больше времени. Не закрывайте приложение.",
+    "DeepVibe откроется, когда подготовка завершится. Обработка большой истории может занять больше времени. Не закрывайте приложение.",
   "startup.global.diagnostic": "ID диагностики",
   "startup.global.copy": "Копировать диагностику",
   "startup.global.exit": "Выход",
@@ -102,15 +105,15 @@ const ruRU: Record<string, string> = {
   "startup.global.error.open_failed":
     "Не удалось открыть базу данных. Убедитесь, что папка данных существует и доступна, затем повторите.",
   "startup.global.error.lock_timeout":
-    "Время ожидания блокировки записи в базу данных истекло. Возможно, другой процесс ZCode или CLI обновляет данные. Повторите после его завершения.",
+    "Время ожидания блокировки записи в базу данных истекло. Возможно, другой процесс DeepVibe или CLI обновляет данные. Повторите после его завершения.",
   "startup.global.error.sql_failed":
     "Подготовка не завершилась. Скопируйте диагностику и проверьте журналы. Устраните проблему и повторите вручную. Приложение не повторит попытку автоматически.",
   "startup.global.error.startup_status_timeout":
-    "Не удалось получить состояние запуска. Закройте и снова откройте ZCode. Если ошибка повторится, передайте диагностику в поддержку.",
+    "Не удалось получить состояние запуска. Закройте и снова откройте DeepVibe. Если ошибка повторится, передайте диагностику в поддержку.",
   "startup.global.error.transport_closed":
-    "Процесс подготовки завершился или отключился. Закройте и снова откройте ZCode, чтобы повторно проверить записи о миграции.",
+    "Процесс подготовки завершился или отключился. Закройте и снова откройте DeepVibe, чтобы повторно проверить записи о миграции.",
   "startup.global.error.unsupported_runtime":
-    "Настроенный агент не поддерживает подготовку хранилища. Восстановите встроенный агент и снова откройте ZCode.",
+    "Настроенный агент не поддерживает подготовку хранилища. Восстановите встроенный агент и снова откройте DeepVibe.",
 
   "startup.database.checking": "Проверка истории",
   "startup.database.waiting_for_lock": "Ожидание подготовки данных другим окном",
@@ -118,7 +121,8 @@ const ruRU: Record<string, string> = {
   "startup.database.committing": "Сохранение обновления",
   "startup.database.ready": "История готова",
   "startup.database.failed": "Не удалось подготовить историю",
-  "startup.database.help": "Рабочая область откроется, когда всё будет готово. Не закрывайте приложение.",
+  "startup.database.help":
+    "Рабочая область откроется, когда всё будет готово. Не закрывайте приложение.",
   "startup.database.failedHelp":
     "Исходная база данных сохранена. Проверьте журналы диагностики, устраните проблему и повторите.",
   "startup.database.elapsed": "Прошло: {minutes} мин {seconds} с",
@@ -161,7 +165,7 @@ const ruRU: Record<string, string> = {
   "offPeak.chatCreated.queuedAt": "#{position} в очереди",
   "offPeak.chatCreated.open": "Перейти к задачам в простое",
   "settings.computerUse.disabledToast":
-    "Computer Use отключён. Чтобы изменения вступили в силу для существующих диалогов, перезапустите ZCode.",
+    "Computer Use отключён. Чтобы изменения вступили в силу для существующих диалогов, перезапустите DeepVibe.",
   "settings.modelProvider.connectionUnavailableNotice": "Текущий тариф недоступен.",
   "settings.modelProvider.switchConnection": "Переключиться на «{connection}»",
   "settings.modelProvider.connectionSuggestionStale":
@@ -197,9 +201,11 @@ const ruRU: Record<string, string> = {
   "conversationShare.permission.linkViewer": "Любой, у кого есть ссылка, может просматривать",
   "conversationShare.permission.linkViewerHint": "Без импорта и продолжения",
   "conversationShare.permission.linkViewerSummary": "Обладатели ссылки могут просматривать",
-  "conversationShare.permission.linkEditor": "Любой, у кого есть ссылка, может импортировать и продолжить",
-  "conversationShare.permission.linkEditorHint": "Импорт в ZCode",
-  "conversationShare.permission.linkEditorSummary": "Обладатели ссылки могут импортировать и продолжить",
+  "conversationShare.permission.linkEditor":
+    "Любой, у кого есть ссылка, может импортировать и продолжить",
+  "conversationShare.permission.linkEditorHint": "Импорт в DeepVibe",
+  "conversationShare.permission.linkEditorSummary":
+    "Обладатели ссылки могут импортировать и продолжить",
   "conversationShare.permission.privateSummary": "Только я",
   "conversationShare.openLink": "Открыть страницу общего доступа",
   "conversationShare.result.title": "Общий доступ создан",
@@ -210,9 +216,11 @@ const ruRU: Record<string, string> = {
   "conversationShare.copyLink": "Копировать ссылку",
   "conversationShare.copySucceeded": "Ссылка общего доступа скопирована",
   "conversationShare.publishSucceeded": "Ссылка общего доступа создана",
-  "conversationShare.publishSucceededWithSkips": "Ссылка общего доступа создана; пропущено {count} файл(ов)",
+  "conversationShare.publishSucceededWithSkips":
+    "Ссылка общего доступа создана; пропущено {count} файл(ов)",
   "conversationShare.copyFailed": "Не удалось скопировать ссылку общего доступа",
-  "conversationShare.publishFailed": "Не удалось создать ссылку общего доступа. Попробуйте ещё раз.",
+  "conversationShare.publishFailed":
+    "Не удалось создать ссылку общего доступа. Попробуйте ещё раз.",
   "conversationShare.error.authenticationRequired":
     "Делиться можно только после входа в аккаунт. Срок вашего входа истёк — войдите снова и повторите.",
   "conversationShare.error.featureDisabled":
@@ -221,7 +229,8 @@ const ruRU: Record<string, string> = {
     "Тип файла предпросмотра не поддерживается для общего доступа. Снимите выбор с этого диалога и повторите.",
   "conversationShare.error.limitExceeded":
     "Выбранный диалог или его файлы превышают лимит общего доступа. Выберите меньше диалогов.",
-  "conversationShare.error.rateLimited": "Слишком много попыток поделиться. Подождите немного и попробуйте снова.",
+  "conversationShare.error.rateLimited":
+    "Слишком много попыток поделиться. Подождите немного и попробуйте снова.",
   "conversationShare.error.network":
     "Не удалось связаться со службой общего доступа. Проверьте подключение и попробуйте снова.",
   "conversationShare.error.safetyCheckTimeout":
@@ -425,11 +434,14 @@ const ruRU: Record<string, string> = {
   "conversationShare.import.committing": "Создание общего диалога",
   "conversationShare.import.complete": "Импорт из общего доступа завершён",
   "conversationShare.import.loginRequired":
-    "Этот общий доступ нельзя импортировать анонимно. Войдите в ZCode и попробуйте снова",
+    "Этот общий доступ нельзя импортировать анонимно. Войдите в DeepVibe и попробуйте снова",
   "conversationShare.import.notFound": "Этот общий доступ недоступен для вашей учётной записи",
-  "conversationShare.import.expired": "Срок действия общего доступа истёк. Попросите автора создать новый",
-  "conversationShare.import.integrityFailed": "Не удалось проверить файл общего доступа; импорт остановлен",
-  "conversationShare.import.failed": "Не удалось импортировать общий доступ. Проверьте сеть и повторите",
+  "conversationShare.import.expired":
+    "Срок действия общего доступа истёк. Попросите автора создать новый",
+  "conversationShare.import.integrityFailed":
+    "Не удалось проверить файл общего доступа; импорт остановлен",
+  "conversationShare.import.failed":
+    "Не удалось импортировать общий доступ. Проверьте сеть и повторите",
   "conversationShare.import.integrityFailedWithArtifact":
     "Не удалось проверить общий файл {artifactDisplayName}; импорт остановлен. Попросите автора создать новую ссылку.",
   "conversationShare.import.failedWithArtifact":
@@ -529,8 +541,7 @@ const ruRU: Record<string, string> = {
   "confirmDialog.taskDeleteDescription":
     "Задача «{taskTitle}» будет удалена из этой рабочей области, а текущую запись восстановить не получится.",
   "confirmDialog.archivedTaskDeleteTitle": "Удалить эту архивную задачу?",
-  "confirmDialog.archivedTaskDeleteDescription":
-    "Задачи будут удалены из списка задач и архива.",
+  "confirmDialog.archivedTaskDeleteDescription": "Задачи будут удалены из списка задач и архива.",
   "taskList.deleteAllArchived": "Удалить все архивные задачи",
   "taskList.archivedActions": "Действия с архивом",
   "taskList.archivedTaskCount": "Архивных задач: {count}",
@@ -539,7 +550,8 @@ const ruRU: Record<string, string> = {
   "taskList.deleteAllArchivedBusy": "Обработка…",
   "taskList.deleteAllArchivedUnavailable":
     "Эти проекты сейчас нельзя обработать: {projects}. Повторите попытку после переподключения.",
-  "taskList.deleteAllArchivedResult": "Удалено: {deleted}, пропущено: {skipped}, с ошибкой: {failed}.",
+  "taskList.deleteAllArchivedResult":
+    "Удалено: {deleted}, пропущено: {skipped}, с ошибкой: {failed}.",
   "taskList.deleteAllArchivedError":
     "Не удалось выполнить операцию или обновить список. Обновите список, чтобы проверить оставшиеся задачи.",
   "confirmDialog.taskArchiveTitle": "Архивировать эту задачу?",
@@ -549,7 +561,7 @@ const ruRU: Record<string, string> = {
   "confirmDialog.projectRemoveDescription":
     "Проект «{projectName}» будет убран из боковой панели, но файлы на диске останутся нетронутыми.",
   "bots.title": "Боты",
-  "bots.description": "Подключайте внешние чаты и вебхуки к ботам ZCode.",
+  "bots.description": "Подключайте внешние чаты и вебхуки к ботам DeepVibe.",
   "bots.listTitle": "Боты",
   "bots.addBot": "Новый бот",
   "bots.addBinding": "Добавить привязку",
@@ -573,7 +585,8 @@ const ruRU: Record<string, string> = {
   "bots.setup.allowedSelected": "Разрешить только выбранные рабочие области",
   "bots.setup.allowedAllShort": "Все",
   "bots.setup.allowedSelectedShort": "Выбранные",
-  "bots.setup.allowedAllDescription": "Этот бот может использовать все настроенные рабочие области.",
+  "bots.setup.allowedAllDescription":
+    "Этот бот может использовать все настроенные рабочие области.",
   "bots.setupDescription.chooseBot": "Выберите бота стороннего чата для подключения.",
   "bots.setupDescription.createBot":
     "Введите учётные данные бота или вебхука. На следующем шаге сначала проверяется подключение.",
@@ -599,13 +612,14 @@ const ruRU: Record<string, string> = {
     "Вернитесь в Телеграм и откройте личный чат с созданным ботом.",
   "bots.setup.guide.telegram.bind.2":
     "Если чат ещё не начат, нажмите кнопку Start или сначала отправьте любое сообщение, а затем отправьте {command}.",
-  "bots.setup.guide.telegram.bind.3": "Вернитесь сюда после того, как Телеграм подтвердит успешную привязку.",
+  "bots.setup.guide.telegram.bind.3":
+    "Вернитесь сюда после того, как Телеграм подтвердит успешную привязку.",
   "bots.setup.guide.weixin.create.1":
     "Запустите вход по QR-коду в Вэйсинь, отсканируйте QR-код и подтвердите вход на телефоне.",
   "bots.setup.guide.weixin.create.2":
-    "ZCode автоматически сохраняет bot_token, возвращённый iLink; после сканирования отправьте боту любое сообщение в Вэйсинь, чтобы активировать чат.",
+    "DeepVibe автоматически сохраняет bot_token, возвращённый iLink; после сканирования отправьте боту любое сообщение в Вэйсинь, чтобы активировать чат.",
   "bots.setup.guide.weixin.create.3":
-    "ZCode использует встроенный клиент iLink: `/ilink/bot/getupdates` для длинного опроса и `/ilink/bot/sendmessage` для ответов.",
+    "DeepVibe использует встроенный клиент iLink: `/ilink/bot/getupdates` для длинного опроса и `/ilink/bot/sendmessage` для ответов.",
   "bots.setup.guide.weixin.bind.1": "Откройте прямой чат в Вэйсинь, который хотите привязать.",
   "bots.setup.guide.weixin.bind.2": "Отправьте {command}.",
   "bots.setup.guide.weixin.bind.3":
@@ -622,13 +636,13 @@ const ruRU: Record<string, string> = {
   "bots.setup.guide.feishu.bind.3":
     "Вернитесь сюда после успешной привязки, чтобы завершить настройку рабочей области и параметров CLI по умолчанию.",
   "bots.setup.guide.webhook.create.1":
-    "Режим вебхука не требует нативного бота в стороннем продукте: вашей интеграции достаточно отправлять сообщения в ZCode методом POST.",
+    "Режим вебхука не требует нативного бота в стороннем продукте: вашей интеграции достаточно отправлять сообщения в DeepVibe методом POST.",
   "bots.setup.guide.webhook.create.2":
     "Сначала задайте общий секрет; если нужны асинхронные ответы, добавьте также исходящий URL вебхука.",
   "bots.setup.guide.webhook.create.3":
     "Используйте один стабильный userId для каждого внешнего пользователя, чтобы привязка и будущий контекст указывали на одного и того же человека.",
   "bots.setup.guide.webhook.bind.1":
-    "Отправьте POST-запрос обратного вызова личного сообщения на эндпоинт ZCode `/api/bots/webhook`.",
+    "Отправьте POST-запрос обратного вызова личного сообщения на эндпоинт DeepVibe `/api/bots/webhook`.",
   "bots.setup.guide.webhook.bind.2":
     'Полезная нагрузка должна содержать как минимум этот botId, стабильный userId, `chatType: "private"` и text со значением {command}.',
   "bots.setup.guide.webhook.bind.3":
@@ -641,24 +655,26 @@ const ruRU: Record<string, string> = {
     "Код привязки изначально разрешает все рабочие области; итоговый список сохраняется на следующем шаге.",
   "bots.setup.footer.set": "«Завершить» включает бота и возвращает его в список добавленных.",
   "bots.setup.discardTitle": "Отменить настройку бота?",
-  "bots.setup.discardDescription":
-    "Эта настройка не завершена. Временный бот будет удалён.",
+  "bots.setup.discardDescription": "Эта настройка не завершена. Временный бот будет удалён.",
   "bots.setup.discardConfirm": "Отменить настройку",
   "bots.refresh": "Обновить ботов",
   "bots.namePlaceholder": "Имя бота",
   "bots.credentialPlaceholder": "Связать бота",
-  "bots.weixinBotTokenPlaceholder": "Сохраняется после входа по QR-коду; можно также вставить bot_token вручную",
+  "bots.weixinBotTokenPlaceholder":
+    "Сохраняется после входа по QR-коду; можно также вставить bot_token вручную",
   "bots.webhookSecretPlaceholder": "Секрет вебхука",
   "bots.webhookUrlPlaceholder": "URL исходящего вебхука",
   "bots.feishuAppIdPlaceholder": "ID приложения Фэйшу",
   "bots.feishuAppSecretPlaceholder": "Секрет приложения Фэйшу",
   "bots.callbackSecretPlaceholder": "Секрет обратного вызова",
   "bots.feishuRegistrationTitle": "Сканируйте, чтобы создать приложение",
-  "bots.feishuRegistrationDescription": "Отсканируйте код, чтобы создать приложение и сохранить учётные данные.",
+  "bots.feishuRegistrationDescription":
+    "Отсканируйте код, чтобы создать приложение и сохранить учётные данные.",
   "bots.feishuRegistrationButton": "Сканировать",
   "bots.feishuRegistrationQrAlt": "QR-код регистрации приложения Фэйшу",
   "bots.feishuRegistrationScanHint": "Отсканируйте в Фэйшу/Lark и подтвердите создание приложения.",
-  "bots.feishuRegistrationScanHint.feishu": "Отсканируйте в Фэйшу и подтвердите создание приложения.",
+  "bots.feishuRegistrationScanHint.feishu":
+    "Отсканируйте в Фэйшу и подтвердите создание приложения.",
   "bots.feishuRegistrationScanHint.lark": "Отсканируйте в Lark и подтвердите создание приложения.",
   "bots.feishuRegistrationStarted": "Регистрация в Фэйшу запущена",
   "bots.feishuRegistrationSuccess": "Учётные данные приложения Фэйшу заполнены",
@@ -699,9 +715,12 @@ const ruRU: Record<string, string> = {
   "bots.newBot.fallbackName": "Новый бот",
   "bots.newBot.comingSoon": "Скоро",
   "bots.newBot.providerDescription.telegram": "Создайте бота, затем привяжите его сообщением.",
-  "bots.newBot.providerDescription.weixin": "Отсканируйте код для входа; активируется первым сообщением.",
-  "bots.newBot.providerDescription.feishu": "Отсканируйте код, чтобы создать приложение, затем привяжите его сообщением.",
-  "bots.newBot.providerDescription.lark": "Отсканируйте код, чтобы создать приложение, затем привяжите его сообщением.",
+  "bots.newBot.providerDescription.weixin":
+    "Отсканируйте код для входа; активируется первым сообщением.",
+  "bots.newBot.providerDescription.feishu":
+    "Отсканируйте код, чтобы создать приложение, затем привяжите его сообщением.",
+  "bots.newBot.providerDescription.lark":
+    "Отсканируйте код, чтобы создать приложение, затем привяжите его сообщением.",
   "bots.newBot.providerDescription.dingding": "Интеграция с ботами ДинТолк запланирована.",
   "bots.newBot.providerDescription.webhook":
     "Получайте обратные вызовы из своей системы и при необходимости отправляйте ответы обратно.",
@@ -711,7 +730,8 @@ const ruRU: Record<string, string> = {
   "bots.name": "Имя бота",
   "bots.provider": "Канал",
   "bots.enabled": "Включено",
-  "bots.enabled.description": "Включите или отключите этого бота и сбросьте состояние его выполнения.",
+  "bots.enabled.description":
+    "Включите или отключите этого бота и сбросьте состояние его выполнения.",
   "bots.credential": "Учётные данные",
   "bots.webhookSecret": "Секрет вебхука",
   "bots.webhookUrl": "URL вебхука",
@@ -733,7 +753,8 @@ const ruRU: Record<string, string> = {
   "bots.weixinRegistrationQrAlt": "QR-код для входа в Вэйсинь",
   "bots.weixinRegistrationScanHint": "Отсканируйте в Вэйсинь и подтвердите вход.",
   "bots.weixinRegistrationStarted": "Вход в Вэйсинь по QR-коду запущен",
-  "bots.weixinRegistrationSuccess": "Бот в Вэйсинь связан. Отправьте любое сообщение, чтобы активировать его.",
+  "bots.weixinRegistrationSuccess":
+    "Бот в Вэйсинь связан. Отправьте любое сообщение, чтобы активировать его.",
   "bots.weixinActivationHint":
     "Отправьте боту любое сообщение в Вэйсинь; в ответ на первое сообщение придёт приветствие и руководство по командам.",
   "bots.weixinRegistrationFailed": "Не удалось запустить вход в Вэйсинь по QR-коду: {error}",
@@ -759,7 +780,8 @@ const ruRU: Record<string, string> = {
   "bots.botTokenDescription.weixin": "Учётные данные сохраняются после сканирования.",
   "bots.botTokenDescription.webhook": "Используется для подключения этого вебхук-бота.",
   "bots.telegramBotFatherQrAlt": "QR-код BotFather в Телеграме",
-  "bots.telegramBotFatherScanHint": "Отсканируйте код, чтобы открыть BotFather, создать бота и вставить токен.",
+  "bots.telegramBotFatherScanHint":
+    "Отсканируйте код, чтобы открыть BotFather, создать бота и вставить токен.",
   "bots.openBotFather": "Открыть BotFather",
   "bots.connected": "Подключено",
   "bots.notConnected": "Не подключено",
@@ -767,9 +789,10 @@ const ruRU: Record<string, string> = {
   "bots.runtime.telegramLongPollingStarting": "Длинный опрос в Телеграме запускается.",
   "bots.runtime.telegramLongPollingStopped": "Длинный опрос в Телеграме остановлен.",
   "bots.runtime.telegramLongPollingHandledElsewhere":
-    "Длинный опрос в Телеграме выполняет другое окно ZCode.",
+    "Длинный опрос в Телеграме выполняет другое окно DeepVibe.",
   "bots.runtime.telegramTokenMissing": "Учётные данные бота в Телеграме отсутствуют.",
-  "bots.runtime.telegramPollingFailedRetrying": "Опрос в Телеграме завершился ошибкой; повторяем попытку.",
+  "bots.runtime.telegramPollingFailedRetrying":
+    "Опрос в Телеграме завершился ошибкой; повторяем попытку.",
   "bots.runtime.feishuWebSocketStarting": "WebSocket Фэйшу запускается.",
   "bots.runtime.feishuWebSocketConnecting": "WebSocket Фэйшу подключается.",
   "bots.runtime.feishuWebSocketRunning": "WebSocket Фэйшу работает.",
@@ -811,12 +834,15 @@ const ruRU: Record<string, string> = {
   "bots.allowedWorkspaces.all": "Все",
   "bots.allowedWorkspaces.mode.all": "Все рабочие области",
   "bots.allowedWorkspaces.mode.selected": "Выбранные рабочие области",
-  "bots.allowedWorkspaces.allDescription": "Этот бот может использовать любую настроенную рабочую область.",
-  "bots.allowedWorkspaces.selectedDescription": "Этот бот может использовать выбранные рабочие области ({count}).",
+  "bots.allowedWorkspaces.allDescription":
+    "Этот бот может использовать любую настроенную рабочую область.",
+  "bots.allowedWorkspaces.selectedDescription":
+    "Этот бот может использовать выбранные рабочие области ({count}).",
   "bots.botMeta": "Привязанных пользователей: {users} · рабочая область {workspace}",
   "bots.botSummary": "Пользователей: {users} · рабочих областей: {workspaces} · {workspace}",
   "bots.userCount": "Пользователей: {count}",
-  "bots.editDescription": "Проверьте состояние выполнения, контекст по умолчанию, детализацию ответов и привязанных пользователей.",
+  "bots.editDescription":
+    "Проверьте состояние выполнения, контекст по умолчанию, детализацию ответов и привязанных пользователей.",
   "bots.edit.basicSettings": "Основные настройки",
   "bots.edit.binding": "Привязанные пользователи",
   "bots.edit.emptyUsers":
@@ -836,8 +862,7 @@ const ruRU: Record<string, string> = {
   "bots.bindCodeExpired": "Код привязки истёк. Создайте новый код.",
   "bots.bindSuccess": "Привязка выполнена",
   "bots.copyBindCommand": "Копировать команду привязки",
-  "bots.bindCommandGuide":
-    "Скопируйте команду привязки ниже и отправьте её боту в личном чате.",
+  "bots.bindCommandGuide": "Скопируйте команду привязки ниже и отправьте её боту в личном чате.",
   "bots.bindCommandStep.copy": "Скопируйте команду привязки",
   "bots.bindCommandStep.openChat": "Откройте личный чат с ботом",
   "bots.bindCommandStep.send": "Вставьте и отправьте её, чтобы привязать текущую рабочую область",
@@ -855,19 +880,18 @@ const ruRU: Record<string, string> = {
   "bots.deleteFailed": "Не удалось удалить бота: {error}",
 
   // Приветствие / Вход
-  "welcome.title": "Добро пожаловать в ZCode",
+  "welcome.title": "Добро пожаловать в DeepVibe",
   "welcome.username": "Имя пользователя",
   "welcome.password": "Пароль",
   "welcome.login": "Войти",
   "welcome.loggingIn": "Выполняется вход…",
   "welcome.loginFailed": "Не удалось войти",
-  "login.title": "Добро пожаловать в ZCode",
-  "login.description": "Подключите аккаунт, чтобы начать работу с ZCode",
+  "login.title": "Добро пожаловать в DeepVibe",
+  "login.description": "Подключите аккаунт, чтобы начать работу с DeepVibe",
   "login.oauth.activeProviderHint":
     "Текущий активный провайдер: {provider}. Повторный вход заменит текущую учётную запись.",
   "login.oauth.loadingProviders": "Загрузка провайдеров аккаунта…",
-  "login.oauth.noProviders":
-    "Сейчас провайдеры аккаунта недоступны. Повторите попытку позже.",
+  "login.oauth.noProviders": "Сейчас провайдеры аккаунта недоступны. Повторите попытку позже.",
   "login.oauth.button": "Продолжить с {provider}",
   "login.oauth.button.zai": "Подключиться к Z.ai",
   "login.oauth.button.bigmodel": "Подключиться к BigModel",
@@ -905,7 +929,7 @@ const ruRU: Record<string, string> = {
   "app.currentTheme": "Текущая: {theme}",
   "app.login": "Подключить",
   "app.logout": "Отключить",
-  "logout.confirm.title": "Отключиться и перезапустить ZCode?",
+  "logout.confirm.title": "Отключиться и перезапустить DeepVibe?",
   "logout.confirm.descriptionWithRunningSessions":
     "Сейчас выполняется сеансов: {count}. При отключении они будут прерваны, а приложение перезапустится.",
   "logout.confirm.descriptionDefault":
@@ -999,7 +1023,8 @@ const ruRU: Record<string, string> = {
   "workflowDirectory.endedEmpty": "Пока нет завершённых рабочих процессов",
   "workflowDirectory.empty": "В этом диалоге рабочие процессы ещё не запускались",
   "workflowDirectory.truncated": "Показаны только {count} последних запусков",
-  "workflowDirectory.unavailable": "Для этого диалога нельзя получить список запусков рабочих процессов",
+  "workflowDirectory.unavailable":
+    "Для этого диалога нельзя получить список запусков рабочих процессов",
   "chat.selections.addToTask": "Добавить в чат",
   "chat.selections.askInSideChat": "Добавить в побочный диалог",
   "chat.selections.sideBlocked":
@@ -1012,8 +1037,7 @@ const ruRU: Record<string, string> = {
   "chat.selections.type.tool": "Результат инструмента",
   "chat.selections.limit.single": "Один фрагмент может содержать не более 8 000 символов.",
   "chat.selections.limit.count": "Можно прикрепить не более 8 фрагментов диалога.",
-  "chat.selections.limit.total":
-    "Суммарный размер фрагментов диалога — не более 16 000 символов.",
+  "chat.selections.limit.total": "Суммарный размер фрагментов диалога — не более 16 000 символов.",
   "sidePane.openTabDescription": "Выберите вкладку, чтобы открыть её в боковой панели.",
   "sidePane.openFile": "Открыть файл",
   "sidePane.openFileDescription": "Откройте файл из текущей рабочей области в боковой панели.",
@@ -1051,7 +1075,8 @@ const ruRU: Record<string, string> = {
   "modelTrajectory.refresh": "Обновить",
   "modelTrajectory.close": "Закрыть",
   "modelTrajectory.loading": "Загрузка траектории…",
-  "modelTrajectory.empty": "Записи о вызовах модели отсутствуют (model-io записывает только ZCode Agent)",
+  "modelTrajectory.empty":
+    "Записи о вызовах модели отсутствуют (model-io записывает только DeepVibe Agent)",
   "modelTrajectory.error": "Не удалось загрузить траекторию",
   "modelTrajectory.truncatedNotice": "Слишком много записей — показаны последние вызовы",
   "modelTrajectory.summaryCalls": "Вызовов: {count}",
@@ -1226,7 +1251,8 @@ const ruRU: Record<string, string> = {
   "git.actionMenu.commitDialog.changesLabel": "Изменения",
   "git.actionMenu.commitDialog.changesValue": "Файлов: {count}",
   "git.actionMenu.commitDialog.messageLabel": "Сообщение коммита",
-  "git.actionMenu.commitDialog.messagePlaceholder": "Сообщение коммита (оставьте пустым для генерации)",
+  "git.actionMenu.commitDialog.messagePlaceholder":
+    "Сообщение коммита (оставьте пустым для генерации)",
   "git.actionMenu.commitDialog.messageHelper": "Генерация заполнит сообщение до создания коммита.",
   "git.actionMenu.commitDialog.generate": "Сгенерировать сообщение",
   "git.actionMenu.commitDialog.regenerate": "Сгенерировать заново",
@@ -1242,10 +1268,10 @@ const ruRU: Record<string, string> = {
   "git.actionMenu.commitDialog.error.generateFailed":
     "Не удалось сгенерировать сообщение коммита. Повторите попытку или введите его вручную.",
   "git.actionMenu.commitDialog.error.requestFailed": "Не удалось создать коммит: {error}",
-  "git.actionMenu.commitDialog.error.pushAfterCommitFailed": "Коммит создан, но отправить не удалось: {error}",
+  "git.actionMenu.commitDialog.error.pushAfterCommitFailed":
+    "Коммит создан, но отправить не удалось: {error}",
   "git.actionMenu.commitDialog.toast.success": "Коммит с текущими изменениями создан",
-  "git.actionMenu.commitDialog.toast.commitAndPushSuccess":
-    "Коммит создан, изменения отправлены",
+  "git.actionMenu.commitDialog.toast.commitAndPushSuccess": "Коммит создан, изменения отправлены",
   "git.actionMenu.pushDialog.title": "Отправка изменений",
   "git.actionMenu.pushDialog.description.tracked":
     "Отправить последние коммиты текущей ветки в удалённую ветку.",
@@ -1261,11 +1287,13 @@ const ruRU: Record<string, string> = {
   "git.actionMenu.pushDialog.pushValue": "Отправить",
   "git.actionMenu.pushDialog.upToDate": "В текущей ветке нет коммитов для отправки.",
   "git.actionMenu.pushDialog.confirm": "Отправить",
-  "git.actionMenu.pushDialog.error.summary": "Отправить не удалось. Проверьте подробности ошибки ниже.",
+  "git.actionMenu.pushDialog.error.summary":
+    "Отправить не удалось. Проверьте подробности ошибки ниже.",
   "git.actionMenu.pushDialog.error.detailsLabel": "Подробности ошибки",
   "git.actionMenu.pushDialog.error.copy": "Копировать ошибку",
   "git.actionMenu.pushDialog.error.copy.copied": "Скопировано",
-  "git.actionMenu.pushDialog.error.copyFailed": "Не удалось скопировать подробности ошибки: {error}",
+  "git.actionMenu.pushDialog.error.copyFailed":
+    "Не удалось скопировать подробности ошибки: {error}",
   "git.actionMenu.pushDialog.error.requestFailed": "Не удалось отправить: {error}",
   "git.actionMenu.pushDialog.toast.success": "Отправлено в {target}",
   "git.branchSwitcher.label": "Ветка",
@@ -1310,8 +1338,7 @@ const ruRU: Record<string, string> = {
   "git.branchSwitcher.commitDialog.error.requestFailed": "Не удалось создать коммит: {error}",
   "git.branchSwitcher.toast.switchSuccess": "Переключено на ветку {branchName}",
   "git.branchSwitcher.toast.createSuccess": "Ветка {branchName} создана, переключение выполнено",
-  "git.branchSwitcher.error.invalidBranchName":
-    "Недопустимое имя ветки. Введите другое имя.",
+  "git.branchSwitcher.error.invalidBranchName": "Недопустимое имя ветки. Введите другое имя.",
   "git.branchSwitcher.error.branchAlreadyExists":
     "Такая ветка уже существует. Выберите другое имя.",
   "git.branchSwitcher.error.targetBranchNotFound": "Целевая ветка ещё не существует локально.",
@@ -1359,7 +1386,8 @@ const ruRU: Record<string, string> = {
   "codeViewer.close": "Закрыть просмотр кода",
   "codeViewer.loadingFile": "Загрузка файла…",
   "codeViewer.loadingImage": "Загрузка предпросмотра изображения…",
-  "codeViewer.fileMissing": "Файл не существует, или эта среда не может получить доступ к этому пути.",
+  "codeViewer.fileMissing":
+    "Файл не существует, или эта среда не может получить доступ к этому пути.",
   "codeViewer.binary": "Этот файл похож на двоичные данные, и его пока нельзя показать как код.",
   "codeViewer.imageUnavailable": "Предпросмотр этого изображения сейчас недоступен.",
   "codeViewer.loadingMedia": "Загрузка предпросмотра медиафайла…",
@@ -1378,7 +1406,8 @@ const ruRU: Record<string, string> = {
   "codeViewer.pdf.zoomIn": "Увеличить масштаб",
   "codeViewer.pdf.zoomOut": "Уменьшить масштаб",
   "codeViewer.officeUnavailable": "Предпросмотр этого файла Office недоступен.",
-  "codeViewer.officeTooLarge": "Этот файл Office слишком большой для предпросмотра (не более 25 МБ).",
+  "codeViewer.officeTooLarge":
+    "Этот файл Office слишком большой для предпросмотра (не более 25 МБ).",
   "codeViewer.excel.sheetTabs": "Листы книги",
   "codeViewer.loadingPptx": "Загрузка предпросмотра презентации…",
   "codeViewer.pptxUnavailable": "Предпросмотр этой презентации сейчас недоступен.",
@@ -1426,7 +1455,8 @@ const ruRU: Record<string, string> = {
   "codeBlock.mermaid.empty": "Исходник Mermaid пуст.",
   "codeBlock.mermaid.error": "Не удалось отрисовать диаграмму Mermaid",
   "codeBlock.mermaid.openPreview": "Открыть предпросмотр",
-  "codeBlock.mermaid.previewDescription": "Предпросмотр диаграммы Mermaid с масштабированием и панорамированием.",
+  "codeBlock.mermaid.previewDescription":
+    "Предпросмотр диаграммы Mermaid с масштабированием и панорамированием.",
   "codeBlock.mermaid.zoomIn": "Увеличить масштаб",
   "codeBlock.mermaid.zoomOut": "Уменьшить масштаб",
   "codeBlock.mermaid.zoomLevel": "Масштаб",
@@ -1444,7 +1474,8 @@ const ruRU: Record<string, string> = {
   "markdownTable.expandScrollMode": "Развернуть область прокрутки таблицы",
   "markdownTable.collapseScrollMode": "Свернуть область прокрутки таблицы",
   "markdownTable.previewTitle": "Предпросмотр таблицы",
-  "markdownTable.previewDescription": "Просмотрите таблицу в увеличенном представлении с прокруткой.",
+  "markdownTable.previewDescription":
+    "Просмотрите таблицу в увеличенном представлении с прокруткой.",
   "markdownTable.copySucceeded": "Таблица Markdown скопирована",
   "markdownTable.copyFailed": "Не удалось скопировать таблицу: {error}",
   "markdownTable.downloadFailed": "Не удалось скачать таблицу",
@@ -1513,7 +1544,7 @@ const ruRU: Record<string, string> = {
   "titleBar.menu.view.actualSize": "Реальный размер",
   "titleBar.menu.view.zoomIn": "Увеличить масштаб",
   "titleBar.menu.view.zoomOut": "Уменьшить масштаб",
-  "titleBar.menu.help.about": "О ZCode",
+  "titleBar.menu.help.about": "О DeepVibe",
   "titleBar.menu.help.checkForUpdates": "Проверить обновления",
   "titleBar.menu.help.feedback": "Обратная связь",
   "sidebar.menu.community": "Сообщество",
@@ -1553,7 +1584,8 @@ const ruRU: Record<string, string> = {
   "updateDialog.releaseNotesCollapse": "Скрыть",
   "updateDialog.downloadAndUpdate": "Скачать обновление",
   "updateDialog.cancelDownload": "Отменить скачивание",
-  "updateDialog.autoDownloadAndInstall": "В следующий раз скачивать и устанавливать обновления автоматически",
+  "updateDialog.autoDownloadAndInstall":
+    "В следующий раз скачивать и устанавливать обновления автоматически",
   "updateDialog.downloadingAction": "Скачивание",
   "updateDialog.downloadProgress": "Прогресс скачивания",
   "updateDialog.restartToUpdate": "Перезапустить для обновления",
@@ -1566,7 +1598,7 @@ const ruRU: Record<string, string> = {
   "update.toast.ready": "v{version} скачана, перезапустите для установки",
   "update.toast.devSkipped": "В dev-сборках обновления отключены",
   "update.toast.error": "Не удалось проверить обновления: {error}",
-  "forceUpdate.title": "Обновите ZCode, чтобы продолжить",
+  "forceUpdate.title": "Обновите DeepVibe, чтобы продолжить",
   "forceUpdate.description":
     "Ваша текущая версия v{currentVersion} ниже минимально поддерживаемой версии v{minimalVersion}. Сначала обновитесь, а затем продолжайте работу в этом клиенте.",
   "forceUpdate.currentVersion": "Текущая версия",
@@ -1584,7 +1616,8 @@ const ruRU: Record<string, string> = {
   "postUpdateReleaseNotes.acknowledge": "Понятно",
 
   "projectSelector.heroTitle": "Открывайте быстро. Не теряйте фокус.",
-  "projectSelector.heroDescription": "Выберите рабочую область, вернитесь к работе и держите интерфейс в чистоте.",
+  "projectSelector.heroDescription":
+    "Выберите рабочую область, вернитесь к работе и держите интерфейс в чистоте.",
   "appError.title": "В приложении возникла проблема",
   "appError.description":
     "Ошибка страницы перехвачена, поэтому приложение не показывает пустой экран. Сначала попробуйте ещё раз, а если проблема повторяется — обновите приложение.",
@@ -1606,7 +1639,8 @@ const ruRU: Record<string, string> = {
   "workspace.openFolder": "Открыть папку",
   "workspace.openPluginsSettings": "Маркетплейс плагинов",
   "workspace.backToWorkspace": "Назад к рабочей области",
-  "workspace.noActiveForNewTask": "Пока нет доступной рабочей области. Сначала откройте рабочую область.",
+  "workspace.noActiveForNewTask":
+    "Пока нет доступной рабочей области. Сначала откройте рабочую область.",
   "workspace.wslUncPrompt.title": "Открыть это через удалённое подключение WSL?",
   "workspace.wslUncPrompt.description":
     "Вы выбрали путь WSL:\n{path}\n\nРекомендуем открыть его через подключение WSL, хотя можно продолжить и с этим путём.",
@@ -1648,7 +1682,7 @@ const ruRU: Record<string, string> = {
   "workspaceSidebar.notConnected": "Нет подключения",
   "workspaceSidebar.empty": "Рабочих областей пока нет. Откройте рабочую область, чтобы начать.",
   "workspaceSidebar.unavailableLocalDirectory":
-    "Папка рабочей области не существует или недоступна. Пока можно только просматривать историю. Восстановите папку и перезапустите ZCode, чтобы продолжить.",
+    "Папка рабочей области не существует или недоступна. Пока можно только просматривать историю. Восстановите папку и перезапустите DeepVibe, чтобы продолжить.",
   "workspaceSidebar.showSidebar": "Переключить боковую панель",
   "workspaceSidebar.hideSidebar": "Переключить боковую панель",
   "workspaceSidebar.toggleSidebar": "Переключить боковую панель",
@@ -1691,7 +1725,7 @@ const ruRU: Record<string, string> = {
   "ssh.assetInstallMode.local-download-upload": "Скачать локально, затем загрузить",
   "ssh.assetInstallMode.remote-download": "Скачать на удалённом сервере",
   "ssh.assetInstallModeDescription":
-    "Загрузка на удалённом сервере сокращает ожидание выгрузки, но сервер должен иметь доступ к CDN ZCode и располагать инструментами для скачивания, распаковки и проверки контрольных сумм.",
+    "Загрузка на удалённом сервере сокращает ожидание выгрузки, но сервер должен иметь доступ к CDN DeepVibe и располагать инструментами для скачивания, распаковки и проверки контрольных сумм.",
   "ssh.password": "Пароль",
   "ssh.passwordPlaceholder": "Введите пароль SSH",
   "ssh.privateKey": "Приватный ключ",
@@ -1705,7 +1739,8 @@ const ruRU: Record<string, string> = {
   "ssh.configAliasEmpty": "На этой машине нет доступных псевдонимов из конфигурации SSH.",
   "ssh.configAliasLoadFailed":
     "Не удалось загрузить псевдонимы из конфигурации SSH. Вы можете ввести данные подключения вручную.",
-  "ssh.configAliasDescription": "Выберите псевдоним, чтобы подставить хост, порт, имя пользователя и приватный ключ.",
+  "ssh.configAliasDescription":
+    "Выберите псевдоним, чтобы подставить хост, порт, имя пользователя и приватный ключ.",
   "ssh.connect": "Подключиться",
   "ssh.cancel": "Отмена",
   "ssh.connecting": "Подключение…",
@@ -1734,11 +1769,13 @@ const ruRU: Record<string, string> = {
     "Устанавливаем подключение через {method}. Ход настройки можно отслеживать здесь.",
   "webRemoteControl.trigger": "Мобильное удалённое управление",
   "webRemoteControl.title": "Мобильное удалённое управление",
-  "webRemoteControl.description": "Управляйте рабочими областями ZCode через чат-ботов.",
+  "webRemoteControl.description": "Управляйте рабочими областями DeepVibe через чат-ботов.",
   "webRemoteControl.botChannel.title": "Использовать канал бота",
-  "webRemoteControl.botChannel.description": "Подключите чат-бота для длительного доступа с телефона.",
+  "webRemoteControl.botChannel.description":
+    "Подключите чат-бота для длительного доступа с телефона.",
   "webRemoteControl.botChannel.weixin.title": "Weixin-бот",
-  "webRemoteControl.botChannel.weixin.description": "Открывайте эту рабочую область из чата Weixin.",
+  "webRemoteControl.botChannel.weixin.description":
+    "Открывайте эту рабочую область из чата Weixin.",
   "webRemoteControl.botChannel.feishu.title": "Feishu-бот",
   "webRemoteControl.botChannel.feishu.description": "Открывайте эту рабочую область из Feishu.",
   "webRemoteControl.botChannel.lark.title": "Lark-бот",
@@ -1787,8 +1824,7 @@ const ruRU: Record<string, string> = {
   "remote.log.sshTarget": "Цель SSH: {username}@{host}:{port}",
   "remote.log.dockerTarget": "Целевой контейнер Docker: {container}",
   "remote.log.requestingSession": "Запрашиваем у хост-процесса создание удалённого сеанса…",
-  "remote.log.sessionReady":
-    "Удалённый сеанс создан. Теперь можно выбрать папку.",
+  "remote.log.sessionReady": "Удалённый сеанс создан. Теперь можно выбрать папку.",
   "wsl.description":
     "Подключитесь к дистрибутиву по умолчанию или выберите конкретный дистрибутив, установленный на этом устройстве.",
   "wsl.distro": "Дистрибутив",
@@ -1958,7 +1994,7 @@ const ruRU: Record<string, string> = {
   "chat.changeSummary.reverted": "Отменено",
   "chat.changeSummary.rewindDialog.title": "Отмена изменений файлов",
   "chat.changeSummary.rewindDialog.description":
-    "Перед записью ZCode ещё раз проверяет текущее содержимое файлов. Если файл изменён другим процессом, запись выполнена не будет.",
+    "Перед записью DeepVibe ещё раз проверяет текущее содержимое файлов. Если файл изменён другим процессом, запись выполнена не будет.",
   "chat.changeSummary.rewindDialog.loading": "Проверка файлов, доступных для отмены…",
   "chat.changeSummary.rewindDialog.safeTitle": "Можно безопасно отменить: {count}",
   "chat.changeSummary.rewindDialog.unsafeTitle": "Небезопасно отменять: {count}",
@@ -1969,11 +2005,13 @@ const ruRU: Record<string, string> = {
   "chat.changeSummary.rewindDialog.confirm": "Отменить изменения файлов",
   "chat.changeSummary.rewindDialog.cannotApply":
     "Как минимум один файл небезопасен, поэтому файлы не были записаны.",
-  "chat.changeSummary.rewindDialog.error": "Не удалось выполнить отмену изменений файлов. Попробуйте ещё раз.",
+  "chat.changeSummary.rewindDialog.error":
+    "Не удалось выполнить отмену изменений файлов. Попробуйте ещё раз.",
   "chat.changeSummary.rewindDialog.operationCount": "Изменений: {count}",
   "chat.changeSummary.rewindDialog.reason.bashIgnored": "изменение bash/shell пропущено",
   "chat.changeSummary.rewindDialog.reason.checkpointMissing": "контрольная точка отсутствует",
-  "chat.changeSummary.rewindDialog.reason.checkpointUnreadable": "контрольная точка недоступна для чтения",
+  "chat.changeSummary.rewindDialog.reason.checkpointUnreadable":
+    "контрольная точка недоступна для чтения",
   "chat.changeSummary.rewindDialog.reason.externalModified": "файл изменён извне",
   "chat.changeSummary.rewindDialog.reason.fileReadFailed": "текущий файл недоступен для чтения",
   "chat.changeSummary.rewindDialog.reason.unsupportedCheckpoint":
@@ -1982,7 +2020,8 @@ const ruRU: Record<string, string> = {
   "chat.edit.resetConversationAndFiles.tooltip": "Сбросить вместе с файлами",
   "chat.edit.resetConversationAndFiles.available":
     "Восстановить файлы этого хода, сбросить диалог и отправить",
-  "chat.edit.resetConversationAndFiles.noFiles": "В этом ходе нет изменений файлов, доступных для отмены",
+  "chat.edit.resetConversationAndFiles.noFiles":
+    "В этом ходе нет изменений файлов, доступных для отмены",
   "chat.edit.resetConversationAndFiles.reverted": "Изменения файлов этого хода уже отменены",
   "chat.edit.resetConversationAndFiles.running": "Дождитесь завершения текущей работы",
   "chat.edit.resetConversationAndFiles.unavailable":
@@ -2081,8 +2120,7 @@ const ruRU: Record<string, string> = {
   "settings.shortcuts.clearConflict":
     "Клавиша по умолчанию уже используется командой «{command}»; восстановление создаст конфликт. Сначала измените привязку этой команды",
   "settings.shortcuts.stealConfirm": "Всё равно переназначить (текущая команда потеряет сочетание)",
-  "settings.shortcuts.invalidNoModifier":
-    "Нужен хотя бы один модификатор (Ctrl / Cmd / Alt)",
+  "settings.shortcuts.invalidNoModifier": "Нужен хотя бы один модификатор (Ctrl / Cmd / Alt)",
   "settings.shortcuts.invalidKey": "Неподдерживаемая клавиша",
   "settings.shortcuts.rebindAria": "Переназначить сочетание клавиш для «{command}»",
   "settings.shortcuts.addAria": "Добавить привязку для «{command}»",
@@ -2114,7 +2152,8 @@ const ruRU: Record<string, string> = {
   "settings.shortcuts.command.zoomOut": "Уменьшить масштаб",
   "settings.shortcuts.command.resetZoom": "Сбросить масштаб",
   "settings.appearance.interfaceTitle": "Настройки интерфейса",
-  "settings.appearance.interfaceDescription": "Выберите тему приложения и размер текста интерфейса.",
+  "settings.appearance.interfaceDescription":
+    "Выберите тему приложения и размер текста интерфейса.",
   "settings.appearance.codeTitle": "Настройки кода",
   "settings.appearance.codeDescription":
     "Настройте тему кода, размер шрифта и параметры отображения независимо от размера шрифта интерфейса.",
@@ -2130,8 +2169,9 @@ const ruRU: Record<string, string> = {
     "При запуске встроенного терминала по возможности наследовать окружение командной оболочки входа, прокси, переменные Kubernetes и шрифт локального терминала.",
   "settings.terminalFontFamily": "Шрифт терминала",
   "settings.terminalFontFamilyDescription":
-    "Оставьте пустым для автоопределения настроек системного терминала; укажите значение, чтобы переопределить шрифт терминала ZCode.",
-  "settings.terminalFontFamilyPlaceholder": "Оставьте пустым для наследования, например: MesloLGS NF, monospace",
+    "Оставьте пустым для автоопределения настроек системного терминала; укажите значение, чтобы переопределить шрифт терминала DeepVibe.",
+  "settings.terminalFontFamilyPlaceholder":
+    "Оставьте пустым для наследования, например: MesloLGS NF, monospace",
   "settings.integratedTerminalShell": "Оболочка встроенного терминала",
   "settings.integratedTerminalShellDescription":
     "Применяется только к новым сеансам. В Windows Bash использует эту оболочку; «Авто» сначала пробует Git Bash, затем cmd.exe.",
@@ -2143,11 +2183,13 @@ const ruRU: Record<string, string> = {
   "settings.memory.workspaceMemory": "Память рабочей области",
   "settings.memoryDescription":
     "Сохраняйте и повторно используйте долгосрочный контекст в рабочих областях. Применяется к новым сеансам и может увеличить число запросов к модели и расход токенов.",
-  "settings.memory.viewer.disabled": "Включите «Память рабочей области», чтобы просматривать сохранённые записи.",
+  "settings.memory.viewer.disabled":
+    "Включите «Память рабочей области», чтобы просматривать сохранённые записи.",
   "settings.memory.viewer.localOnly":
     "Подробности памяти доступны только в локальном десктопном приложении. Откройте там настройки памяти, чтобы просмотреть их.",
   "settings.memory.viewer.title": "Сохранённые записи памяти рабочей области",
-  "settings.memory.viewer.description": "Просматривайте записи памяти, сохранённые рабочими областями на этом устройстве.",
+  "settings.memory.viewer.description":
+    "Просматривайте записи памяти, сохранённые рабочими областями на этом устройстве.",
   "settings.memory.viewer.projectsDescription":
     "Выберите проект, чтобы просмотреть все его сохранённые записи памяти.",
   "settings.memory.viewer.refresh": "Обновить",
@@ -2191,12 +2233,14 @@ const ruRU: Record<string, string> = {
   "settings.httpProxyNoProxy": "Без прокси",
   "settings.httpProxyNoProxyDescription":
     "Запросы к этим хостам идут напрямую, минуя HTTP-прокси. Разделяйте правила запятыми. Перезапустите приложение, чтобы изменения вступили в силу.",
-  "settings.httpProxyNoProxyPlaceholder": "например, localhost,127.0.0.1,::1,.example.com,*.corp.com",
+  "settings.httpProxyNoProxyPlaceholder":
+    "например, localhost,127.0.0.1,::1,.example.com,*.corp.com",
   "settings.httpProxyCaCertPath": "Свой сертификат",
   "settings.httpProxyCaCertPathDescription":
     "Необязательно. Укажите путь к корневому сертификату PEM, чтобы подставить его как NODE_EXTRA_CA_CERTS для моделей, MCP и инструментов команд, а также сделать доверенным при проверке сертификатов в рендерере. Перезапустите приложение, чтобы изменения вступили в силу.",
   "settings.httpProxyCaCertPathPlaceholder": "например, /Users/name/certs/root-ca.pem",
-  "settings.httpProxySavedHint": "Настройки сетевого прокси сохранены. Перезапустите приложение, чтобы они вступили в силу.",
+  "settings.httpProxySavedHint":
+    "Настройки сетевого прокси сохранены. Перезапустите приложение, чтобы они вступили в силу.",
   "settings.desktopChromiumHardwareAcceleration": "Аппаратное ускорение Chrome",
   "settings.desktopChromiumHardwareAccelerationDescription":
     "Отключите, если из-за некоторых GPU или драйверов возникают пустые окна, сбои или проблемы с отрисовкой. Перезапустите приложение, чтобы изменения вступили в силу.",
@@ -2235,7 +2279,8 @@ const ruRU: Record<string, string> = {
   "settings.messageStreamShowReasoningDescription":
     "Показывать полные рассуждения в потоке сообщений. Если выключено, первый элемент рассуждений в каждом ходе остаётся видимым.",
   "settings.messageStreamShowTodos": "Показывать задачи",
-  "settings.messageStreamShowTodosDescription": "Показывать карточки инструмента Todo в потоке сообщений. ",
+  "settings.messageStreamShowTodosDescription":
+    "Показывать карточки инструмента Todo в потоке сообщений. ",
   "settings.toolGroupingExplore": "Группировать инструменты изучения",
   "settings.toolGroupingExploreDescription":
     "Объединять последовательные чтения и поиски в раздел «Изучение».",
@@ -2247,7 +2292,7 @@ const ruRU: Record<string, string> = {
     "Объединять последовательные вызовы Write, Edit и ApplyPatch в раздел «Изменения».",
   "settings.zcodeInteractionBehavior": "Поведение при взаимодействии",
   "settings.zcodeInteractionBehaviorDescription":
-    "Пока ZCode выполняется, добавлять последующие действия в очередь или направлять их на выполнение после следующего вызова инструмента.",
+    "Пока DeepVibe выполняется, добавлять последующие действия в очередь или направлять их на выполнение после следующего вызова инструмента.",
   "settings.zcodeInteractionBehavior.option.queue": "Очередь",
   "settings.zcodeInteractionBehavior.option.guide": "Направлять",
   "settings.askUserQuestionAutoResolution": "Автоматически продолжать вопросы",
@@ -2257,7 +2302,8 @@ const ruRU: Record<string, string> = {
   "settings.modelIoFullRetentionDescription":
     "Хранить полные запросы и ответы модели без сжатия, ограничений размера и автоматического удаления.",
   "settings.performanceMode": "Режим производительности",
-  "settings.performanceModeDescription": "Упрощать отрисовку вывода для повышения производительности.",
+  "settings.performanceModeDescription":
+    "Упрощать отрисовку вывода для повышения производительности.",
   "settings.taskAutoArchive": "Автоархивация старых задач",
   "settings.taskAutoArchiveDescription":
     "Периодически проверять недавно открытые рабочие области и автоматически архивировать завершённые, полностью прочитанные и не закреплённые задачи после окончания срока хранения.",
@@ -2277,8 +2323,9 @@ const ruRU: Record<string, string> = {
   "settings.dataBaseDirCopying": "Копирование данных, не закрывайте приложение…",
   "settings.dataBaseDirCopyFailed": "Не удалось скопировать данные. Путь не изменён.",
   "settings.dataBaseDirForbiddenInstallDir":
-    "В Windows каталог данных не может совпадать с папкой установки ZCode. Выберите папку вне места установки приложения.",
-  "settings.dataBaseDirRestartRequired": "Данные сохранены. Перезапустите приложение, чтобы изменения вступили в силу.",
+    "В Windows каталог данных не может совпадать с папкой установки DeepVibe. Выберите папку вне места установки приложения.",
+  "settings.dataBaseDirRestartRequired":
+    "Данные сохранены. Перезапустите приложение, чтобы изменения вступили в силу.",
   "settings.locale.system": "Как в системе",
   "settings.locale.zh-CN": "中文简体",
   "settings.locale.en-US": "English",
@@ -2293,7 +2340,7 @@ const ruRU: Record<string, string> = {
   "settings.migration.title": "Миграция",
   "settings.migration.sectionTitle": "Миграция истории Claude",
   "settings.migration.sectionDescription":
-    "Сканируйте встроенную историю Claude Code на этом компьютере, при необходимости фильтруйте по рабочей области и периоду активности, а затем импортируйте выбранные сеансы в соответствующие списки задач ZCode.",
+    "Сканируйте встроенную историю Claude Code на этом компьютере, при необходимости фильтруйте по рабочей области и периоду активности, а затем импортируйте выбранные сеансы в соответствующие списки задач DeepVibe.",
   "settings.migration.badge.localOnly": "Локальные записи Claude",
   "settings.migration.badge.manualOnly": "Только вручную",
   "settings.migration.currentWorkspace": "Текущая рабочая область",
@@ -2306,7 +2353,8 @@ const ruRU: Record<string, string> = {
   "settings.migration.noticeDescription":
     "Миграция копирует исходные файлы jsonl и создаёт минимальные снимки задач. Без фильтра по рабочей области сканирование охватывает все записи Claude и импортирует каждый сеанс обратно в его исходную рабочую область.",
   "settings.migration.unsupported.title": "Миграция здесь недоступна",
-  "settings.migration.unsupported.desktopOnly": "Сейчас миграция доступна только в настольном приложении.",
+  "settings.migration.unsupported.desktopOnly":
+    "Сейчас миграция доступна только в настольном приложении.",
   "settings.migration.filtersTitle": "Фильтры",
   "settings.migration.filtersDescription":
     "Фильтруйте по рабочей области, недавней активности и размеру результатов, затем вручную получите список подходящих сеансов.",
@@ -2322,7 +2370,8 @@ const ruRU: Record<string, string> = {
   "settings.migration.limitHint": "Это сканирование вернёт до {max} сеансов.",
   "settings.migration.scan": "Сканировать сеансы",
   "settings.migration.scanFailedTitle": "Сбой сканирования",
-  "settings.migration.scanFailedDescription": "Не удалось прочитать исходную историю Claude: {error}",
+  "settings.migration.scanFailedDescription":
+    "Не удалось прочитать исходную историю Claude: {error}",
   "settings.migration.candidatesTitle": "Кандидаты",
   "settings.migration.candidatesDescription":
     "Выберите один или несколько сеансов для импорта. Каждый импортированный сеанс добавляется в список задач его собственной рабочей области.",
@@ -2334,7 +2383,8 @@ const ruRU: Record<string, string> = {
   "settings.migration.importFailedTitle": "Сбой импорта",
   "settings.migration.importFailedDescription": "Сбой миграции: {error}",
   "settings.migration.resultTitle": "Последний результат миграции",
-  "settings.migration.resultSummary": "Импортировано {imported}, пропущено {skipped}, с ошибкой {failed}.",
+  "settings.migration.resultSummary":
+    "Импортировано {imported}, пропущено {skipped}, с ошибкой {failed}.",
   "settings.migration.emptyTitle": "Подходящих сеансов пока нет",
   "settings.migration.emptyDescription":
     "Измените фильтры и нажмите «Сканировать сеансы», чтобы загрузить подходящие результаты.",
@@ -2347,21 +2397,22 @@ const ruRU: Record<string, string> = {
   "settings.usageTitle": "Статистика использования",
   "settings.usageDescription":
     "Просматривайте примерную активность и использование моделей, собранные из локальных сеансов.",
-  "resourceManager.storage.summaryTotal": "Всего занято ZCode",
+  "resourceManager.storage.summaryTotal": "Всего занято DeepVibe",
   "resourceManager.storage.scanning": "Расчёт…",
   "resourceManager.storage.lastScanned": "Последний расчёт: {time}",
   "resourceManager.storage.idle": "Ещё не рассчитано",
   "resourceManager.storage.failed": "Сбой расчёта",
   "resourceManager.storage.rescan": "Пересчитать",
   "resourceManager.storage.disk": "Диск",
-  "resourceManager.storage.diskUsage": "ZCode использует {used}",
+  "resourceManager.storage.diskUsage": "DeepVibe использует {used}",
   "resourceManager.storage.diskFree": "{free} свободно из {total}",
   "resourceManager.storage.diskUnknown": "Ёмкость диска недоступна",
   "resourceManager.storage.roots": "Каталоги данных",
   "resourceManager.storage.legendMore": "Других категорий: {count}",
   "resourceManager.storage.estimate":
     "Размеры приблизительны: жёсткие ссылки и клонированные файлы могут учитываться дважды.",
-  "resourceManager.storage.errors": "Не удалось прочитать каталогов: {count}; итоговые значения могут быть занижены.",
+  "resourceManager.storage.errors":
+    "Не удалось прочитать каталогов: {count}; итоговые значения могут быть занижены.",
   "resourceManager.storage.filesCount": "Файлов: {count}",
   "resourceManager.storage.moreEntries": "Ещё элементов: {count}",
   "resourceManager.storage.reveal": "Показать в файловом менеджере",
@@ -2369,7 +2420,8 @@ const ruRU: Record<string, string> = {
   "resourceManager.storage.clean": "Очистить",
   "resourceManager.storage.cleaning": "Очистка…",
   "resourceManager.storage.cleanSuccess": "Освобождено {size}",
-  "resourceManager.storage.cleanPartial": "Освобождено {size}; не удалось удалить элементов: {count}",
+  "resourceManager.storage.cleanPartial":
+    "Освобождено {size}; не удалось удалить элементов: {count}",
   "resourceManager.storage.cleanNothing": "Нечего очищать",
   "resourceManager.storage.cleanFailed": "Сбой очистки",
   "resourceManager.storage.confirmTitle": "Очистить «{category}»?",
@@ -2422,7 +2474,8 @@ const ruRU: Record<string, string> = {
   "settings.embeddedBrowserAllowInsecureCertificatesSavedHint":
     "Настройка сертификатов сохранена. Перезапустите приложение, чтобы изменения вступили в силу.",
   "settings.browser.data.section": "Данные браузера",
-  "settings.browser.desktopOnly": "Управлять данными браузера можно только в настольном приложении ZCode.",
+  "settings.browser.desktopOnly":
+    "Управлять данными браузера можно только в настольном приложении DeepVibe.",
   "settings.browser.import.title": "Импорт данных входа в Chrome",
   "settings.browser.import.description":
     "Однократно перенесите состояние входа из Chrome во встроенный браузер, чтобы ИИ мог открывать сайты, где вы уже авторизованы, и работать без лишних помех.",
@@ -2440,13 +2493,13 @@ const ruRU: Record<string, string> = {
   "settings.browser.import.elevationCancelled":
     "Доступ администратора Windows отменён. Файлы cookie не импортированы.",
   "settings.browser.import.helperVerificationFailed":
-    "ZCode не удалось проверить свой компонент безопасного импорта для Windows. Переустановите или обновите ZCode перед импортом файлов cookie.",
+    "DeepVibe не удалось проверить свой компонент безопасного импорта для Windows. Переустановите или обновите DeepVibe перед импортом файлов cookie.",
   "settings.browser.import.appBoundFailed":
     "Windows не удалось разблокировать файлы cookie Chrome, защищённые App-Bound. Файлы cookie не импортированы.",
   "settings.browser.import.adminConfirmTitle":
     "Разрешить доступ администратора для импорта файлов cookie Chrome?",
   "settings.browser.import.adminConfirmDescription":
-    "В Windows Chrome защищает файлы cookie шифрованием App-Bound. Только для этого импорта ZCode запросит доступ администратора, запустит временную системную службу и сразу же её удалит. Пароли Chrome никогда не читаются и не импортируются.",
+    "В Windows Chrome защищает файлы cookie шифрованием App-Bound. Только для этого импорта DeepVibe запросит доступ администратора, запустит временную системную службу и сразу же её удалит. Пароли Chrome никогда не читаются и не импортируются.",
   "settings.browser.import.adminConsent":
     "Подтверждаю доступ администратора только для этого импорта файлов cookie",
   "settings.browser.import.adminConfirmAction": "Продолжить и запросить доступ",
@@ -2483,11 +2536,9 @@ const ruRU: Record<string, string> = {
     "Вы выйдете из аккаунтов на сайтах во встроенном браузере, а файлы cookie, данные сайтов и кеш будут удалены. Это действие необратимо.",
   "settings.browser.clearAll.confirmAction": "Очистить данные",
   "settings.lightTheme": "Светлая тема кода",
-  "settings.lightThemeDescription":
-    "Тема подсветки для кода в светлом интерфейсе.",
+  "settings.lightThemeDescription": "Тема подсветки для кода в светлом интерфейсе.",
   "settings.darkTheme": "Тёмная тема кода",
-  "settings.darkThemeDescription":
-    "Тема подсветки для кода в тёмном интерфейсе.",
+  "settings.darkThemeDescription": "Тема подсветки для кода в тёмном интерфейсе.",
   "settings.showLineNumbers": "Показывать номера строк",
   "settings.showLineNumbersDescription": "Показывать номера строк в представлениях кода и диффов.",
   "settings.wrapLongLines": "Переносить длинные строки",
@@ -2505,7 +2556,8 @@ const ruRU: Record<string, string> = {
   "settings.previewBadge.dark": "Тёмная",
   "settings.modelProviderTitle": "Настройки моделей",
   "settings.mcpTitle": "Серверы MCP",
-  "settings.mcp.description": "Управляйте конфигурациями серверов MCP, которые использует ZCode Agent.",
+  "settings.mcp.description":
+    "Управляйте конфигурациями серверов MCP, которые использует DeepVibe Agent.",
   "settings.mcp.create.open": "Добавить сервер MCP",
   "settings.mcp.import.open": "Импортировать серверы MCP из внешних агентов",
   "settings.mcp.import.action": "Импортировать",
@@ -2548,9 +2600,9 @@ const ruRU: Record<string, string> = {
     "Синхронизированные плагины могут загружать и запускать навыки, команды, хуки и серверы MCP в удалённом окружении. Плагины из магазина устанавливаются на удалённой цели заново и требуют удалённого доступа к источнику магазина.",
   "settings.plugins.remoteSync.target": "Цель: {target}",
   "settings.plugins.remoteSync.loading": "Загрузка локальных плагинов…",
-  "settings.plugins.remoteSync.empty": "Нет локальных плагинов, доступных для удалённой синхронизации.",
-  "settings.plugins.remoteSync.filteredEmpty":
-    "Все локальные плагины уже есть на удалённом хосте.",
+  "settings.plugins.remoteSync.empty":
+    "Нет локальных плагинов, доступных для удалённой синхронизации.",
+  "settings.plugins.remoteSync.filteredEmpty": "Все локальные плагины уже есть на удалённом хосте.",
   "settings.plugins.remoteSync.showExisting": "Показать существующие удалённые плагины",
   "settings.plugins.remoteSync.selectAll": "Выбрать все",
   "settings.plugins.remoteSync.start": "Синхронизировать выбранное",
@@ -2582,7 +2634,7 @@ const ruRU: Record<string, string> = {
     "Этот сервер MCP плагина загружен, но сейчас не подключён.",
   "settings.mcp.host.active": "Встроенный в хост",
   "settings.mcp.host.activeDescription":
-    "ZCode предоставляет этот сервер MCP для плагина {pluginName}. Его идентификатор в среде выполнения управляется хостом.",
+    "DeepVibe предоставляет этот сервер MCP для плагина {pluginName}. Его идентификатор в среде выполнения управляется хостом.",
   "settings.mcp.plugin.disabled": "Плагин отключён",
   "settings.mcp.plugin.disabledDescription":
     "Этот сервер MCP встроен в плагин. Включите плагин, чтобы загрузить его.",
@@ -2594,7 +2646,7 @@ const ruRU: Record<string, string> = {
     "Откройте страницу авторизации, чтобы завершить подключение этого сервера MCP плагина.",
   "settings.mcp.oauth.openAuthorization": "Открыть авторизацию",
   "settings.mcp.statusOnlyUnsupported":
-    "Этот ZCode Agent не может обновить статус OAuth. Обновите или перезапустите ZCode, затем снова откройте настройки MCP, чтобы выполнить полное обновление.",
+    "Этот DeepVibe Agent не может обновить статус OAuth. Обновите или перезапустите DeepVibe, затем снова откройте настройки MCP, чтобы выполнить полное обновление.",
   "settings.mcp.refreshFailed": "Не удалось обновить статус MCP: {error}",
   "settings.mcp.status.toolCount": "Инструментов: {count}",
   "settings.mcp.status.connectedReason": "Подключено и доступно.",
@@ -2621,7 +2673,7 @@ const ruRU: Record<string, string> = {
   "settings.mcp.failure.official_origin_untrusted":
     "URL-адрес сервера MCP не прошёл проверку безопасности. Подключение заблокировано.",
   "settings.mcp.failure.not_authenticated":
-    "Вы не вошли в систему. Войдите в ZCode, чтобы использовать этот сервер MCP.",
+    "Вы не вошли в систему. Войдите в DeepVibe, чтобы использовать этот сервер MCP.",
   "settings.mcp.failure.coding_plan_required":
     "У этой учётной записи нет Coding Plan. Приобретите или настройте Coding Plan, чтобы использовать этот сервер MCP.",
   "settings.mcp.failure.server_not_found":
@@ -2635,7 +2687,8 @@ const ruRU: Record<string, string> = {
     "Не удалось выполнить запрос по протоколу MCP. Возможно, клиент и сервер несовместимы.",
   "settings.mcp.failure.status_unavailable":
     "Не удаётся получить статус MCP. Обновите данные или перезапустите агент.",
-  "settings.mcp.failure.connection_failed": "Не удалось подключиться к серверу MCP. Повторите попытку позже.",
+  "settings.mcp.failure.connection_failed":
+    "Не удалось подключиться к серверу MCP. Повторите попытку позже.",
   "settings.mcp.failure.technicalDetails": "Подробности",
   "settings.mcp.deleteConfirmTitle": "Удалить сервер MCP «{name}»?",
   "settings.mcp.deleteConfirmDescription":
@@ -2684,14 +2737,15 @@ const ruRU: Record<string, string> = {
   "settings.mcpServers.import.expandSource": "Показать серверы MCP",
   "settings.mcpServers.import.collapseSource": "Скрыть серверы MCP",
   "settings.mcpServers.import.selectSource": "Выбрать все серверы MCP из этого источника",
-  "settings.mcpServers.import.deselectSource": "Снять выделение со всех серверов MCP из этого источника",
+  "settings.mcpServers.import.deselectSource":
+    "Снять выделение со всех серверов MCP из этого источника",
   "settings.mcpServers.import.itemCount": "Серверов MCP: {count}",
   "settings.mcpServers.import.skipReason.sameNameExists": "Сервер уже существует",
   "settings.mcpServers.import.start": "Импортировать выбранные серверы MCP",
   "settings.mcpServers.import.targetLabel": "Куда импортировать",
   "settings.mcpServers.import.target.global": "Импортировать глобально",
   "settings.mcpServers.import.target.project": "Импортировать в проект",
-  "settings.mcpServers.import.importing": "Импорт серверов MCP в ZCode",
+  "settings.mcpServers.import.importing": "Импорт серверов MCP в DeepVibe",
   "settings.mcpServers.import.imported": "Импортировано",
   "settings.mcpServers.import.skipped": "Пропущено",
   "settings.mcpServers.import.failed": "Сбой",
@@ -2706,7 +2760,8 @@ const ruRU: Record<string, string> = {
   "settings.plugins.scope.userDefault": "Значение пользователя по умолчанию",
   "settings.plugins.scope.workspaceOverride": "Переопределение в рабочей области",
   "settings.plugins.scope.restoreUserDefault": "Восстановить значение пользователя по умолчанию",
-  "settings.plugins.scope.restored": "Для {plugin} восстановлено значение пользователя по умолчанию",
+  "settings.plugins.scope.restored":
+    "Для {plugin} восстановлено значение пользователя по умолчанию",
   "settings.plugins.scope.workspaceHint":
     "Изменения здесь действуют только в этой рабочей области и переопределяют значение пользователя по умолчанию.",
   "settings.plugins.toggle.enable": "Включить {plugin}",
@@ -2797,11 +2852,11 @@ const ruRU: Record<string, string> = {
   "settings.modelProvider.accountProviderConfigMissing":
     "Конфигурация провайдера для учётной записи недоступна. Обновите данные и повторите попытку.",
   "settings.modelProvider.startPlan.login": "Войти",
-  "settings.modelProvider.startPlan.status.loginRequired": "Войдите, чтобы просмотреть и использовать тариф Start Plan",
+  "settings.modelProvider.startPlan.status.loginRequired":
+    "Войдите, чтобы просмотреть и использовать тариф Start Plan",
   "settings.modelProvider.startPlan.status.expired": "Срок тарифа Start Plan истёк",
   "settings.modelProvider.startPlan.status.noPlan": "Нет доступного тарифа Start Plan",
-  "settings.modelProvider.startPlan.status.loginExpired":
-    "Срок вашего входа истёк. Войдите снова.",
+  "settings.modelProvider.startPlan.status.loginExpired": "Срок вашего входа истёк. Войдите снова.",
   "settings.modelProvider.startPlan.title": "{provider} — тариф Coding Plan",
   "settings.modelProvider.startPlan.meta.today": "Сегодня",
   "settings.modelProvider.startPlan.meta.tomorrow": "Завтра",
@@ -2819,17 +2874,18 @@ const ruRU: Record<string, string> = {
   "settings.modelProvider.startPlan.highlight.trial.label": "Пробный период",
   "settings.modelProvider.startPlan.highlight.trial.value": "5 календарных дней",
   "settings.modelProvider.startPlan.highlight.trial.description":
-    "Отсчёт начинается после входа в ZCode 3.x.",
+    "Отсчёт начинается после входа в DeepVibe 3.x.",
   "settings.modelProvider.startPlan.highlight.quota.label": "Дневная квота",
   "settings.modelProvider.startPlan.highlight.quota.value": "3 млн токенов в день",
   "settings.modelProvider.startPlan.highlight.quota.description":
     "Флагманские модели платформы GLM совместно используют дневную пробную квоту в 3 млн токенов.",
   "settings.modelProvider.startPlan.highlight.metering.label": "Тарификация",
-  "settings.modelProvider.startPlan.highlight.metering.value": "После использования моделей платформы",
+  "settings.modelProvider.startPlan.highlight.metering.value":
+    "После использования моделей платформы",
   "settings.modelProvider.startPlan.highlight.metering.description":
     "Списывается только после использования флагманских моделей GLM платформы.",
   "settings.modelProvider.startPlan.compatibility":
-    "Поддерживаются BYOK и BYOA. Base URL, формат API и ключ API ZCode поддерживает автоматически.",
+    "Поддерживаются BYOK и BYOA. Base URL, формат API и ключ API DeepVibe поддерживает автоматически.",
   "settings.modelProvider.codingPlan.title": "{provider} — тариф Coding Plan",
   "settings.modelProvider.codingPlan.webview.title": "Обновить тариф",
   "settings.modelProvider.codingPlan.webview.authInjectFailed":
@@ -2889,12 +2945,14 @@ const ruRU: Record<string, string> = {
   "settings.modelProvider.codingPlan.purchase.paymentTitle": "Оплата",
   "settings.modelProvider.codingPlan.purchase.personal": "Индивидуальные",
   "settings.modelProvider.codingPlan.purchase.team": "Команды",
-  "settings.modelProvider.codingPlan.purchase.individualsSectionTitle": "Для индивидуальных разработчиков",
+  "settings.modelProvider.codingPlan.purchase.individualsSectionTitle":
+    "Для индивидуальных разработчиков",
   "settings.modelProvider.codingPlan.purchase.teamsSectionTitle": "Для команд",
   "settings.modelProvider.codingPlan.purchaseBanner.startPlanTitle": "Тариф Start Plan",
   "settings.modelProvider.codingPlan.purchaseBanner.startPlanDescription":
     "Бесплатно попробуйте квоту флагманских моделей GLM платформы.",
-  "settings.modelProvider.codingPlan.purchaseBanner.personalTitle": "Для индивидуальных разработчиков",
+  "settings.modelProvider.codingPlan.purchaseBanner.personalTitle":
+    "Для индивидуальных разработчиков",
   "settings.modelProvider.codingPlan.purchaseBanner.personalDescription":
     "Для индивидуальных разработчиков с отдельной квотой тарифа Coding Plan.",
   "settings.modelProvider.codingPlan.purchaseBanner.temporarilySoldOut": "Временно недоступно",
@@ -2946,11 +3004,9 @@ const ruRU: Record<string, string> = {
   "settings.modelProvider.codingPlan.purchase.termsAccepted":
     "Я понимаю и принимаю условия продления и подписки.",
   "settings.modelProvider.codingPlan.purchase.paymentPreparing": "Подготовка к оплате",
-  "settings.modelProvider.codingPlan.purchase.securityChecking":
-    "Ожидание проверки безопасности",
+  "settings.modelProvider.codingPlan.purchase.securityChecking": "Ожидание проверки безопасности",
   "settings.modelProvider.codingPlan.purchase.paymentPolling": "Ожидание подтверждения оплаты",
-  "settings.modelProvider.codingPlan.purchase.paymentStarted":
-    "Завершите оплату на этой странице",
+  "settings.modelProvider.codingPlan.purchase.paymentStarted": "Завершите оплату на этой странице",
   "settings.modelProvider.codingPlan.purchase.paymentStartedDescription":
     "Не закрывайте эту панель, пока платёжный канал завершает операцию. Вернуться на страницу подтверждения оплаты можно, пока платёж не прошёл.",
   "settings.modelProvider.codingPlan.purchase.paymentInProgress": "Оплата выполняется",
@@ -2966,7 +3022,7 @@ const ruRU: Record<string, string> = {
   "settings.modelProvider.codingPlan.purchase.teamMemberNoticeTitle":
     "Назначьте участников командного тарифа",
   "settings.modelProvider.codingPlan.purchase.teamMemberNoticeDescription":
-    "Добавьте себя или других участников на странице управления командным тарифом BigModel. После назначения командная квота станет доступна в ZCode.",
+    "Добавьте себя или других участников на странице управления командным тарифом BigModel. После назначения командная квота станет доступна в DeepVibe.",
   "settings.modelProvider.codingPlan.purchase.manageTeamPlan": "Управлять командным тарифом",
   "settings.modelProvider.codingPlan.manage": "Управлять",
   "settings.modelProvider.planCard.codingPlan": "Тариф Coding Plan",
@@ -3059,11 +3115,11 @@ const ruRU: Record<string, string> = {
   "settings.modelProvider.codingPlan.paymentDialog.close": "Закрыть окно оплаты",
   "settings.modelProvider.codingPlan.paymentDialog.originalAmount": "Цена тарифа",
   "settings.modelProvider.codingPlan.paymentDialog.discountActivity": "Скидка",
-  "settings.modelProvider.codingPlan.paymentDialog.currentPlanCredit":
-    "Остаток текущего тарифа",
+  "settings.modelProvider.codingPlan.paymentDialog.currentPlanCredit": "Остаток текущего тарифа",
   "settings.modelProvider.codingPlan.paymentDialog.payAmount": "К оплате",
   "settings.modelProvider.codingPlan.paymentDialog.deductions": "Списания",
-  "settings.modelProvider.codingPlan.paymentDialog.alipayScan": "Отсканируйте код в Alipay, чтобы оплатить",
+  "settings.modelProvider.codingPlan.paymentDialog.alipayScan":
+    "Отсканируйте код в Alipay, чтобы оплатить",
   "settings.modelProvider.codingPlan.paymentDialog.polling": "Ожидание подтверждения оплаты",
   "settings.modelProvider.codingPlan.paymentDialog.qrAlt": "QR-код для оплаты",
   "settings.modelProvider.codingPlan.paymentDialog.qrLoading": "Создание QR-кода",
@@ -3121,7 +3177,8 @@ const ruRU: Record<string, string> = {
     "Загрузка цен на командные тарифы из BigModel.",
   "settings.modelProvider.codingPlan.enterprise.productsEmptyDescription":
     "Сейчас командные тарифы недоступны.",
-  "settings.modelProvider.codingPlan.enterprise.productsError": "Не удалось загрузить командные тарифы",
+  "settings.modelProvider.codingPlan.enterprise.productsError":
+    "Не удалось загрузить командные тарифы",
   "settings.modelProvider.codingPlan.enterprise.choosePurchaseMethod": "Способ обслуживания",
   "settings.modelProvider.codingPlan.enterprise.purchaseMethodDescription":
     "Вы разрешаете нам включить для вас автопродление. Перед подтверждением оплаты выберите способ обслуживания, количество мест и срок разовой покупки.",
@@ -3146,8 +3203,10 @@ const ruRU: Record<string, string> = {
   "settings.modelProvider.codingPlan.enterprise.giftBalance": "Подарочный баланс",
   "settings.modelProvider.codingPlan.enterprise.cashBalance": "Денежный баланс",
   "settings.modelProvider.codingPlan.enterprise.balanceAvailable": "Доступно {amount}",
-  "settings.modelProvider.codingPlan.enterprise.giftBalanceDeduction": "Списание с подарочного баланса",
-  "settings.modelProvider.codingPlan.enterprise.cashBalanceDeduction": "Списание с денежного баланса",
+  "settings.modelProvider.codingPlan.enterprise.giftBalanceDeduction":
+    "Списание с подарочного баланса",
+  "settings.modelProvider.codingPlan.enterprise.cashBalanceDeduction":
+    "Списание с денежного баланса",
   "settings.modelProvider.codingPlan.enterprise.calculateDescription":
     "Сумма оплаты обновится после расчёта заказа.",
   "settings.modelProvider.codingPlan.enterprise.paymentNotesTitle": "Примечания к оплате",
@@ -3159,10 +3218,12 @@ const ruRU: Record<string, string> = {
   "settings.modelProvider.codingPlan.enterprise.orderOriginalAmount": "Исходная сумма заказа",
   "settings.modelProvider.codingPlan.enterprise.orderDiscount": "Скидка {discount}",
   "settings.modelProvider.codingPlan.enterprise.teamAgreementPrefix": "Я принимаю ",
-  "settings.modelProvider.codingPlan.enterprise.teamAgreementLink": "Договор о покупке командного тарифа",
+  "settings.modelProvider.codingPlan.enterprise.teamAgreementLink":
+    "Договор о покупке командного тарифа",
   "settings.modelProvider.codingPlan.enterprise.cancel": "Отмена",
   "settings.modelProvider.codingPlan.enterprise.confirmPay": "Подтвердить и оплатить",
-  "settings.modelProvider.codingPlan.enterprise.confirmTitle": "Купить корпоративный тариф {product}",
+  "settings.modelProvider.codingPlan.enterprise.confirmTitle":
+    "Купить корпоративный тариф {product}",
   "settings.modelProvider.codingPlan.enterprise.paymentDialog.title":
     "Оплата корпоративного тарифа {product}",
   "settings.modelProvider.codingPlan.enterprise.paymentDialog.tipTotal":
@@ -3229,7 +3290,8 @@ const ruRU: Record<string, string> = {
     "Ввод данных карты Stripe не настроен в этой сборке.",
   "settings.modelProvider.codingPlan.overseasPayment.close": "Позже",
   "settings.modelProvider.codingPlan.overseasPayment.renewalPolicyTitle": "Политика продления",
-  "settings.modelProvider.codingPlan.overseasPayment.accountPolicyTitle": "Политика использования аккаунта",
+  "settings.modelProvider.codingPlan.overseasPayment.accountPolicyTitle":
+    "Политика использования аккаунта",
   "settings.modelProvider.codingPlan.overseasPayment.period.month": "месяц",
   "settings.modelProvider.codingPlan.overseasPayment.period.quarter": "квартал",
   "settings.modelProvider.codingPlan.overseasPayment.period.year": "год",
@@ -3248,8 +3310,7 @@ const ruRU: Record<string, string> = {
     "Списания будут автоматически продолжаться каждый {period}, пока вы не отмените подписку в соответствии с Условиями обслуживания.",
   "settings.modelProvider.codingPlan.overseasPayment.renewalCancelPrefix":
     "Отключить автопродление можно не позднее чем за 1 день до даты продления в разделе ",
-  "settings.modelProvider.codingPlan.overseasPayment.subscriptionSettingLink":
-    "настройки подписки",
+  "settings.modelProvider.codingPlan.overseasPayment.subscriptionSettingLink": "настройки подписки",
   "settings.modelProvider.codingPlan.overseasPayment.renewalCancelSuffix": ".",
   "settings.modelProvider.codingPlan.overseasPayment.accountPolicyPrefix":
     "Тариф GLM Coding Plan строго ограничен использованием подписчиком в рамках ",
@@ -3267,7 +3328,8 @@ const ruRU: Record<string, string> = {
   "settings.modelProvider.codingPlan.overseasPayment.authorizationSuffix": ".",
   "settings.modelProvider.codingPlan.paymentDialog.agreementPrefix":
     "Оплата означает ваше согласие с ",
-  "settings.modelProvider.codingPlan.paymentDialog.serviceAgreementLink": "Договором об оказании услуг",
+  "settings.modelProvider.codingPlan.paymentDialog.serviceAgreementLink":
+    "Договором об оказании услуг",
   "settings.modelProvider.codingPlan.paymentDialog.agreementBetween": " и ",
   "settings.modelProvider.codingPlan.paymentDialog.subscriptionAgreementLink":
     "Договором о подписке и автопродлении",
@@ -3284,7 +3346,8 @@ const ruRU: Record<string, string> = {
   "settings.modelProvider.codingPlan.product.firstPromo": "Скидка на первую подписку",
   "settings.modelProvider.codingPlan.product.delay": "Начнёт действовать {time}",
   "settings.modelProvider.codingPlan.zai.plan.lite.name": "Lite",
-  "settings.modelProvider.codingPlan.zai.plan.lite.summary": "Лимиты использования в 3 раза выше, чем у Claude Pro",
+  "settings.modelProvider.codingPlan.zai.plan.lite.summary":
+    "Лимиты использования в 3 раза выше, чем у Claude Pro",
   "settings.modelProvider.codingPlan.zai.plan.pro.name": "Pro",
   "settings.modelProvider.codingPlan.zai.plan.pro.summary":
     "Всё из тарифа Лайт и в 5 раз больше использования",
@@ -3292,25 +3355,30 @@ const ruRU: Record<string, string> = {
   "settings.modelProvider.codingPlan.zai.plan.max.summary":
     "Всё из тарифа Pro и в 20 раз больше использования, чем в Лайт",
   "settings.modelProvider.codingPlan.bigmodel.plan.lite.name": "Lite",
-  "settings.modelProvider.codingPlan.bigmodel.plan.lite.summary": "Квота использования в 3 раза больше, чем у Claude Pro",
+  "settings.modelProvider.codingPlan.bigmodel.plan.lite.summary":
+    "Квота использования в 3 раза больше, чем у Claude Pro",
   "settings.modelProvider.codingPlan.bigmodel.plan.pro.name": "Pro",
   "settings.modelProvider.codingPlan.bigmodel.plan.pro.summary":
     "В 5 раз больше квоты, чем в Лайт, плюс все преимущества Лайт",
   "settings.modelProvider.codingPlan.bigmodel.plan.max.name": "Max",
   "settings.modelProvider.codingPlan.bigmodel.plan.max.summary":
     "В 20 раз больше квоты, чем в Лайт, плюс все преимущества Pro",
-  "settings.modelProvider.codingPlan.bigmodel.purchase.plan.lite.detail0": "Базовый лимит использования",
+  "settings.modelProvider.codingPlan.bigmodel.purchase.plan.lite.detail0":
+    "Базовый лимит использования",
   "settings.modelProvider.codingPlan.bigmodel.purchase.plan.lite.detail1":
     "Лёгкие итерации по небольшим репозиториям",
   "settings.modelProvider.codingPlan.bigmodel.purchase.plan.lite.detail2":
     "Постепенный доступ к новым моделям",
-  "settings.modelProvider.codingPlan.bigmodel.purchase.plan.lite.detail3": "20+ инструментов для разработки",
-  "settings.modelProvider.codingPlan.bigmodel.purchase.plan.pro.detail0": "В 5 раз больше лимита, чем в Лайт",
+  "settings.modelProvider.codingPlan.bigmodel.purchase.plan.lite.detail3":
+    "20+ инструментов для разработки",
+  "settings.modelProvider.codingPlan.bigmodel.purchase.plan.pro.detail0":
+    "В 5 раз больше лимита, чем в Лайт",
   "settings.modelProvider.codingPlan.bigmodel.purchase.plan.pro.detail1":
     "Ежедневная разработка в репозиториях среднего размера",
   "settings.modelProvider.codingPlan.bigmodel.purchase.plan.pro.detail2":
     "Приоритетный доступ к новым моделям",
-  "settings.modelProvider.codingPlan.bigmodel.purchase.plan.pro.detail3": "Отобранные инструменты MCP",
+  "settings.modelProvider.codingPlan.bigmodel.purchase.plan.pro.detail3":
+    "Отобранные инструменты MCP",
   "settings.modelProvider.codingPlan.bigmodel.purchase.plan.max.detail0":
     "В 20 раз больше лимита, чем в Лайт",
   "settings.modelProvider.codingPlan.bigmodel.purchase.plan.max.detail1":
@@ -3319,17 +3387,27 @@ const ruRU: Record<string, string> = {
     "Первоочередной доступ к новым моделям",
   "settings.modelProvider.codingPlan.bigmodel.purchase.plan.max.detail3":
     "Приоритет ресурсов в часы пик",
-  "settings.modelProvider.codingPlan.zai.purchase.plan.lite.detail0": "Базовый объём использования включён",
-  "settings.modelProvider.codingPlan.zai.purchase.plan.lite.detail1": "Итерации по небольшим репозиториям",
-  "settings.modelProvider.codingPlan.zai.purchase.plan.lite.detail2": "Постепенный доступ к новым моделям",
-  "settings.modelProvider.codingPlan.zai.purchase.plan.lite.detail3": "20+ инструментов для разработки",
-  "settings.modelProvider.codingPlan.zai.purchase.plan.pro.detail0": "В 5 раз больше использования, чем в Лайт",
-  "settings.modelProvider.codingPlan.zai.purchase.plan.pro.detail1": "Разработка в репозиториях среднего размера",
-  "settings.modelProvider.codingPlan.zai.purchase.plan.pro.detail2": "Приоритетный доступ к моделям",
+  "settings.modelProvider.codingPlan.zai.purchase.plan.lite.detail0":
+    "Базовый объём использования включён",
+  "settings.modelProvider.codingPlan.zai.purchase.plan.lite.detail1":
+    "Итерации по небольшим репозиториям",
+  "settings.modelProvider.codingPlan.zai.purchase.plan.lite.detail2":
+    "Постепенный доступ к новым моделям",
+  "settings.modelProvider.codingPlan.zai.purchase.plan.lite.detail3":
+    "20+ инструментов для разработки",
+  "settings.modelProvider.codingPlan.zai.purchase.plan.pro.detail0":
+    "В 5 раз больше использования, чем в Лайт",
+  "settings.modelProvider.codingPlan.zai.purchase.plan.pro.detail1":
+    "Разработка в репозиториях среднего размера",
+  "settings.modelProvider.codingPlan.zai.purchase.plan.pro.detail2":
+    "Приоритетный доступ к моделям",
   "settings.modelProvider.codingPlan.zai.purchase.plan.pro.detail3": "Отобранные инструменты MCP",
-  "settings.modelProvider.codingPlan.zai.purchase.plan.max.detail0": "В 20 раз больше использования, чем в Лайт",
-  "settings.modelProvider.codingPlan.zai.purchase.plan.max.detail1": "Работа со средними и крупными репозиториями",
-  "settings.modelProvider.codingPlan.zai.purchase.plan.max.detail2": "Первоочередной доступ к моделям",
+  "settings.modelProvider.codingPlan.zai.purchase.plan.max.detail0":
+    "В 20 раз больше использования, чем в Лайт",
+  "settings.modelProvider.codingPlan.zai.purchase.plan.max.detail1":
+    "Работа со средними и крупными репозиториями",
+  "settings.modelProvider.codingPlan.zai.purchase.plan.max.detail2":
+    "Первоочередной доступ к моделям",
   "settings.modelProvider.codingPlan.zai.purchase.plan.max.detail3": "Приоритет в часы пик",
   "settings.modelProvider.enabledStatus": "Включено",
   "settings.modelProvider.enableModel": "Включить",
@@ -3348,7 +3426,7 @@ const ruRU: Record<string, string> = {
   "settings.modelProvider.resetForm": "Сбросить форму",
   "settings.modelProvider.fieldHelp": "О поле {field}",
   "settings.modelProvider.help.contextWindow":
-    "Объём контекста, который модель может обработать за раз, в токенах. ZCode использует его для управления контекстом.\nНе превышайте фактический лимит модели.",
+    "Объём контекста, который модель может обработать за раз, в токенах. DeepVibe использует его для управления контекстом.\nНе превышайте фактический лимит модели.",
   "settings.modelProvider.help.maxOutputTokens":
     "Максимальное число токенов, которое может сгенерировать один запрос к модели.\nНе превышайте фактический лимит модели.",
   "settings.modelProvider.help.inputModalities":
@@ -3364,11 +3442,12 @@ const ruRU: Record<string, string> = {
   "settings.modelProvider.help.advanced":
     "**Схема инструментов MFJS**: включает совместимость с Moonshot Flavored JSON Schema, которую обычно использует API модели Kimi от Moonshot. Включайте, только если API модели требует этот формат.",
   "settings.modelProvider.help.followRecommendedConfig":
-    "Подбирает рекомендуемые параметры по ID модели, базовому URL и формату API. ZCode постоянно обновляет рекомендации и автоматически синхронизирует их с вами.\nЕсли вы измените настройку вручную, она переходит на ручное управление и перестаёт следовать обновлениям рекомендаций; остальные настройки продолжат управляться умной настройкой.",
+    "Подбирает рекомендуемые параметры по ID модели, базовому URL и формату API. DeepVibe постоянно обновляет рекомендации и автоматически синхронизирует их с вами.\nЕсли вы измените настройку вручную, она переходит на ручное управление и перестаёт следовать обновлениям рекомендаций; остальные настройки продолжат управляться умной настройкой.",
   "settings.modelProvider.modelDefaultsLoaded": "Для этой модели подобрана умная настройка",
   "settings.modelProvider.modelConfigIncomplete": "Конфигурация модели неполная",
   "settings.modelProvider.models": "Список моделей",
-  "settings.modelProvider.modelsEmpty": "Модели не настроены. Добавьте модель, чтобы использовать её в чате.",
+  "settings.modelProvider.modelsEmpty":
+    "Модели не настроены. Добавьте модель, чтобы использовать её в чате.",
   "settings.modelProvider.addModel": "Добавить модель",
   "settings.modelProvider.modelId": "ID модели",
   "settings.modelProvider.modelDisplayName": "Отображаемое имя",
@@ -3383,7 +3462,8 @@ const ruRU: Record<string, string> = {
   "settings.modelProvider.supportsMidConversationSystem": "Системные сообщения в середине диалога",
   "settings.modelProvider.requiresMfjsToolSchema": "Схема инструментов MFJS",
   "settings.modelProvider.otherSettings": "Другие настройки",
-  "settings.modelProvider.reasoningLevelOptionSpecJson": "JSON спецификации параметров уровня рассуждения",
+  "settings.modelProvider.reasoningLevelOptionSpecJson":
+    "JSON спецификации параметров уровня рассуждения",
   "settings.modelProvider.reasoningLevelsOrdered": "Уровни рассуждения (от низкого к высокому)",
   "settings.modelProvider.reasoningLevelAdd": "Добавить уровень рассуждения",
   "settings.modelProvider.reasoningLevelMapping": "Сопоставление параметров рассуждения",
@@ -3434,7 +3514,7 @@ const ruRU: Record<string, string> = {
   "settings.usage.sourceProvider": "Источник: {provider}",
   "settings.usage.billingBanner.title": "Coding Plan от {provider}",
   "settings.usage.billingBanner.description":
-    "Подключите аккаунт {provider}, чтобы запросить доступ по Coding Plan, а затем продолжайте писать код в ZCode после покупки или настройки.",
+    "Подключите аккаунт {provider}, чтобы запросить доступ по Coding Plan, а затем продолжайте писать код в DeepVibe после покупки или настройки.",
   "settings.usage.billingBanner.compactDescription":
     "Подключите аккаунт {provider}, чтобы синхронизировать использование.",
   "settings.usage.billingBanner.buy": "Купить Coding Plan",
@@ -3493,7 +3573,7 @@ const ruRU: Record<string, string> = {
   "settings.usage.entitlementFiveHourUsage": "Остаток 5-часовой квоты",
   "settings.usage.entitlementWeeklyUsage": "Остаток недельной квоты",
   "settings.usage.entitlementMonthlyMcpUsage": "Вызовы инструментов",
-  "settings.usage.entitlementServerMcpUsage": "Серверы MCP ZCode",
+  "settings.usage.entitlementServerMcpUsage": "Серверы MCP DeepVibe",
   "settings.usage.entitlementResetAt": "Сброс {time}",
   "settings.usage.entitlementUsageDetails": "Детализация использования инструментов",
   "settings.usage.entitlementPromptCap": "5-часовой пул запросов",
@@ -3551,9 +3631,10 @@ const ruRU: Record<string, string> = {
   "sidebar.usage.plan.fiveHour": "5 часов",
   "sidebar.usage.plan.weekly": "Неделя",
   "sidebar.usage.plan.toolCalls": "Вызовы инструментов",
-  "sidebar.usage.plan.mcp": "Серверы MCP ZCode",
-  "sidebar.usage.plan.zcodeMcp": "Серверы MCP ZCode",
-  "sidebar.usage.plan.zcodeMcpDescription": "Суточная суммарная квота для MCP встроенных плагинов ZCode",
+  "sidebar.usage.plan.mcp": "Серверы MCP DeepVibe",
+  "sidebar.usage.plan.zcodeMcp": "Серверы MCP DeepVibe",
+  "sidebar.usage.plan.zcodeMcpDescription":
+    "Суточная суммарная квота для MCP встроенных плагинов DeepVibe",
   "chat.planUsage.title": "Использование тарифа",
   "chat.planUsage.titleWithPlan": "Использование тарифа {plan}",
   "chat.planUsage.providerFallback": "Текущий провайдер",
@@ -3658,11 +3739,11 @@ const ruRU: Record<string, string> = {
   "settings.usage.codingPlanNotConfiguredTitle": "Coding Plan не подключён",
   "settings.usage.codingPlanNotConfiguredDescription":
     "Подключите провайдера Z.ai или BigModel Coding Plan в настройках моделей, чтобы видеть квоту тарифа, использование моделей и инструментов.",
-  "settings.usage.codingPlanCurrentConnectionTitle": "Текущее подключение не использует Coding Plan",
+  "settings.usage.codingPlanCurrentConnectionTitle":
+    "Текущее подключение не использует Coding Plan",
   "settings.usage.codingPlanCurrentConnectionDescription":
     "Переключите подключение моделей рабочей области на Individual Plan или Team Plan, чтобы видеть их квоту и использование здесь.",
-  "settings.usage.modelChartDescription":
-    "Сейчас наибольшая доля у {model} — около {share}.",
+  "settings.usage.modelChartDescription": "Сейчас наибольшая доля у {model} — около {share}.",
   "settings.usage.modelChart.other": "Другие модели",
   "settings.usage.modelChart.input": "Вход",
   "settings.usage.modelChart.cachedInput": "Из кэша",
@@ -3678,7 +3759,8 @@ const ruRU: Record<string, string> = {
   "settings.usage.dayLabel.fri": "Пт",
   "settings.modelProvider.presetDescription":
     "Встроенные провайдеры Z.ai и BigModel с настройкой через OAuth.",
-  "settings.modelProvider.presetEmpty": "Ещё не синхронизировано. Сначала выполните вход через OAuth.",
+  "settings.modelProvider.presetEmpty":
+    "Ещё не синхронизировано. Сначала выполните вход через OAuth.",
   "settings.modelProvider.customTitle": "Пользовательские провайдеры",
   "settings.modelProvider.refresh": "Обновить",
   "settings.modelProvider.reorderProvider": "Перетащите, чтобы изменить порядок провайдера",
@@ -3776,10 +3858,10 @@ const ruRU: Record<string, string> = {
   "settings.skills.import.mode.copy": "Копирование",
   "settings.skills.import.mode.symlink": "Симлинк",
   "settings.skills.import.mode.copy.description":
-    "Полное копирование папки навыка в ZCode. Последующие изменения в папке внешнего агента не будут синхронизироваться автоматически.",
+    "Полное копирование папки навыка в DeepVibe. Последующие изменения в папке внешнего агента не будут синхронизироваться автоматически.",
   "settings.skills.import.mode.symlink.description":
-    "Создаётся ссылка на папку навыка внешнего агента. ZCode будет учитывать последующие изменения источника, но навык зависит от доступности этого пути.",
-  "settings.skills.import.importing": "Импорт навыков в ZCode",
+    "Создаётся ссылка на папку навыка внешнего агента. DeepVibe будет учитывать последующие изменения источника, но навык зависит от доступности этого пути.",
+  "settings.skills.import.importing": "Импорт навыков в DeepVibe",
   "settings.skills.import.imported": "Импортировано",
   "settings.skills.import.skipped": "Пропущено",
   "settings.skills.import.failed": "Сбой",
@@ -3848,14 +3930,16 @@ const ruRU: Record<string, string> = {
     "`name` должен содержать только строчные буквы, цифры и дефисы",
   "settings.skills.diagnostics.code.skill_missing_description":
     "В frontmatter отсутствует поле `description`",
-  "settings.skills.diagnostics.code.skill_description_too_long": "`description` превышает 1024 символа",
+  "settings.skills.diagnostics.code.skill_description_too_long":
+    "`description` превышает 1024 символа",
   "settings.skills.diagnostics.code.skill_unknown_frontmatter": "Неизвестный ключ frontmatter",
   "settings.skills.diagnostics.code.skill_duplicate_name": "Повторяющееся имя навыка пропущено",
-  "settings.skills.diagnostics.code.skill_too_large": "SKILL.md слишком большой; содержимое усечено",
+  "settings.skills.diagnostics.code.skill_too_large":
+    "SKILL.md слишком большой; содержимое усечено",
   "settings.skills.diagnostics.code.skill_not_found": "Навык не найден",
   "settings.subagents.title": "Подагенты",
   "settings.subagents.description":
-    "Управление пользовательскими файлами Markdown с подагентами, которые использует ZCode Agent.",
+    "Управление пользовательскими файлами Markdown с подагентами, которые использует DeepVibe Agent.",
   "settings.subagents.workspaceScopeUnsupported":
     "Создание и изменение на уровне рабочей области не поддерживается",
   "settings.subagents.searchPlaceholder": "Поиск подагентов...",
@@ -3911,7 +3995,8 @@ const ruRU: Record<string, string> = {
   "settings.subagents.form.color.label": "Цвет",
   "settings.subagents.form.tools.label": "Разрешённые инструменты",
   "settings.subagents.form.tools.inheritAll": "Наследовать все",
-  "settings.subagents.form.tools.card.title": "Укажите, какие инструменты может использовать этот подагент.",
+  "settings.subagents.form.tools.card.title":
+    "Укажите, какие инструменты может использовать этот подагент.",
   "settings.subagents.form.tools.mode.all": "Все разрешения по умолчанию",
   "settings.subagents.form.tools.mode.custom": "Свой список разрешённых инструментов",
   "settings.subagents.form.disallowedTools.label": "Запрещённые инструменты",
@@ -3926,7 +4011,8 @@ const ruRU: Record<string, string> = {
   "settings.subagents.form.validation.nameCharacters": "Допускаются только буквы, цифры и дефисы",
   "settings.subagents.form.validation.descriptionRequired": "Укажите описание",
   "settings.subagents.form.validation.promptRequired": "Укажите системный запрос",
-  "settings.subagents.form.validation.modelUnavailable": "Перед сохранением выберите доступную модель",
+  "settings.subagents.form.validation.modelUnavailable":
+    "Перед сохранением выберите доступную модель",
   "settings.subagents.form.validation.thoughtLevelUnavailable":
     "Выберите уровень рассуждений, поддерживаемый этой моделью",
   "settings.subagents.reasoningUnavailable": "Уровень рассуждений недоступен",
@@ -3997,7 +4083,7 @@ const ruRU: Record<string, string> = {
   "settings.plugins.description":
     "Включайте и отключайте установленные плагины. Плагины объединяют навыки, команды, хуки и MCP-серверы.",
   "settings.plugins.store.subtitle":
-    "Расширяйте ZCode навыками, командами и MCP-серверами из плагинов",
+    "Расширяйте DeepVibe навыками, командами и MCP-серверами из плагинов",
   "settings.plugins.store.searchPlaceholder": "Поиск плагинов",
   "settings.plugins.store.searchResults": "Результаты поиска ({count})",
   "settings.plugins.store.searchEmpty": "Нет плагинов, подходящих под запрос",
@@ -4075,7 +4161,8 @@ const ruRU: Record<string, string> = {
   "settings.plugins.marketplaces.empty": "Магазины не добавлены",
   "settings.plugins.marketplaces.official": "Официальный",
   "settings.plugins.marketplaces.plugins": "Плагинов: {count}",
-  "settings.plugins.marketplaces.refreshCatalogHint": "Обновите, чтобы загрузить официальный каталог.",
+  "settings.plugins.marketplaces.refreshCatalogHint":
+    "Обновите, чтобы загрузить официальный каталог.",
   "settings.plugins.marketplacePlugins.title": "Плагины магазина",
   "settings.plugins.marketplacePlugins.empty": "Плагины магазина не найдены",
   "settings.plugins.marketplacePlugins.install": "Установить",
@@ -4124,7 +4211,8 @@ const ruRU: Record<string, string> = {
   "settings.plugins.detail.status": "Статус",
   "settings.plugins.detail.moreDetails": "Дополнительные сведения",
   "settings.plugins.detail.componentsEmpty": "Компонентов нет",
-  "settings.plugins.detail.componentsWhenEnabled": "Включите плагин, чтобы просмотреть его компоненты.",
+  "settings.plugins.detail.componentsWhenEnabled":
+    "Включите плагин, чтобы просмотреть его компоненты.",
   "settings.plugins.detail.component.agent": "Агенты",
   "settings.plugins.detail.component.command": "Команды",
   "settings.plugins.detail.component.skill": "Навыки",
@@ -4204,10 +4292,10 @@ const ruRU: Record<string, string> = {
   "settings.plugins.import.mode.copy": "Копирование",
   "settings.plugins.import.mode.symlink": "Симлинк",
   "settings.plugins.import.mode.copy.description":
-    "Копирует каталог плагина целиком в ZCode и регистрирует его в plugins.dirs. Последующие изменения в каталоге внешнего агента не будут синхронизироваться автоматически.",
+    "Копирует каталог плагина целиком в DeepVibe и регистрирует его в plugins.dirs. Последующие изменения в каталоге внешнего агента не будут синхронизироваться автоматически.",
   "settings.plugins.import.mode.symlink.description":
-    "Создаёт ссылку на каталог плагина внешнего агента и регистрирует её в plugins.dirs. ZCode отслеживает последующие изменения в источнике, но плагин зависит от доступности этого пути.",
-  "settings.plugins.import.importing": "Импорт плагинов в ZCode",
+    "Создаёт ссылку на каталог плагина внешнего агента и регистрирует её в plugins.dirs. DeepVibe отслеживает последующие изменения в источнике, но плагин зависит от доступности этого пути.",
+  "settings.plugins.import.importing": "Импорт плагинов в DeepVibe",
   "settings.plugins.import.imported": "Импортировано",
   "settings.plugins.import.skipped": "Пропущено",
   "settings.plugins.import.failed": "Ошибка",
@@ -4216,9 +4304,9 @@ const ruRU: Record<string, string> = {
   "settings.plugins.import.finish": "Готово",
   "settings.commands.title": "Команды",
   "settings.commands.description":
-    "Управление файлами команд .md агента ZCode. Команды вызываются в чате с помощью /command-name.",
+    "Управление файлами команд .md агента DeepVibe. Команды вызываются в чате с помощью /command-name.",
   "settings.commands.sourceFilterLabel": "Фильтр по источнику",
-  "settings.commands.source.zcodeAgent": "Агент ZCode",
+  "settings.commands.source.zcodeAgent": "Агент DeepVibe",
   "settings.commands.add": "Создать",
   "settings.commands.addNew": "Новая команда",
   "settings.commands.addDescription":
@@ -4227,8 +4315,7 @@ const ruRU: Record<string, string> = {
   "settings.commands.editDescription": "Измените команду и сохраните, чтобы вернуться к списку.",
   "settings.commands.backToList": "Назад",
   "settings.commands.delete.title": "Удаление команды",
-  "settings.commands.delete.description":
-    "Удалить команду «{name}»? Это действие нельзя отменить.",
+  "settings.commands.delete.description": "Удалить команду «{name}»? Это действие нельзя отменить.",
   "settings.commands.empty": "Пользовательских команд нет",
   "settings.commands.searchPlaceholder": "Поиск команд…",
   "settings.commands.group.local": "Пользовательские команды",
@@ -4238,7 +4325,8 @@ const ruRU: Record<string, string> = {
   "settings.commands.form.name.label": "Имя",
   "settings.commands.form.name.placeholder": "моя-команда",
   "settings.commands.form.description.label": "Описание (необязательно)",
-  "settings.commands.form.description.placeholder": "Краткое описание, отображаемое в списке команд",
+  "settings.commands.form.description.placeholder":
+    "Краткое описание, отображаемое в списке команд",
   "settings.commands.form.argumentHint.label": "Подсказка по аргументам (необязательно)",
   "settings.commands.form.argumentHint.placeholder": "напр. <file-path>",
   "settings.commands.form.prompt.label": "Запрос",
@@ -4278,10 +4366,10 @@ const ruRU: Record<string, string> = {
   "settings.commands.import.mode.copy": "Копирование",
   "settings.commands.import.mode.symlink": "Симлинк",
   "settings.commands.import.mode.copy.description":
-    "Копирует файл команды в ZCode. Последующие изменения в файле внешнего агента не будут синхронизироваться автоматически.",
+    "Копирует файл команды в DeepVibe. Последующие изменения в файле внешнего агента не будут синхронизироваться автоматически.",
   "settings.commands.import.mode.symlink.description":
-    "Создаёт ссылку на файл команды внешнего агента. ZCode отслеживает последующие изменения в источнике, но команда зависит от доступности этого пути.",
-  "settings.commands.import.importing": "Импорт команд в ZCode",
+    "Создаёт ссылку на файл команды внешнего агента. DeepVibe отслеживает последующие изменения в источнике, но команда зависит от доступности этого пути.",
+  "settings.commands.import.importing": "Импорт команд в DeepVibe",
   "settings.commands.import.imported": "Импортировано",
   "settings.commands.import.skipped": "Пропущено",
   "settings.commands.import.failed": "Ошибка",
@@ -4294,14 +4382,18 @@ const ruRU: Record<string, string> = {
     "Хуки могут выполняться вне песочницы, поэтому мы просим проверять все недавно установленные или изменённые хуки",
   "settings.hooks.review.unavailable": "Это подключение не может доверять этому хуку.",
   "settings.hooks.review.reason.review_superseded": "Проверка была обновлена — подтвердите ещё раз",
-  "settings.hooks.review.reason.snapshot_mismatch": "Конфигурация хуков изменилась — требуется проверка",
-  "settings.hooks.review.reason.bundle_changed": "Конфигурация хуков изменилась — требуется проверка",
+  "settings.hooks.review.reason.snapshot_mismatch":
+    "Конфигурация хуков изменилась — требуется проверка",
+  "settings.hooks.review.reason.bundle_changed":
+    "Конфигурация хуков изменилась — требуется проверка",
   "settings.hooks.review.reason.config_unreadable": "Не удалось прочитать конфигурацию хуков",
   "settings.hooks.review.reason.config_write_failed": "Не удалось записать конфигурацию хуков",
   "settings.hooks.review.reason.config_rebuild_failed": "Не удалось пересобрать конфигурацию хуков",
-  "settings.hooks.review.reason.trust_store_corrupt": "Хранилище доверия повреждено — требуется проверка",
+  "settings.hooks.review.reason.trust_store_corrupt":
+    "Хранилище доверия повреждено — требуется проверка",
   "settings.hooks.review.reason.blocked_by_policy": "Заблокировано политикой",
-  "settings.hooks.review.reason.policy_requires_pretrust": "Политика требует предварительного доверия",
+  "settings.hooks.review.reason.policy_requires_pretrust":
+    "Политика требует предварительного доверия",
   "settings.hooks.review.reason.interaction_timeout": "Время проверки истекло",
   "settings.hooks.review.reason.host_unavailable": "Это подключение не может проверить этот хук",
   "settings.hooks.review.reason.rejected": "Запрос отклонён",
@@ -4311,17 +4403,20 @@ const ruRU: Record<string, string> = {
     "Редактирование правил .zcodeignore (синтаксис gitignore), определяющих область поиска файлов в рабочей области. Вступает в силу при следующем поиске после сохранения.",
   "settings.workspaceFileSearch.templateHint":
     "Файл .zcodeignore ещё не создан: ниже показан первоначальный предпросмотр (копия .gitignore + исключения по умолчанию); он записывается в рабочую область только после сохранения.",
-  "settings.workspaceFileSearch.editorLabel": "Редактор правил исключения файлов из поиска в рабочей области",
+  "settings.workspaceFileSearch.editorLabel":
+    "Редактор правил исключения файлов из поиска в рабочей области",
   "settings.workspaceFileSearch.save": "Сохранить",
   "settings.workspaceFileSearch.saved": "Сохранено; вступит в силу при следующем поиске",
   "settings.workspaceFileSearch.saveFailed": "Не удалось сохранить; проверьте журналы",
-  "settings.workspaceFileSearch.loadFailed": "Не удалось загрузить правила исключения; проверьте журналы",
+  "settings.workspaceFileSearch.loadFailed":
+    "Не удалось загрузить правила исключения; проверьте журналы",
   "settings.workspaceFileSearch.resync": "Синхронизировать из .gitignore",
   "settings.workspaceFileSearch.restoreDefaults": "Восстановить правила по умолчанию",
   "settings.workspaceFileSearch.transformFailed":
     "Не удалось применить операцию с разделом; проверьте журналы",
   "settings.workspaceFileSearch.reveal": "Показать расположение файла",
-  "settings.workspaceFileSearch.revealHint": "Сначала сохраните; файл .zcodeignore находится в корне рабочей области",
+  "settings.workspaceFileSearch.revealHint":
+    "Сначала сохраните; файл .zcodeignore находится в корне рабочей области",
   "settings.workspaceFileSearch.unsaved": "Несохранённые изменения",
   "settings.workspaceFileSearch.noWorkspace":
     "Рабочая область не открыта, поэтому настроить правила исключения из поиска нельзя.",
@@ -4355,7 +4450,8 @@ const ruRU: Record<string, string> = {
   "settings.hooks.searchEmpty": "По вашему запросу хуки не найдены.",
   "settings.hooks.backToList": "Назад",
   "settings.hooks.matcherPlaceholder": "напр. Write, Edit, Bash",
-  "settings.hooks.matcherHint": "Оставьте пустым, чтобы сопоставлять любые входные данные для этого события.",
+  "settings.hooks.matcherHint":
+    "Оставьте пустым, чтобы сопоставлять любые входные данные для этого события.",
   "settings.hooks.commandPlaceholder": "напр. echo 'Hello from hook'",
   "settings.hooks.args": "Аргументы",
   "settings.hooks.argsPlaceholder": "По одному аргументу argv на строку",
@@ -4377,8 +4473,8 @@ const ruRU: Record<string, string> = {
   "settingsSync.action.rescanning": "Сканирование…",
   "settingsSync.action.importSelected": "Импортировать выбранное",
   "settingsSync.action.importing": "Импорт…",
-  "settingsSync.action.finish": "Начать работу с ZCode",
-  "settingsSync.agent.zcode": "Агент ZCode",
+  "settingsSync.action.finish": "Начать работу с DeepVibe",
+  "settingsSync.agent.zcode": "Агент DeepVibe",
   "settingsSync.agent.claudeCode": "Агент Claude Code",
   "settingsSync.agent.codexCli": "Агент Codex CLI",
   "settingsSync.agent.openCode": "Агент OpenCode",
@@ -4399,7 +4495,8 @@ const ruRU: Record<string, string> = {
   "settingsSync.category.providers": "Провайдеры",
   "settingsSync.category.providers.description": "Модели и учётные данные",
   "settingsSync.category.skills": "Навыки",
-  "settingsSync.category.skills.description": "Копирование локальных рабочих процессов SKILL.md из внешних агентов",
+  "settingsSync.category.skills.description":
+    "Копирование локальных рабочих процессов SKILL.md из внешних агентов",
   "settingsSync.category.default.description": "Настройки, доступные для импорта.",
   "settingsSync.unit.categoryCount": "Категорий: {count}",
   "settingsSync.unit.itemCount": "Элементов: {count}",
@@ -4427,17 +4524,17 @@ const ruRU: Record<string, string> = {
   "settingsSync.discovery.description":
     "Настройки агентов, доступные для импорта, больше не сканируются автоматически.",
   "settingsSync.discovery.helper":
-    "Будут импортированы только отсутствующие элементы, а текущие настройки ZCode не будут перезаписаны.",
+    "Будут импортированы только отсутствующие элементы, а текущие настройки DeepVibe не будут перезаписаны.",
   "settingsSync.discovery.agentCount": "Найдено агентов: {count}",
   "settingsSync.discovery.categoryCount": "Найдено категорий: {count}",
   "settingsSync.discovery.error": "Не удалось выполнить сканирование: {error}",
   "settingsSync.discovery.continue": "Продолжить",
-  "onboarding.dialog.title": "Добро пожаловать в ZCode",
+  "onboarding.dialog.title": "Добро пожаловать в DeepVibe",
   "onboarding.dialog.description": "Выберите, как начать первый сеанс.",
   "onboarding.wizard.label": "Мастер миграции",
   "onboarding.welcome.eyebrow": "Первоначальная настройка",
-  "onboarding.welcome.title": "Добро пожаловать в ZCode",
-  "onboarding.welcome.start": "Начать работу с ZCode",
+  "onboarding.welcome.title": "Добро пожаловать в DeepVibe",
+  "onboarding.welcome.start": "Начать работу с DeepVibe",
   "onboarding.welcome.migrate": "Мастер миграции",
   "onboarding.welcome.helper":
     "Импортируйте настройки существующих инструментов сейчас или пропустите шаг и продолжите позже в разделе «Настройки».",
@@ -4459,7 +4556,7 @@ const ruRU: Record<string, string> = {
   "onboarding.stepDescription.commandsImport":
     "Импортируйте выбранные команды из внешних агентов перед итоговой миграцией.",
   "onboarding.stepDescription.migration":
-    "Запустите миграцию и дождитесь, пока ZCode импортирует выбранные данные.",
+    "Запустите миграцию и дождитесь, пока DeepVibe импортирует выбранные данные.",
   "onboarding.sessions.empty":
     "Рабочих областей пока нет. Просканируйте локальную историю, затем выберите рабочие области для миграции.",
   "onboarding.sessions.count": "Сеансов: {count}",
@@ -4477,12 +4574,13 @@ const ruRU: Record<string, string> = {
   "onboarding.agentsFile.error": "Не удалось проверить состояние миграции AGENTS.md: {error}",
   "onboarding.agentsFile.confirmTitle": "Перезаписать AGENTS.md по умолчанию?",
   "onboarding.agentsFile.confirmDescription":
-    "ZCode скопирует {source} в {target}.\nЕсли целевой файл уже существует, конфигурация AGENTS по умолчанию от ZCode будет перезаписана.",
+    "DeepVibe скопирует {source} в {target}.\nЕсли целевой файл уже существует, конфигурация AGENTS по умолчанию от DeepVibe будет перезаписана.",
   "onboarding.agentsFile.confirmAction": "Перезаписать и перенести",
   "onboarding.finish.summary.label.imported": "Импортировано",
   "onboarding.finish.summary.label.skipped": "Пропущено",
   "onboarding.finish.summary.label.failed": "Ошибка",
-  "onboarding.footer.helper": "Шаг можно пропустить в любой момент и продолжить миграцию позже в разделе «Настройки».",
+  "onboarding.footer.helper":
+    "Шаг можно пропустить в любой момент и продолжить миграцию позже в разделе «Настройки».",
   "onboarding.footer.workspaceSelection": "Выбрано рабочих областей: {count}",
   "onboarding.action.continue": "Продолжить",
   "onboarding.action.beginMigration": "Начать миграцию",
@@ -4524,8 +4622,7 @@ const ruRU: Record<string, string> = {
     "Создайте PDF-документ на основе содержимого текущей рабочей области.",
   "chat.draft.suggestedPrompt.plugin.documentSkills": "Навыки для документов",
   "chat.draft.suggestedPrompt.plugin.github": "Плагин GitHub",
-  "chat.draft.suggestedPrompt.pluginUnavailable":
-    "{pluginLabel} не включён или не установлен",
+  "chat.draft.suggestedPrompt.pluginUnavailable": "{pluginLabel} не включён или не установлен",
   "chat.draft.suggestedPrompt.pluginFlow.installing": "Установка плагина…",
   "chat.draft.suggestedPrompt.pluginFlow.enabling": "Включение плагина…",
   "chat.draft.suggestedPrompt.pluginFlow.checking": "Проверка состояния плагина…",
@@ -4537,7 +4634,8 @@ const ruRU: Record<string, string> = {
   "chat.draft.suggestedPrompt.pluginFlow.installFailureToast":
     "Не удалось установить {pluginLabel}: {error}",
   "chat.draft.suggestedPrompt.pluginFlow.installTimedOut": "Превышено время ожидания установки",
-  "chat.draft.suggestedPrompt.pluginFlow.installReturnedEmpty": "Не удалось получить установленный плагин",
+  "chat.draft.suggestedPrompt.pluginFlow.installReturnedEmpty":
+    "Не удалось получить установленный плагин",
   "chat.draft.suggestedPrompt.pluginFlow.enableSucceeded": "Плагин включён",
   "chat.draft.suggestedPrompt.pluginFlow.enableFailed": "Не удалось включить плагин",
   "chat.empty.workspaceMenu": "Выберите рабочую область",
@@ -4552,14 +4650,15 @@ const ruRU: Record<string, string> = {
   "chat.empty.createWorkspace.placeholder": "Название рабочей области",
   "chat.empty.createWorkspace.locationHint": "Расположение: {path}",
   "chat.empty.createWorkspace.error.required": "Укажите название рабочей области.",
-  "chat.empty.createWorkspace.error.separator": "Название рабочей области не может содержать / или \\.",
+  "chat.empty.createWorkspace.error.separator":
+    "Название рабочей области не может содержать / или \\.",
   "chat.empty.createWorkspace.error.createFailed": "Не удалось создать рабочую область.",
   "chat.emptyResult.title": "Нет видимого вывода",
   "chat.emptyResult.description":
     "Задача завершилась без содержимого в диалоге. Возможно, она была остановлена до того, как модель начала отвечать.",
   "chat.placeholder.newTask":
-    "Спросите ZCode о чём угодно: @ — добавить контекст, / — команды и возможности",
-  "chat.placeholder.newTaskMobile": "Спросите ZCode о чём угодно…",
+    "Спросите DeepVibe о чём угодно: @ — добавить контекст, / — команды и возможности",
+  "chat.placeholder.newTaskMobile": "Спросите DeepVibe о чём угодно…",
   "chat.placeholder.followUpAsk": "Попросите внести изменения",
   "chat.placeholder.followUpQueue": "Продолжайте печатать, чтобы поставить изменения в очередь",
   "chat.placeholder.loading": "Инициализация задачи…",
@@ -4582,7 +4681,8 @@ const ruRU: Record<string, string> = {
   "chat.message.fork.unsupported": "Текущий агент пока не поддерживает ответвления",
   "chat.message.fork.failed": "Не удалось ответвить сеанс: {error}",
   "chat.message.fork.derivedFrom": "Ответвление от диалога",
-  "chat.message.fork.derivedFromMissing": "Ответвление от старого диалога (данные отслеживания потеряны)",
+  "chat.message.fork.derivedFromMissing":
+    "Ответвление от старого диалога (данные отслеживания потеряны)",
   "chat.message.fork.parentMissing": "Исходный диалог больше не существует",
   "chat.message.fork.noCheckpoint": "Контрольная точка ответвления не найдена",
   "chat.message.fork.targetMessageMissing": "Исходное сообщение больше не существует в диалоге",
@@ -4630,11 +4730,11 @@ const ruRU: Record<string, string> = {
   "chat.promptEnhance.description":
     "Уточните текущий черновик с помощью выбранной конфигурации модели.",
   "chat.promptEnhance.cancel": "Отменить улучшение",
-  "chat.promptEnhance.cancelDescription": "Нажмите ещё раз, чтобы отменить текущее улучшение запроса.",
+  "chat.promptEnhance.cancelDescription":
+    "Нажмите ещё раз, чтобы отменить текущее улучшение запроса.",
   "chat.promptEnhance.cancelled": "Улучшение запроса отменено",
   "chat.promptEnhance.empty": "Введите запрос, прежде чем улучшать его",
-  "chat.promptEnhance.unsupported":
-    "У выбранной модели сейчас нет прямой конфигурации улучшения.",
+  "chat.promptEnhance.unsupported": "У выбранной модели сейчас нет прямой конфигурации улучшения.",
   "chat.promptEnhance.error": "Не удалось улучшить запрос. Попробуйте ещё раз.",
   "chat.promptEnhance.errorWithDetail": "Не удалось улучшить запрос: {error}",
   "chat.queue.enqueue": "Поставить в очередь",
@@ -4645,7 +4745,8 @@ const ruRU: Record<string, string> = {
   "chat.queue.edit": "Изменить",
   "chat.queue.editDraftConflict":
     "Отправьте или очистите текущий черновик, прежде чем изменять сообщение в очереди.",
-  "chat.queue.editRestoreFailed": "Не удалось вернуть сообщение из очереди в поле ввода. Попробуйте ещё раз.",
+  "chat.queue.editRestoreFailed":
+    "Не удалось вернуть сообщение из очереди в поле ввода. Попробуйте ещё раз.",
   "chat.queue.remove": "Удалить сообщение из очереди",
   "chat.queue.turnSteer.steering": "Диалог направляется",
   "chat.queue.paused.stopped": "Очередь приостановлена: вы остановили текущий ответ",
@@ -4689,7 +4790,8 @@ const ruRU: Record<string, string> = {
   "tokenDebug.column.tps": "TPS (токенов/с)",
   "tokenDebug.tpsDescription":
     "Выходные токены ÷ секунды от первого выходного токена до завершения запроса",
-  "developerTools.loadError": "Не удалось прочитать данные отладки. Повторная попытка; предыдущие записи могут быть устаревшими.",
+  "developerTools.loadError":
+    "Не удалось прочитать данные отладки. Повторная попытка; предыдущие записи могут быть устаревшими.",
   "tokenDebug.title": "Отладка токенов",
   "tokenDebug.summary.requests": "Основные запросы",
   "tokenDebug.summary.average": "Среднее попадание",
@@ -4805,10 +4907,12 @@ const ruRU: Record<string, string> = {
   "chat.toolbar.model.empty": "Модели не найдены",
   "chat.toolbar.modelSwitch.stage.settingModel": "Переключение модели…",
   "chat.toolbar.modelSwitch.stage.fallbackConfigOption": "Переход к API параметров конфигурации…",
-  "chat.toolbar.modelSwitch.stage.applyingCustomProvider": "Применение пользовательского провайдера модели…",
+  "chat.toolbar.modelSwitch.stage.applyingCustomProvider":
+    "Применение пользовательского провайдера модели…",
   "chat.toolbar.modelSwitch.stage.restartingRuntime": "Перезапуск среды выполнения модели…",
   "chat.toolbar.modelSwitch.stage.syncingSession": "Синхронизация модели сеанса…",
-  "chat.toolbar.modelSwitch.stage.persistingWorkspace": "Сохранение модели рабочей области по умолчанию…",
+  "chat.toolbar.modelSwitch.stage.persistingWorkspace":
+    "Сохранение модели рабочей области по умолчанию…",
   "chat.toolbar.modelSwitch.lockedByRunningTask":
     "Задача выполняется. Дождитесь её завершения, прежде чем менять провайдера модели.",
   "chat.toolbar.modelSwitch.lockedByRunningTask.short": "занято",
@@ -4821,7 +4925,7 @@ const ruRU: Record<string, string> = {
   "chat.compact.duplicateBlocked": "Сжатие уже выполняется или стоит в очереди.",
   "chat.modelSwitch.contextWindowGuard.title": "Сожмите контекст перед сменой модели",
   "chat.modelSwitch.contextWindowGuard.description":
-    "В этом диалоге использовано {used} токенов — это превышает доступный контекст {modelName} в {target} токенов после резервирования максимального вывода.\nСначала сожмите текущий диалог текущей моделью. Если сжатый контекст поместится, ZCode продолжит смену модели.",
+    "В этом диалоге использовано {used} токенов — это превышает доступный контекст {modelName} в {target} токенов после резервирования максимального вывода.\nСначала сожмите текущий диалог текущей моделью. Если сжатый контекст поместится, DeepVibe продолжит смену модели.",
   "chat.modelSwitch.contextWindowGuard.compress": "Сжать",
   "chat.modelSwitch.contextWindowGuard.runningBlocked":
     "В этом диалоге использовано больше контекста, чем доступно целевой модели после резервирования максимального вывода. Перед сменой модели диалог нужно сжать, но текущая задача ещё выполняется, и сжатие контекста сейчас невозможно. Дождитесь завершения задачи и попробуйте сменить модель снова.",
@@ -4834,11 +4938,11 @@ const ruRU: Record<string, string> = {
     "Управление компьютером простаивает — оно запустится автоматически при первом использовании",
   "chat.toolbar.computerUse.tooltip.starting": "Включение плагина управления компьютером…",
   "chat.toolbar.computerUse.tooltip.ready":
-    "Управление компьютером готово — просто опишите, что должен сделать ZCode",
+    "Управление компьютером готово — просто опишите, что должен сделать DeepVibe",
   "chat.toolbar.computerUse.tooltip.permissionRequired":
     "Не хватает разрешений macOS — нажмите, чтобы выдать",
   "chat.toolbar.computerUse.tooltip.error":
-    "Не удалось включить управление компьютером. Перезапустите приложение ZCode и повторите попытку или попросите ZCode изучить логи",
+    "Не удалось включить управление компьютером. Перезапустите приложение DeepVibe и повторите попытку или попросите DeepVibe изучить логи",
   "chat.toolbar.computerUse.tooltip.sessionBusy":
     "Диалог выполняется. Сейчас управление компьютером переключить нельзя — попробуйте после его завершения.",
   "chat.toolbar.mode.description":
@@ -5142,7 +5246,7 @@ const ruRU: Record<string, string> = {
     "Не удалось подключиться к локальному агенту — глобальные рабочие процессы недоступны.",
   "workflows.hub.empty.title": "В открытых проектах пока нет сохранённых рабочих процессов",
   "workflows.hub.empty.hint":
-    "Создайте рабочий процесс вместе с ZCode в чате, а когда он заработает, попросите сохранить его в проект. Неоткрытые проекты здесь не отображаются.",
+    "Создайте рабочий процесс вместе с DeepVibe в чате, а когда он заработает, попросите сохранить его в проект. Неоткрытые проекты здесь не отображаются.",
   "workflows.hub.noWorkspace": "Откройте рабочую область, чтобы увидеть её рабочие процессы.",
   "workflows.hub.loadError": "Не удалось прочитать рабочие процессы: {error}",
   "workflows.hub.invalid": "Не удалось прочитать {count} файлов",
@@ -5173,11 +5277,13 @@ const ruRU: Record<string, string> = {
   "workflows.hub.move.targetExists": "Рабочий процесс с таким именем там уже есть",
   "workflows.hub.move.failed": "Не удалось переместить: {reason}",
   "workflows.hub.moveDialog.title": "Переместить в проект",
-  "workflows.hub.moveDialog.noLocalProject": "Откройте локальный проект, чтобы переместить этот рабочий процесс",
+  "workflows.hub.moveDialog.noLocalProject":
+    "Откройте локальный проект, чтобы переместить этот рабочий процесс",
   "workflows.hub.moveDialog.submit": "Переместить",
   "workflows.hub.launch.title": "Запустить {name}",
   "workflows.hub.launch.target": "Запустить в",
-  "workflows.hub.launch.noLocalProject": "Откройте локальный проект, чтобы запустить этот рабочий процесс",
+  "workflows.hub.launch.noLocalProject":
+    "Откройте локальный проект, чтобы запустить этот рабочий процесс",
   "workflows.hub.launch.required": "Обязательно",
   "workflows.hub.launch.scope.project": "Проект",
   "workflows.hub.launch.scope.global": "Глобально",
@@ -5205,7 +5311,7 @@ const ruRU: Record<string, string> = {
   "workflows.hub.detail.description": "Описание",
   "workflows.hub.detail.whenToUse": "Когда использовать",
   "workflows.hub.detail.whenToUse.help":
-    "Подсказка для ZCode: когда стоит выбрать этот рабочий процесс.",
+    "Подсказка для DeepVibe: когда стоит выбрать этот рабочий процесс.",
   "workflows.hub.detail.args": "Аргументы",
   "workflows.hub.detail.args.name": "Имя",
   "workflows.hub.detail.args.type": "Тип",
@@ -5226,7 +5332,7 @@ const ruRU: Record<string, string> = {
   "workflows.hub.detail.meta.descriptionRequired": "Укажите описание",
   "workflows.hub.detail.script": "Скрипт",
   "workflows.hub.detail.script.note":
-    "Скрипт доступен только для чтения. Чтобы изменить его, доработайте его вместе с ZCode в чате и сохраните новую версию.",
+    "Скрипт доступен только для чтения. Чтобы изменить его, доработайте его вместе с DeepVibe в чате и сохраните новую версию.",
   "workflows.hub.detail.script.copy": "Копировать скрипт",
   "workflows.hub.detail.loadError": "Не удалось прочитать рабочий процесс: {reason}",
   "workflows.hub.detail.notFound": "Этого рабочего процесса больше нет в проекте.",
@@ -5379,7 +5485,8 @@ const ruRU: Record<string, string> = {
   "chat.toolCall.workflow.run.truncated": "Показаны подробности для {shown} из {total} шагов",
   "chat.toolCall.workflow.run.cancel": "Остановить запуск",
   "chat.toolCall.workflow.run.cancelling": "Остановка…",
-  "chat.toolCall.workflow.run.cancelDisabled": "Остановить можно только выполняющийся рабочий процесс.",
+  "chat.toolCall.workflow.run.cancelDisabled":
+    "Остановить можно только выполняющийся рабочий процесс.",
   "chat.toolCall.workflow.run.stopHint": "Позже можно возобновить — завершённые шаги сохранятся.",
   "chat.toolCall.workflow.run.rejection.cancel.not_found":
     "Этот запуск не выполняется в этом агенте, поэтому ничего не остановлено.",
@@ -5394,7 +5501,8 @@ const ruRU: Record<string, string> = {
     "Сохранённый скрипт больше не компилируется с этой версией фасада рабочих процессов. Попросите агента доработать рабочий процесс, а не возобновлять его.",
   "chat.toolCall.workflow.run.rejection.resume.not_found":
     "Этого запуска нет в журнале этого сеанса.",
-  "chat.toolCall.workflow.run.rejection.resume.not_resumable": "Возобновить можно только остановленный запуск.",
+  "chat.toolCall.workflow.run.rejection.resume.not_resumable":
+    "Возобновить можно только остановленный запуск.",
   "chat.toolCall.workflow.run.rejection.resume.superseded":
     "Этот запуск заменён новой версией — откройте её.",
   "chat.toolCall.workflow.run.rejection.resume.already_running": "Этот запуск уже выполняется.",
@@ -5438,8 +5546,7 @@ const ruRU: Record<string, string> = {
     "Этого запуска нет в записях этого диалога.",
   "chat.toolCall.workflow.run.settings.rejection.not_configurable":
     "Этот запуск больше нельзя настроить.",
-  "chat.toolCall.workflow.run.settings.rejection.unchanged":
-    "Это текущие настройки запуска.",
+  "chat.toolCall.workflow.run.settings.rejection.unchanged": "Это текущие настройки запуска.",
   "chat.toolCall.workflow.run.settings.rejection.script_missing":
     "Для этого запуска не сохранён скрипт, поэтому здесь нельзя изменить его настройки.",
   "chat.toolCall.workflow.run.settings.rejection.model_unavailable":
@@ -5458,7 +5565,8 @@ const ruRU: Record<string, string> = {
   "chat.toolCall.workflow.settingsChange.model": "подагенты на {model}",
   "chat.toolCall.workflow.settingsChange.modelSession": "подагенты снова на модели сеанса",
   "chat.toolCall.workflow.settingsChange.limit": "не более {n} одновременно",
-  "chat.toolCall.workflow.settingsChange.limitCeiling": "лимит снова по умолчанию для этого компьютера",
+  "chat.toolCall.workflow.settingsChange.limitCeiling":
+    "лимит снова по умолчанию для этого компьютера",
   "chat.toolCall.workflow.run.result.title": "Результат",
   "chat.toolCall.workflow.run.result.completedHint":
     "Этот запуск завершён. Его результат отправлен в диалог как сообщение о фоновом результате.",
@@ -5616,8 +5724,7 @@ const ruRU: Record<string, string> = {
   "chat.toolCall.agent.backgroundLaunched": "Запущено",
   "chat.toolCall.agent.backgroundActivity": "Активность",
   "chat.toolCall.agent.backgroundActivityStreaming": "Выполняется в фоне, синхронизация вывода",
-  "chat.toolCall.agent.backgroundActivityRunningWaiting":
-    "Выполняется в фоне, ожидание вывода",
+  "chat.toolCall.agent.backgroundActivityRunningWaiting": "Выполняется в фоне, ожидание вывода",
   "chat.toolCall.agent.backgroundActivityReceived": "Вывод подагента получен",
   "chat.toolCall.agent.backgroundActivityWaiting": "Ожидание вывода подагента",
   "chat.toolCall.agent.outputFile": "Файл вывода",
@@ -5731,7 +5838,7 @@ const ruRU: Record<string, string> = {
   "chat.slash.subagents.title": "Агенты",
   "chat.slash.subagents.empty": "Нет подходящих агентов",
   "chat.slash.emptyUnavailable":
-    "Для текущего сеанса ZCode Agent не передано ни одной слэш-команды",
+    "Для текущего сеанса DeepVibe Agent не передано ни одной слэш-команды",
   "chat.slash.emptyResults": "Нет подходящих слэш-команд",
   // Ошибки
   "chat.error.connectionLost": "Соединение с агентом потеряно",
@@ -5774,9 +5881,9 @@ const ruRU: Record<string, string> = {
   "chat.quota.startPlan.concurrentLimit.switchModel":
     "Достигнут предел параллельных запросов для текущей модели. Смените модель, чтобы продолжить текущую задачу.",
   "chat.quota.mcp.quotaExhausted":
-    "У ZCode MCP «{server}» исчерпана квота на сегодня. Она сбросится завтра.",
+    "У DeepVibe MCP «{server}» исчерпана квота на сегодня. Она сбросится завтра.",
   "chat.quota.mcp.codingPlanRequired":
-    "Нет квоты ZCode MCP «{server}». Войдите или оформите Coding Plan, чтобы использовать его.",
+    "Нет квоты DeepVibe MCP «{server}». Войдите или оформите Coding Plan, чтобы использовать его.",
   "chat.quota.providerLimited":
     "Достигнут предел квоты или тарифа текущего аккаунта. Обновите или измените тариф, чтобы продолжить.",
   "chat.quota.action.upgrade": "Обновить тариф",
@@ -5805,7 +5912,8 @@ const ruRU: Record<string, string> = {
   "chat.permission.deny": "Запретить",
   "chat.permission.denyAlways": "Всегда запрещать",
   "chat.permission.files": "Файлы",
-  "chat.permission.keyboardHint": "Используйте Tab / стрелки для выбора, затем нажмите Enter для подтверждения",
+  "chat.permission.keyboardHint":
+    "Используйте Tab / стрелки для выбора, затем нажмите Enter для подтверждения",
   "chat.permission.scope.commandPrefix": "Префикс команды",
   "chat.permission.scope.exactCommand": "Только точная команда",
   "chat.permission.workflow.title": "Запустить этот рабочий процесс?",
@@ -5826,7 +5934,8 @@ const ruRU: Record<string, string> = {
   "chat.permission.workflow.saved.scope.project": "проект",
   "chat.permission.workflow.saved.args": "Аргументы",
   "chat.permission.workflow.save.title": "Сохранить этот рабочий процесс в проект?",
-  "chat.permission.workflow.save.overwriteTitle": "Перезаписать существующий сохранённый рабочий процесс?",
+  "chat.permission.workflow.save.overwriteTitle":
+    "Перезаписать существующий сохранённый рабочий процесс?",
   "chat.permission.workflow.save.overwriteHint":
     "Рабочий процесс с таким именем уже существует по этому пути. При сохранении файл будет полностью заменён.",
   "chat.permission.workflow.save.path": "Путь",
@@ -5848,7 +5957,8 @@ const ruRU: Record<string, string> = {
 
   // Elicitation
   "chat.elicitation.title": "Требуется ввод",
-  "chat.elicitation.keyboardHint": "Используйте Tab / стрелки для выбора, затем Enter или Space для подтверждения",
+  "chat.elicitation.keyboardHint":
+    "Используйте Tab / стрелки для выбора, затем Enter или Space для подтверждения",
   "chat.elicitation.customAnswer": "Свой ответ",
   "chat.elicitation.customAnswer.placeholder": "Введите свой ответ…",
   "chat.elicitation.noAnswerProvided": "Ответ не указан",
@@ -5865,7 +5975,8 @@ const ruRU: Record<string, string> = {
   "chat.elicitation.expandDialog": "Развернуть диалог вопроса",
   "chat.elicitation.collapseDialog": "Свернуть диалог вопроса",
   "chat.elicitation.planApproval.approve": "Утвердить",
-  "chat.elicitation.planApproval.approveDescription": "Выйти из режима планирования и начать реализацию.",
+  "chat.elicitation.planApproval.approveDescription":
+    "Выйти из режима планирования и начать реализацию.",
   "chat.askQuestion.asking": "Задаёт вопросы",
   "chat.askQuestion.asked": "Задано",
   "chat.askQuestion.questionsCount": "{count} вопросов",
@@ -5878,8 +5989,7 @@ const ruRU: Record<string, string> = {
     "Больше не спрашивать для этого запроса разрешения",
   "chat.permission.denyOnce.description": "Отклонить на этот раз",
   "chat.permission.denyAlways.description.command": "Всегда отклонять эту команду в будущем",
-  "chat.permission.denyAlways.description.file":
-    "Всегда отклонять эту операцию с файлом в будущем",
+  "chat.permission.denyAlways.description.file": "Всегда отклонять эту операцию с файлом в будущем",
   "chat.permission.denyAlways.description.generic":
     "Всегда отклонять этот запрос разрешения в будущем",
   "chat.permission.fileChange.add": "Создание",
@@ -5919,11 +6029,12 @@ const ruRU: Record<string, string> = {
   "planTool.guidance.enterMode": "Включён режим планирования",
   "chat.permission.switchMode.placeholder": "План реализации",
 
-  // Агент ZCode
+  // Агент DeepVibe
   "zcode.unavailable": "AI-агент недоступен",
   "zcode.initFailed": "Не удалось запустить AI-агента",
   "zcode.error.TASK_OWNED_BY_OTHER_HOST": "Эта задача уже выполняется в другом подключённом окне.",
-  "zcode.error.STALE_TASK_OWNER_COMMAND": "Это действие относится к более старому запуску и было проигнорировано.",
+  "zcode.error.STALE_TASK_OWNER_COMMAND":
+    "Это действие относится к более старому запуску и было проигнорировано.",
   "zcode.error.NO_ACTIVE_TASK_OWNER": "Для этого действия нет активного владельца задачи.",
   "zcode.error.OWNER_COMMAND_FAILED": "Владелец задачи не смог выполнить это действие.",
   "zcode.error.MEDIA_BUDGET_CURRENT_ATTACHMENT_TOO_LARGE":
@@ -5941,8 +6052,7 @@ const ruRU: Record<string, string> = {
     "Квота бесплатного тарифа на сегодня исчерпана. Обновите тариф, чтобы продолжить сейчас, или дождитесь сброса квоты.",
   "zcode.error.providerBusiness.3006":
     "Текущая модель не входит в этот тариф. Переключитесь на доступную модель и попробуйте снова.",
-  "zcode.error.providerBusiness.3002":
-    "Вы отправляете запросы слишком часто. Попробуйте позже.",
+  "zcode.error.providerBusiness.3002": "Вы отправляете запросы слишком часто. Попробуйте позже.",
   "zcode.error.providerBusiness.3001":
     "Параметры запроса неверны. Проверьте введённые данные и попробуйте снова.",
   "zcode.error.providerBusiness.3007":
@@ -5957,10 +6067,8 @@ const ruRU: Record<string, string> = {
     "Этот запуск превысил максимальное время одного запуска. Создайте новую задачу в простое, чтобы продолжить.",
   "zcode.error.modelSuspiciousEmpty":
     "Модель вернула пустой ответ (часто из-за истёкшего токена или проблем с тарифом). Отправьте запрос ещё раз.",
-  "zcode.error.providerBusiness.2007":
-    "Вышестоящий сервис временно недоступен. Попробуйте позже.",
-  "zcode.error.providerBusiness.429":
-    "Вы отправляете запросы слишком часто. Попробуйте позже.",
+  "zcode.error.providerBusiness.2007": "Вышестоящий сервис временно недоступен. Попробуйте позже.",
+  "zcode.error.providerBusiness.429": "Вы отправляете запросы слишком часто. Попробуйте позже.",
 
   // Панель отладочной информации
   "debugInfo.taskId": "ID задачи",
@@ -5977,7 +6085,7 @@ const ruRU: Record<string, string> = {
   "resourceManager.cpu": "CPU",
   "resourceManager.memory": "Память",
   "resourceManager.storage": "Хранилище",
-  "resourceManager.appUsage": "ZCode",
+  "resourceManager.appUsage": "DeepVibe",
   "resourceManager.systemUsage": "Система",
   "resourceManager.category.base": "Базовые сервисы",
   "resourceManager.category.builtinPlugin": "Встроенные плагины",
@@ -6027,8 +6135,7 @@ const ruRU: Record<string, string> = {
   "feedback.status.released": "Выпущено",
   "feedback.statusHint.pendingReview": "Мы получили ваш отзыв и скоро им займёмся.",
   "feedback.statusHint.needInfo": "Нужно немного больше информации. Посмотрите ответ команды ниже.",
-  "feedback.statusHint.accepted":
-    "Ваш отзыв принят. Мы запланируем исправление или улучшение.",
+  "feedback.statusHint.accepted": "Ваш отзыв принят. Мы запланируем исправление или улучшение.",
   "feedback.statusHint.closedByReply":
     "Команда продукта ответила и закрыла этот отзыв. Если проблема осталась, отправьте новый.",
   "feedback.statusHint.archived":
@@ -6113,11 +6220,13 @@ const ruRU: Record<string, string> = {
   "feedback.supplement.continueDescription":
     "Пока вы просматриваете процесс, можно добавить шаги воспроизведения, пояснения к скриншотам, фрагменты логов или новые подсказки.",
   "feedback.supplement.attachmentLimit": "Можно добавить до {count} вложений",
-  "feedback.supplement.attachmentTooLarge": "{name} превышает 100 МБ и пока не может быть загружен.",
+  "feedback.supplement.attachmentTooLarge":
+    "{name} превышает 100 МБ и пока не может быть загружен.",
   "feedback.supplement.attachment": "Вложение",
   "feedback.supplement.uploadedAttachments": "Вложения: {names}",
   "feedback.supplement.addAttachment": "Добавить вложение",
-  "feedback.supplement.placeholder": "Добавьте подробности, вставьте скриншот или добавьте локальный файл…",
+  "feedback.supplement.placeholder":
+    "Добавьте подробности, вставьте скриншот или добавьте локальный файл…",
   "feedback.supplement.removeAttachment": "Удалить {name}",
   "feedback.supplement.attachmentHint":
     "Поддерживаются вставленные скриншоты и локальные файлы. Каждое вложение должно быть меньше 100 МБ.",
@@ -6221,7 +6330,7 @@ const ruRU: Record<string, string> = {
   "feedback.submit.template.section.errorSummaryLine": "Краткое описание ошибки: {message}",
   "feedback.submit.template.section.errorDetail": "Подробности ошибки",
   "feedback.submit.template.section.errorTraceId": "ID трассировки: {traceId}",
-  "feedback.submit.template.section.copyErrorHeading": "Сведения об ошибке ZCode",
+  "feedback.submit.template.section.copyErrorHeading": "Сведения об ошибке DeepVibe",
   "feedback.submit.template.section.notProvided": "Не указано",
   "feedback.submit.template.section.remoteLogEmpty": "Логи подключения не записаны",
   "feedback.submit.template.section.taskFeedbackTitle": "Отзыв о задаче: {title}",
@@ -6250,7 +6359,8 @@ const ruRU: Record<string, string> = {
   "feedback.submit.simple.descriptionPlaceholder":
     "Опишите проблему, где она возникла, что вы ожидали или что хотите улучшить.",
   "feedback.submit.simple.screenshotTitle": "Скриншоты",
-  "feedback.submit.simple.screenshotHint": "Вставьте или перетащите изображения сюда либо выберите файлы.",
+  "feedback.submit.simple.screenshotHint":
+    "Вставьте или перетащите изображения сюда либо выберите файлы.",
   "feedback.submit.simple.screenshotPrivacyHint":
     "Перед загрузкой проверьте изображения на наличие конфиденциальной информации.",
   "feedback.submit.simple.contactTitle": "Контакт",
@@ -6286,15 +6396,16 @@ const ruRU: Record<string, string> = {
   "feedback.featureRequest.contactLabel": "Контакт",
   "feedback.featureRequest.reset": "Сбросить",
   "feedback.featureRequest.submit": "Отправить запрос",
-  "feedback.featureRequest.missingRequired":
-    "Заполните описание запроса и ожидаемое решение",
-  "feedback.featureRequest.source": "Меню справки в верхней панели рабочей области / Предложить функцию",
+  "feedback.featureRequest.missingRequired": "Заполните описание запроса и ожидаемое решение",
+  "feedback.featureRequest.source":
+    "Меню справки в верхней панели рабочей области / Предложить функцию",
   "feedback.featureRequest.submittedToast": "Запрос отправлен. Мы внимательно его рассмотрим.",
   "feedback.submission.connectingLabel": "Подключение к сервису обратной связи",
   "feedback.submission.connectingDetail":
     "Скриншоты и логи продолжат загружаться после создания обращения",
   "feedback.submission.cancelingCreateLabel": "Отмена отправки",
-  "feedback.submission.cancelingCreateDetail": "Получен запрос на отмену. Создание обращения останавливается.",
+  "feedback.submission.cancelingCreateDetail":
+    "Получен запрос на отмену. Создание обращения останавливается.",
   "feedback.submission.canceledLabel": "Отправка отзыва отменена",
   "feedback.submission.canceledDetail": "Отправка отзыва отменена",
   "feedback.submission.uploadingScreenshotLabel": "Загрузка скриншота",
@@ -6381,7 +6492,7 @@ const ruRU: Record<string, string> = {
   "automations.statusFilter.completed": "Завершены",
   "automations.statusFilter.failed": "Со сбоем",
   "automations.statusFilter.empty": "Нет задач, соответствующих фильтру",
-  "offPeak.keepAwakeBanner": "Не давайте компьютеру засыпать, пока ZCode выполняет диалог.",
+  "offPeak.keepAwakeBanner": "Не давайте компьютеру засыпать, пока DeepVibe выполняет диалог.",
   "offPeak.sectionTitle": "Задачи в простое",
   "offPeak.createButton": "Создать задачу в простое",
   "offPeak.templates.sectionTitle": "Шаблон задачи в простое",
@@ -6401,7 +6512,8 @@ const ruRU: Record<string, string> = {
   "offPeak.status.cancelled": "Отменена",
   "offPeak.goToSession": "Перейти к сеансу",
   "offPeak.boundSession.label": "Выполняется в: {title}",
-  "offPeak.nav.listUnavailable": "Не удалось загрузить список задач в простое. Обновите и попробуйте ещё раз.",
+  "offPeak.nav.listUnavailable":
+    "Не удалось загрузить список задач в простое. Обновите и попробуйте ещё раз.",
   "offPeak.boundSession.hint":
     "Выполняется в этом сеансе; остановка сеанса во время выполнения задачи отменяет её.",
   "offPeak.chatCreated.boundHint": "Выполняется в этом сеансе",
@@ -6409,14 +6521,14 @@ const ruRU: Record<string, string> = {
   "offPeak.action.continue": "Продолжить",
   "offPeak.action.cancel": "Отменить задачу",
   "offPeak.cancel.title": "Отменить задачу в простое?",
-  "offPeak.cancel.description": "«{title}» перестанет выполняться. Файлы, которые она уже изменила, сохранятся.",
+  "offPeak.cancel.description":
+    "«{title}» перестанет выполняться. Файлы, которые она уже изменила, сохранятся.",
   "offPeak.delete.title": "Удалить эту задачу в простое?",
   "offPeak.delete.description":
     "Это действие нельзя отменить. Если задача сейчас в очереди или выполняется, она немедленно остановится.",
   "offPeak.delete.confirm": "Удалить задачу в простое",
   "offPeak.error.quota": "Достигнут лимит бесплатного тарифа. Попробуйте позже.",
-  "offPeak.error.unavailable":
-    "Служба задач в простое временно недоступна. Попробуйте позже.",
+  "offPeak.error.unavailable": "Служба задач в простое временно недоступна. Попробуйте позже.",
   "offPeak.error.generic": "Не удалось выполнить операцию с задачей в простое.",
   "offPeak.create.title": "Новая задача в простое",
   "offPeak.create.subtitle": "Настройте инструкции и то, как эта задача выполняется в простое.",
@@ -6438,7 +6550,7 @@ const ruRU: Record<string, string> = {
   "offPeak.form.titlePlaceholder": "Например: ночной рефакторинг",
   "offPeak.form.instructionsLabel": "Инструкции",
   "offPeak.form.instructionsPlaceholder":
-    "Опишите задачу, которую ZCode сможет выполнить в фоне: ожидаемый результат и ограничения…",
+    "Опишите задачу, которую DeepVibe сможет выполнить в фоне: ожидаемый результат и ограничения…",
   "offPeak.form.permissionWarning":
     "Запуски в простое идут без вашего участия. Действия, требующие подтверждения, приостановят задачу до вашего ответа.",
   "offPeak.form.modelLabel": "Модель",
@@ -6457,20 +6569,21 @@ const ruRU: Record<string, string> = {
   "offPeak.history.col.instructions": "Инструкции",
   "offPeak.history.delete": "Удалить историю",
   "offPeak.history.durationMinutes": "{count} мин",
-  "offPeak.form.fullAccessHint": "Переключите разрешения на «Полный доступ», чтобы уменьшить число сбоев задач",
+  "offPeak.form.fullAccessHint":
+    "Переключите разрешения на «Полный доступ», чтобы уменьшить число сбоев задач",
   "offPeak.discard.title": "Отклонить черновик задачи в простое?",
   "offPeak.discard.description": "Ваши изменения текущей задачи в простое будут потеряны.",
   "offPeak.discard.confirm": "Отклонить",
   "offPeak.create.codingPlanOnly": "Только для пользователей тарифа Coding Plan",
-  "offPeak.create.availabilityUnavailable": "Не удалось проверить доступность. Обновите и попробуйте ещё раз.",
+  "offPeak.create.availabilityUnavailable":
+    "Не удалось проверить доступность. Обновите и попробуйте ещё раз.",
   "offPeak.create.limitReachedAt":
     "Достигнут лимит бесплатного тарифа. Следующую задачу можно создать через {time}.",
   "offPeak.create.remaining.hoursMinutes": "{hours} ч {minutes} мин",
   "offPeak.create.remaining.hours": "{hours} ч",
   "offPeak.create.remaining.minutes": "{minutes} мин",
   "offPeak.create.remaining.lessThanMinute": "меньше 1 мин",
-  "offPeak.create.codingPlanToast":
-    "Задачи в простое доступны только подписчикам Coding Plan.",
+  "offPeak.create.codingPlanToast": "Задачи в простое доступны только подписчикам Coding Plan.",
   "automations.moreIdeas": "Шаблон задачи по расписанию",
   "automations.templates.unavailable": "Нет доступных шаблонов",
   "automations.runNow": "Запустить сейчас",
@@ -6489,7 +6602,8 @@ const ruRU: Record<string, string> = {
   "automations.edit.newTask": "Новая задача",
   "automations.edit.createSubtitle":
     "Настройте, когда эта задача запускается, что она делает и как работает.",
-  "automations.edit.editSubtitle": "Измените, когда эта задача запускается, что она делает и как работает.",
+  "automations.edit.editSubtitle":
+    "Измените, когда эта задача запускается, что она делает и как работает.",
   "automations.edit.tab.settings": "Настройки",
   "automations.edit.tab.history": "История",
   "automations.edit.createButton": "Создать задачу по расписанию",
@@ -6541,8 +6655,7 @@ const ruRU: Record<string, string> = {
   "automations.schedule.custom": "Каждые {interval} {unit} в {time}",
   "automations.schedule.customWeekly": "Каждые {interval} нед. ({days}) в {time}",
   "automations.schedule.customMonthlyDates": "Каждые {interval} мес. числа {days} в {time}",
-  "automations.schedule.customMonthlyWeekday":
-    "Каждые {interval} мес. (первый {day}) в {time}",
+  "automations.schedule.customMonthlyWeekday": "Каждые {interval} мес. (первый {day}) в {time}",
   "automations.schedule.customYearly": "Каждые {interval} г. {day}.{month} в {time}",
   "automations.schedule.once": "Однократно",
   "automations.time.soon": "скоро",
@@ -6602,7 +6715,8 @@ const ruRU: Record<string, string> = {
   "automations.form.workspaceUnavailable":
     "Откройте доступный проект, прежде чем создавать задачу по расписанию.",
   "automations.form.recurring.label": "Повторять бесконечно",
-  "automations.form.recurring.hint": "Отключите, чтобы останавливать после заданного числа запусков.",
+  "automations.form.recurring.hint":
+    "Отключите, чтобы останавливать после заданного числа запусков.",
   "automations.form.maxRuns.label": "Максимум запусков",
   "automations.form.maxRuns.placeholder": "Например: 5",
   "automations.form.cancel": "Отмена",
@@ -6633,9 +6747,9 @@ const ruRU: Record<string, string> = {
   "automations.runs.nextPage": "Далее",
   // CUA (Computer Use)
   "chat.cuaReadiness.toolsNotLoaded":
-    "Управление компьютером в ZCode ещё готовится — его инструменты пока не загружены (загружено: {count}). Выдайте разрешения ниже; инструменты появятся, когда помощник будет готов.",
+    "Управление компьютером в DeepVibe ещё готовится — его инструменты пока не загружены (загружено: {count}). Выдайте разрешения ниже; инструменты появятся, когда помощник будет готов.",
   "chat.cuaReadiness.toolsPreparing":
-    "Управление компьютером в ZCode ещё готовится — его инструменты пока не загружены. Выдайте разрешения ниже; инструменты появятся, когда помощник будет готов.",
+    "Управление компьютером в DeepVibe ещё готовится — его инструменты пока не загружены. Выдайте разрешения ниже; инструменты появятся, когда помощник будет готов.",
   "chat.toolCall.cua.requestAccess": "Проверить доступ к управлению компьютером",
   "chat.toolCall.cua.appName": "Computer Use",
   "chat.toolCall.cua.group.completedLabel": "Computer Use",
@@ -6703,7 +6817,8 @@ const ruRU: Record<string, string> = {
   "chat.toolCall.cua.details.focused": "В фокусе",
   "chat.toolCall.cua.details.untitledWindow": "Окно без названия",
   "chat.toolCall.cua.details.accessReady": "Управление компьютером готово",
-  "chat.toolCall.cua.details.accessIncomplete": "Разрешения для управления компьютером выданы не полностью",
+  "chat.toolCall.cua.details.accessIncomplete":
+    "Разрешения для управления компьютером выданы не полностью",
   "chat.toolCall.cua.details.permissions": "Статус разрешений",
   "chat.toolCall.cua.details.environment": "Среда",
   "chat.toolCall.cua.details.accessibility": "Доступность",
@@ -6763,9 +6878,9 @@ const ruRU: Record<string, string> = {
   "cuaPermission.modal.restartButton": "Перезапустить помощник",
   "cuaPermission.modal.restarting": "Перезапуск помощника…",
   "cuaPermission.modal.restartFailed": "Не удалось перезапустить помощник: {error}",
-  "cuaPermission.modal.relaunchAppButton": "Перезапустить ZCode",
+  "cuaPermission.modal.relaunchAppButton": "Перезапустить DeepVibe",
   "cuaPermission.modal.relaunchAppHint":
-    "Помощник всё ещё не работает после перезапуска? Перезапустите ZCode, чтобы полностью перезагрузить процесс помощника.",
+    "Помощник всё ещё не работает после перезапуска? Перезапустите DeepVibe, чтобы полностью перезагрузить процесс помощника.",
   "cuaPermission.status.granted": "Выдано",
   "cuaPermission.status.missing": "Отсутствует",
   "cuaPermission.status.unknown": "Неизвестно",
@@ -6779,9 +6894,10 @@ const ruRU: Record<string, string> = {
   "cuaPermission.tools.agentUpdateRequired":
     "Подключённый агент слишком стар для безопасной проверки готовности. Обновите или перезапустите его, затем проверьте снова.",
   "cuaPermission.tools.untrustedRuntime":
-    "Инструменты управления компьютером найдены, но они не относятся к проверенному плагину ZCode. Проверьте установку плагина и повторите проверку.",
+    "Инструменты управления компьютером найдены, но они не относятся к проверенному плагину DeepVibe. Проверьте установку плагина и повторите проверку.",
   "cuaPermission.perm.accessibility": "Доступность",
-  "cuaPermission.perm.accessibility.purpose": "Чтение элементов интерфейса, управление ими и синтез ввода",
+  "cuaPermission.perm.accessibility.purpose":
+    "Чтение элементов интерфейса, управление ими и синтез ввода",
   "cuaPermission.perm.screenRecording": "Запись экрана",
   "cuaPermission.perm.screenRecording.purpose": "Захват экрана",
   "cuaPermission.osFloorTitle":
@@ -6790,12 +6906,13 @@ const ruRU: Record<string, string> = {
     "Обновите macOS перед использованием. На старых версиях настройку разрешений завершить нельзя.",
   "cuaPermission.ready": "Разрешения готовы",
   "cuaPermission.ready.sessionValidationHint":
-    "ZCode проверит инструменты управления компьютером в самом сеансе, когда запустится ваш первый сеанс.",
+    "DeepVibe проверит инструменты управления компьютером в самом сеансе, когда запустится ваш первый сеанс.",
   "settings.computerUse.title": "Computer Use",
   "settings.computerUse.toggleLabel": "Включить управление компьютером",
   "settings.computerUse.toggleDescription":
     "При включении активируется управление компьютером — его сервер MCP и навыки.",
-  "settings.computerUse.composerEntry.label": "Показывать кнопку управления компьютером в поле ввода",
+  "settings.computerUse.composerEntry.label":
+    "Показывать кнопку управления компьютером в поле ввода",
   "settings.computerUse.composerEntry.description": "Если выключено, кнопка в поле ввода скрыта.",
   "settings.computerUse.composerEntry.requiresEnabled":
     "Сначала включите управление компьютером, чтобы показать эту кнопку в поле ввода.",

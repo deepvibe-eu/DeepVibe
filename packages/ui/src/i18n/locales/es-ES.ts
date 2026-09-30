@@ -12,7 +12,7 @@ const esES: Record<string, string> = {
   "startPlan.recommendation.dismiss": "No volver a mostrar",
   "occupationOnboarding.stepMode": "Modo de interfaz",
   "occupationOnboarding.modeTitle": "Elige tu modo de interfaz",
-  "occupationOnboarding.modeDescription": "¿Cómo quieres que ZCode muestre su trabajo?",
+  "occupationOnboarding.modeDescription": "¿Cómo quieres que DeepVibe muestre su trabajo?",
   "occupationOnboarding.coding": "Modo programación",
   "occupationOnboarding.codingDescription":
     "Quiero ver el código, la salida de los comandos y los detalles de los cambios durante todo el proceso de desarrollo.",
@@ -22,12 +22,15 @@ const esES: Record<string, string> = {
   "chat.officeSuggestions.setting": "Sugerencias proactivas de tareas",
   "chat.officeSuggestions.settingDescription": "Disponible solo en el modo oficina.",
   "chat.plugins.browseMarketplace": "Explorar el marketplace de plugins",
-  "chat.plugins.loadError": "No se pudieron cargar los plugins. Vuelve a abrir el menú para intentarlo de nuevo.",
-  "chat.officeSuggestions.saveError": "No se pudo guardar la configuración de sugerencias. Inténtalo de nuevo.",
+  "chat.plugins.loadError":
+    "No se pudieron cargar los plugins. Vuelve a abrir el menú para intentarlo de nuevo.",
+  "chat.officeSuggestions.saveError":
+    "No se pudo guardar la configuración de sugerencias. Inténtalo de nuevo.",
   "chat.officeSuggestions.refresh": "Mostrar más",
   "chat.officeSuggestions.closeTitle": "¿Desactivar las sugerencias de tareas?",
   "chat.officeSuggestions.closeDescription": "Puedes volver a activarlas en Configuración.",
-  "chat.officeSuggestions.closeError": "No se pudieron desactivar las sugerencias. Inténtalo de nuevo.",
+  "chat.officeSuggestions.closeError":
+    "No se pudieron desactivar las sugerencias. Inténtalo de nuevo.",
   "occupationOnboarding.suggestionsHeading": "Tareas sugeridas",
   "occupationOnboarding.infrastructure": "QA / Operaciones / Seguridad",
   "occupationOnboarding.product": "Producto / Proyecto / Soluciones",
@@ -59,29 +62,31 @@ const esES: Record<string, string> = {
   "occupationOnboarding.preferences": "Personaliza tu asistente de trabajo",
   "occupationOnboarding.preferencesDescription": "Elige qué funciones activar.",
   "occupationOnboarding.migration": "Migrar conversaciones",
-  "occupationOnboarding.migrationDescription": "Migra el historial de conversaciones desde Claude Code",
+  "occupationOnboarding.migrationDescription":
+    "Migra el historial de conversaciones desde Claude Code",
   "occupationOnboarding.memory": "Activar la memoria del espacio de trabajo",
-  "occupationOnboarding.memoryDescription": "Deja que ZCode recuerde tus preferencias y tu contexto de trabajo.",
+  "occupationOnboarding.memoryDescription":
+    "Deja que DeepVibe recuerde tus preferencias y tu contexto de trabajo.",
   "occupationOnboarding.suggestions": "Activar las sugerencias proactivas de tareas",
   "occupationOnboarding.suggestionsDescription":
     "Muestra sugerencias en las conversaciones nuevas. Haz clic para rellenar el cuadro de texto.",
   "occupationOnboarding.close": "Salir del onboarding",
-  "startup.global.silent": "Iniciando ZCode",
+  "startup.global.silent": "Iniciando DeepVibe",
   "startup.global.upgrading": "Actualizando los datos locales",
   "startup.global.initializing": "Inicializando los datos locales",
   "startup.global.waiting": "Esperando la preparación de la base de datos",
   "startup.global.saving": "Guardando las actualizaciones",
   "startup.global.finishing": "Finalizando el inicio",
   "startup.global.servicesFailed":
-    "Los datos locales están listos, pero los servicios de la aplicación no se iniciaron. Copia los diagnósticos, sal y vuelve a abrir ZCode.",
+    "Los datos locales están listos, pero los servicios de la aplicación no se iniciaron. Copia los diagnósticos, sal y vuelve a abrir DeepVibe.",
   "startup.global.starting": "Preparando los datos locales",
   "startup.global.preparing_host_storage": "Preparando el índice de tareas",
   "startup.global.preparing_session_storage": "Preparando el historial de chat",
-  "startup.global.starting_services": "Iniciando ZCode",
+  "startup.global.starting_services": "Iniciando DeepVibe",
   "startup.global.ready": "Los datos locales están listos",
   "startup.global.failed": "Falló la preparación del inicio",
   "startup.global.help":
-    "ZCode se abrirá cuando termine la preparación. Los historiales grandes pueden tardar más. Mantén la aplicación en ejecución.",
+    "DeepVibe se abrirá cuando termine la preparación. Los historiales grandes pueden tardar más. Mantén la aplicación en ejecución.",
   "startup.global.diagnostic": "ID de diagnóstico",
   "startup.global.copy": "Copiar diagnósticos",
   "startup.global.exit": "Salir",
@@ -102,15 +107,15 @@ const esES: Record<string, string> = {
   "startup.global.error.open_failed":
     "No se pudo abrir la base de datos. Comprueba que el directorio de datos exista y sea accesible y vuelve a intentarlo.",
   "startup.global.error.lock_timeout":
-    "Se agotó el tiempo de espera del bloqueo de escritura de la base de datos. Puede que otro proceso de ZCode o de la CLI esté actualizando datos. Vuelve a intentarlo cuando termine.",
+    "Se agotó el tiempo de espera del bloqueo de escritura de la base de datos. Puede que otro proceso de DeepVibe o de la CLI esté actualizando datos. Vuelve a intentarlo cuando termine.",
   "startup.global.error.sql_failed":
     "La preparación no terminó. Copia los diagnósticos y revisa los registros. Resuelve el problema y vuelve a intentarlo manualmente. La aplicación no lo reintentará automáticamente.",
   "startup.global.error.startup_status_timeout":
-    "No se recibió el estado de inicio. Sal y vuelve a abrir ZCode. Si vuelve a fallar, facilita los diagnósticos al servicio de soporte.",
+    "No se recibió el estado de inicio. Sal y vuelve a abrir DeepVibe. Si vuelve a fallar, facilita los diagnósticos al servicio de soporte.",
   "startup.global.error.transport_closed":
-    "El proceso de preparación finalizó o se desconectó. Sal y vuelve a abrir ZCode para comprobar de nuevo los registros de migración.",
+    "El proceso de preparación finalizó o se desconectó. Sal y vuelve a abrir DeepVibe para comprobar de nuevo los registros de migración.",
   "startup.global.error.unsupported_runtime":
-    "El agente configurado no admite la preparación del almacenamiento. Restaura el agente incluido y vuelve a abrir ZCode.",
+    "El agente configurado no admite la preparación del almacenamiento. Restaura el agente incluido y vuelve a abrir DeepVibe.",
 
   "startup.database.checking": "Comprobando el historial",
   "startup.database.waiting_for_lock": "Esperando a que otra ventana prepare los datos",
@@ -118,7 +123,8 @@ const esES: Record<string, string> = {
   "startup.database.committing": "Guardando la actualización",
   "startup.database.ready": "El historial está listo",
   "startup.database.failed": "No se pudo preparar el historial",
-  "startup.database.help": "El espacio de trabajo se abrirá cuando esté listo. Mantén la aplicación en ejecución.",
+  "startup.database.help":
+    "El espacio de trabajo se abrirá cuando esté listo. Mantén la aplicación en ejecución.",
   "startup.database.failedHelp":
     "Se ha conservado la base de datos original. Revisa los registros de diagnóstico, resuelve el problema y vuelve a intentarlo.",
   "startup.database.elapsed": "Transcurrido: {minutes} min {seconds} s",
@@ -154,14 +160,15 @@ const esES: Record<string, string> = {
   "chat.composer.addSection": "Añadir",
   "chat.composer.addWorkflow": "Flujo de trabajo",
   "chat.composer.attachment": "Adjuntos",
-  "chat.permission.feedback.ariaLabel": "Comentarios opcionales para el modelo al denegar la solicitud",
+  "chat.permission.feedback.ariaLabel":
+    "Comentarios opcionales para el modelo al denegar la solicitud",
   "chat.permission.feedback.placeholder": "Indica al modelo qué debe hacer en su lugar…",
   "offPeak.chatCreated.defaultTitle": "Tarea en tiempo de inactividad",
   "offPeak.chatCreated.queued": "En cola para el cómputo en tiempo de inactividad",
   "offPeak.chatCreated.queuedAt": "#{position} en la cola",
   "offPeak.chatCreated.open": "Ir a las tareas en tiempo de inactividad",
   "settings.computerUse.disabledToast":
-    "Computer Use está desactivado. Las conversaciones existentes requieren reiniciar ZCode para que surta efecto.",
+    "Computer Use está desactivado. Las conversaciones existentes requieren reiniciar DeepVibe para que surta efecto.",
   "settings.modelProvider.connectionUnavailableNotice": "El plan actual no está disponible.",
   "settings.modelProvider.switchConnection": "Cambiar a “{connection}”",
   "settings.modelProvider.connectionSuggestionStale":
@@ -197,13 +204,16 @@ const esES: Record<string, string> = {
   "conversationShare.permission.linkViewer": "Cualquier persona con el enlace puede ver",
   "conversationShare.permission.linkViewerHint": "No se puede importar ni continuar",
   "conversationShare.permission.linkViewerSummary": "Quienes tengan el enlace pueden ver",
-  "conversationShare.permission.linkEditor": "Cualquier persona con el enlace puede importar y continuar",
-  "conversationShare.permission.linkEditorHint": "Importar en ZCode",
-  "conversationShare.permission.linkEditorSummary": "Quienes tengan el enlace pueden importar y continuar",
+  "conversationShare.permission.linkEditor":
+    "Cualquier persona con el enlace puede importar y continuar",
+  "conversationShare.permission.linkEditorHint": "Importar en DeepVibe",
+  "conversationShare.permission.linkEditorSummary":
+    "Quienes tengan el enlace pueden importar y continuar",
   "conversationShare.permission.privateSummary": "Solo yo",
   "conversationShare.openLink": "Abrir la página del recurso compartido",
   "conversationShare.result.title": "Enlace compartido creado",
-  "conversationShare.result.description": "Tu enlace ya está listo para copiarlo o verlo en un navegador.",
+  "conversationShare.result.description":
+    "Tu enlace ya está listo para copiarlo o verlo en un navegador.",
   "conversationShare.result.openInBrowser": "Ver en el navegador",
   "conversationShare.result.dismiss": "Cerrar el resultado de compartir",
   "conversationShare.generatingLink": "Generando el enlace para compartir",
@@ -212,7 +222,8 @@ const esES: Record<string, string> = {
   "conversationShare.publishSucceeded": "Enlace creado",
   "conversationShare.publishSucceededWithSkips": "Enlace creado; se omitieron {count} archivos",
   "conversationShare.copyFailed": "No se pudo copiar el enlace",
-  "conversationShare.publishFailed": "No se pudo generar el enlace para compartir. Inténtalo de nuevo.",
+  "conversationShare.publishFailed":
+    "No se pudo generar el enlace para compartir. Inténtalo de nuevo.",
   "conversationShare.error.authenticationRequired":
     "Para compartir debes haber iniciado sesión. Tu sesión ha caducado; inicia sesión de nuevo y vuelve a intentarlo.",
   "conversationShare.error.featureDisabled":
@@ -221,7 +232,8 @@ const esES: Record<string, string> = {
     "Un tipo de archivo de la vista previa no se puede compartir. Desmarca esa conversación y vuelve a intentarlo.",
   "conversationShare.error.limitExceeded":
     "La conversación seleccionada o sus archivos superan el límite para compartir. Selecciona menos conversaciones.",
-  "conversationShare.error.rateLimited": "Demasiados intentos de compartir. Espera un momento y vuelve a intentarlo.",
+  "conversationShare.error.rateLimited":
+    "Demasiados intentos de compartir. Espera un momento y vuelve a intentarlo.",
   "conversationShare.error.network":
     "No se pudo conectar con el servicio para compartir. Comprueba tu conexión y vuelve a intentarlo.",
   "conversationShare.error.safetyCheckTimeout":
@@ -365,7 +377,8 @@ const esES: Record<string, string> = {
     "Revisa el título, el acceso y la confirmación de contenido sensible, y crea el enlace.",
   "conversationShare.partial.confirmationTitle": "Confirma el contenido compartido",
   "conversationShare.publish.failedTitle": "No se pudo publicar el contenido compartido",
-  "conversationShare.publish.failedDescription": "Soluciona el problema de abajo y vuelve a intentarlo.",
+  "conversationShare.publish.failedDescription":
+    "Soluciona el problema de abajo y vuelve a intentarlo.",
   "conversationShare.publish.retry": "Reintentar la generación",
   "conversationShare.publish.footerMeta": "Compartir {selected} turnos de conversación, {access}",
   "conversationShare.publish.failedFooter": "Ajusta el contenido antes de volver a publicar",
@@ -380,8 +393,10 @@ const esES: Record<string, string> = {
   "conversationShare.partial.publishing": "Generando…",
   "conversationShare.progress.collecting": "Recopilando la conversación y los artefactos…",
   "conversationShare.progress.uploading": "Subiendo los artefactos…",
-  "conversationShare.progress.checking": "Esperando a que terminen las comprobaciones de seguridad…",
-  "conversationShare.progress.collectingFailed": "No se pudieron recopilar la conversación y los artefactos",
+  "conversationShare.progress.checking":
+    "Esperando a que terminen las comprobaciones de seguridad…",
+  "conversationShare.progress.collectingFailed":
+    "No se pudieron recopilar la conversación y los artefactos",
   "conversationShare.progress.uploadingFailed": "No se pudieron subir los artefactos",
   "conversationShare.progress.checkingFailed": "Fallaron las comprobaciones de seguridad",
   "conversationShare.phase.collecting": "Preparar el contenido",
@@ -420,16 +435,21 @@ const esES: Record<string, string> = {
     "Importado de contenido compartido: {title}. El espacio de trabajo actual es remoto, algo que la importación aún no admite, así que la sesión se creó en el espacio de trabajo local {workspacePath}.",
   "conversationShare.import.fallbackDefaultWorkspace":
     "Importado de contenido compartido: {title}. No había ningún espacio de trabajo de destino disponible, así que la sesión se creó en el espacio de trabajo predeterminado {workspacePath}.",
-  "conversationShare.import.downloading": "Descargando los archivos compartidos: {completed}/{total}",
+  "conversationShare.import.downloading":
+    "Descargando los archivos compartidos: {completed}/{total}",
   "conversationShare.import.installing": "Instalando los archivos compartidos",
   "conversationShare.import.committing": "Creando la conversación compartida",
   "conversationShare.import.complete": "Importación completada",
   "conversationShare.import.loginRequired":
-    "Este contenido compartido no se puede importar de forma anónima. Inicia sesión en ZCode e inténtalo de nuevo",
-  "conversationShare.import.notFound": "Este contenido compartido no está disponible para esta cuenta",
-  "conversationShare.import.expired": "El contenido compartido ha caducado. Pide al autor que cree uno nuevo",
-  "conversationShare.import.integrityFailed": "No se pudo verificar el archivo compartido; la importación se detuvo",
-  "conversationShare.import.failed": "No se pudo importar el contenido compartido. Comprueba tu red y vuelve a intentarlo",
+    "Este contenido compartido no se puede importar de forma anónima. Inicia sesión en DeepVibe e inténtalo de nuevo",
+  "conversationShare.import.notFound":
+    "Este contenido compartido no está disponible para esta cuenta",
+  "conversationShare.import.expired":
+    "El contenido compartido ha caducado. Pide al autor que cree uno nuevo",
+  "conversationShare.import.integrityFailed":
+    "No se pudo verificar el archivo compartido; la importación se detuvo",
+  "conversationShare.import.failed":
+    "No se pudo importar el contenido compartido. Comprueba tu red y vuelve a intentarlo",
   "conversationShare.import.integrityFailedWithArtifact":
     "No se pudo verificar el archivo compartido {artifactDisplayName}; la importación se detuvo. Pide al autor que cree un enlace nuevo.",
   "conversationShare.import.failedWithArtifact":
@@ -539,7 +559,8 @@ const esES: Record<string, string> = {
   "taskList.deleteAllArchivedBusy": "Procesando…",
   "taskList.deleteAllArchivedUnavailable":
     "Estos proyectos no se pueden procesar ahora mismo: {projects}. Inténtalo de nuevo tras reconectar.",
-  "taskList.deleteAllArchivedResult": "Se eliminaron {deleted}, se omitieron {skipped} y fallaron {failed}.",
+  "taskList.deleteAllArchivedResult":
+    "Se eliminaron {deleted}, se omitieron {skipped} y fallaron {failed}.",
   "taskList.deleteAllArchivedError":
     "La operación o la actualización de la lista falló. Actualiza para comprobar las tareas restantes.",
   "confirmDialog.taskArchiveTitle": "¿Archivar esta tarea?",
@@ -549,7 +570,7 @@ const esES: Record<string, string> = {
   "confirmDialog.projectRemoveDescription":
     "El proyecto “{projectName}” se quitará de la barra lateral, pero los archivos del disco no se modificarán.",
   "bots.title": "Bots",
-  "bots.description": "Conecta chats y webhooks externos a los bots de ZCode.",
+  "bots.description": "Conecta chats y webhooks externos a los bots de DeepVibe.",
   "bots.listTitle": "Bots",
   "bots.addBot": "Nuevo bot",
   "bots.addBinding": "Añadir vinculación",
@@ -573,7 +594,8 @@ const esES: Record<string, string> = {
   "bots.setup.allowedSelected": "Permitir solo los espacios de trabajo seleccionados",
   "bots.setup.allowedAllShort": "Todos",
   "bots.setup.allowedSelectedShort": "Seleccionados",
-  "bots.setup.allowedAllDescription": "Este bot puede usar todos los espacios de trabajo configurados.",
+  "bots.setup.allowedAllDescription":
+    "Este bot puede usar todos los espacios de trabajo configurados.",
   "bots.setupDescription.chooseBot": "Elige el bot de chat de terceros que quieres conectar.",
   "bots.setupDescription.createBot":
     "Introduce las credenciales del bot o del webhook. El siguiente paso comprueba primero la conectividad.",
@@ -599,13 +621,14 @@ const esES: Record<string, string> = {
     "Vuelve a Telegram y abre el chat privado con el bot que has creado.",
   "bots.setup.guide.telegram.bind.2":
     "Si el chat nunca se ha iniciado, pulsa Start o envía antes cualquier mensaje y, después, envía {command}.",
-  "bots.setup.guide.telegram.bind.3": "Vuelve aquí cuando Telegram confirme que la vinculación se ha realizado correctamente.",
+  "bots.setup.guide.telegram.bind.3":
+    "Vuelve aquí cuando Telegram confirme que la vinculación se ha realizado correctamente.",
   "bots.setup.guide.weixin.create.1":
     "Inicia el inicio de sesión por QR de Weixin, escanea el código QR con Weixin y confirma en tu teléfono.",
   "bots.setup.guide.weixin.create.2":
-    "ZCode guarda automáticamente el bot_token que devuelve iLink; tras escanear, envía cualquier mensaje al bot en Weixin para activar el chat.",
+    "DeepVibe guarda automáticamente el bot_token que devuelve iLink; tras escanear, envía cualquier mensaje al bot en Weixin para activar el chat.",
   "bots.setup.guide.weixin.create.3":
-    "ZCode usa un cliente iLink integrado: `/ilink/bot/getupdates` para el long polling y `/ilink/bot/sendmessage` para las respuestas.",
+    "DeepVibe usa un cliente iLink integrado: `/ilink/bot/getupdates` para el long polling y `/ilink/bot/sendmessage` para las respuestas.",
   "bots.setup.guide.weixin.bind.1": "Abre el chat directo de Weixin que quieras vincular.",
   "bots.setup.guide.weixin.bind.2": "Envía {command}.",
   "bots.setup.guide.weixin.bind.3":
@@ -622,13 +645,13 @@ const esES: Record<string, string> = {
   "bots.setup.guide.feishu.bind.3":
     "Vuelve aquí cuando la vinculación se complete para terminar de configurar los valores predeterminados del espacio de trabajo y de la CLI.",
   "bots.setup.guide.webhook.create.1":
-    "El modo Webhook no requiere un bot nativo en el producto de terceros; tu integración solo necesita enviar mensajes POST a ZCode.",
+    "El modo Webhook no requiere un bot nativo en el producto de terceros; tu integración solo necesita enviar mensajes POST a DeepVibe.",
   "bots.setup.guide.webhook.create.2":
     "Define primero un secreto compartido; añade también una URL de webhook saliente si quieres que las respuestas asíncronas se envíen de vuelta.",
   "bots.setup.guide.webhook.create.3":
     "Mantén un userId estable por cada usuario externo para que la vinculación y el contexto futuro correspondan a la misma persona.",
   "bots.setup.guide.webhook.bind.1":
-    "Envía por POST un callback de mensaje privado al endpoint `/api/bots/webhook` de ZCode.",
+    "Envía por POST un callback de mensaje privado al endpoint `/api/bots/webhook` de DeepVibe.",
   "bots.setup.guide.webhook.bind.2":
     'El payload debe incluir al menos este botId, un userId estable y `chatType: "private"`, y definir text como {command}.',
   "bots.setup.guide.webhook.bind.3":
@@ -647,7 +670,8 @@ const esES: Record<string, string> = {
   "bots.refresh": "Actualizar bots",
   "bots.namePlaceholder": "Nombre del bot",
   "bots.credentialPlaceholder": "Bot vinculado",
-  "bots.weixinBotTokenPlaceholder": "Se guarda tras el inicio de sesión por QR; también puedes pegar bot_token manualmente",
+  "bots.weixinBotTokenPlaceholder":
+    "Se guarda tras el inicio de sesión por QR; también puedes pegar bot_token manualmente",
   "bots.webhookSecretPlaceholder": "Secreto del webhook",
   "bots.webhookUrlPlaceholder": "URL de webhook saliente",
   "bots.feishuAppIdPlaceholder": "App ID de Feishu",
@@ -699,7 +723,8 @@ const esES: Record<string, string> = {
   "bots.newBot.fallbackName": "Nuevo bot",
   "bots.newBot.comingSoon": "Próximamente",
   "bots.newBot.providerDescription.telegram": "Crea un bot y vincúlalo por mensaje.",
-  "bots.newBot.providerDescription.weixin": "Escanea para iniciar sesión; el primer mensaje lo activa.",
+  "bots.newBot.providerDescription.weixin":
+    "Escanea para iniciar sesión; el primer mensaje lo activa.",
   "bots.newBot.providerDescription.feishu": "Escanea para crear una app y vincúlala por mensaje.",
   "bots.newBot.providerDescription.lark": "Escanea para crear una app y vincúlala por mensaje.",
   "bots.newBot.providerDescription.dingding": "La integración con bots de DingTalk está prevista.",
@@ -733,10 +758,12 @@ const esES: Record<string, string> = {
   "bots.weixinRegistrationQrAlt": "Código QR de inicio de sesión de Weixin",
   "bots.weixinRegistrationScanHint": "Escanea con Weixin y confirma el inicio de sesión.",
   "bots.weixinRegistrationStarted": "Inicio de sesión por QR de Weixin iniciado",
-  "bots.weixinRegistrationSuccess": "Bot de Weixin vinculado. Envía cualquier mensaje en Weixin para activarlo.",
+  "bots.weixinRegistrationSuccess":
+    "Bot de Weixin vinculado. Envía cualquier mensaje en Weixin para activarlo.",
   "bots.weixinActivationHint":
     "Envía cualquier mensaje al bot en Weixin; el primer mensaje recibirá una bienvenida y una guía de comandos.",
-  "bots.weixinRegistrationFailed": "No se pudo iniciar el inicio de sesión por QR de Weixin: {error}",
+  "bots.weixinRegistrationFailed":
+    "No se pudo iniciar el inicio de sesión por QR de Weixin: {error}",
   "bots.weixinRegistration.pending": "Esperando el escaneo",
   "bots.weixinRegistration.scanned": "Escaneado, esperando confirmación",
   "bots.weixinRegistration.success": "Inicio de sesión correcto",
@@ -767,9 +794,10 @@ const esES: Record<string, string> = {
   "bots.runtime.telegramLongPollingStarting": "El long polling de Telegram se está iniciando.",
   "bots.runtime.telegramLongPollingStopped": "El long polling de Telegram está detenido.",
   "bots.runtime.telegramLongPollingHandledElsewhere":
-    "El long polling de Telegram lo gestiona otra ventana de ZCode.",
+    "El long polling de Telegram lo gestiona otra ventana de DeepVibe.",
   "bots.runtime.telegramTokenMissing": "Falta la credencial del bot de Telegram.",
-  "bots.runtime.telegramPollingFailedRetrying": "El long polling de Telegram falló; se reintentará.",
+  "bots.runtime.telegramPollingFailedRetrying":
+    "El long polling de Telegram falló; se reintentará.",
   "bots.runtime.feishuWebSocketStarting": "El WebSocket de Feishu se está iniciando.",
   "bots.runtime.feishuWebSocketConnecting": "El WebSocket de Feishu se está conectando.",
   "bots.runtime.feishuWebSocketRunning": "El WebSocket de Feishu está en ejecución.",
@@ -811,12 +839,15 @@ const esES: Record<string, string> = {
   "bots.allowedWorkspaces.all": "Todos",
   "bots.allowedWorkspaces.mode.all": "Todos los espacios de trabajo",
   "bots.allowedWorkspaces.mode.selected": "Espacios de trabajo seleccionados",
-  "bots.allowedWorkspaces.allDescription": "Este bot puede usar cualquier espacio de trabajo configurado.",
-  "bots.allowedWorkspaces.selectedDescription": "Este bot puede usar {count} espacios de trabajo seleccionados.",
+  "bots.allowedWorkspaces.allDescription":
+    "Este bot puede usar cualquier espacio de trabajo configurado.",
+  "bots.allowedWorkspaces.selectedDescription":
+    "Este bot puede usar {count} espacios de trabajo seleccionados.",
   "bots.botMeta": "{users} usuarios vinculados · espacio de trabajo {workspace}",
   "bots.botSummary": "{users} usuarios · {workspaces} espacios de trabajo · {workspace}",
   "bots.userCount": "{count} usuarios",
-  "bots.editDescription": "Revisa el estado de ejecución, el contexto predeterminado, el detalle de las respuestas y los usuarios vinculados.",
+  "bots.editDescription":
+    "Revisa el estado de ejecución, el contexto predeterminado, el detalle de las respuestas y los usuarios vinculados.",
   "bots.edit.basicSettings": "Configuración básica",
   "bots.edit.binding": "Usuarios vinculados",
   "bots.edit.emptyUsers":
@@ -855,14 +886,14 @@ const esES: Record<string, string> = {
   "bots.deleteFailed": "No se pudo eliminar el bot: {error}",
 
   // Bienvenida / Inicio de sesión
-  "welcome.title": "Bienvenido a ZCode",
+  "welcome.title": "Bienvenido a DeepVibe",
   "welcome.username": "Usuario",
   "welcome.password": "Contraseña",
   "welcome.login": "Iniciar sesión",
   "welcome.loggingIn": "Iniciando sesión…",
   "welcome.loginFailed": "No se pudo iniciar sesión",
-  "login.title": "Bienvenido a ZCode",
-  "login.description": "Conecta tu cuenta para empezar a usar ZCode",
+  "login.title": "Bienvenido a DeepVibe",
+  "login.description": "Conecta tu cuenta para empezar a usar DeepVibe",
   "login.oauth.activeProviderHint":
     "Proveedor activo actual: {provider}. Si inicias sesión de nuevo, se reemplazará la identidad actual.",
   "login.oauth.loadingProviders": "Cargando proveedores de cuenta…",
@@ -905,7 +936,7 @@ const esES: Record<string, string> = {
   "app.currentTheme": "Actual: {theme}",
   "app.login": "Conectar",
   "app.logout": "Desconectar",
-  "logout.confirm.title": "¿Desconectar y reiniciar ZCode?",
+  "logout.confirm.title": "¿Desconectar y reiniciar DeepVibe?",
   "logout.confirm.descriptionWithRunningSessions":
     "Hay {count} sesiones en ejecución. Si te desconectas, se interrumpirán y la aplicación se reiniciará.",
   "logout.confirm.descriptionDefault":
@@ -999,7 +1030,8 @@ const esES: Record<string, string> = {
   "workflowDirectory.endedEmpty": "Aún no ha finalizado ningún flujo de trabajo",
   "workflowDirectory.empty": "Aún no se ha ejecutado ningún flujo de trabajo en esta conversación",
   "workflowDirectory.truncated": "Solo se muestran las {count} ejecuciones más recientes",
-  "workflowDirectory.unavailable": "No se pueden listar las ejecuciones de flujo de trabajo de esta conversación",
+  "workflowDirectory.unavailable":
+    "No se pueden listar las ejecuciones de flujo de trabajo de esta conversación",
   "chat.selections.addToTask": "Añadir al chat",
   "chat.selections.askInSideChat": "Añadir en la conversación secundaria",
   "chat.selections.sideBlocked":
@@ -1016,7 +1048,8 @@ const esES: Record<string, string> = {
     "Las selecciones de conversación pueden contener como máximo 16.000 caracteres en total.",
   "sidePane.openTabDescription": "Elige una pestaña para abrir en el panel lateral.",
   "sidePane.openFile": "Abrir archivo",
-  "sidePane.openFileDescription": "Abre un archivo del espacio de trabajo actual en el panel lateral.",
+  "sidePane.openFileDescription":
+    "Abre un archivo del espacio de trabajo actual en el panel lateral.",
   "sidePane.openFilePlaceholder": "Buscar archivos en el espacio de trabajo actual…",
   "sidePane.openFileLoading": "Cargando archivos…",
   "sidePane.openFileEmpty": "No se encontraron archivos.",
@@ -1051,9 +1084,11 @@ const esES: Record<string, string> = {
   "modelTrajectory.refresh": "Actualizar",
   "modelTrajectory.close": "Cerrar",
   "modelTrajectory.loading": "Cargando la trayectoria…",
-  "modelTrajectory.empty": "No hay llamadas al modelo registradas (solo ZCode Agent escribe model-io)",
+  "modelTrajectory.empty":
+    "No hay llamadas al modelo registradas (solo DeepVibe Agent escribe model-io)",
   "modelTrajectory.error": "No se pudo cargar la trayectoria",
-  "modelTrajectory.truncatedNotice": "Hay demasiados registros; se muestran las llamadas más recientes",
+  "modelTrajectory.truncatedNotice":
+    "Hay demasiados registros; se muestran las llamadas más recientes",
   "modelTrajectory.summaryCalls": "{count} llamadas",
   "modelTrajectory.summaryTokens": "Uso total de tokens",
   "modelTrajectory.attempt": "Intento {attempt}",
@@ -1105,7 +1140,8 @@ const esES: Record<string, string> = {
   "treemapping.empty.title": "Aún no hay actividad de archivos",
   "treemapping.empty.description":
     "El mapa de árbol aparece cuando este turno lee, busca, edita, crea o elimina archivos.",
-  "treemapping.empty.running": "Hay {count} llamadas a herramientas en ejecución que aún no tienen una ruta de archivo.",
+  "treemapping.empty.running":
+    "Hay {count} llamadas a herramientas en ejecución que aún no tienen una ruta de archivo.",
   "treemapping.change.written": "Escrito",
   "treemapping.change.modified": "Modificado",
   "treemapping.change.deleted": "Eliminado",
@@ -1124,7 +1160,8 @@ const esES: Record<string, string> = {
   "git.source.staged": "Preparados",
   "git.source.branch": "Todos los cambios de la rama",
   "git.source.lastTurn": "Último turno",
-  "git.source.workspaceScope": "De forma predeterminada, solo se muestra el ámbito del espacio de trabajo actual.",
+  "git.source.workspaceScope":
+    "De forma predeterminada, solo se muestra el ámbito del espacio de trabajo actual.",
   "git.source.lastTurnTurn": "Instantánea de archivos de la tarea del turno {turn}",
   "git.section.staged": "Preparados",
   "git.section.unstaged": "Sin preparar",
@@ -1194,7 +1231,8 @@ const esES: Record<string, string> = {
   "git.empty.title": "No hay cambios disponibles en este origen",
   "git.empty.description":
     "Cambia a otro origen o espera a que este espacio de trabajo tenga nuevos cambios de Git que revisar.",
-  "git.loading.description": "Leyendo el estado de Git y los archivos modificados del espacio de trabajo actual.",
+  "git.loading.description":
+    "Leyendo el estado de Git y los archivos modificados del espacio de trabajo actual.",
   "git.error.title": "No se pudieron cargar los cambios de Git",
   "git.error.description": "Git devolvió un error: {message}",
   "git.empty.gitUnavailableTitle": "Git no está disponible en este entorno",
@@ -1226,8 +1264,10 @@ const esES: Record<string, string> = {
   "git.actionMenu.commitDialog.changesLabel": "Cambios",
   "git.actionMenu.commitDialog.changesValue": "{count} archivos",
   "git.actionMenu.commitDialog.messageLabel": "Mensaje del commit",
-  "git.actionMenu.commitDialog.messagePlaceholder": "Mensaje del commit (déjalo vacío para generarlo)",
-  "git.actionMenu.commitDialog.messageHelper": "“Generar” rellena el mensaje antes de que hagas el commit.",
+  "git.actionMenu.commitDialog.messagePlaceholder":
+    "Mensaje del commit (déjalo vacío para generarlo)",
+  "git.actionMenu.commitDialog.messageHelper":
+    "“Generar” rellena el mensaje antes de que hagas el commit.",
   "git.actionMenu.commitDialog.generate": "Generar mensaje",
   "git.actionMenu.commitDialog.regenerate": "Volver a generar",
   "git.actionMenu.commitDialog.includeUnstaged": "Incluir los cambios sin preparar",
@@ -1242,7 +1282,8 @@ const esES: Record<string, string> = {
   "git.actionMenu.commitDialog.error.generateFailed":
     "No se pudo generar el mensaje de commit. Vuelve a intentarlo o introduce uno manualmente.",
   "git.actionMenu.commitDialog.error.requestFailed": "El commit falló: {error}",
-  "git.actionMenu.commitDialog.error.pushAfterCommitFailed": "Se hizo el commit, pero la subida falló: {error}",
+  "git.actionMenu.commitDialog.error.pushAfterCommitFailed":
+    "Se hizo el commit, pero la subida falló: {error}",
   "git.actionMenu.commitDialog.toast.success": "Se hizo commit de los cambios actuales",
   "git.actionMenu.commitDialog.toast.commitAndPushSuccess":
     "Se hizo commit y se subieron los cambios actuales",
@@ -1261,11 +1302,13 @@ const esES: Record<string, string> = {
   "git.actionMenu.pushDialog.pushValue": "Subir",
   "git.actionMenu.pushDialog.upToDate": "No hay commits que subir en la rama actual.",
   "git.actionMenu.pushDialog.confirm": "Subir",
-  "git.actionMenu.pushDialog.error.summary": "La subida falló. Revisa los detalles del error a continuación.",
+  "git.actionMenu.pushDialog.error.summary":
+    "La subida falló. Revisa los detalles del error a continuación.",
   "git.actionMenu.pushDialog.error.detailsLabel": "Detalles del error",
   "git.actionMenu.pushDialog.error.copy": "Copiar error",
   "git.actionMenu.pushDialog.error.copy.copied": "Copiado",
-  "git.actionMenu.pushDialog.error.copyFailed": "No se pudieron copiar los detalles del error: {error}",
+  "git.actionMenu.pushDialog.error.copyFailed":
+    "No se pudieron copiar los detalles del error: {error}",
   "git.actionMenu.pushDialog.error.requestFailed": "La subida falló: {error}",
   "git.actionMenu.pushDialog.toast.success": "Se subió a {target}",
   "git.branchSwitcher.label": "Rama",
@@ -1280,8 +1323,7 @@ const esES: Record<string, string> = {
     "Crea una rama local nueva a partir del HEAD actual y cambia a ella en cuanto se cree.",
   "git.branchSwitcher.createDialog.nameLabel": "Nombre de la rama",
   "git.branchSwitcher.createDialog.placeholder": "Por ejemplo, feature/git-branch-switcher",
-  "git.branchSwitcher.createDialog.helper":
-    "Solo se admite crear y cambiar desde el HEAD actual.",
+  "git.branchSwitcher.createDialog.helper": "Solo se admite crear y cambiar desde el HEAD actual.",
   "git.branchSwitcher.createDialog.confirm": "Crear y cambiar",
   "git.branchSwitcher.blockedDialog.title": "Haz commit de los cambios para cambiar de rama",
   "git.branchSwitcher.blockedDialog.description.tracked":
@@ -1312,8 +1354,7 @@ const esES: Record<string, string> = {
   "git.branchSwitcher.toast.createSuccess": "Se creó la rama {branchName} y se cambió a ella",
   "git.branchSwitcher.error.invalidBranchName":
     "El nombre de la rama no es válido. Introduce otro nombre.",
-  "git.branchSwitcher.error.branchAlreadyExists":
-    "Esa rama ya existe. Elige otro nombre.",
+  "git.branchSwitcher.error.branchAlreadyExists": "Esa rama ya existe. Elige otro nombre.",
   "git.branchSwitcher.error.targetBranchNotFound": "La rama de destino aún no existe en local.",
   "git.branchSwitcher.error.trackedOverwrite":
     "No se pudo cambiar de rama porque se sobrescribirían archivos con seguimiento: {paths}{extraPaths}.",
@@ -1360,8 +1401,10 @@ const esES: Record<string, string> = {
   "codeViewer.loadingFile": "Cargando archivo…",
   "codeViewer.loadingImage": "Cargando vista previa de la imagen…",
   "codeViewer.fileMissing": "El archivo no existe o este entorno no puede acceder a esa ruta.",
-  "codeViewer.binary": "Este archivo parece contener datos binarios y todavía no se puede previsualizar como código.",
-  "codeViewer.imageUnavailable": "Esta vista previa de la imagen no está disponible en este momento.",
+  "codeViewer.binary":
+    "Este archivo parece contener datos binarios y todavía no se puede previsualizar como código.",
+  "codeViewer.imageUnavailable":
+    "Esta vista previa de la imagen no está disponible en este momento.",
   "codeViewer.loadingMedia": "Cargando vista previa multimedia…",
   "codeViewer.mediaUnavailable": "Esta vista previa multimedia no está disponible en este momento.",
   "codeViewer.mediaUnsupported": "Este entorno no puede reproducir este formato multimedia.",
@@ -1378,14 +1421,17 @@ const esES: Record<string, string> = {
   "codeViewer.pdf.zoomIn": "Acercar",
   "codeViewer.pdf.zoomOut": "Alejar",
   "codeViewer.officeUnavailable": "Este archivo de Office no se puede previsualizar.",
-  "codeViewer.officeTooLarge": "Este archivo de Office es demasiado grande para previsualizarlo (25 MB como máximo).",
+  "codeViewer.officeTooLarge":
+    "Este archivo de Office es demasiado grande para previsualizarlo (25 MB como máximo).",
   "codeViewer.excel.sheetTabs": "Hojas del libro",
   "codeViewer.loadingPptx": "Cargando vista previa de la presentación…",
-  "codeViewer.pptxUnavailable": "Esta vista previa de la presentación no está disponible en este momento.",
+  "codeViewer.pptxUnavailable":
+    "Esta vista previa de la presentación no está disponible en este momento.",
   "codeViewer.pptx.loading": "Cargando presentación…",
   "codeViewer.pptx.loadError": "No se pudo cargar la presentación",
   "codeViewer.pptx.noSlides": "Esta presentación no tiene diapositivas",
-  "codeViewer.pptx.fileTooLarge": "Esta presentación supera el límite de 64 MB para la vista previa.",
+  "codeViewer.pptx.fileTooLarge":
+    "Esta presentación supera el límite de 64 MB para la vista previa.",
   "codeViewer.pptx.legacyFileTooLarge":
     "Este entorno remoto puede previsualizar presentaciones de hasta 8 MB.",
   "codeViewer.pptx.incomplete":
@@ -1426,7 +1472,8 @@ const esES: Record<string, string> = {
   "codeBlock.mermaid.empty": "El código fuente de Mermaid está vacío.",
   "codeBlock.mermaid.error": "No se pudo representar el diagrama de Mermaid",
   "codeBlock.mermaid.openPreview": "Abrir vista previa",
-  "codeBlock.mermaid.previewDescription": "Vista previa del diagrama de Mermaid con zoom y desplazamiento.",
+  "codeBlock.mermaid.previewDescription":
+    "Vista previa del diagrama de Mermaid con zoom y desplazamiento.",
   "codeBlock.mermaid.zoomIn": "Acercar",
   "codeBlock.mermaid.zoomOut": "Alejar",
   "codeBlock.mermaid.zoomLevel": "Nivel de zoom",
@@ -1444,7 +1491,8 @@ const esES: Record<string, string> = {
   "markdownTable.expandScrollMode": "Ampliar el área de desplazamiento de la tabla",
   "markdownTable.collapseScrollMode": "Contraer el área de desplazamiento de la tabla",
   "markdownTable.previewTitle": "Vista previa de la tabla",
-  "markdownTable.previewDescription": "Consulta la tabla en una vista más grande con desplazamiento.",
+  "markdownTable.previewDescription":
+    "Consulta la tabla en una vista más grande con desplazamiento.",
   "markdownTable.copySucceeded": "Se copió la tabla de Markdown",
   "markdownTable.copyFailed": "No se pudo copiar la tabla: {error}",
   "markdownTable.downloadFailed": "No se pudo descargar la tabla",
@@ -1469,7 +1517,8 @@ const esES: Record<string, string> = {
   "chat.pptxElements.one": "1 elemento de diapositiva",
   "chat.pptxElements.many": "{count} elementos de diapositiva",
   "chat.pptxElements.remove": "Quitar el elemento de diapositiva",
-  "chat.pptxElements.previewFileMissing": "La presentación a la que se hace referencia ya no existe.",
+  "chat.pptxElements.previewFileMissing":
+    "La presentación a la que se hace referencia ya no existe.",
   "chat.pptxElements.previewPageMissing":
     "La diapositiva {pageNumber} ya no existe. En su lugar, se abrió la presentación.",
   "chat.pptxElements.previewSourceChanged":
@@ -1513,7 +1562,7 @@ const esES: Record<string, string> = {
   "titleBar.menu.view.actualSize": "Tamaño real",
   "titleBar.menu.view.zoomIn": "Acercar",
   "titleBar.menu.view.zoomOut": "Alejar",
-  "titleBar.menu.help.about": "Acerca de ZCode",
+  "titleBar.menu.help.about": "Acerca de DeepVibe",
   "titleBar.menu.help.checkForUpdates": "Buscar actualizaciones",
   "titleBar.menu.help.feedback": "Comentarios",
   "sidebar.menu.community": "Comunidad",
@@ -1553,7 +1602,8 @@ const esES: Record<string, string> = {
   "updateDialog.releaseNotesCollapse": "Ocultar",
   "updateDialog.downloadAndUpdate": "Descargar actualización",
   "updateDialog.cancelDownload": "Cancelar la descarga",
-  "updateDialog.autoDownloadAndInstall": "Descargar e instalar las actualizaciones automáticamente la próxima vez",
+  "updateDialog.autoDownloadAndInstall":
+    "Descargar e instalar las actualizaciones automáticamente la próxima vez",
   "updateDialog.downloadingAction": "Descargando",
   "updateDialog.downloadProgress": "Progreso de la descarga",
   "updateDialog.restartToUpdate": "Reiniciar para actualizar",
@@ -1564,9 +1614,10 @@ const esES: Record<string, string> = {
   "update.toast.downloading": "Descargando la nueva versión v{version}",
   "update.toast.alreadyDownloading": "Descargando la nueva versión ({progress}%)",
   "update.toast.ready": "Se descargó la v{version}, reinicia para instalarla",
-  "update.toast.devSkipped": "Las actualizaciones están desactivadas en las compilaciones de desarrollo",
+  "update.toast.devSkipped":
+    "Las actualizaciones están desactivadas en las compilaciones de desarrollo",
   "update.toast.error": "No se pudo comprobar si hay actualizaciones: {error}",
-  "forceUpdate.title": "Actualiza ZCode para continuar",
+  "forceUpdate.title": "Actualiza DeepVibe para continuar",
   "forceUpdate.description":
     "Tu versión actual, la v{currentVersion}, es inferior a la versión mínima admitida, la v{minimalVersion}. Actualiza antes de seguir usando este cliente.",
   "forceUpdate.currentVersion": "Versión actual",
@@ -1584,7 +1635,8 @@ const esES: Record<string, string> = {
   "postUpdateReleaseNotes.acknowledge": "Entendido",
 
   "projectSelector.heroTitle": "Abre rápido. Mantén el foco.",
-  "projectSelector.heroDescription": "Elige un espacio de trabajo, retoma donde lo dejaste y mantén una interfaz despejada.",
+  "projectSelector.heroDescription":
+    "Elige un espacio de trabajo, retoma donde lo dejaste y mantén una interfaz despejada.",
   "appError.title": "La aplicación ha encontrado un problema",
   "appError.description":
     "Se ha interceptado el error de la página, así que la aplicación no tiene que mostrar una pantalla en blanco. Inténtalo primero de nuevo y actualiza la aplicación si el problema persiste.",
@@ -1597,7 +1649,8 @@ const esES: Record<string, string> = {
   "appError.sectionDescription":
     "El error está aislado en esta sección, así que el resto de la aplicación puede seguir funcionando. Inténtalo primero de nuevo en esta sección y actualiza la aplicación si el problema persiste.",
   "appError.sectionRetry": "Reintentar esta sección",
-  "appError.sectionHint": "Se han registrado detalles de diagnóstico para facilitar la investigación.",
+  "appError.sectionHint":
+    "Se han registrado detalles de diagnóstico para facilitar la investigación.",
 
   // Espacio de trabajo
   "workspace.openWorkspace": "Abrir espacio de trabajo",
@@ -1606,7 +1659,8 @@ const esES: Record<string, string> = {
   "workspace.openFolder": "Abrir carpeta",
   "workspace.openPluginsSettings": "Mercado de plugins",
   "workspace.backToWorkspace": "Volver al espacio de trabajo",
-  "workspace.noActiveForNewTask": "Todavía no hay ningún espacio de trabajo disponible. Abre uno primero.",
+  "workspace.noActiveForNewTask":
+    "Todavía no hay ningún espacio de trabajo disponible. Abre uno primero.",
   "workspace.wslUncPrompt.title": "¿Abrir esto mediante una conexión remota WSL?",
   "workspace.wslUncPrompt.description":
     "Has seleccionado una ruta de WSL:\n{path}\n\nTe recomendamos abrirla mediante una conexión WSL, aunque también puedes continuar con la ruta.",
@@ -1648,7 +1702,7 @@ const esES: Record<string, string> = {
   "workspaceSidebar.notConnected": "Sin conexión",
   "workspaceSidebar.empty": "Todavía no hay espacios de trabajo. Abre uno para empezar.",
   "workspaceSidebar.unavailableLocalDirectory":
-    "La carpeta del espacio de trabajo no existe o no se puede acceder a ella. Por ahora solo puedes ver el historial. Restaura la carpeta y reinicia ZCode para continuar.",
+    "La carpeta del espacio de trabajo no existe o no se puede acceder a ella. Por ahora solo puedes ver el historial. Restaura la carpeta y reinicia DeepVibe para continuar.",
   "workspaceSidebar.showSidebar": "Alternar barra lateral",
   "workspaceSidebar.hideSidebar": "Alternar barra lateral",
   "workspaceSidebar.toggleSidebar": "Alternar barra lateral",
@@ -1691,7 +1745,7 @@ const esES: Record<string, string> = {
   "ssh.assetInstallMode.local-download-upload": "Descargar en local y subir",
   "ssh.assetInstallMode.remote-download": "Descargar en el servidor remoto",
   "ssh.assetInstallModeDescription":
-    "La descarga en el servidor remoto reduce la espera de la subida, pero el servidor debe poder acceder al CDN de ZCode y contar con herramientas de descarga, extracción y verificación de sumas de comprobación.",
+    "La descarga en el servidor remoto reduce la espera de la subida, pero el servidor debe poder acceder al CDN de DeepVibe y contar con herramientas de descarga, extracción y verificación de sumas de comprobación.",
   "ssh.password": "Contraseña",
   "ssh.passwordPlaceholder": "Introduce tu contraseña de SSH",
   "ssh.privateKey": "Clave privada",
@@ -1705,7 +1759,8 @@ const esES: Record<string, string> = {
   "ssh.configAliasEmpty": "No hay ningún alias de la configuración SSH disponible en este equipo.",
   "ssh.configAliasLoadFailed":
     "No se pudieron cargar los alias de la configuración SSH. Aun así, puedes introducir los datos de conexión manualmente.",
-  "ssh.configAliasDescription": "Selecciona un alias para rellenar automáticamente el host, el puerto, el nombre de usuario y la clave privada.",
+  "ssh.configAliasDescription":
+    "Selecciona un alias para rellenar automáticamente el host, el puerto, el nombre de usuario y la clave privada.",
   "ssh.connect": "Conectar",
   "ssh.cancel": "Cancelar",
   "ssh.connecting": "Conectando…",
@@ -1734,17 +1789,21 @@ const esES: Record<string, string> = {
     "Estamos estableciendo la conexión {method}. Aquí puedes seguir el progreso de la configuración en directo.",
   "webRemoteControl.trigger": "Control remoto móvil",
   "webRemoteControl.title": "Control remoto móvil",
-  "webRemoteControl.description": "Controla los espacios de trabajo de ZCode mediante bots de chat.",
+  "webRemoteControl.description":
+    "Controla los espacios de trabajo de DeepVibe mediante bots de chat.",
   "webRemoteControl.botChannel.title": "Usar un canal de bot",
-  "webRemoteControl.botChannel.description": "Conecta un bot de chat para tener acceso móvil durante más tiempo.",
+  "webRemoteControl.botChannel.description":
+    "Conecta un bot de chat para tener acceso móvil durante más tiempo.",
   "webRemoteControl.botChannel.weixin.title": "Weixin",
-  "webRemoteControl.botChannel.weixin.description": "Abre este espacio de trabajo desde el chat de Weixin.",
+  "webRemoteControl.botChannel.weixin.description":
+    "Abre este espacio de trabajo desde el chat de Weixin.",
   "webRemoteControl.botChannel.feishu.title": "Feishu",
   "webRemoteControl.botChannel.feishu.description": "Abre este espacio de trabajo desde Feishu.",
   "webRemoteControl.botChannel.lark.title": "Lark",
   "webRemoteControl.botChannel.lark.description": "Abre este espacio de trabajo desde Lark.",
   "webRemoteControl.botChannel.telegram.title": "Telegram",
-  "webRemoteControl.botChannel.telegram.description": "Abre este espacio de trabajo desde Telegram.",
+  "webRemoteControl.botChannel.telegram.description":
+    "Abre este espacio de trabajo desde Telegram.",
   "webRemoteControl.botChannel.configure": "Configurar en canales de bots",
   "webRemoteControl.botChannel.manageBots": "Gestionar bots",
   "remote.title": "Conectar entorno remoto",
@@ -1886,7 +1945,8 @@ const esES: Record<string, string> = {
   "taskList.markAsUnreadFailed": "No se pudo marcar la tarea como no leída",
   "taskList.feedback": "Informar de un problema",
   "taskList.viewModelTrajectory": "Ver la trayectoria del modelo",
-  "taskList.feedbackOpened": "Se abrió el formulario de comentarios con el contexto de la tarea actual adjunto",
+  "taskList.feedbackOpened":
+    "Se abrió el formulario de comentarios con el contexto de la tarea actual adjunto",
   "taskList.resume": "Reanudar",
   "taskList.untitled": "Nueva tarea",
   "taskList.justNow": "ahora",
@@ -1950,7 +2010,8 @@ const esES: Record<string, string> = {
   "chat.changeSummary.filesChanged.other": "{count} archivos modificados",
   "chat.changeSummary.expand": "Expandir los archivos modificados",
   "chat.changeSummary.collapse": "Contraer los archivos modificados",
-  "chat.changeSummary.diffUnavailable": "Esta vista previa del diff no está disponible en este momento.",
+  "chat.changeSummary.diffUnavailable":
+    "Esta vista previa del diff no está disponible en este momento.",
   "chat.changeSummary.review": "Revisar",
   "chat.changeSummary.openInEditor": "Abrir en el editor",
   "chat.changeSummary.rewind": "Deshacer",
@@ -1958,22 +2019,25 @@ const esES: Record<string, string> = {
   "chat.changeSummary.reverted": "Deshecho",
   "chat.changeSummary.rewindDialog.title": "Deshacer los cambios en los archivos",
   "chat.changeSummary.rewindDialog.description":
-    "ZCode vuelve a comprobar el contenido actual de los archivos antes de escribir. Si otro proceso ha modificado un archivo, no se escribirá ninguno.",
+    "DeepVibe vuelve a comprobar el contenido actual de los archivos antes de escribir. Si otro proceso ha modificado un archivo, no se escribirá ninguno.",
   "chat.changeSummary.rewindDialog.loading": "Comprobando los archivos que se pueden revertir…",
   "chat.changeSummary.rewindDialog.safeTitle": "Se puede deshacer: {count}",
   "chat.changeSummary.rewindDialog.unsafeTitle": "No se puede deshacer: {count}",
   "chat.changeSummary.rewindDialog.ignoredTitle": "Omitidos: {count}",
-  "chat.changeSummary.rewindDialog.noSafeFiles": "No se puede deshacer ningún archivo de forma segura.",
+  "chat.changeSummary.rewindDialog.noSafeFiles":
+    "No se puede deshacer ningún archivo de forma segura.",
   "chat.changeSummary.rewindDialog.noUnsafeFiles": "No se encontraron archivos no seguros.",
   "chat.changeSummary.rewindDialog.noPreview": "Todavía no hay ninguna vista previa disponible.",
   "chat.changeSummary.rewindDialog.confirm": "Deshacer los archivos",
   "chat.changeSummary.rewindDialog.cannotApply":
     "Al menos un archivo no es seguro, así que no se escribió ninguno.",
-  "chat.changeSummary.rewindDialog.error": "No se pudo procesar la solicitud para deshacer los cambios en los archivos. Vuelve a intentarlo.",
+  "chat.changeSummary.rewindDialog.error":
+    "No se pudo procesar la solicitud para deshacer los cambios en los archivos. Vuelve a intentarlo.",
   "chat.changeSummary.rewindDialog.operationCount": "{count} cambios",
   "chat.changeSummary.rewindDialog.reason.bashIgnored": "cambio de bash/shell omitido",
   "chat.changeSummary.rewindDialog.reason.checkpointMissing": "falta el punto de control",
-  "chat.changeSummary.rewindDialog.reason.checkpointUnreadable": "no se puede leer el punto de control",
+  "chat.changeSummary.rewindDialog.reason.checkpointUnreadable":
+    "no se puede leer el punto de control",
   "chat.changeSummary.rewindDialog.reason.externalModified": "el archivo se modificó externamente",
   "chat.changeSummary.rewindDialog.reason.fileReadFailed": "no se puede leer el archivo actual",
   "chat.changeSummary.rewindDialog.reason.unsupportedCheckpoint":
@@ -1982,8 +2046,10 @@ const esES: Record<string, string> = {
   "chat.edit.resetConversationAndFiles.tooltip": "Restablecer con archivos",
   "chat.edit.resetConversationAndFiles.available":
     "Restaura los archivos de este turno, restablece la conversación y envía",
-  "chat.edit.resetConversationAndFiles.noFiles": "Este turno no tiene cambios de archivo que se puedan revertir",
-  "chat.edit.resetConversationAndFiles.reverted": "Los cambios de archivo de este turno ya se deshicieron",
+  "chat.edit.resetConversationAndFiles.noFiles":
+    "Este turno no tiene cambios de archivo que se puedan revertir",
+  "chat.edit.resetConversationAndFiles.reverted":
+    "Los cambios de archivo de este turno ya se deshicieron",
   "chat.edit.resetConversationAndFiles.running": "Espera a que termine el trabajo actual",
   "chat.edit.resetConversationAndFiles.unavailable":
     "El restablecimiento de archivos no está disponible mientras se compacta o hay una interacción pendiente",
@@ -2031,7 +2097,8 @@ const esES: Record<string, string> = {
   "settings.sidebar.group.agentCapabilities": "Capacidades del agente",
   "settings.sidebar.group.dataAndStats": "Datos y estadísticas",
   "settings.nav.generalDescription": "Idioma y experiencia de la ventana actual",
-  "settings.nav.appearanceDescription": "Tema, tamaño de fuente de la interfaz y presentación del código",
+  "settings.nav.appearanceDescription":
+    "Tema, tamaño de fuente de la interfaz y presentación del código",
   "settings.themeCardTitle": "Tema",
   "settings.themeCardDescription": "Usa el tema claro, el oscuro o el del sistema",
   "chat.empty.greeting.office": "¿Qué toca hoy? Déjamelo a mí.",
@@ -2062,7 +2129,8 @@ const esES: Record<string, string> = {
   "settings.shortcuts.keySearchEmpty": "Ningún comando está asignado a {keys}",
   "settings.shortcuts.searchEmpty": "No hay comandos que coincidan",
   "settings.shortcuts.resetAll": "Restablecer todo a los valores predeterminados",
-  "settings.shortcuts.resetAllConfirmTitle": "¿Restablecer todos los atajos a los valores predeterminados?",
+  "settings.shortcuts.resetAllConfirmTitle":
+    "¿Restablecer todos los atajos a los valores predeterminados?",
   "settings.shortcuts.resetAllConfirmDescription":
     "Esto borra todas las combinaciones de teclas personalizadas y restaura la combinación predeterminada de cada comando.",
   "settings.shortcuts.columnHeaderCommand": "Comando",
@@ -2091,7 +2159,8 @@ const esES: Record<string, string> = {
   "settings.shortcuts.clearAria": "Borrar el atajo de “{command}”",
   "settings.shortcuts.command.newTask": "Nueva tarea",
   "settings.shortcuts.command.composerSend": "Enviar mensaje",
-  "settings.shortcuts.command.composerInsertNewline": "Insertar un salto de línea en el cuadro de texto",
+  "settings.shortcuts.command.composerInsertNewline":
+    "Insertar un salto de línea en el cuadro de texto",
   "settings.shortcuts.command.openWorkspace": "Abrir espacio de trabajo",
   "settings.shortcuts.command.closeActiveContext": "Cerrar el contexto actual",
   "settings.shortcuts.command.toggleSidebar": "Mostrar u ocultar la barra lateral",
@@ -2114,7 +2183,8 @@ const esES: Record<string, string> = {
   "settings.shortcuts.command.zoomOut": "Alejar",
   "settings.shortcuts.command.resetZoom": "Restablecer el zoom",
   "settings.appearance.interfaceTitle": "Configuración de la interfaz",
-  "settings.appearance.interfaceDescription": "Elige el tema de la aplicación y el tamaño del texto de la interfaz.",
+  "settings.appearance.interfaceDescription":
+    "Elige el tema de la aplicación y el tamaño del texto de la interfaz.",
   "settings.appearance.codeTitle": "Configuración del código",
   "settings.appearance.codeDescription":
     "Elige los temas del código, el tamaño de fuente y las opciones de visualización con independencia del tamaño de fuente de la interfaz.",
@@ -2124,14 +2194,16 @@ const esES: Record<string, string> = {
   "settings.systemTitle": "General",
   "settings.systemDescription": "Estas preferencias afectan a la experiencia de la ventana actual.",
   "settings.locale": "Idioma",
-  "settings.localeDescription": "Elige el idioma de visualización que usa la interfaz de la aplicación.",
+  "settings.localeDescription":
+    "Elige el idioma de visualización que usa la interfaz de la aplicación.",
   "settings.terminalProfile": "Heredar el perfil de terminal del sistema",
   "settings.terminalProfileDescription":
     "Al abrir la terminal integrada, hereda el entorno del shell de inicio de sesión, el proxy, las variables de Kubernetes y la fuente de la terminal local cuando sea posible.",
   "settings.terminalFontFamily": "Fuente de la terminal",
   "settings.terminalFontFamilyDescription":
-    "Déjalo en blanco para detectar automáticamente la configuración de la terminal del sistema; establece un valor para anular la fuente de la terminal de ZCode.",
-  "settings.terminalFontFamilyPlaceholder": "Déjalo en blanco para heredarla; p. ej., MesloLGS NF, monospace",
+    "Déjalo en blanco para detectar automáticamente la configuración de la terminal del sistema; establece un valor para anular la fuente de la terminal de DeepVibe.",
+  "settings.terminalFontFamilyPlaceholder":
+    "Déjalo en blanco para heredarla; p. ej., MesloLGS NF, monospace",
   "settings.integratedTerminalShell": "Shell de la terminal integrada",
   "settings.integratedTerminalShellDescription":
     "Solo se aplica a las sesiones nuevas. En Windows, Bash usa este shell; Automático prueba Git Bash y, después, cmd.exe.",
@@ -2143,11 +2215,13 @@ const esES: Record<string, string> = {
   "settings.memory.workspaceMemory": "Memoria del espacio de trabajo",
   "settings.memoryDescription":
     "Guarda y reutiliza contexto a largo plazo en los espacios de trabajo. Se aplica a las sesiones nuevas y puede aumentar las solicitudes al modelo y el coste en tokens.",
-  "settings.memory.viewer.disabled": "Activa la memoria del espacio de trabajo para ver las memorias guardadas.",
+  "settings.memory.viewer.disabled":
+    "Activa la memoria del espacio de trabajo para ver las memorias guardadas.",
   "settings.memory.viewer.localOnly":
     "Los detalles de la memoria solo están disponibles en la aplicación de escritorio local. Abre allí la configuración de Memoria para verlos.",
   "settings.memory.viewer.title": "Memorias guardadas de los espacios de trabajo",
-  "settings.memory.viewer.description": "Explora las memorias guardadas por espacio de trabajo en este dispositivo.",
+  "settings.memory.viewer.description":
+    "Explora las memorias guardadas por espacio de trabajo en este dispositivo.",
   "settings.memory.viewer.projectsDescription":
     "Selecciona un proyecto para ver todas sus memorias guardadas.",
   "settings.memory.viewer.refresh": "Actualizar",
@@ -2179,10 +2253,12 @@ const esES: Record<string, string> = {
   "settings.memory.viewer.fileLoading": "Cargando el archivo…",
   "settings.memory.viewer.fileDeleted":
     "Este archivo de memoria se ha eliminado. Actualiza la lista de archivos para refrescarla.",
-  "settings.memory.viewer.fileTooLarge": "Este archivo de memoria supera el límite de vista previa de 5 MiB.",
+  "settings.memory.viewer.fileTooLarge":
+    "Este archivo de memoria supera el límite de vista previa de 5 MiB.",
   "settings.memory.viewer.fileChanged":
     "Este archivo de memoria se actualizó mientras se leía. Vuelve a abrirlo o actualiza la lista de archivos.",
-  "settings.memory.viewer.noSelection": "Selecciona un archivo de memoria para ver su vista previa.",
+  "settings.memory.viewer.noSelection":
+    "Selecciona un archivo de memoria para ver su vista previa.",
   "settings.httpProxy": "Proxy HTTP",
   "settings.httpProxyDescription":
     "Enruta el tráfico de salida del modelo, MCP, las herramientas de comandos y el renderizador de la aplicación a través de este proxy; no se leen las variables de entorno del sistema. Si lo dejas en blanco, ese tráfico se conecta directamente, mientras que el navegador integrado sigue la configuración de proxy del sistema. Reinicia la aplicación para que surta efecto.",
@@ -2196,7 +2272,8 @@ const esES: Record<string, string> = {
   "settings.httpProxyCaCertPathDescription":
     "Opcional. Indica la ruta de un certificado raíz PEM para inyectarlo como NODE_EXTRA_CA_CERTS en los modelos, MCP y las herramientas de comandos, y para confiar en él en la verificación de certificados del renderizador. Reinicia la aplicación para que surta efecto.",
   "settings.httpProxyCaCertPathPlaceholder": "p. ej., /Users/name/certs/root-ca.pem",
-  "settings.httpProxySavedHint": "Se guardó la configuración del proxy de red. Reinicia la aplicación para que surta efecto.",
+  "settings.httpProxySavedHint":
+    "Se guardó la configuración del proxy de red. Reinicia la aplicación para que surta efecto.",
   "settings.desktopChromiumHardwareAcceleration": "Aceleración por hardware de Chrome",
   "settings.desktopChromiumHardwareAccelerationDescription":
     "Desactívala para evitar ventanas en blanco, bloqueos o problemas de representación causados por algunas GPU o controladores. Reinicia la aplicación para que surta efecto.",
@@ -2205,7 +2282,8 @@ const esES: Record<string, string> = {
   "settings.receivePreviewUpdates": "Recibir antes las actualizaciones de vista previa",
   "settings.receivePreviewUpdatesDescription":
     "Si se activa, tendrás antes que nadie acceso a las nuevas funciones y mejoras. Si se desactiva, recibirás las actualizaciones según el calendario de versiones habitual.",
-  "settings.autoDownloadAndInstallUpdates": "Descargar e instalar las actualizaciones automáticamente",
+  "settings.autoDownloadAndInstallUpdates":
+    "Descargar e instalar las actualizaciones automáticamente",
   "settings.autoDownloadAndInstallUpdatesDescription":
     "Si se activa, las actualizaciones empiezan a descargarse en cuanto se detectan. El reinicio sigue requiriendo confirmación cuando hay tareas en ejecución.",
   "settings.notification": "Notificaciones de tareas",
@@ -2235,7 +2313,8 @@ const esES: Record<string, string> = {
   "settings.messageStreamShowReasoningDescription":
     "Muestra el razonamiento completo en el flujo de mensajes. Si se desactiva, el primer elemento de razonamiento de cada turno permanece visible.",
   "settings.messageStreamShowTodos": "Mostrar tareas",
-  "settings.messageStreamShowTodosDescription": "Muestra las tarjetas de la herramienta Tarea en el flujo de mensajes. ",
+  "settings.messageStreamShowTodosDescription":
+    "Muestra las tarjetas de la herramienta Tarea en el flujo de mensajes. ",
   "settings.toolGroupingExplore": "Agrupar herramientas de exploración",
   "settings.toolGroupingExploreDescription":
     "Agrupa las lecturas y búsquedas consecutivas en una sección Exploración.",
@@ -2247,7 +2326,7 @@ const esES: Record<string, string> = {
     "Agrupa las llamadas consecutivas a Write, Edit y ApplyPatch en una sección Cambios.",
   "settings.zcodeInteractionBehavior": "Comportamiento de interacción",
   "settings.zcodeInteractionBehaviorDescription":
-    "Mientras ZCode se ejecuta, añade acciones de seguimiento a la cola o guíalas para que se ejecuten después de la siguiente llamada a herramienta.",
+    "Mientras DeepVibe se ejecuta, añade acciones de seguimiento a la cola o guíalas para que se ejecuten después de la siguiente llamada a herramienta.",
   "settings.zcodeInteractionBehavior.option.queue": "Cola",
   "settings.zcodeInteractionBehavior.option.guide": "Guiar",
   "settings.askUserQuestionAutoResolution": "Continuar las preguntas automáticamente",
@@ -2257,7 +2336,8 @@ const esES: Record<string, string> = {
   "settings.modelIoFullRetentionDescription":
     "Conserva las solicitudes y respuestas completas del modelo sin compresión, límites de tamaño ni eliminación automática.",
   "settings.performanceMode": "Modo de rendimiento",
-  "settings.performanceModeDescription": "Simplifica la salida representada para mejorar el rendimiento.",
+  "settings.performanceModeDescription":
+    "Simplifica la salida representada para mejorar el rendimiento.",
   "settings.taskAutoArchive": "Archivar automáticamente las tareas antiguas",
   "settings.taskAutoArchiveDescription":
     "Analiza periódicamente los espacios de trabajo abiertos recientemente y archiva automáticamente las tareas completadas, sin elementos sin leer y no fijadas una vez transcurrido el período de retención.",
@@ -2277,8 +2357,9 @@ const esES: Record<string, string> = {
   "settings.dataBaseDirCopying": "Copiando datos, no cierres la aplicación…",
   "settings.dataBaseDirCopyFailed": "Error al copiar los datos. La ruta no se modificó.",
   "settings.dataBaseDirForbiddenInstallDir":
-    "El directorio de datos no puede ser la carpeta de instalación de ZCode en Windows. Elige una carpeta fuera de la ubicación de instalación de la aplicación.",
-  "settings.dataBaseDirRestartRequired": "Datos guardados. Reinicia la aplicación para que surta efecto.",
+    "El directorio de datos no puede ser la carpeta de instalación de DeepVibe en Windows. Elige una carpeta fuera de la ubicación de instalación de la aplicación.",
+  "settings.dataBaseDirRestartRequired":
+    "Datos guardados. Reinicia la aplicación para que surta efecto.",
   "settings.locale.system": "Predeterminado del sistema",
   "settings.locale.zh-CN": "中文简体",
   "settings.locale.en-US": "English",
@@ -2293,7 +2374,7 @@ const esES: Record<string, string> = {
   "settings.migration.title": "Migración",
   "settings.migration.sectionTitle": "Migración del historial de Claude",
   "settings.migration.sectionDescription":
-    "Analiza el historial nativo de Claude Code en este equipo, filtra opcionalmente por espacio de trabajo y período de actividad, y luego importa las sesiones seleccionadas en sus listas de tareas correspondientes de ZCode.",
+    "Analiza el historial nativo de Claude Code en este equipo, filtra opcionalmente por espacio de trabajo y período de actividad, y luego importa las sesiones seleccionadas en sus listas de tareas correspondientes de DeepVibe.",
   "settings.migration.badge.localOnly": "Registros locales de Claude",
   "settings.migration.badge.manualOnly": "Solo manual",
   "settings.migration.currentWorkspace": "Espacio de trabajo actual",
@@ -2306,7 +2387,8 @@ const esES: Record<string, string> = {
   "settings.migration.noticeDescription":
     "La migración copia los archivos jsonl nativos y genera instantáneas mínimas de tareas. Sin un filtro de espacio de trabajo, el análisis abarca todos los registros de Claude e importa cada sesión de vuelta a su propio espacio de trabajo de origen.",
   "settings.migration.unsupported.title": "La migración no está disponible aquí",
-  "settings.migration.unsupported.desktopOnly": "La migración solo está disponible en la versión de escritorio por ahora.",
+  "settings.migration.unsupported.desktopOnly":
+    "La migración solo está disponible en la versión de escritorio por ahora.",
   "settings.migration.filtersTitle": "Filtros",
   "settings.migration.filtersDescription":
     "Filtra por espacio de trabajo, actividad reciente y tamaño de los resultados, y luego obtén manualmente las sesiones candidatas.",
@@ -2322,7 +2404,8 @@ const esES: Record<string, string> = {
   "settings.migration.limitHint": "Este análisis devolverá hasta {max} sesiones.",
   "settings.migration.scan": "Analizar sesiones",
   "settings.migration.scanFailedTitle": "Error en el análisis",
-  "settings.migration.scanFailedDescription": "No se pudo leer el historial nativo de Claude: {error}",
+  "settings.migration.scanFailedDescription":
+    "No se pudo leer el historial nativo de Claude: {error}",
   "settings.migration.candidatesTitle": "Candidatas",
   "settings.migration.candidatesDescription":
     "Selecciona una o más sesiones para importar. Cada sesión importada se escribe de vuelta en la lista de tareas de su propio espacio de trabajo.",
@@ -2334,7 +2417,8 @@ const esES: Record<string, string> = {
   "settings.migration.importFailedTitle": "Error en la importación",
   "settings.migration.importFailedDescription": "La migración falló: {error}",
   "settings.migration.resultTitle": "Último resultado de la migración",
-  "settings.migration.resultSummary": "Se importaron {imported}, se omitieron {skipped} y fallaron {failed}.",
+  "settings.migration.resultSummary":
+    "Se importaron {imported}, se omitieron {skipped} y fallaron {failed}.",
   "settings.migration.emptyTitle": "Aún no hay sesiones candidatas",
   "settings.migration.emptyDescription":
     "Ajusta los filtros y pulsa “Analizar sesiones” para cargar los resultados coincidentes.",
@@ -2347,21 +2431,22 @@ const esES: Record<string, string> = {
   "settings.usageTitle": "Estadísticas de uso",
   "settings.usageDescription":
     "Consulta la actividad aproximada y el uso de modelos agregados a partir de las sesiones locales.",
-  "resourceManager.storage.summaryTotal": "Total usado por ZCode",
+  "resourceManager.storage.summaryTotal": "Total usado por DeepVibe",
   "resourceManager.storage.scanning": "Calculando…",
   "resourceManager.storage.lastScanned": "Último cálculo: {time}",
   "resourceManager.storage.idle": "Sin calcular todavía",
   "resourceManager.storage.failed": "Error en el cálculo",
   "resourceManager.storage.rescan": "Recalcular",
   "resourceManager.storage.disk": "Disco",
-  "resourceManager.storage.diskUsage": "ZCode usa {used}",
+  "resourceManager.storage.diskUsage": "DeepVibe usa {used}",
   "resourceManager.storage.diskFree": "{free} libres de {total}",
   "resourceManager.storage.diskUnknown": "Capacidad de disco no disponible",
   "resourceManager.storage.roots": "Directorios de datos",
   "resourceManager.storage.legendMore": "{count} categorías más",
   "resourceManager.storage.estimate":
     "Los tamaños son estimaciones; los enlaces duros y los archivos clonados pueden contarse dos veces.",
-  "resourceManager.storage.errors": "No se pudieron leer {count} directorios; es posible que los totales sean menores de lo real.",
+  "resourceManager.storage.errors":
+    "No se pudieron leer {count} directorios; es posible que los totales sean menores de lo real.",
   "resourceManager.storage.filesCount": "{count} archivos",
   "resourceManager.storage.moreEntries": "{count} elementos más",
   "resourceManager.storage.reveal": "Mostrar en el gestor de archivos",
@@ -2369,7 +2454,8 @@ const esES: Record<string, string> = {
   "resourceManager.storage.clean": "Limpiar",
   "resourceManager.storage.cleaning": "Limpiando…",
   "resourceManager.storage.cleanSuccess": "Se liberaron {size}",
-  "resourceManager.storage.cleanPartial": "Se liberaron {size}; no se pudieron eliminar {count} elementos",
+  "resourceManager.storage.cleanPartial":
+    "Se liberaron {size}; no se pudieron eliminar {count} elementos",
   "resourceManager.storage.cleanNothing": "No hay nada que limpiar",
   "resourceManager.storage.cleanFailed": "Error al limpiar",
   "resourceManager.storage.confirmTitle": "¿Limpiar “{category}”?",
@@ -2422,7 +2508,8 @@ const esES: Record<string, string> = {
   "settings.embeddedBrowserAllowInsecureCertificatesSavedHint":
     "Configuración de certificados guardada. Reinicia la aplicación para que surta efecto.",
   "settings.browser.data.section": "Datos del navegador",
-  "settings.browser.desktopOnly": "Los datos del navegador solo se pueden gestionar en la aplicación de escritorio de ZCode.",
+  "settings.browser.desktopOnly":
+    "Los datos del navegador solo se pueden gestionar en la aplicación de escritorio de DeepVibe.",
   "settings.browser.import.title": "Importar el estado de sesión de Chrome",
   "settings.browser.import.description":
     "Trae tu estado de sesión de Chrome al navegador integrado una sola vez, para que la IA pueda abrir sitios en los que ya has iniciado sesión y trabajar con mayor fluidez.",
@@ -2440,13 +2527,13 @@ const esES: Record<string, string> = {
   "settings.browser.import.elevationCancelled":
     "Se canceló el acceso de administrador de Windows. No se importó ninguna cookie.",
   "settings.browser.import.helperVerificationFailed":
-    "ZCode no pudo verificar su componente de importación segura de Windows. Reinstala o actualiza ZCode antes de importar cookies.",
+    "DeepVibe no pudo verificar su componente de importación segura de Windows. Reinstala o actualiza DeepVibe antes de importar cookies.",
   "settings.browser.import.appBoundFailed":
     "Windows no pudo desbloquear las cookies App-Bound de Chrome. No se importó ninguna cookie.",
   "settings.browser.import.adminConfirmTitle":
     "¿Permitir el acceso de administrador para importar las cookies de Chrome?",
   "settings.browser.import.adminConfirmDescription":
-    "Chrome protege las cookies con el cifrado App-Bound en Windows. Solo para esta importación, ZCode solicitará acceso de administrador, iniciará un servicio de sistema temporal y lo eliminará inmediatamente después. Las contraseñas de Chrome nunca se leen ni se importan.",
+    "Chrome protege las cookies con el cifrado App-Bound en Windows. Solo para esta importación, DeepVibe solicitará acceso de administrador, iniciará un servicio de sistema temporal y lo eliminará inmediatamente después. Las contraseñas de Chrome nunca se leen ni se importan.",
   "settings.browser.import.adminConsent":
     "Confirmo el acceso de administrador solo para esta importación de cookies",
   "settings.browser.import.adminConfirmAction": "Continuar y solicitar acceso",
@@ -2489,7 +2576,8 @@ const esES: Record<string, string> = {
   "settings.darkThemeDescription":
     "Tema de resaltado que se usa para el contenido de código en la interfaz oscura.",
   "settings.showLineNumbers": "Mostrar los números de línea",
-  "settings.showLineNumbersDescription": "Muestra los números de línea en las vistas de código y de diff.",
+  "settings.showLineNumbersDescription":
+    "Muestra los números de línea en las vistas de código y de diff.",
   "settings.wrapLongLines": "Ajustar las líneas largas",
   "settings.wrapLongLinesDescription": "Ajusta automáticamente las líneas de código largas.",
   "settings.fontSize": "Tamaño de fuente del código",
@@ -2505,12 +2593,14 @@ const esES: Record<string, string> = {
   "settings.previewBadge.dark": "Oscuro",
   "settings.modelProviderTitle": "Configuración de modelos",
   "settings.mcpTitle": "Servidores MCP",
-  "settings.mcp.description": "Gestiona las configuraciones de servidores MCP que usa el agente de ZCode.",
+  "settings.mcp.description":
+    "Gestiona las configuraciones de servidores MCP que usa el agente de DeepVibe.",
   "settings.mcp.create.open": "Añadir servidor MCP",
   "settings.mcp.import.open": "Importar servidores MCP de agentes externos",
   "settings.mcp.import.action": "Importar",
   "settings.mcp.emptyTitle": "Aún no hay servidores MCP",
-  "settings.mcp.emptyDescription": "Añade un servidor MCP para dar al agente capacidades adicionales.",
+  "settings.mcp.emptyDescription":
+    "Añade un servidor MCP para dar al agente capacidades adicionales.",
   "settings.mcp.searchPlaceholder": "Buscar servidores MCP…",
   "settings.mcp.group.local": "Servidores MCP configurados",
   "settings.mcp.group.plugin": "Servidores MCP de plugins",
@@ -2548,7 +2638,8 @@ const esES: Record<string, string> = {
     "Los plugins sincronizados pueden cargar o ejecutar habilidades, comandos, hooks y servidores MCP en el entorno remoto. Los plugins del marketplace se reinstalan en el destino remoto y requieren acceso remoto a su origen del marketplace.",
   "settings.plugins.remoteSync.target": "Destino: {target}",
   "settings.plugins.remoteSync.loading": "Cargando los plugins locales…",
-  "settings.plugins.remoteSync.empty": "No hay plugins locales disponibles para la sincronización remota.",
+  "settings.plugins.remoteSync.empty":
+    "No hay plugins locales disponibles para la sincronización remota.",
   "settings.plugins.remoteSync.filteredEmpty":
     "Todos los plugins locales ya existen en el host remoto.",
   "settings.plugins.remoteSync.showExisting": "Mostrar los plugins remotos existentes",
@@ -2565,7 +2656,8 @@ const esES: Record<string, string> = {
   "settings.plugins.remoteSync.logTooltip": "Registro de sincronización",
   "settings.plugins.remoteSync.optionsSummary":
     "Opciones: se intentará {syncable}; {manual} requieren configuración manual en el destino remoto",
-  "settings.plugins.remoteSync.resultEmpty": "No se devolvieron resultados de sincronización de plugins.",
+  "settings.plugins.remoteSync.resultEmpty":
+    "No se devolvieron resultados de sincronización de plugins.",
   "settings.plugins.remoteSync.selectionCount": "{selected}/{total} seleccionados",
   "settings.plugins.remoteSync.noSelection": "Selecciona al menos un plugin que falte.",
   "settings.mcp.remoteContext": "Espacio de trabajo remoto actual: {target}",
@@ -2576,13 +2668,14 @@ const esES: Record<string, string> = {
   "settings.mcp.plugin.connectingDescription":
     "Este servidor MCP del plugin se está conectando a su entorno de ejecución.",
   "settings.mcp.plugin.connected": "Conectado",
-  "settings.mcp.plugin.connectedDescription": "Este servidor MCP del plugin está conectado y disponible.",
+  "settings.mcp.plugin.connectedDescription":
+    "Este servidor MCP del plugin está conectado y disponible.",
   "settings.mcp.plugin.disconnected": "Desconectado",
   "settings.mcp.plugin.disconnectedDescription":
     "Este servidor MCP del plugin está cargado, pero no está conectado en este momento.",
   "settings.mcp.host.active": "Integrado en el host",
   "settings.mcp.host.activeDescription":
-    "ZCode proporciona este servidor MCP para el plugin {pluginName}. El host gestiona su identidad en el entorno de ejecución.",
+    "DeepVibe proporciona este servidor MCP para el plugin {pluginName}. El host gestiona su identidad en el entorno de ejecución.",
   "settings.mcp.plugin.disabled": "Plugin desactivado",
   "settings.mcp.plugin.disabledDescription":
     "Este servidor MCP está integrado en un plugin. Activa el plugin para cargarlo.",
@@ -2594,7 +2687,7 @@ const esES: Record<string, string> = {
     "Abre la autorización para terminar de conectar este servidor MCP del plugin.",
   "settings.mcp.oauth.openAuthorization": "Abrir la autorización",
   "settings.mcp.statusOnlyUnsupported":
-    "Este agente de ZCode no puede actualizar el estado de OAuth. Actualiza o reinicia ZCode y vuelve a abrir la configuración de MCP para hacer una actualización completa.",
+    "Este agente de DeepVibe no puede actualizar el estado de OAuth. Actualiza o reinicia DeepVibe y vuelve a abrir la configuración de MCP para hacer una actualización completa.",
   "settings.mcp.refreshFailed": "No se pudo actualizar el estado de MCP: {error}",
   "settings.mcp.status.toolCount": "{count} herramientas",
   "settings.mcp.status.connectedReason": "Conectado y disponible.",
@@ -2621,7 +2714,7 @@ const esES: Record<string, string> = {
   "settings.mcp.failure.official_origin_untrusted":
     "La URL del servidor MCP no superó la comprobación de seguridad. Se bloqueó la conexión.",
   "settings.mcp.failure.not_authenticated":
-    "No has iniciado sesión. Inicia sesión en ZCode para usar este servidor MCP.",
+    "No has iniciado sesión. Inicia sesión en DeepVibe para usar este servidor MCP.",
   "settings.mcp.failure.coding_plan_required":
     "Esta cuenta no tiene ningún Coding Plan. Compra o configura un Coding Plan para usar este servidor MCP.",
   "settings.mcp.failure.server_not_found":
@@ -2635,7 +2728,8 @@ const esES: Record<string, string> = {
     "Falló la solicitud del protocolo MCP. Es posible que el cliente y el servidor sean incompatibles.",
   "settings.mcp.failure.status_unavailable":
     "No se pudo obtener el estado de MCP. Actualiza o reinicia el agente.",
-  "settings.mcp.failure.connection_failed": "No se pudo conectar con el servidor MCP. Inténtalo de nuevo más tarde.",
+  "settings.mcp.failure.connection_failed":
+    "No se pudo conectar con el servidor MCP. Inténtalo de nuevo más tarde.",
   "settings.mcp.failure.technicalDetails": "Detalles",
   "settings.mcp.deleteConfirmTitle": "¿Eliminar el servidor MCP “{name}”?",
   "settings.mcp.deleteConfirmDescription":
@@ -2673,7 +2767,8 @@ const esES: Record<string, string> = {
   "settings.mcpServers.import.scanning": "Buscando servidores MCP que se puedan importar…",
   "settings.mcpServers.import.empty":
     "No se encontraron servidores MCP que se puedan importar. Comprueba los archivos de configuración de MCP del agente externo y vuelve a buscar.",
-  "settings.mcpServers.import.summary": "Se encontraron {count} servidores MCP que se pueden importar",
+  "settings.mcpServers.import.summary":
+    "Se encontraron {count} servidores MCP que se pueden importar",
   "settings.mcpServers.import.scopeLabel": "Ámbito",
   "settings.mcpServers.import.scope.global": "Global",
   "settings.mcpServers.import.scope.project": "Proyecto",
@@ -2684,14 +2779,15 @@ const esES: Record<string, string> = {
   "settings.mcpServers.import.expandSource": "Mostrar servidores MCP",
   "settings.mcpServers.import.collapseSource": "Ocultar servidores MCP",
   "settings.mcpServers.import.selectSource": "Seleccionar todos los servidores MCP de este origen",
-  "settings.mcpServers.import.deselectSource": "Anular la selección de todos los servidores MCP de este origen",
+  "settings.mcpServers.import.deselectSource":
+    "Anular la selección de todos los servidores MCP de este origen",
   "settings.mcpServers.import.itemCount": "{count} servidores MCP",
   "settings.mcpServers.import.skipReason.sameNameExists": "El servidor ya existe",
   "settings.mcpServers.import.start": "Importar los servidores MCP seleccionados",
   "settings.mcpServers.import.targetLabel": "Destino de la importación",
   "settings.mcpServers.import.target.global": "Importar a Global",
   "settings.mcpServers.import.target.project": "Importar a Proyecto",
-  "settings.mcpServers.import.importing": "Importando servidores MCP en ZCode",
+  "settings.mcpServers.import.importing": "Importando servidores MCP en DeepVibe",
   "settings.mcpServers.import.imported": "Importado",
   "settings.mcpServers.import.skipped": "Omitido",
   "settings.mcpServers.import.failed": "Falló",
@@ -2763,7 +2859,8 @@ const esES: Record<string, string> = {
   "settings.modelProvider.readOnlyField": "{field} (solo lectura)",
   "settings.modelProvider.endpointPath": "Ruta del endpoint: {format}",
   "settings.modelProvider.apiFormat": "Formato de API",
-  "settings.modelProvider.apiFormat.chatCompletions": "Finalizaciones de chat (/v1/chat/completions)",
+  "settings.modelProvider.apiFormat.chatCompletions":
+    "Finalizaciones de chat (/v1/chat/completions)",
   "settings.modelProvider.apiFormat.responses": "Respuestas (/responses)",
   "settings.modelProvider.apiFormat.anthropicMessages":
     "Mensajes de Anthropic (/anthropic/v1/messages)",
@@ -2775,7 +2872,8 @@ const esES: Record<string, string> = {
   "settings.modelProvider.apiFormat.title.anthropicMessages": "Mensajes de Anthropic",
   "settings.modelProvider.apiKey": "Clave de API",
   "settings.modelProvider.apiKeyPlaceholder": "Introduce la clave de API",
-  "settings.modelProvider.apiKeyDisabledHint": "Configura una clave de API para activar este proveedor.",
+  "settings.modelProvider.apiKeyDisabledHint":
+    "Configura una clave de API para activar este proveedor.",
   "settings.modelProvider.getApiKey": "Obtener clave de API",
   "settings.modelProvider.viewUsage": "Ver el uso",
   "settings.modelProvider.useSubscription": "Usar la suscripción",
@@ -2797,7 +2895,8 @@ const esES: Record<string, string> = {
   "settings.modelProvider.accountProviderConfigMissing":
     "La configuración del proveedor de la cuenta no está disponible. Actualiza e inténtalo de nuevo.",
   "settings.modelProvider.startPlan.login": "Iniciar sesión",
-  "settings.modelProvider.startPlan.status.loginRequired": "Inicia sesión para ver y usar tu Start Plan",
+  "settings.modelProvider.startPlan.status.loginRequired":
+    "Inicia sesión para ver y usar tu Start Plan",
   "settings.modelProvider.startPlan.status.expired": "El Start Plan ha caducado",
   "settings.modelProvider.startPlan.status.noPlan": "No hay ningún Start Plan disponible",
   "settings.modelProvider.startPlan.status.loginExpired":
@@ -2819,7 +2918,7 @@ const esES: Record<string, string> = {
   "settings.modelProvider.startPlan.highlight.trial.label": "Período de prueba",
   "settings.modelProvider.startPlan.highlight.trial.value": "5 días naturales",
   "settings.modelProvider.startPlan.highlight.trial.description":
-    "El cómputo empieza tras iniciar sesión en ZCode 3.x.",
+    "El cómputo empieza tras iniciar sesión en DeepVibe 3.x.",
   "settings.modelProvider.startPlan.highlight.quota.label": "Cuota diaria",
   "settings.modelProvider.startPlan.highlight.quota.value": "3 M de tokens al día",
   "settings.modelProvider.startPlan.highlight.quota.description":
@@ -2829,7 +2928,7 @@ const esES: Record<string, string> = {
   "settings.modelProvider.startPlan.highlight.metering.description":
     "Solo se mide después de usar los modelos insignia GLM de la plataforma.",
   "settings.modelProvider.startPlan.compatibility":
-    "Compatible con BYOK y BYOA. ZCode mantiene automáticamente la URL base, el formato de API y la clave de API.",
+    "Compatible con BYOK y BYOA. DeepVibe mantiene automáticamente la URL base, el formato de API y la clave de API.",
   "settings.modelProvider.codingPlan.title": "{provider} - Coding Plan",
   "settings.modelProvider.codingPlan.webview.title": "Mejorar plan",
   "settings.modelProvider.codingPlan.webview.authInjectFailed":
@@ -2935,7 +3034,8 @@ const esES: Record<string, string> = {
   "settings.modelProvider.codingPlan.purchase.summaryStatus": "Estado",
   "settings.modelProvider.codingPlan.purchase.servicePeriod": "Período de servicio",
   "settings.modelProvider.codingPlan.purchase.durationValue": "{duration} {unit}",
-  "settings.modelProvider.codingPlan.purchase.autoRenewPeriod": "Se renueva automáticamente cada {period}",
+  "settings.modelProvider.codingPlan.purchase.autoRenewPeriod":
+    "Se renueva automáticamente cada {period}",
   "settings.modelProvider.codingPlan.purchase.renewalPolicyTitle": "Política de renovación",
   "settings.modelProvider.codingPlan.purchase.renewalPolicyCharge":
     "Tu suscripción se renueva automáticamente por {price}{unit} a menos que la canceles.",
@@ -2966,7 +3066,7 @@ const esES: Record<string, string> = {
   "settings.modelProvider.codingPlan.purchase.teamMemberNoticeTitle":
     "Asigna miembros a tu plan de equipo",
   "settings.modelProvider.codingPlan.purchase.teamMemberNoticeDescription":
-    "Añádete o añade a otros miembros en la página de gestión del plan de equipo de BigModel. Una vez asignados, la cuota del equipo estará disponible en ZCode.",
+    "Añádete o añade a otros miembros en la página de gestión del plan de equipo de BigModel. Una vez asignados, la cuota del equipo estará disponible en DeepVibe.",
   "settings.modelProvider.codingPlan.purchase.manageTeamPlan": "Gestionar el plan de equipo",
   "settings.modelProvider.codingPlan.manage": "Gestionar",
   "settings.modelProvider.planCard.codingPlan": "Coding Plan",
@@ -3008,7 +3108,8 @@ const esES: Record<string, string> = {
     "Obteniendo los últimos planes y precios de {provider}.",
   "settings.modelProvider.codingPlan.purchase.authStateError":
     "No se pudo leer tu estado de inicio de sesión. Vuelve a intentarlo.",
-  "settings.modelProvider.codingPlan.purchase.authStateRetry": "Reintentar estado de inicio de sesión",
+  "settings.modelProvider.codingPlan.purchase.authStateRetry":
+    "Reintentar estado de inicio de sesión",
   "settings.modelProvider.codingPlan.productsError": "No se pudieron cargar los planes",
   "settings.modelProvider.codingPlan.productsReconnectTitle": "Conecta para ver los planes",
   "settings.modelProvider.codingPlan.reconnectToViewPlans": "Reconectar",
@@ -3019,11 +3120,13 @@ const esES: Record<string, string> = {
   "settings.modelProvider.codingPlan.productsEmpty": "No hay planes disponibles",
   "settings.modelProvider.codingPlan.productsEmptyDescription":
     "{provider} no devolvió ningún producto de Coding Plan comprable para esta cuenta.",
-  "settings.modelProvider.codingPlan.dynamicUnsupportedTitle": "Los planes dinámicos no están disponibles",
+  "settings.modelProvider.codingPlan.dynamicUnsupportedTitle":
+    "Los planes dinámicos no están disponibles",
   "settings.modelProvider.codingPlan.dynamicUnsupportedDescription":
     "Por ahora, la suscripción desde la aplicación solo está conectada para el Coding Plan de Z.ai / BigModel.",
   "settings.modelProvider.codingPlan.priceUnavailable": "Precio no disponible",
-  "settings.modelProvider.codingPlan.systemBusy": "El sistema está ocupado. Inténtalo de nuevo más tarde.",
+  "settings.modelProvider.codingPlan.systemBusy":
+    "El sistema está ocupado. Inténtalo de nuevo más tarde.",
   "settings.modelProvider.codingPlan.subscriptionBusy": "Suscripción ocupada",
   "settings.modelProvider.codingPlan.subscriptionBusyButton": "Sistema ocupado",
   "settings.modelProvider.codingPlan.pendingOrder":
@@ -3055,7 +3158,8 @@ const esES: Record<string, string> = {
   "settings.modelProvider.codingPlan.start.freeEquityTitle": "Empezar con el plan gratuito",
   "settings.modelProvider.codingPlan.start.freeEquityDetails":
     "La capacidad básica de programación está disponible tras iniciar sesión.",
-  "settings.modelProvider.codingPlan.paymentDialog.title": "Plan de renovación automática de {product}",
+  "settings.modelProvider.codingPlan.paymentDialog.title":
+    "Plan de renovación automática de {product}",
   "settings.modelProvider.codingPlan.paymentDialog.close": "Cerrar el cuadro de diálogo de pago",
   "settings.modelProvider.codingPlan.paymentDialog.originalAmount": "Precio del plan",
   "settings.modelProvider.codingPlan.paymentDialog.discountActivity": "Descuento",
@@ -3121,7 +3225,8 @@ const esES: Record<string, string> = {
     "Cargando los precios del plan de equipo desde BigModel.",
   "settings.modelProvider.codingPlan.enterprise.productsEmptyDescription":
     "Actualmente no hay productos de plan de equipo disponibles.",
-  "settings.modelProvider.codingPlan.enterprise.productsError": "No se pudieron cargar los planes de equipo",
+  "settings.modelProvider.codingPlan.enterprise.productsError":
+    "No se pudieron cargar los planes de equipo",
   "settings.modelProvider.codingPlan.enterprise.choosePurchaseMethod": "Modalidad de servicio",
   "settings.modelProvider.codingPlan.enterprise.purchaseMethodDescription":
     "Nos autorizas a activar la renovación automática. Selecciona la modalidad de servicio, los asientos y la duración de la compra única antes de confirmar el pago.",
@@ -3146,8 +3251,10 @@ const esES: Record<string, string> = {
   "settings.modelProvider.codingPlan.enterprise.giftBalance": "Saldo de regalo",
   "settings.modelProvider.codingPlan.enterprise.cashBalance": "Saldo en efectivo",
   "settings.modelProvider.codingPlan.enterprise.balanceAvailable": "Disponible: {amount}",
-  "settings.modelProvider.codingPlan.enterprise.giftBalanceDeduction": "Deducción del saldo de regalo",
-  "settings.modelProvider.codingPlan.enterprise.cashBalanceDeduction": "Deducción del saldo en efectivo",
+  "settings.modelProvider.codingPlan.enterprise.giftBalanceDeduction":
+    "Deducción del saldo de regalo",
+  "settings.modelProvider.codingPlan.enterprise.cashBalanceDeduction":
+    "Deducción del saldo en efectivo",
   "settings.modelProvider.codingPlan.enterprise.calculateDescription":
     "El importe del pago se actualizará cuando el cálculo del pedido esté listo.",
   "settings.modelProvider.codingPlan.enterprise.paymentNotesTitle": "Notas sobre el pago",
@@ -3159,10 +3266,12 @@ const esES: Record<string, string> = {
   "settings.modelProvider.codingPlan.enterprise.orderOriginalAmount": "Importe original del pedido",
   "settings.modelProvider.codingPlan.enterprise.orderDiscount": "{discount} de descuento",
   "settings.modelProvider.codingPlan.enterprise.teamAgreementPrefix": "Acepto el ",
-  "settings.modelProvider.codingPlan.enterprise.teamAgreementLink": "Acuerdo de compra del plan de equipo",
+  "settings.modelProvider.codingPlan.enterprise.teamAgreementLink":
+    "Acuerdo de compra del plan de equipo",
   "settings.modelProvider.codingPlan.enterprise.cancel": "Cancelar",
   "settings.modelProvider.codingPlan.enterprise.confirmPay": "Confirmar y pagar",
-  "settings.modelProvider.codingPlan.enterprise.confirmTitle": "Comprar el plan empresarial de {product}",
+  "settings.modelProvider.codingPlan.enterprise.confirmTitle":
+    "Comprar el plan empresarial de {product}",
   "settings.modelProvider.codingPlan.enterprise.paymentDialog.title":
     "Pago del plan empresarial de {product}",
   "settings.modelProvider.codingPlan.enterprise.paymentDialog.tipTotal":
@@ -3192,8 +3301,10 @@ const esES: Record<string, string> = {
   "settings.modelProvider.codingPlan.overseasPayment.savedCards": "Tarjetas guardadas",
   "settings.modelProvider.codingPlan.overseasPayment.refreshCards": "Actualizar tarjetas",
   "settings.modelProvider.codingPlan.overseasPayment.deleteCard": "Eliminar tarjeta",
-  "settings.modelProvider.codingPlan.overseasPayment.cardsLoading": "Cargando las tarjetas guardadas…",
-  "settings.modelProvider.codingPlan.overseasPayment.noSavedCards": "Aún no hay tarjetas guardadas.",
+  "settings.modelProvider.codingPlan.overseasPayment.cardsLoading":
+    "Cargando las tarjetas guardadas…",
+  "settings.modelProvider.codingPlan.overseasPayment.noSavedCards":
+    "Aún no hay tarjetas guardadas.",
   "settings.modelProvider.codingPlan.overseasPayment.addCard": "Añadir tarjeta",
   "settings.modelProvider.codingPlan.overseasPayment.changeCard": "Cambiar tarjeta",
   "settings.modelProvider.codingPlan.overseasPayment.cardExpires": "Caduca {month}/{year}",
@@ -3229,7 +3340,8 @@ const esES: Record<string, string> = {
     "El formulario de tarjeta de Stripe no está configurado en esta versión.",
   "settings.modelProvider.codingPlan.overseasPayment.close": "Quizá más tarde",
   "settings.modelProvider.codingPlan.overseasPayment.renewalPolicyTitle": "Política de renovación",
-  "settings.modelProvider.codingPlan.overseasPayment.accountPolicyTitle": "Política de uso de la cuenta",
+  "settings.modelProvider.codingPlan.overseasPayment.accountPolicyTitle":
+    "Política de uso de la cuenta",
   "settings.modelProvider.codingPlan.overseasPayment.period.month": "mes",
   "settings.modelProvider.codingPlan.overseasPayment.period.quarter": "trimestre",
   "settings.modelProvider.codingPlan.overseasPayment.period.year": "año",
@@ -3284,15 +3396,16 @@ const esES: Record<string, string> = {
   "settings.modelProvider.codingPlan.product.firstPromo": "Descuento por primera suscripción",
   "settings.modelProvider.codingPlan.product.delay": "Vigente desde {time}",
   "settings.modelProvider.codingPlan.zai.plan.lite.name": "Lite",
-  "settings.modelProvider.codingPlan.zai.plan.lite.summary": "Límites de uso de Claude Pro 3 veces mayores",
+  "settings.modelProvider.codingPlan.zai.plan.lite.summary":
+    "Límites de uso de Claude Pro 3 veces mayores",
   "settings.modelProvider.codingPlan.zai.plan.pro.name": "Pro",
-  "settings.modelProvider.codingPlan.zai.plan.pro.summary":
-    "Todo lo de Lite, con 5 veces más uso",
+  "settings.modelProvider.codingPlan.zai.plan.pro.summary": "Todo lo de Lite, con 5 veces más uso",
   "settings.modelProvider.codingPlan.zai.plan.max.name": "Max",
   "settings.modelProvider.codingPlan.zai.plan.max.summary":
     "Todo lo de Pro, con 20 veces el uso de Lite",
   "settings.modelProvider.codingPlan.bigmodel.plan.lite.name": "Lite",
-  "settings.modelProvider.codingPlan.bigmodel.plan.lite.summary": "3 veces la cuota de uso de Claude Pro",
+  "settings.modelProvider.codingPlan.bigmodel.plan.lite.summary":
+    "3 veces la cuota de uso de Claude Pro",
   "settings.modelProvider.codingPlan.bigmodel.plan.pro.name": "Pro",
   "settings.modelProvider.codingPlan.bigmodel.plan.pro.summary":
     "5 veces la cuota de uso de Lite + todas las ventajas de Lite",
@@ -3304,13 +3417,16 @@ const esES: Record<string, string> = {
     "Iteración ligera en repos pequeños",
   "settings.modelProvider.codingPlan.bigmodel.purchase.plan.lite.detail2":
     "Últimos modelos disponibles de forma progresiva",
-  "settings.modelProvider.codingPlan.bigmodel.purchase.plan.lite.detail3": "Más de 20 herramientas de programación",
-  "settings.modelProvider.codingPlan.bigmodel.purchase.plan.pro.detail0": "5 veces la cuota de uso de Lite",
+  "settings.modelProvider.codingPlan.bigmodel.purchase.plan.lite.detail3":
+    "Más de 20 herramientas de programación",
+  "settings.modelProvider.codingPlan.bigmodel.purchase.plan.pro.detail0":
+    "5 veces la cuota de uso de Lite",
   "settings.modelProvider.codingPlan.bigmodel.purchase.plan.pro.detail1":
     "Desarrollo diario en repos medianos",
   "settings.modelProvider.codingPlan.bigmodel.purchase.plan.pro.detail2":
     "Acceso prioritario a los últimos modelos",
-  "settings.modelProvider.codingPlan.bigmodel.purchase.plan.pro.detail3": "Herramientas MCP seleccionadas",
+  "settings.modelProvider.codingPlan.bigmodel.purchase.plan.pro.detail3":
+    "Herramientas MCP seleccionadas",
   "settings.modelProvider.codingPlan.bigmodel.purchase.plan.max.detail0":
     "20 veces la cuota de uso de Lite",
   "settings.modelProvider.codingPlan.bigmodel.purchase.plan.max.detail1":
@@ -3321,15 +3437,21 @@ const esES: Record<string, string> = {
     "Prioridad de recursos en horas punta",
   "settings.modelProvider.codingPlan.zai.purchase.plan.lite.detail0": "Uso básico incluido",
   "settings.modelProvider.codingPlan.zai.purchase.plan.lite.detail1": "Iteración en repos pequeños",
-  "settings.modelProvider.codingPlan.zai.purchase.plan.lite.detail2": "Últimos modelos de forma progresiva",
-  "settings.modelProvider.codingPlan.zai.purchase.plan.lite.detail3": "Más de 20 herramientas de programación",
+  "settings.modelProvider.codingPlan.zai.purchase.plan.lite.detail2":
+    "Últimos modelos de forma progresiva",
+  "settings.modelProvider.codingPlan.zai.purchase.plan.lite.detail3":
+    "Más de 20 herramientas de programación",
   "settings.modelProvider.codingPlan.zai.purchase.plan.pro.detail0": "5 veces el uso de Lite",
   "settings.modelProvider.codingPlan.zai.purchase.plan.pro.detail1": "Desarrollo en repos medianos",
-  "settings.modelProvider.codingPlan.zai.purchase.plan.pro.detail2": "Acceso prioritario a los modelos",
-  "settings.modelProvider.codingPlan.zai.purchase.plan.pro.detail3": "Herramientas MCP seleccionadas",
+  "settings.modelProvider.codingPlan.zai.purchase.plan.pro.detail2":
+    "Acceso prioritario a los modelos",
+  "settings.modelProvider.codingPlan.zai.purchase.plan.pro.detail3":
+    "Herramientas MCP seleccionadas",
   "settings.modelProvider.codingPlan.zai.purchase.plan.max.detail0": "20 veces el uso de Lite",
-  "settings.modelProvider.codingPlan.zai.purchase.plan.max.detail1": "Trabajo en repos medianos y grandes",
-  "settings.modelProvider.codingPlan.zai.purchase.plan.max.detail2": "Acceso anticipado a los modelos",
+  "settings.modelProvider.codingPlan.zai.purchase.plan.max.detail1":
+    "Trabajo en repos medianos y grandes",
+  "settings.modelProvider.codingPlan.zai.purchase.plan.max.detail2":
+    "Acceso anticipado a los modelos",
   "settings.modelProvider.codingPlan.zai.purchase.plan.max.detail3": "Prioridad en horas punta",
   "settings.modelProvider.enabledStatus": "Activado",
   "settings.modelProvider.enableModel": "Activar",
@@ -3348,7 +3470,7 @@ const esES: Record<string, string> = {
   "settings.modelProvider.resetForm": "Restablecer formulario",
   "settings.modelProvider.fieldHelp": "Información sobre {field}",
   "settings.modelProvider.help.contextWindow":
-    "La capacidad de contexto que el modelo puede procesar a la vez, en tokens. ZCode la usa para gestionar el contexto.\nNo superes el límite real del modelo.",
+    "La capacidad de contexto que el modelo puede procesar a la vez, en tokens. DeepVibe la usa para gestionar el contexto.\nNo superes el límite real del modelo.",
   "settings.modelProvider.help.maxOutputTokens":
     "El número máximo de tokens que puede generar una sola solicitud al modelo.\nNo superes el límite real del modelo.",
   "settings.modelProvider.help.inputModalities":
@@ -3364,11 +3486,12 @@ const esES: Record<string, string> = {
   "settings.modelProvider.help.advanced":
     "**Esquema de herramientas MFJS**: Activa la compatibilidad con Moonshot Flavored JSON Schema, que suele usar la API del modelo Kimi de Moonshot. Actívalo solo si la API del modelo requiere este formato.",
   "settings.modelProvider.help.followRecommendedConfig":
-    "Ajusta la configuración recomendada según el ID del modelo, la URL base y el formato de API. ZCode actualiza continuamente las recomendaciones y las sincroniza automáticamente contigo.\nSi cambias un ajuste manualmente, ese ajuste pasa a gestionarse a mano y deja de seguir las actualizaciones de las recomendaciones; los demás siguen gestionados por la configuración inteligente.",
+    "Ajusta la configuración recomendada según el ID del modelo, la URL base y el formato de API. DeepVibe actualiza continuamente las recomendaciones y las sincroniza automáticamente contigo.\nSi cambias un ajuste manualmente, ese ajuste pasa a gestionarse a mano y deja de seguir las actualizaciones de las recomendaciones; los demás siguen gestionados por la configuración inteligente.",
   "settings.modelProvider.modelDefaultsLoaded": "Configuración inteligente aplicada a este modelo",
   "settings.modelProvider.modelConfigIncomplete": "La configuración del modelo está incompleta",
   "settings.modelProvider.models": "Lista de modelos",
-  "settings.modelProvider.modelsEmpty": "No hay modelos configurados. Añade uno para usarlo en el chat.",
+  "settings.modelProvider.modelsEmpty":
+    "No hay modelos configurados. Añade uno para usarlo en el chat.",
   "settings.modelProvider.addModel": "Añadir modelo",
   "settings.modelProvider.modelId": "ID del modelo",
   "settings.modelProvider.modelDisplayName": "Nombre visible",
@@ -3380,10 +3503,12 @@ const esES: Record<string, string> = {
   "settings.modelProvider.supportsToolCall": "Llamadas a herramientas",
   "settings.modelProvider.supportsJsonSchemaOutput": "Salida estructurada",
   "settings.modelProvider.supportsNativeWebSearch": "Búsqueda web nativa",
-  "settings.modelProvider.supportsMidConversationSystem": "Mensajes de sistema durante la conversación",
+  "settings.modelProvider.supportsMidConversationSystem":
+    "Mensajes de sistema durante la conversación",
   "settings.modelProvider.requiresMfjsToolSchema": "Esquema de herramientas MFJS",
   "settings.modelProvider.otherSettings": "Otros ajustes",
-  "settings.modelProvider.reasoningLevelOptionSpecJson": "JSON de especificación de opciones de nivel de razonamiento",
+  "settings.modelProvider.reasoningLevelOptionSpecJson":
+    "JSON de especificación de opciones de nivel de razonamiento",
   "settings.modelProvider.reasoningLevelsOrdered": "Niveles de razonamiento (de menor a mayor)",
   "settings.modelProvider.reasoningLevelAdd": "Añadir nivel de razonamiento",
   "settings.modelProvider.reasoningLevelMapping": "Asignación de parámetros de razonamiento",
@@ -3412,7 +3537,8 @@ const esES: Record<string, string> = {
     "La ventana de contexto debe ser un número entero positivo",
   "settings.modelProvider.modelMetadata.invalid.maxOutputTokens":
     "El máximo de tokens de salida debe ser un número entero positivo",
-  "settings.modelProvider.modelMetadata.invalid.inputModalities": "El tipo de entrada de texto es obligatorio",
+  "settings.modelProvider.modelMetadata.invalid.inputModalities":
+    "El tipo de entrada de texto es obligatorio",
   "settings.modelProvider.newProviderName": "Nuevo proveedor",
   "settings.modelProvider.modelsPlaceholder": "Un nombre de modelo por línea",
   "settings.modelProvider.modelsCount": "{count} modelos",
@@ -3434,7 +3560,7 @@ const esES: Record<string, string> = {
   "settings.usage.sourceProvider": "Origen: {provider}",
   "settings.usage.billingBanner.title": "{provider} Coding Plan",
   "settings.usage.billingBanner.description":
-    "Conecta tu cuenta de {provider} para consultar los derechos de Coding Plan y, después de la compra o la configuración, sigue programando en ZCode.",
+    "Conecta tu cuenta de {provider} para consultar los derechos de Coding Plan y, después de la compra o la configuración, sigue programando en DeepVibe.",
   "settings.usage.billingBanner.compactDescription":
     "Conecta tu cuenta de {provider} para sincronizar el uso.",
   "settings.usage.billingBanner.buy": "Comprar Coding Plan",
@@ -3493,7 +3619,7 @@ const esES: Record<string, string> = {
   "settings.usage.entitlementFiveHourUsage": "Restante de 5 horas",
   "settings.usage.entitlementWeeklyUsage": "Restante semanal",
   "settings.usage.entitlementMonthlyMcpUsage": "Llamadas a herramientas",
-  "settings.usage.entitlementServerMcpUsage": "ZCode MCP",
+  "settings.usage.entitlementServerMcpUsage": "DeepVibe MCP",
   "settings.usage.entitlementResetAt": "Se restablece {time}",
   "settings.usage.entitlementUsageDetails": "Detalle de uso de herramientas",
   "settings.usage.entitlementPromptCap": "Cupo de prompts de 5 horas",
@@ -3551,9 +3677,10 @@ const esES: Record<string, string> = {
   "sidebar.usage.plan.fiveHour": "5 horas",
   "sidebar.usage.plan.weekly": "Semanal",
   "sidebar.usage.plan.toolCalls": "Llamadas a herramientas",
-  "sidebar.usage.plan.mcp": "ZCode MCP",
-  "sidebar.usage.plan.zcodeMcp": "ZCode MCP",
-  "sidebar.usage.plan.zcodeMcpDescription": "Cuota agregada diaria de los MCP de los plugins integrados de ZCode",
+  "sidebar.usage.plan.mcp": "DeepVibe MCP",
+  "sidebar.usage.plan.zcodeMcp": "DeepVibe MCP",
+  "sidebar.usage.plan.zcodeMcpDescription":
+    "Cuota agregada diaria de los MCP de los plugins integrados de DeepVibe",
   "chat.planUsage.title": "Uso del plan",
   "chat.planUsage.titleWithPlan": "Uso del plan {plan}",
   "chat.planUsage.providerFallback": "Proveedor actual",
@@ -3634,12 +3761,14 @@ const esES: Record<string, string> = {
   "settings.usage.heatmapCell": "{date}\n{tokens} tokens · {turns} mensajes",
   "settings.usage.heatmapToolCell": "{date}\n{tokens} tokens · {tools} herramientas",
   "settings.usage.heatmapWeeklyCell": "Semana del {date}\n{tokens} tokens · {turns} mensajes",
-  "settings.usage.heatmapWeeklyToolCell": "Semana del {date}\n{tokens} tokens · {tools} herramientas",
+  "settings.usage.heatmapWeeklyToolCell":
+    "Semana del {date}\n{tokens} tokens · {tools} herramientas",
   "settings.usage.heatmapCumulativeCell":
     "Acumulado hasta la semana del {date}\n{tokens} tokens · {turns} mensajes",
   "settings.usage.heatmapCumulativeToolCell":
     "Acumulado hasta la semana del {date}\n{tokens} tokens · {tools} herramientas",
-  "settings.usage.heatmapDescription": "El día de mayor actividad fue {day}, con unos {tokens} tokens.",
+  "settings.usage.heatmapDescription":
+    "El día de mayor actividad fue {day}, con unos {tokens} tokens.",
   "settings.usage.heatmap.intensity": "Intensidad máxima",
   "settings.usage.heatmap.less": "Menos",
   "settings.usage.heatmap.more": "Más",
@@ -3678,7 +3807,8 @@ const esES: Record<string, string> = {
   "settings.usage.dayLabel.fri": "vie",
   "settings.modelProvider.presetDescription":
     "Proveedores integrados de Z.ai y BigModel con configuración asistida por OAuth.",
-  "settings.modelProvider.presetEmpty": "Aún no sincronizado. Completa primero el inicio de sesión OAuth.",
+  "settings.modelProvider.presetEmpty":
+    "Aún no sincronizado. Completa primero el inicio de sesión OAuth.",
   "settings.modelProvider.customTitle": "Proveedores personalizados",
   "settings.modelProvider.refresh": "Actualizar",
   "settings.modelProvider.reorderProvider": "Arrastra para reordenar el proveedor",
@@ -3708,7 +3838,8 @@ const esES: Record<string, string> = {
   "settings.modelProvider.testModel.error.network": "Error de red",
   "settings.modelProvider.testModel.error.server": "Error del servidor",
   "settings.modelProvider.testModel.error.unknown": "Falló la prueba",
-  "settings.modelProvider.testModel.error.noEndpoint": "No hay ningún punto de conexión configurado",
+  "settings.modelProvider.testModel.error.noEndpoint":
+    "No hay ningún punto de conexión configurado",
   "settings.skills.title": "Habilidades",
   "settings.skills.description":
     "Gestiona las habilidades del espacio de trabajo y del usuario. Las habilidades activadas se pueden referenciar en el chat con $skill-name.",
@@ -3776,10 +3907,10 @@ const esES: Record<string, string> = {
   "settings.skills.import.mode.copy": "Copiar",
   "settings.skills.import.mode.symlink": "Enlace simbólico",
   "settings.skills.import.mode.copy.description":
-    "Copia el directorio completo de la habilidad en ZCode. Los cambios posteriores en el directorio del agente externo no se sincronizarán automáticamente.",
+    "Copia el directorio completo de la habilidad en DeepVibe. Los cambios posteriores en el directorio del agente externo no se sincronizarán automáticamente.",
   "settings.skills.import.mode.symlink.description":
-    "Crea un enlace de directorio a la habilidad del agente externo. ZCode refleja los cambios posteriores del origen, pero la habilidad depende de que esa ruta de origen siga disponible.",
-  "settings.skills.import.importing": "Importando habilidades en ZCode",
+    "Crea un enlace de directorio a la habilidad del agente externo. DeepVibe refleja los cambios posteriores del origen, pero la habilidad depende de que esa ruta de origen siga disponible.",
+  "settings.skills.import.importing": "Importando habilidades en DeepVibe",
   "settings.skills.import.imported": "Importadas",
   "settings.skills.import.skipped": "Omitidas",
   "settings.skills.import.failed": "Fallidas",
@@ -3838,8 +3969,10 @@ const esES: Record<string, string> = {
     "Diagnóstico de habilidades: {errorCount} errores, {warningCount} advertencias",
   "settings.skills.diagnostics.expand": "Expandir diagnóstico",
   "settings.skills.diagnostics.collapse": "Contraer diagnóstico",
-  "settings.skills.diagnostics.code.skill_root_not_found": "No se encontró el directorio raíz de habilidades",
-  "settings.skills.diagnostics.code.skill_scan_failed": "No se pudo analizar el directorio de habilidades",
+  "settings.skills.diagnostics.code.skill_root_not_found":
+    "No se encontró el directorio raíz de habilidades",
+  "settings.skills.diagnostics.code.skill_scan_failed":
+    "No se pudo analizar el directorio de habilidades",
   "settings.skills.diagnostics.code.skill_read_failed": "No se pudo leer SKILL.md",
   "settings.skills.diagnostics.code.skill_missing_frontmatter": "Falta el frontmatter YAML",
   "settings.skills.diagnostics.code.skill_invalid_frontmatter": "Formato de frontmatter no válido",
@@ -3848,14 +3981,18 @@ const esES: Record<string, string> = {
     "`name` solo puede contener minúsculas, dígitos y guiones",
   "settings.skills.diagnostics.code.skill_missing_description":
     "Falta el campo `description` en el frontmatter",
-  "settings.skills.diagnostics.code.skill_description_too_long": "`description` supera los 1024 caracteres",
-  "settings.skills.diagnostics.code.skill_unknown_frontmatter": "Clave de frontmatter no reconocida",
-  "settings.skills.diagnostics.code.skill_duplicate_name": "Se ignoró un nombre de habilidad duplicado",
-  "settings.skills.diagnostics.code.skill_too_large": "SKILL.md es demasiado grande; se truncó el contenido",
+  "settings.skills.diagnostics.code.skill_description_too_long":
+    "`description` supera los 1024 caracteres",
+  "settings.skills.diagnostics.code.skill_unknown_frontmatter":
+    "Clave de frontmatter no reconocida",
+  "settings.skills.diagnostics.code.skill_duplicate_name":
+    "Se ignoró un nombre de habilidad duplicado",
+  "settings.skills.diagnostics.code.skill_too_large":
+    "SKILL.md es demasiado grande; se truncó el contenido",
   "settings.skills.diagnostics.code.skill_not_found": "No se encontró la habilidad",
   "settings.subagents.title": "Subagentes",
   "settings.subagents.description":
-    "Gestiona los archivos Markdown de subagentes de nivel de usuario que usa ZCode Agent.",
+    "Gestiona los archivos Markdown de subagentes de nivel de usuario que usa DeepVibe Agent.",
   "settings.subagents.workspaceScopeUnsupported":
     "No se admite crear ni editar a nivel de espacio de trabajo",
   "settings.subagents.searchPlaceholder": "Buscar subagentes…",
@@ -3911,7 +4048,8 @@ const esES: Record<string, string> = {
   "settings.subagents.form.color.label": "Color",
   "settings.subagents.form.tools.label": "Herramientas permitidas",
   "settings.subagents.form.tools.inheritAll": "Heredar todas",
-  "settings.subagents.form.tools.card.title": "Controla qué herramientas puede usar este subagente.",
+  "settings.subagents.form.tools.card.title":
+    "Controla qué herramientas puede usar este subagente.",
   "settings.subagents.form.tools.mode.all": "Todos los permisos de forma predeterminada",
   "settings.subagents.form.tools.mode.custom": "Herramientas permitidas personalizadas",
   "settings.subagents.form.disallowedTools.label": "Herramientas no permitidas",
@@ -3921,12 +4059,14 @@ const esES: Record<string, string> = {
     "Permite que el subagente se ejecute como tarea en segundo plano cuando el modelo lo solicite.",
   "settings.subagents.form.injectAgentsMd.label": "Inyectar AGENTS.md",
   "settings.subagents.form.systemPrompt.label": "Prompt del sistema",
-  "settings.subagents.form.systemPrompt.placeholder": "Describe el rol y las reglas de este subagente…",
+  "settings.subagents.form.systemPrompt.placeholder":
+    "Describe el rol y las reglas de este subagente…",
   "settings.subagents.form.validation.nameLength": "La longitud debe estar entre {min} y {max}",
   "settings.subagents.form.validation.nameCharacters": "Solo se permiten letras, números y guiones",
   "settings.subagents.form.validation.descriptionRequired": "La descripción es obligatoria",
   "settings.subagents.form.validation.promptRequired": "El prompt del sistema es obligatorio",
-  "settings.subagents.form.validation.modelUnavailable": "Selecciona un modelo disponible antes de guardar",
+  "settings.subagents.form.validation.modelUnavailable":
+    "Selecciona un modelo disponible antes de guardar",
   "settings.subagents.form.validation.thoughtLevelUnavailable":
     "Selecciona un esfuerzo de razonamiento compatible con este modelo",
   "settings.subagents.reasoningUnavailable": "Esfuerzo de razonamiento no disponible",
@@ -3997,7 +4137,7 @@ const esES: Record<string, string> = {
   "settings.plugins.description":
     "Activa o desactiva los plugins instalados. Los plugins agrupan habilidades, comandos, hooks y servidores MCP.",
   "settings.plugins.store.subtitle":
-    "Amplía ZCode con habilidades, comandos y servidores MCP de los plugins",
+    "Amplía DeepVibe con habilidades, comandos y servidores MCP de los plugins",
   "settings.plugins.store.searchPlaceholder": "Buscar plugins",
   "settings.plugins.store.searchResults": "Resultados de búsqueda ({count})",
   "settings.plugins.store.searchEmpty": "Ningún plugin coincide con tu búsqueda",
@@ -4067,7 +4207,8 @@ const esES: Record<string, string> = {
   "settings.plugins.marketplaces.count": "{count} marketplaces",
   "settings.plugins.marketplaces.source": "Repositorio de GitHub, URL de git, archivo o directorio",
   "settings.plugins.marketplaces.chooseDirectory": "Elegir directorio",
-  "settings.plugins.marketplaces.dropHint": "Arrastra un archivo o una carpeta aquí, o elige un directorio.",
+  "settings.plugins.marketplaces.dropHint":
+    "Arrastra un archivo o una carpeta aquí, o elige un directorio.",
   "settings.plugins.marketplaces.validate": "Validar marketplace",
   "settings.plugins.marketplaces.add": "Añadir marketplace",
   "settings.plugins.marketplaces.update": "Actualizar marketplace",
@@ -4204,10 +4345,10 @@ const esES: Record<string, string> = {
   "settings.plugins.import.mode.copy": "Copiar",
   "settings.plugins.import.mode.symlink": "Enlace simbólico",
   "settings.plugins.import.mode.copy.description":
-    "Copia el directorio completo del plugin en ZCode y lo registra en plugins.dirs. Los cambios posteriores en el directorio del agente externo no se sincronizarán automáticamente.",
+    "Copia el directorio completo del plugin en DeepVibe y lo registra en plugins.dirs. Los cambios posteriores en el directorio del agente externo no se sincronizarán automáticamente.",
   "settings.plugins.import.mode.symlink.description":
-    "Crea un enlace de directorio al plugin del agente externo y lo registra en plugins.dirs. ZCode refleja los cambios posteriores del origen, pero el plugin depende de que esa ruta de origen siga disponible.",
-  "settings.plugins.import.importing": "Importando plugins en ZCode",
+    "Crea un enlace de directorio al plugin del agente externo y lo registra en plugins.dirs. DeepVibe refleja los cambios posteriores del origen, pero el plugin depende de que esa ruta de origen siga disponible.",
+  "settings.plugins.import.importing": "Importando plugins en DeepVibe",
   "settings.plugins.import.imported": "Importado",
   "settings.plugins.import.skipped": "Omitido",
   "settings.plugins.import.failed": "Falló",
@@ -4216,9 +4357,9 @@ const esES: Record<string, string> = {
   "settings.plugins.import.finish": "Listo",
   "settings.commands.title": "Comandos",
   "settings.commands.description":
-    "Gestiona los archivos de comandos .md de ZCode Agent. Los comandos se pueden invocar con /command-name en el chat.",
+    "Gestiona los archivos de comandos .md de DeepVibe Agent. Los comandos se pueden invocar con /command-name en el chat.",
   "settings.commands.sourceFilterLabel": "Filtro de origen",
-  "settings.commands.source.zcodeAgent": "ZCode Agent",
+  "settings.commands.source.zcodeAgent": "DeepVibe Agent",
   "settings.commands.add": "Nuevo",
   "settings.commands.addNew": "Nuevo comando",
   "settings.commands.addDescription":
@@ -4238,7 +4379,8 @@ const esES: Record<string, string> = {
   "settings.commands.form.name.label": "Nombre",
   "settings.commands.form.name.placeholder": "mi-comando",
   "settings.commands.form.description.label": "Descripción (opcional)",
-  "settings.commands.form.description.placeholder": "Descripción breve que se muestra en el selector de comandos",
+  "settings.commands.form.description.placeholder":
+    "Descripción breve que se muestra en el selector de comandos",
   "settings.commands.form.argumentHint.label": "Sugerencia de argumentos (opcional)",
   "settings.commands.form.argumentHint.placeholder": "p. ej. <file-path>",
   "settings.commands.form.prompt.label": "Prompt",
@@ -4278,10 +4420,10 @@ const esES: Record<string, string> = {
   "settings.commands.import.mode.copy": "Copiar",
   "settings.commands.import.mode.symlink": "Enlace simbólico",
   "settings.commands.import.mode.copy.description":
-    "Copia el archivo de comandos en ZCode. Los cambios posteriores en el archivo del agente externo no se sincronizarán automáticamente.",
+    "Copia el archivo de comandos en DeepVibe. Los cambios posteriores en el archivo del agente externo no se sincronizarán automáticamente.",
   "settings.commands.import.mode.symlink.description":
-    "Crea un enlace de archivo al comando del agente externo. ZCode refleja los cambios posteriores del origen, pero el comando depende de que esa ruta de origen siga disponible.",
-  "settings.commands.import.importing": "Importando comandos en ZCode",
+    "Crea un enlace de archivo al comando del agente externo. DeepVibe refleja los cambios posteriores del origen, pero el comando depende de que esa ruta de origen siga disponible.",
+  "settings.commands.import.importing": "Importando comandos en DeepVibe",
   "settings.commands.import.imported": "Importado",
   "settings.commands.import.skipped": "Omitido",
   "settings.commands.import.failed": "Falló",
@@ -4294,14 +4436,20 @@ const esES: Record<string, string> = {
     "Los hooks pueden ejecutarse fuera del espacio aislado, por lo que te pedimos que revises los hooks instalados o modificados recientemente.",
   "settings.hooks.review.unavailable": "Esta conexión no puede confiar en este Hook.",
   "settings.hooks.review.reason.review_superseded": "La revisión se actualizó — vuelve a confirmar",
-  "settings.hooks.review.reason.snapshot_mismatch": "La configuración del hook cambió — se requiere revisión",
-  "settings.hooks.review.reason.bundle_changed": "La configuración del hook cambió — se requiere revisión",
+  "settings.hooks.review.reason.snapshot_mismatch":
+    "La configuración del hook cambió — se requiere revisión",
+  "settings.hooks.review.reason.bundle_changed":
+    "La configuración del hook cambió — se requiere revisión",
   "settings.hooks.review.reason.config_unreadable": "No se pudo leer la configuración del hook",
-  "settings.hooks.review.reason.config_write_failed": "No se pudo escribir la configuración del hook",
-  "settings.hooks.review.reason.config_rebuild_failed": "No se pudo volver a generar la configuración del hook",
-  "settings.hooks.review.reason.trust_store_corrupt": "El almacén de confianza está dañado — se requiere revisión",
+  "settings.hooks.review.reason.config_write_failed":
+    "No se pudo escribir la configuración del hook",
+  "settings.hooks.review.reason.config_rebuild_failed":
+    "No se pudo volver a generar la configuración del hook",
+  "settings.hooks.review.reason.trust_store_corrupt":
+    "El almacén de confianza está dañado — se requiere revisión",
   "settings.hooks.review.reason.blocked_by_policy": "Bloqueado por la política",
-  "settings.hooks.review.reason.policy_requires_pretrust": "La política requiere una confianza establecida previamente",
+  "settings.hooks.review.reason.policy_requires_pretrust":
+    "La política requiere una confianza establecida previamente",
   "settings.hooks.review.reason.interaction_timeout": "Se agotó el tiempo de la revisión",
   "settings.hooks.review.reason.host_unavailable": "Esta conexión no puede revisar este Hook",
   "settings.hooks.review.reason.rejected": "Solicitud rechazada",
@@ -4311,17 +4459,20 @@ const esES: Record<string, string> = {
     "Edita las reglas de .zcodeignore (sintaxis de gitignore) que delimitan la búsqueda de archivos del espacio de trabajo. Se aplican en la siguiente búsqueda después de guardar.",
   "settings.workspaceFileSearch.templateHint":
     "Todavía no existe .zcodeignore: el contenido de abajo es la vista previa inicial (copia de .gitignore + exclusiones predeterminadas); se escribirá en el espacio de trabajo solo después de guardar.",
-  "settings.workspaceFileSearch.editorLabel": "Editor de reglas de exclusión de la búsqueda del espacio de trabajo",
+  "settings.workspaceFileSearch.editorLabel":
+    "Editor de reglas de exclusión de la búsqueda del espacio de trabajo",
   "settings.workspaceFileSearch.save": "Guardar",
   "settings.workspaceFileSearch.saved": "Guardado; se aplicará en la siguiente búsqueda",
   "settings.workspaceFileSearch.saveFailed": "No se pudo guardar; revisa los registros",
-  "settings.workspaceFileSearch.loadFailed": "No se pudieron cargar las reglas de exclusión; revisa los registros",
+  "settings.workspaceFileSearch.loadFailed":
+    "No se pudieron cargar las reglas de exclusión; revisa los registros",
   "settings.workspaceFileSearch.resync": "Sincronizar desde .gitignore",
   "settings.workspaceFileSearch.restoreDefaults": "Restablecer las reglas predeterminadas",
   "settings.workspaceFileSearch.transformFailed":
     "No se pudo aplicar la operación de sección; revisa los registros",
   "settings.workspaceFileSearch.reveal": "Mostrar la ubicación del archivo",
-  "settings.workspaceFileSearch.revealHint": "Guarda primero; .zcodeignore está en la raíz del espacio de trabajo",
+  "settings.workspaceFileSearch.revealHint":
+    "Guarda primero; .zcodeignore está en la raíz del espacio de trabajo",
   "settings.workspaceFileSearch.unsaved": "Cambios sin guardar",
   "settings.workspaceFileSearch.noWorkspace":
     "No hay ningún espacio de trabajo abierto, por lo que no se pueden configurar las reglas de exclusión de la búsqueda.",
@@ -4355,7 +4506,8 @@ const esES: Record<string, string> = {
   "settings.hooks.searchEmpty": "Ningún hook coincide con tu búsqueda.",
   "settings.hooks.backToList": "Atrás",
   "settings.hooks.matcherPlaceholder": "p. ej. Write, Edit, Bash",
-  "settings.hooks.matcherHint": "Déjalo en blanco para que coincida con toda la entrada de este evento.",
+  "settings.hooks.matcherHint":
+    "Déjalo en blanco para que coincida con toda la entrada de este evento.",
   "settings.hooks.commandPlaceholder": "p. ej. echo 'Hello from hook'",
   "settings.hooks.args": "Argumentos",
   "settings.hooks.argsPlaceholder": "Un argumento argv por línea",
@@ -4377,8 +4529,8 @@ const esES: Record<string, string> = {
   "settingsSync.action.rescanning": "Analizando…",
   "settingsSync.action.importSelected": "Importar selección",
   "settingsSync.action.importing": "Importando…",
-  "settingsSync.action.finish": "Empezar a usar ZCode",
-  "settingsSync.agent.zcode": "ZCode Agent",
+  "settingsSync.action.finish": "Empezar a usar DeepVibe",
+  "settingsSync.agent.zcode": "DeepVibe Agent",
   "settingsSync.agent.claudeCode": "Claude Code",
   "settingsSync.agent.codexCli": "Codex CLI",
   "settingsSync.agent.openCode": "OpenCode",
@@ -4399,7 +4551,8 @@ const esES: Record<string, string> = {
   "settingsSync.category.providers": "Proveedores",
   "settingsSync.category.providers.description": "Modelos y credenciales",
   "settingsSync.category.skills": "Habilidades",
-  "settingsSync.category.skills.description": "Copia los flujos de trabajo locales de SKILL.md de agentes externos",
+  "settingsSync.category.skills.description":
+    "Copia los flujos de trabajo locales de SKILL.md de agentes externos",
   "settingsSync.category.default.description": "Configuración importable.",
   "settingsSync.unit.categoryCount": "{count} categorías",
   "settingsSync.unit.itemCount": "{count} elementos",
@@ -4427,17 +4580,17 @@ const esES: Record<string, string> = {
   "settingsSync.discovery.description":
     "La configuración importable de los agentes ya no se analiza automáticamente.",
   "settingsSync.discovery.helper":
-    "Solo se importarán los elementos que falten y no se sobrescribirá tu configuración actual de ZCode.",
+    "Solo se importarán los elementos que falten y no se sobrescribirá tu configuración actual de DeepVibe.",
   "settingsSync.discovery.agentCount": "Agentes encontrados: {count}",
   "settingsSync.discovery.categoryCount": "Categorías encontradas: {count}",
   "settingsSync.discovery.error": "Error al analizar: {error}",
   "settingsSync.discovery.continue": "Continuar",
-  "onboarding.dialog.title": "Te damos la bienvenida a ZCode",
+  "onboarding.dialog.title": "Te damos la bienvenida a DeepVibe",
   "onboarding.dialog.description": "Elige cómo empezar tu primera sesión.",
   "onboarding.wizard.label": "Guía de migración",
   "onboarding.welcome.eyebrow": "Configuración inicial",
-  "onboarding.welcome.title": "Te damos la bienvenida a ZCode",
-  "onboarding.welcome.start": "Iniciar ZCode",
+  "onboarding.welcome.title": "Te damos la bienvenida a DeepVibe",
+  "onboarding.welcome.start": "Iniciar DeepVibe",
   "onboarding.welcome.migrate": "Guía de migración",
   "onboarding.welcome.helper":
     "Importa ahora la configuración de tus herramientas o sáltala y continúa más tarde desde Configuración.",
@@ -4459,7 +4612,7 @@ const esES: Record<string, string> = {
   "onboarding.stepDescription.commandsImport":
     "Importa los comandos seleccionados de agentes externos antes de la migración final.",
   "onboarding.stepDescription.migration":
-    "Inicia la migración y espera mientras ZCode importa tus selecciones.",
+    "Inicia la migración y espera mientras DeepVibe importa tus selecciones.",
   "onboarding.sessions.empty":
     "Aún no hay espacios de trabajo. Analiza el historial local y elige los espacios de trabajo que quieres migrar.",
   "onboarding.sessions.count": "{count} sesiones",
@@ -4467,22 +4620,25 @@ const esES: Record<string, string> = {
   "onboarding.sessions.chooseWorkspace": "Elegir espacio de trabajo",
   "onboarding.agentSettings.empty":
     "No hay nada que importar ahora mismo. Analiza de nuevo o continúa sin migrar.",
-  "onboarding.agentSettings.categoryToggleAllAria": "Seleccionar o deseleccionar {category} para todos los agentes",
+  "onboarding.agentSettings.categoryToggleAllAria":
+    "Seleccionar o deseleccionar {category} para todos los agentes",
   "onboarding.agentsFile.copyTitle": "Copiar CLAUDE.md en AGENTS.md",
   "onboarding.agentsFile.sourceLabel": "Origen",
   "onboarding.agentsFile.targetLabel": "Destino",
   "onboarding.agentsFile.loading": "Comprobando…",
   "onboarding.agentsFile.missingSource":
     "No se encontró ~/.claude/CLAUDE.md, por lo que no se puede migrar la memoria de usuario de Claude.",
-  "onboarding.agentsFile.error": "No se pudo comprobar el estado de migración de AGENTS.md: {error}",
+  "onboarding.agentsFile.error":
+    "No se pudo comprobar el estado de migración de AGENTS.md: {error}",
   "onboarding.agentsFile.confirmTitle": "¿Sobrescribir el AGENTS.md predeterminado?",
   "onboarding.agentsFile.confirmDescription":
-    "ZCode copiará {source} en {target}.\nSi el archivo de destino ya existe, se sobrescribirá la configuración predeterminada de AGENTS de ZCode.",
+    "DeepVibe copiará {source} en {target}.\nSi el archivo de destino ya existe, se sobrescribirá la configuración predeterminada de AGENTS de DeepVibe.",
   "onboarding.agentsFile.confirmAction": "Sobrescribir y migrar",
   "onboarding.finish.summary.label.imported": "Importados",
   "onboarding.finish.summary.label.skipped": "Omitidos",
   "onboarding.finish.summary.label.failed": "Fallidos",
-  "onboarding.footer.helper": "Omítelo cuando quieras y reanuda la migración más tarde desde Configuración.",
+  "onboarding.footer.helper":
+    "Omítelo cuando quieras y reanuda la migración más tarde desde Configuración.",
   "onboarding.footer.workspaceSelection": "{count} espacios de trabajo seleccionados",
   "onboarding.action.continue": "Continuar",
   "onboarding.action.beginMigration": "Iniciar la migración",
@@ -4537,7 +4693,8 @@ const esES: Record<string, string> = {
   "chat.draft.suggestedPrompt.pluginFlow.installFailureToast":
     "No se pudo instalar {pluginLabel}: {error}",
   "chat.draft.suggestedPrompt.pluginFlow.installTimedOut": "Se agotó el tiempo de instalación",
-  "chat.draft.suggestedPrompt.pluginFlow.installReturnedEmpty": "No se devolvió ningún plugin instalado",
+  "chat.draft.suggestedPrompt.pluginFlow.installReturnedEmpty":
+    "No se devolvió ningún plugin instalado",
   "chat.draft.suggestedPrompt.pluginFlow.enableSucceeded": "Plugin activado correctamente",
   "chat.draft.suggestedPrompt.pluginFlow.enableFailed": "No se pudo activar el plugin",
   "chat.empty.workspaceMenu": "Elegir espacio de trabajo",
@@ -4552,14 +4709,15 @@ const esES: Record<string, string> = {
   "chat.empty.createWorkspace.placeholder": "Nombre del espacio de trabajo",
   "chat.empty.createWorkspace.locationHint": "Ubicación: {path}",
   "chat.empty.createWorkspace.error.required": "El nombre del espacio de trabajo es obligatorio.",
-  "chat.empty.createWorkspace.error.separator": "El nombre del espacio de trabajo no puede contener / ni \\.",
+  "chat.empty.createWorkspace.error.separator":
+    "El nombre del espacio de trabajo no puede contener / ni \\.",
   "chat.empty.createWorkspace.error.createFailed": "No se pudo crear el espacio de trabajo.",
   "chat.emptyResult.title": "Sin salida visible",
   "chat.emptyResult.description":
     "Esta tarea finalizó sin contenido de chat. Es posible que se detuviera antes de que el modelo generara una respuesta.",
   "chat.placeholder.newTask":
-    "Pregúntale lo que quieras a ZCode: @ para añadir contexto, / para comandos o capacidades",
-  "chat.placeholder.newTaskMobile": "Pregúntale lo que quieras a ZCode…",
+    "Pregúntale lo que quieras a DeepVibe: @ para añadir contexto, / para comandos o capacidades",
+  "chat.placeholder.newTaskMobile": "Pregúntale lo que quieras a DeepVibe…",
   "chat.placeholder.followUpAsk": "Pide cambios adicionales",
   "chat.placeholder.followUpQueue": "Sigue escribiendo para poner cambios adicionales en cola",
   "chat.placeholder.loading": "Inicializando tarea…",
@@ -4582,7 +4740,8 @@ const esES: Record<string, string> = {
   "chat.message.fork.unsupported": "El agente actual aún no admite bifurcaciones",
   "chat.message.fork.failed": "No se pudo bifurcar la sesión: {error}",
   "chat.message.fork.derivedFrom": "Bifurcado de una conversación",
-  "chat.message.fork.derivedFromMissing": "Bifurcado de una conversación anterior (se perdió la información de seguimiento)",
+  "chat.message.fork.derivedFromMissing":
+    "Bifurcado de una conversación anterior (se perdió la información de seguimiento)",
   "chat.message.fork.parentMissing": "La conversación de origen ya no existe",
   "chat.message.fork.noCheckpoint": "No se encontró el punto de control de la bifurcación",
   "chat.message.fork.targetMessageMissing": "El mensaje de origen ya no existe en la conversación",
@@ -4630,7 +4789,8 @@ const esES: Record<string, string> = {
   "chat.promptEnhance.description":
     "Refina el borrador actual con la configuración de modelo seleccionada.",
   "chat.promptEnhance.cancel": "Cancelar mejora",
-  "chat.promptEnhance.cancelDescription": "Haz clic de nuevo para cancelar la mejora del prompt actual.",
+  "chat.promptEnhance.cancelDescription":
+    "Haz clic de nuevo para cancelar la mejora del prompt actual.",
   "chat.promptEnhance.cancelled": "Mejora del prompt cancelada",
   "chat.promptEnhance.empty": "Escribe un prompt antes de mejorarlo",
   "chat.promptEnhance.unsupported":
@@ -4645,7 +4805,8 @@ const esES: Record<string, string> = {
   "chat.queue.edit": "Editar",
   "chat.queue.editDraftConflict":
     "Envía o borra el borrador actual antes de editar un mensaje en cola.",
-  "chat.queue.editRestoreFailed": "No se pudo devolver el mensaje en cola al cuadro de texto. Inténtalo de nuevo.",
+  "chat.queue.editRestoreFailed":
+    "No se pudo devolver el mensaje en cola al cuadro de texto. Inténtalo de nuevo.",
   "chat.queue.remove": "Quitar el mensaje de la cola",
   "chat.queue.turnSteer.steering": "Dirigiendo la conversación",
   "chat.queue.paused.stopped": "La cola se pausó porque detuviste la respuesta actual",
@@ -4689,7 +4850,8 @@ const esES: Record<string, string> = {
   "tokenDebug.column.tps": "TPS (tokens/s)",
   "tokenDebug.tpsDescription":
     "Tokens de salida ÷ segundos desde el primer token de salida hasta que se completa la solicitud",
-  "developerTools.loadError": "No se pudieron leer los datos de depuración. Se reintentará; es posible que los registros anteriores estén desactualizados.",
+  "developerTools.loadError":
+    "No se pudieron leer los datos de depuración. Se reintentará; es posible que los registros anteriores estén desactualizados.",
   "tokenDebug.title": "Depuración de tokens",
   "tokenDebug.summary.requests": "Solicitudes principales",
   "tokenDebug.summary.average": "Acierto medio",
@@ -4723,7 +4885,8 @@ const esES: Record<string, string> = {
   "developerTools.network.status.retry": "Reintento programado",
   "developerTools.network.status.stalled": "Flujo estancado",
   "chat.contextCompaction.started": "Comprimiendo el contexto",
-  "chat.contextCompaction.retrying": "Reintentando la compresión del contexto ({attempt}/{maxAttempts})",
+  "chat.contextCompaction.retrying":
+    "Reintentando la compresión del contexto ({attempt}/{maxAttempts})",
   "chat.contextCompaction.skipped": "El contexto está al día; no hace falta comprimirlo",
   "chat.contextCompaction.completed": "Contexto comprimido",
   "chat.modelChange.switched": "Modelo cambiado: {from} → {to}",
@@ -4797,23 +4960,29 @@ const esES: Record<string, string> = {
   "chat.statusPanel.runningAgentsValuePlural": "{count} en ejecución",
   "chat.statusPanel.runningStop": "Detener",
   "chat.toolbar.model.label": "Elegir modelo",
-  "chat.toolbar.draftConfigWriteFailed": "No se pudo actualizar la configuración. Inténtalo de nuevo.",
+  "chat.toolbar.draftConfigWriteFailed":
+    "No se pudo actualizar la configuración. Inténtalo de nuevo.",
   "chat.toolbar.model.description":
     "Elige el modelo que usa esta tarea. El atajo abre el menú de modelos.",
   "chat.toolbar.model.manageModels": "Gestionar modelos",
   "chat.toolbar.model.searchPlaceholder": "Buscar modelos…",
   "chat.toolbar.model.empty": "No se encontraron modelos",
   "chat.toolbar.modelSwitch.stage.settingModel": "Cambiando de modelo…",
-  "chat.toolbar.modelSwitch.stage.fallbackConfigOption": "Usando la API de opciones de configuración como alternativa…",
-  "chat.toolbar.modelSwitch.stage.applyingCustomProvider": "Aplicando el proveedor de modelos personalizado…",
-  "chat.toolbar.modelSwitch.stage.restartingRuntime": "Reiniciando el entorno de ejecución del modelo…",
+  "chat.toolbar.modelSwitch.stage.fallbackConfigOption":
+    "Usando la API de opciones de configuración como alternativa…",
+  "chat.toolbar.modelSwitch.stage.applyingCustomProvider":
+    "Aplicando el proveedor de modelos personalizado…",
+  "chat.toolbar.modelSwitch.stage.restartingRuntime":
+    "Reiniciando el entorno de ejecución del modelo…",
   "chat.toolbar.modelSwitch.stage.syncingSession": "Sincronizando el modelo de la sesión…",
-  "chat.toolbar.modelSwitch.stage.persistingWorkspace": "Guardando el modelo predeterminado del espacio de trabajo…",
+  "chat.toolbar.modelSwitch.stage.persistingWorkspace":
+    "Guardando el modelo predeterminado del espacio de trabajo…",
   "chat.toolbar.modelSwitch.lockedByRunningTask":
     "Hay una tarea en ejecución. Termínala antes de cambiar de proveedor de modelos.",
   "chat.toolbar.modelSwitch.lockedByRunningTask.short": "ocupado",
   "chat.goal.runningBlocked": "Define un objetivo cuando termine la tarea actual.",
-  "chat.goal.planModeBlocked": "El objetivo no está disponible en el modo Plan. Cambia de modo para continuar.",
+  "chat.goal.planModeBlocked":
+    "El objetivo no está disponible en el modo Plan. Cambia de modo para continuar.",
   "chat.plan.attachmentsBlocked":
     "Por ahora, el atajo /plan solo admite texto. Quita los adjuntos o el contexto e inténtalo de nuevo.",
   "chat.compact.runningBlocked": "Compacta el contexto cuando termine la tarea actual.",
@@ -4821,7 +4990,7 @@ const esES: Record<string, string> = {
   "chat.compact.duplicateBlocked": "Ya hay una compactación en ejecución o en cola.",
   "chat.modelSwitch.contextWindowGuard.title": "Comprime el contexto antes de cambiar de modelo",
   "chat.modelSwitch.contextWindowGuard.description":
-    "Esta conversación ha usado {used} tokens, lo que supera el contexto disponible de {modelName} ({target} tokens) tras reservar la salida máxima.\nComprime primero la conversación actual con el modelo actual. Si el contexto comprimido cabe, ZCode seguirá con el cambio de modelo.",
+    "Esta conversación ha usado {used} tokens, lo que supera el contexto disponible de {modelName} ({target} tokens) tras reservar la salida máxima.\nComprime primero la conversación actual con el modelo actual. Si el contexto comprimido cabe, DeepVibe seguirá con el cambio de modelo.",
   "chat.modelSwitch.contextWindowGuard.compress": "Comprimir",
   "chat.modelSwitch.contextWindowGuard.runningBlocked":
     "Esta conversación ha usado más contexto del disponible en el modelo de destino tras reservar la salida máxima. Hay que comprimir la conversación antes de cambiar de modelo, pero la tarea actual sigue en ejecución y no se puede comprimir el contexto ahora. Espera a que termine la tarea y vuelve a cambiar de modelo.",
@@ -4834,11 +5003,11 @@ const esES: Record<string, string> = {
     "Computer Use está inactivo — se iniciará automáticamente al usarlo por primera vez",
   "chat.toolbar.computerUse.tooltip.starting": "Activando el plugin de Computer Use…",
   "chat.toolbar.computerUse.tooltip.ready":
-    "Computer Use listo — solo describe lo que quieres que haga ZCode",
+    "Computer Use listo — solo describe lo que quieres que haga DeepVibe",
   "chat.toolbar.computerUse.tooltip.permissionRequired":
     "Faltan permisos de macOS — haz clic para concederlos",
   "chat.toolbar.computerUse.tooltip.error":
-    "No se pudo activar Computer Use. Reinicia la aplicación ZCode y vuelve a intentarlo, o pide a ZCode que revise los registros",
+    "No se pudo activar Computer Use. Reinicia la aplicación DeepVibe y vuelve a intentarlo, o pide a DeepVibe que revise los registros",
   "chat.toolbar.computerUse.tooltip.sessionBusy":
     "Hay una conversación en ejecución. Ahora mismo no se puede activar ni desactivar Computer Use; vuelve a intentarlo cuando termine.",
   "chat.toolbar.mode.description":
@@ -5002,7 +5171,8 @@ const esES: Record<string, string> = {
   "chat.toolCall.workflow.amend.writing": "Modificando el flujo de trabajo",
   "chat.toolCall.workflow.amend.revising": "Revisando la modificación",
   "chat.toolCall.workflow.amend.draft": "Borrador de la modificación",
-  "chat.toolCall.workflow.amend.awaitingConfirmation": "Esperando la confirmación de la modificación",
+  "chat.toolCall.workflow.amend.awaitingConfirmation":
+    "Esperando la confirmación de la modificación",
   "chat.toolCall.workflow.amend.ran": "Modificación del flujo de trabajo",
   "chat.toolCall.workflow.amend.amended": "Flujo de trabajo modificado",
   "chat.toolCall.workflow.amend.amends": "Modifica la ejecución",
@@ -5023,7 +5193,8 @@ const esES: Record<string, string> = {
   "chat.toolCall.workflow.notRun": "no ejecutado",
   "chat.toolCall.workflow.truncated": "Se omitieron algunos diagnósticos.",
   "chat.toolCall.workflow.noScript": "No se proporcionó ningún script de flujo de trabajo.",
-  "chat.toolCall.workflow.graph.truncated": "El grafo es demasiado grande — se omitieron algunos participantes.",
+  "chat.toolCall.workflow.graph.truncated":
+    "El grafo es demasiado grande — se omitieron algunos participantes.",
   "chat.toolCall.workflow.graph.lane.script": "Script",
   "chat.toolCall.workflow.graph.lane.unresolved": "Sin resolver",
   "chat.toolCall.workflow.graph.lane.anonymous": "Subagente anónimo",
@@ -5119,7 +5290,8 @@ const esES: Record<string, string> = {
   "chat.toolCall.workflow.models.empty": "No hay modelos configurados en este host",
   "chat.toolCall.workflow.models.provider": "Proveedor",
   "chat.toolCall.workflow.models.current": "actual",
-  "chat.toolCall.workflow.models.levels": "Niveles de razonamiento: {levels} (predeterminado: {default})",
+  "chat.toolCall.workflow.models.levels":
+    "Niveles de razonamiento: {levels} (predeterminado: {default})",
   "chat.toolCall.workflow.models.levelsNoDefault": "Niveles de razonamiento: {levels}",
   "chat.toolCall.workflow.models.noLevels": "Sin niveles de razonamiento",
   "chat.toolCall.workflow.models.truncated": "No se muestran todos los modelos",
@@ -5142,7 +5314,7 @@ const esES: Record<string, string> = {
     "No se pudo contactar con el agente local; los flujos de trabajo globales no están disponibles.",
   "workflows.hub.empty.title": "Aún no hay flujos de trabajo guardados en tus proyectos abiertos",
   "workflows.hub.empty.hint":
-    "Diseña un flujo de trabajo con ZCode en el chat y pídele que lo guarde en un proyecto cuando funcione. Los proyectos que no estén abiertos no aparecen aquí.",
+    "Diseña un flujo de trabajo con DeepVibe en el chat y pídele que lo guarde en un proyecto cuando funcione. Los proyectos que no estén abiertos no aparecen aquí.",
   "workflows.hub.noWorkspace": "Abre un espacio de trabajo para ver sus flujos de trabajo.",
   "workflows.hub.loadError": "No se pudieron leer los flujos de trabajo: {error}",
   "workflows.hub.invalid": "No se pudieron leer {count} archivos",
@@ -5173,11 +5345,13 @@ const esES: Record<string, string> = {
   "workflows.hub.move.targetExists": "Ya existe un flujo de trabajo con este nombre allí",
   "workflows.hub.move.failed": "Falló el movimiento: {reason}",
   "workflows.hub.moveDialog.title": "Mover a un proyecto",
-  "workflows.hub.moveDialog.noLocalProject": "Abre un proyecto local para mover este flujo de trabajo",
+  "workflows.hub.moveDialog.noLocalProject":
+    "Abre un proyecto local para mover este flujo de trabajo",
   "workflows.hub.moveDialog.submit": "Mover",
   "workflows.hub.launch.title": "Ejecutar {name}",
   "workflows.hub.launch.target": "Ejecutar en",
-  "workflows.hub.launch.noLocalProject": "Abre un proyecto local para ejecutar este flujo de trabajo",
+  "workflows.hub.launch.noLocalProject":
+    "Abre un proyecto local para ejecutar este flujo de trabajo",
   "workflows.hub.launch.required": "Obligatorio",
   "workflows.hub.launch.scope.project": "Proyecto",
   "workflows.hub.launch.scope.global": "Global",
@@ -5205,7 +5379,7 @@ const esES: Record<string, string> = {
   "workflows.hub.detail.description": "Descripción",
   "workflows.hub.detail.whenToUse": "Cuándo usarlo",
   "workflows.hub.detail.whenToUse.help":
-    "Una indicación de enrutamiento para ZCode: cuándo conviene elegir este flujo de trabajo.",
+    "Una indicación de enrutamiento para DeepVibe: cuándo conviene elegir este flujo de trabajo.",
   "workflows.hub.detail.args": "Argumentos",
   "workflows.hub.detail.args.name": "Nombre",
   "workflows.hub.detail.args.type": "Tipo",
@@ -5216,7 +5390,8 @@ const esES: Record<string, string> = {
   "workflows.hub.detail.args.remove": "Quitar argumento",
   "workflows.hub.detail.args.error.empty_name": "El argumento necesita un nombre",
   "workflows.hub.detail.args.error.duplicate_name": "Nombre de argumento duplicado",
-  "workflows.hub.detail.args.error.invalid_default": "El valor predeterminado no coincide con el tipo",
+  "workflows.hub.detail.args.error.invalid_default":
+    "El valor predeterminado no coincide con el tipo",
   "workflows.hub.detail.meta.note":
     "Solo cambian los metadatos de la parte superior del archivo; el cuerpo del script se mantiene tal cual.",
   "workflows.hub.detail.meta.discard": "Descartar cambios",
@@ -5226,7 +5401,7 @@ const esES: Record<string, string> = {
   "workflows.hub.detail.meta.descriptionRequired": "La descripción es obligatoria",
   "workflows.hub.detail.script": "Script",
   "workflows.hub.detail.script.note":
-    "El script es de solo lectura. Para cambiarlo, revísalo con ZCode en el chat y guarda una versión nueva.",
+    "El script es de solo lectura. Para cambiarlo, revísalo con DeepVibe en el chat y guarda una versión nueva.",
   "workflows.hub.detail.script.copy": "Copiar script",
   "workflows.hub.detail.loadError": "No se pudo leer este flujo de trabajo: {reason}",
   "workflows.hub.detail.notFound": "Este flujo de trabajo ya no está en el proyecto.",
@@ -5238,7 +5413,8 @@ const esES: Record<string, string> = {
   "workflows.hub.artifacts.latest": "Últimos artefactos",
   "workflows.hub.reason.invalid_name": "Nombre no válido",
   "workflows.hub.reason.not_found": "Archivo no encontrado",
-  "workflows.hub.reason.parse_error": "No se pudieron analizar los metadatos de la parte superior del archivo",
+  "workflows.hub.reason.parse_error":
+    "No se pudieron analizar los metadatos de la parte superior del archivo",
   "workflows.hub.reason.read_error": "No se pudo leer el archivo",
   "workflows.hub.time.duration.seconds": "{seconds}s",
   "workflows.hub.time.duration.minutes": "{minutes}min {seconds}s",
@@ -5379,8 +5555,10 @@ const esES: Record<string, string> = {
   "chat.toolCall.workflow.run.truncated": "Se muestran los detalles de {shown} de {total} pasos",
   "chat.toolCall.workflow.run.cancel": "Detener ejecución",
   "chat.toolCall.workflow.run.cancelling": "Deteniendo…",
-  "chat.toolCall.workflow.run.cancelDisabled": "Solo se puede detener un flujo de trabajo en ejecución.",
-  "chat.toolCall.workflow.run.stopHint": "Puedes reanudarla más tarde; los pasos finalizados se conservan.",
+  "chat.toolCall.workflow.run.cancelDisabled":
+    "Solo se puede detener un flujo de trabajo en ejecución.",
+  "chat.toolCall.workflow.run.stopHint":
+    "Puedes reanudarla más tarde; los pasos finalizados se conservan.",
   "chat.toolCall.workflow.run.rejection.cancel.not_found":
     "Esta ejecución no está en curso en este agente, así que no se detuvo nada.",
   "chat.toolCall.workflow.run.rejection.cancel.not_running":
@@ -5389,12 +5567,14 @@ const esES: Record<string, string> = {
     "Esta ejecución no se puede detener desde aquí.",
   "chat.toolCall.workflow.run.rejection.cancel.unsupported":
     "Este agente no puede detener ejecuciones de flujos de trabajo.",
-  "chat.toolCall.workflow.run.rejection.cancel.generic": "No se pudo detener la ejecución ({code}).",
+  "chat.toolCall.workflow.run.rejection.cancel.generic":
+    "No se pudo detener la ejecución ({code}).",
   "chat.toolCall.workflow.run.rejection.resume.compile_failed":
     "El script guardado ya no compila con esta versión de la fachada de flujos de trabajo. Pide al agente que modifique el flujo de trabajo en lugar de reanudarlo.",
   "chat.toolCall.workflow.run.rejection.resume.not_found":
     "Esta ejecución no está en el registro de esta sesión.",
-  "chat.toolCall.workflow.run.rejection.resume.not_resumable": "Solo se puede reanudar una ejecución detenida.",
+  "chat.toolCall.workflow.run.rejection.resume.not_resumable":
+    "Solo se puede reanudar una ejecución detenida.",
   "chat.toolCall.workflow.run.rejection.resume.superseded":
     "Una ejecución modificada ha sustituido a esta; abre la sucesora en su lugar.",
   "chat.toolCall.workflow.run.rejection.resume.already_running": "Esta ejecución ya está en curso.",
@@ -5404,7 +5584,8 @@ const esES: Record<string, string> = {
     "El script guardado ya no coincide con el hash registrado.",
   "chat.toolCall.workflow.run.rejection.resume.unsupported":
     "Este agente no puede reanudar ejecuciones de flujos de trabajo.",
-  "chat.toolCall.workflow.run.rejection.resume.generic": "No se pudo reanudar la ejecución ({code}).",
+  "chat.toolCall.workflow.run.rejection.resume.generic":
+    "No se pudo reanudar la ejecución ({code}).",
   "chat.toolCall.workflow.run.resume": "Reanudar ejecución",
   "chat.toolCall.workflow.run.resumeHint":
     "Continúa desde donde se detuvo: los pasos finalizados se reutilizan y los interrumpidos se vuelven a ejecutar.",
@@ -5456,9 +5637,11 @@ const esES: Record<string, string> = {
     "No se pudo cambiar la configuración ({code}).",
   "chat.toolCall.workflow.settingsChange.kind": "Configuración cambiada",
   "chat.toolCall.workflow.settingsChange.model": "subagentes con {model}",
-  "chat.toolCall.workflow.settingsChange.modelSession": "subagentes de nuevo con el modelo de la sesión",
+  "chat.toolCall.workflow.settingsChange.modelSession":
+    "subagentes de nuevo con el modelo de la sesión",
   "chat.toolCall.workflow.settingsChange.limit": "como máximo {n} a la vez",
-  "chat.toolCall.workflow.settingsChange.limitCeiling": "límite de nuevo en el valor predeterminado de esta máquina",
+  "chat.toolCall.workflow.settingsChange.limitCeiling":
+    "límite de nuevo en el valor predeterminado de esta máquina",
   "chat.toolCall.workflow.run.result.title": "Resultado",
   "chat.toolCall.workflow.run.result.completedHint":
     "Esta ejecución ha terminado. Su resultado se entregó a la conversación como mensaje de resultado en segundo plano.",
@@ -5541,7 +5724,8 @@ const esES: Record<string, string> = {
   "chat.toolCall.workflow.script.result.truncated":
     "Se muestran los primeros {shown} de {total}; el resultado completo permanece en el registro.",
   "chat.toolCall.workflow.script.result.stderr": "stderr",
-  "chat.toolCall.workflow.script.args.truncated": "Los argumentos se acortaron antes de registrarlos.",
+  "chat.toolCall.workflow.script.args.truncated":
+    "Los argumentos se acortaron antes de registrarlos.",
   "chat.toolCall.workflow.run.actor.notStarted.title": "Aún no se ha iniciado",
   "chat.toolCall.workflow.run.actor.notStarted.body":
     "A este subagente todavía no se le ha pedido nada. La transcripción aparece aquí en cuanto se despache su primer paso.",
@@ -5556,7 +5740,8 @@ const esES: Record<string, string> = {
   "chat.toolCall.workflow.run.event.usageUpdated": "Uso actualizado",
   "chat.toolCall.workflow.run.event.log": "Registro",
   // amend-resume: la primera escritura en el espacio de trabajo cerró la caché del predecesor; los pasos posteriores se ejecutan en vivo.
-  "chat.toolCall.workflow.run.event.importCacheClosed": "Caché cerrada por una escritura en el espacio de trabajo",
+  "chat.toolCall.workflow.run.event.importCacheClosed":
+    "Caché cerrada por una escritura en el espacio de trabajo",
   "chat.toolCall.workflow.run.event.report": "Reportado",
   "chat.toolCall.workflow.run.event.phaseEntered": "Fase iniciada",
   "chat.toolCall.workflow.run.event.escalationRaised": "Se preguntó al agente principal",
@@ -5615,7 +5800,8 @@ const esES: Record<string, string> = {
   "chat.toolCall.agent.backgroundLaunching": "Lanzando",
   "chat.toolCall.agent.backgroundLaunched": "Lanzado",
   "chat.toolCall.agent.backgroundActivity": "Actividad",
-  "chat.toolCall.agent.backgroundActivityStreaming": "En ejecución en segundo plano, sincronizando la salida",
+  "chat.toolCall.agent.backgroundActivityStreaming":
+    "En ejecución en segundo plano, sincronizando la salida",
   "chat.toolCall.agent.backgroundActivityRunningWaiting":
     "En ejecución en segundo plano, esperando la salida",
   "chat.toolCall.agent.backgroundActivityReceived": "Salida del subagente recibida",
@@ -5669,7 +5855,8 @@ const esES: Record<string, string> = {
   "chat.attachments.preview.loading": "Cargando la vista previa de la imagen…",
   "chat.attachments.preview.videoLoading": "Cargando la vista previa del vídeo…",
   "chat.attachments.preview.unavailable": "Esta imagen ya no está disponible para la vista previa.",
-  "chat.attachments.preview.videoUnavailable": "Este vídeo ya no está disponible para la vista previa.",
+  "chat.attachments.preview.videoUnavailable":
+    "Este vídeo ya no está disponible para la vista previa.",
   "chat.attachments.preview.videoUnsupported":
     "Este vídeo aún se puede enviar, pero este dispositivo no puede previsualizar su formato ni su códec.",
   "chat.attachments.upload.waitingSession": "Esperando la sesión",
@@ -5702,8 +5889,10 @@ const esES: Record<string, string> = {
   "chat.mention.emptyResults": "No hay resultados de menciones",
   "chat.mention.category.empty": "No hay categorías de menciones disponibles",
   "chat.mention.category.files": "Archivos",
-  "chat.mention.category.files.description": "Busca archivos del espacio de trabajo e inserta una referencia",
-  "chat.mention.category.files.searching": "Buscar “{query}” en los archivos del espacio de trabajo",
+  "chat.mention.category.files.description":
+    "Busca archivos del espacio de trabajo e inserta una referencia",
+  "chat.mention.category.files.searching":
+    "Buscar “{query}” en los archivos del espacio de trabajo",
   "chat.mention.category.loading": "Buscando…",
   "chat.mention.category.results": "{count} coincidencias",
   "chat.mention.files.title": "Archivos",
@@ -5731,7 +5920,7 @@ const esES: Record<string, string> = {
   "chat.slash.subagents.title": "Agentes",
   "chat.slash.subagents.empty": "No hay agentes coincidentes",
   "chat.slash.emptyUnavailable":
-    "No se ha difundido ningún comando de barra diagonal para la sesión actual de ZCode Agent",
+    "No se ha difundido ningún comando de barra diagonal para la sesión actual de DeepVibe Agent",
   "chat.slash.emptyResults": "No hay comandos de barra diagonal coincidentes",
   // Errores
   "chat.error.connectionLost": "Se perdió la conexión con el agente",
@@ -5750,8 +5939,10 @@ const esES: Record<string, string> = {
   "chat.error.expandDetails": "Mostrar detalles",
   "chat.error.collapseDetails": "Ocultar detalles",
   "chat.error.feedback": "Informar de un problema",
-  "chat.error.feedbackOpened": "Se abrió el formulario de comentarios con el contexto del error adjunto",
-  "chat.error.noAvailableModel": "No hay ningún modelo disponible. Mejora tu plan o configura un modelo personalizado.",
+  "chat.error.feedbackOpened":
+    "Se abrió el formulario de comentarios con el contexto del error adjunto",
+  "chat.error.noAvailableModel":
+    "No hay ningún modelo disponible. Mejora tu plan o configura un modelo personalizado.",
   "chat.error.sendFailed": "No se pudo enviar. Inténtalo de nuevo más tarde.",
   "chat.error.modelSettings": "Configuración de modelos",
   "chat.error.setModels": "Configurar",
@@ -5774,9 +5965,9 @@ const esES: Record<string, string> = {
   "chat.quota.startPlan.concurrentLimit.switchModel":
     "Se alcanzó el límite de solicitudes simultáneas del modelo actual. Cambia de modelo para continuar tu tarea actual.",
   "chat.quota.mcp.quotaExhausted":
-    "ZCode MCP “{server}” agotó la cuota de hoy. Se restablece mañana.",
+    "DeepVibe MCP “{server}” agotó la cuota de hoy. Se restablece mañana.",
   "chat.quota.mcp.codingPlanRequired":
-    "No hay cuota de ZCode MCP “{server}”. Inicia sesión u obtén un Coding Plan para usarlo.",
+    "No hay cuota de DeepVibe MCP “{server}”. Inicia sesión u obtén un Coding Plan para usarlo.",
   "chat.quota.providerLimited":
     "Se alcanzó la cuota de la cuenta actual o el límite del plan. Mejora o ajusta el plan para continuar.",
   "chat.quota.action.upgrade": "Mejorar",
@@ -5805,14 +5996,16 @@ const esES: Record<string, string> = {
   "chat.permission.deny": "Denegar",
   "chat.permission.denyAlways": "Denegar siempre",
   "chat.permission.files": "Archivos",
-  "chat.permission.keyboardHint": "Usa Tab o las teclas de flecha para elegir y pulsa Intro para confirmar",
+  "chat.permission.keyboardHint":
+    "Usa Tab o las teclas de flecha para elegir y pulsa Intro para confirmar",
   "chat.permission.scope.commandPrefix": "Prefijo de comando",
   "chat.permission.scope.exactCommand": "Solo el comando exacto",
   "chat.permission.workflow.title": "¿Ejecutar este flujo de trabajo?",
   "chat.permission.workflow.showScript": "Mostrar el script completo",
   "chat.permission.workflow.hideScript": "Ocultar el script completo",
   "chat.permission.workflow.refine": "Refinar",
-  "chat.permission.workflow.refine.placeholder": "Describe cómo debería cambiar el flujo de trabajo…",
+  "chat.permission.workflow.refine.placeholder":
+    "Describe cómo debería cambiar el flujo de trabajo…",
   "chat.permission.workflow.allowForSession": "Permitir siempre en esta sesión",
   "chat.permission.workflow.allowForSession.description":
     "No volver a preguntar por los flujos de trabajo en esta sesión",
@@ -5826,7 +6019,8 @@ const esES: Record<string, string> = {
   "chat.permission.workflow.saved.scope.project": "proyecto",
   "chat.permission.workflow.saved.args": "Argumentos",
   "chat.permission.workflow.save.title": "¿Guardar este flujo de trabajo en el proyecto?",
-  "chat.permission.workflow.save.overwriteTitle": "¿Sobrescribir el flujo de trabajo guardado existente?",
+  "chat.permission.workflow.save.overwriteTitle":
+    "¿Sobrescribir el flujo de trabajo guardado existente?",
   "chat.permission.workflow.save.overwriteHint":
     "Ya existe un flujo de trabajo con este nombre en esta ruta. Al guardar se reemplazará todo el archivo.",
   "chat.permission.workflow.save.path": "Ruta",
@@ -5848,7 +6042,8 @@ const esES: Record<string, string> = {
 
   // Elicitation
   "chat.elicitation.title": "Se necesita información",
-  "chat.elicitation.keyboardHint": "Usa Tab o las teclas de flecha para elegir y pulsa Intro o Espacio para seleccionar",
+  "chat.elicitation.keyboardHint":
+    "Usa Tab o las teclas de flecha para elegir y pulsa Intro o Espacio para seleccionar",
   "chat.elicitation.customAnswer": "Respuesta personalizada",
   "chat.elicitation.customAnswer.placeholder": "Escribe tu respuesta…",
   "chat.elicitation.noAnswerProvided": "No se proporcionó ninguna respuesta",
@@ -5865,7 +6060,8 @@ const esES: Record<string, string> = {
   "chat.elicitation.expandDialog": "Expandir el cuadro de diálogo de la pregunta",
   "chat.elicitation.collapseDialog": "Contraer el cuadro de diálogo de la pregunta",
   "chat.elicitation.planApproval.approve": "Aprobar",
-  "chat.elicitation.planApproval.approveDescription": "Sal del modo Plan y empieza la implementación.",
+  "chat.elicitation.planApproval.approveDescription":
+    "Sal del modo Plan y empieza la implementación.",
   "chat.askQuestion.asking": "Haciendo preguntas",
   "chat.askQuestion.asked": "Preguntado",
   "chat.askQuestion.questionsCount": "{count} preguntas",
@@ -5873,11 +6069,13 @@ const esES: Record<string, string> = {
   "chat.askQuestion.autoContinued": "Sin respuesta; se continuó automáticamente",
   "chat.permission.allowOnce.description": "Permitir solo esta vez",
   "chat.permission.allowAlways.description.command": "No volver a preguntar por el mismo comando",
-  "chat.permission.allowAlways.description.file": "No volver a preguntar por la misma operación de archivo",
+  "chat.permission.allowAlways.description.file":
+    "No volver a preguntar por la misma operación de archivo",
   "chat.permission.allowAlways.description.generic":
     "No volver a preguntar por la misma solicitud de permiso",
   "chat.permission.denyOnce.description": "Rechazarlo por ahora",
-  "chat.permission.denyAlways.description.command": "Rechazar siempre el mismo comando en el futuro",
+  "chat.permission.denyAlways.description.command":
+    "Rechazar siempre el mismo comando en el futuro",
   "chat.permission.denyAlways.description.file":
     "Rechazar siempre la misma operación de archivo en el futuro",
   "chat.permission.denyAlways.description.generic":
@@ -5919,11 +6117,13 @@ const esES: Record<string, string> = {
   "planTool.guidance.enterMode": "Modo Plan activado",
   "chat.permission.switchMode.placeholder": "Plan de implementación",
 
-  // Agente de ZCode
+  // Agente de DeepVibe
   "zcode.unavailable": "El agente de IA no está disponible",
   "zcode.initFailed": "No se pudo iniciar el agente de IA",
-  "zcode.error.TASK_OWNED_BY_OTHER_HOST": "Esta tarea ya se está ejecutando en otra vista conectada.",
-  "zcode.error.STALE_TASK_OWNER_COMMAND": "Esta acción pertenece a una ejecución anterior y se ignoró.",
+  "zcode.error.TASK_OWNED_BY_OTHER_HOST":
+    "Esta tarea ya se está ejecutando en otra vista conectada.",
+  "zcode.error.STALE_TASK_OWNER_COMMAND":
+    "Esta acción pertenece a una ejecución anterior y se ignoró.",
   "zcode.error.NO_ACTIVE_TASK_OWNER": "No hay ningún propietario de tarea activo para esta acción.",
   "zcode.error.OWNER_COMMAND_FAILED": "El propietario de la tarea no pudo completar esta acción.",
   "zcode.error.MEDIA_BUDGET_CURRENT_ATTACHMENT_TOO_LARGE":
@@ -5977,7 +6177,7 @@ const esES: Record<string, string> = {
   "resourceManager.cpu": "CPU",
   "resourceManager.memory": "Memoria",
   "resourceManager.storage": "Almacenamiento",
-  "resourceManager.appUsage": "ZCode",
+  "resourceManager.appUsage": "DeepVibe",
   "resourceManager.systemUsage": "Sistema",
   "resourceManager.category.base": "Servicios base",
   "resourceManager.category.builtinPlugin": "Plugins integrados",
@@ -6026,16 +6226,17 @@ const esES: Record<string, string> = {
   "feedback.status.resolved": "Resuelto",
   "feedback.status.released": "Publicado",
   "feedback.statusHint.pendingReview": "Lo hemos recibido y lo atenderemos en breve.",
-  "feedback.statusHint.needInfo": "Necesitamos un poco más de información. Consulta la respuesta del equipo más abajo.",
-  "feedback.statusHint.accepted":
-    "Se aceptó tu comentario. Programaremos una corrección o mejora.",
+  "feedback.statusHint.needInfo":
+    "Necesitamos un poco más de información. Consulta la respuesta del equipo más abajo.",
+  "feedback.statusHint.accepted": "Se aceptó tu comentario. Programaremos una corrección o mejora.",
   "feedback.statusHint.closedByReply":
     "El equipo de producto respondió y cerró este comentario. Envía uno nuevo si el problema persiste.",
   "feedback.statusHint.archived":
     "El equipo de producto respondió y cerró este comentario. Envía uno nuevo si el problema persiste.",
   "feedback.statusHint.rejected":
     "Este comentario no está previsto por ahora. Puedes consultar la explicación más abajo.",
-  "feedback.statusHint.inDevelopment": "Estamos trabajando en ello. Las actualizaciones aparecerán más abajo.",
+  "feedback.statusHint.inDevelopment":
+    "Estamos trabajando en ello. Las actualizaciones aparecerán más abajo.",
   "feedback.statusHint.resolved": "El problema se ha corregido y está pendiente de publicación.",
   "feedback.statusHint.released":
     "La corrección o mejora relacionada ya está disponible. Gracias por tus comentarios.",
@@ -6117,7 +6318,8 @@ const esES: Record<string, string> = {
   "feedback.supplement.attachment": "Adjunto",
   "feedback.supplement.uploadedAttachments": "Adjuntos: {names}",
   "feedback.supplement.addAttachment": "Añadir adjunto",
-  "feedback.supplement.placeholder": "Añade más detalles, pega una captura de pantalla o adjunta un archivo local…",
+  "feedback.supplement.placeholder":
+    "Añade más detalles, pega una captura de pantalla o adjunta un archivo local…",
   "feedback.supplement.removeAttachment": "Quitar {name}",
   "feedback.supplement.attachmentHint":
     "Admite capturas de pantalla pegadas o archivos locales. Cada adjunto debe ocupar menos de 100 MB.",
@@ -6151,8 +6353,7 @@ const esES: Record<string, string> = {
   "feedback.submit.bug.missingDescription": "Describe el problema",
   "feedback.submit.usage.sectionTitle": "¿Dónde te has quedado atascado?",
   "feedback.submit.usage.titleLabel": "Título de la pregunta",
-  "feedback.submit.usage.titlePlaceholder":
-    "Ejemplo: no sé cómo configurar una conexión remota",
+  "feedback.submit.usage.titlePlaceholder": "Ejemplo: no sé cómo configurar una conexión remota",
   "feedback.submit.usage.descriptionLabel": "Paso bloqueado",
   "feedback.submit.usage.descriptionPlaceholder":
     "Describe qué intentas hacer, dónde te has atascado, qué mensaje viste y cómo quieres que te lo expliquemos o te guiemos.",
@@ -6162,12 +6363,14 @@ const esES: Record<string, string> = {
   "feedback.submit.usage.helper.4": "Ayuda que necesitas",
   "feedback.submit.usage.supplementalDescription":
     "El módulo y el modelo nos ayudan a localizar problemas de documentación, guía o configuración predeterminada.",
-  "feedback.submit.usage.screenshotHint": "Puedes pegar una captura de la pantalla donde te bloqueaste.",
+  "feedback.submit.usage.screenshotHint":
+    "Puedes pegar una captura de la pantalla donde te bloqueaste.",
   "feedback.submit.usage.missingTitle": "Introduce un título para la pregunta",
   "feedback.submit.usage.missingDescription": "Describe dónde te has atascado",
   "feedback.submit.feature.sectionTitle": "¿Qué sugerirías?",
   "feedback.submit.feature.titleLabel": "Título de la sugerencia",
-  "feedback.submit.feature.titlePlaceholder": "Ejemplo: permitir exportar el informe de tareas con un clic",
+  "feedback.submit.feature.titlePlaceholder":
+    "Ejemplo: permitir exportar el informe de tareas con un clic",
   "feedback.submit.feature.descriptionLabel": "Sugerencia",
   "feedback.submit.feature.descriptionPlaceholder":
     "Describe qué quieres que se añada o mejore: el escenario, qué resulta incómodo ahora, el comportamiento ideal y qué te ahorraría.",
@@ -6221,7 +6424,7 @@ const esES: Record<string, string> = {
   "feedback.submit.template.section.errorSummaryLine": "Resumen del error: {message}",
   "feedback.submit.template.section.errorDetail": "Detalles del error",
   "feedback.submit.template.section.errorTraceId": "TraceID: {traceId}",
-  "feedback.submit.template.section.copyErrorHeading": "Información de error de ZCode",
+  "feedback.submit.template.section.copyErrorHeading": "Información de error de DeepVibe",
   "feedback.submit.template.section.notProvided": "No especificado",
   "feedback.submit.template.section.remoteLogEmpty": "No se capturaron registros de conexión",
   "feedback.submit.template.section.taskFeedbackTitle": "Comentarios sobre la tarea: {title}",
@@ -6288,13 +6491,15 @@ const esES: Record<string, string> = {
   "feedback.featureRequest.submit": "Enviar solicitud",
   "feedback.featureRequest.missingRequired":
     "Rellena la descripción de la solicitud y la solución esperada",
-  "feedback.featureRequest.source": "Menú de ayuda del encabezado del espacio de trabajo / Solicitar una función",
+  "feedback.featureRequest.source":
+    "Menú de ayuda del encabezado del espacio de trabajo / Solicitar una función",
   "feedback.featureRequest.submittedToast": "Solicitud enviada. La revisaremos con atención.",
   "feedback.submission.connectingLabel": "Conectando con el servicio de comentarios",
   "feedback.submission.connectingDetail":
     "Las capturas de pantalla y los registros seguirán subiéndose después de crear el ticket",
   "feedback.submission.cancelingCreateLabel": "Cancelando el envío",
-  "feedback.submission.cancelingCreateDetail": "Se recibió la solicitud de cancelación. Deteniendo la creación del ticket.",
+  "feedback.submission.cancelingCreateDetail":
+    "Se recibió la solicitud de cancelación. Deteniendo la creación del ticket.",
   "feedback.submission.canceledLabel": "Se canceló el envío de comentarios",
   "feedback.submission.canceledDetail": "Se canceló el envío de comentarios",
   "feedback.submission.uploadingScreenshotLabel": "Subiendo la captura de pantalla",
@@ -6307,7 +6512,8 @@ const esES: Record<string, string> = {
   "feedback.submission.postCreateNetworkErrorDetail":
     "El comentario se creó, pero no se pudieron subir los materiales adicionales. Abre el comentario existente para añadir los archivos que faltan; no lo envíes de nuevo.",
   "feedback.submission.pausingLogLabel": "Pausando la subida de registros",
-  "feedback.submission.pausingLogDetail": "Se recibió la solicitud de cancelación. Espera un momento.",
+  "feedback.submission.pausingLogDetail":
+    "Se recibió la solicitud de cancelación. Espera un momento.",
   "feedback.submission.exportingLogLabel": "Exportando los registros completos",
   "feedback.submission.exportingLogDetail":
     "Esto puede tardar unos segundos según el tamaño de los registros locales",
@@ -6333,7 +6539,8 @@ const esES: Record<string, string> = {
   "forms.validation.systemPromptRequired": "El prompt del sistema es obligatorio",
   "forms.validation.agentNameHint": "Solo letras, números y guiones, entre 3 y 50 caracteres",
   "forms.validation.agentDescriptionHint": "Describe brevemente el propósito del subagente",
-  "forms.validation.agentSystemPromptHint": "Define el comportamiento y las capacidades del subagente",
+  "forms.validation.agentSystemPromptHint":
+    "Define el comportamiento y las capacidades del subagente",
   "forms.validation.fileExists": "El archivo {fileName} ya existe",
   // ---- Tareas programadas / Automatizaciones ----
   "taskList.cronTaskLabel": "Tarea programada",
@@ -6351,7 +6558,8 @@ const esES: Record<string, string> = {
   "automations.workspace.label": "Proyecto",
   "automations.description":
     "Programa tareas recurrentes o pon en cola trabajo en segundo plano que se ejecute durante el tiempo de inactividad.",
-  "automations.description.populated": "Ejecuta tareas según una programación o cuando las necesites.",
+  "automations.description.populated":
+    "Ejecuta tareas según una programación o cuando las necesites.",
   "automations.refresh": "Actualizar",
   "automations.refreshing": "Actualizando…",
   "automations.create": "Crear",
@@ -6370,7 +6578,8 @@ const esES: Record<string, string> = {
     "Nueva función para suscriptores: crea una “tarea en tiempo de inactividad”; completaremos gratis la tarea que asignes durante los periodos de capacidad de cómputo excedente.",
   "offPeak.newTask.bannerTipText":
     "Esta función no consume la cuota de tu plan de suscripción y está disponible en exclusiva para suscriptores.",
-  "offPeak.newTask.carousel.goToSlide": "Ir a la plantilla de tarea en tiempo de inactividad {index}",
+  "offPeak.newTask.carousel.goToSlide":
+    "Ir a la plantilla de tarea en tiempo de inactividad {index}",
   "offPeak.newTask.template.customize.title": "Personalizar",
   "offPeak.newTask.template.customize.description":
     "Omite la plantilla y cuéntale directamente lo que quieres hacer.",
@@ -6381,7 +6590,7 @@ const esES: Record<string, string> = {
   "automations.statusFilter.completed": "Completadas",
   "automations.statusFilter.failed": "Fallidas",
   "automations.statusFilter.empty": "Ninguna tarea coincide con este filtro",
-  "offPeak.keepAwakeBanner": "Mantén el equipo activo mientras ZCode ejecuta una conversación.",
+  "offPeak.keepAwakeBanner": "Mantén el equipo activo mientras DeepVibe ejecuta una conversación.",
   "offPeak.sectionTitle": "Tareas en tiempo de inactividad",
   "offPeak.createButton": "Crear tarea en tiempo de inactividad",
   "offPeak.templates.sectionTitle": "Plantilla de tarea en tiempo de inactividad",
@@ -6401,7 +6610,8 @@ const esES: Record<string, string> = {
   "offPeak.status.cancelled": "Cancelada",
   "offPeak.goToSession": "Ir a la sesión",
   "offPeak.boundSession.label": "Se ejecuta en: {title}",
-  "offPeak.nav.listUnavailable": "No se pudo cargar la lista de tareas en tiempo de inactividad. Actualiza e inténtalo de nuevo.",
+  "offPeak.nav.listUnavailable":
+    "No se pudo cargar la lista de tareas en tiempo de inactividad. Actualiza e inténtalo de nuevo.",
   "offPeak.boundSession.hint":
     "Se ejecuta en esa sesión; si detienes la sesión mientras la tarea se ejecuta, se cancela.",
   "offPeak.chatCreated.boundHint": "Se ejecuta en esta sesión",
@@ -6409,7 +6619,8 @@ const esES: Record<string, string> = {
   "offPeak.action.continue": "Continuar",
   "offPeak.action.cancel": "Cancelar tarea",
   "offPeak.cancel.title": "¿Cancelar la tarea en tiempo de inactividad?",
-  "offPeak.cancel.description": "“{title}” dejará de ejecutarse. Los archivos que ya haya modificado se conservarán.",
+  "offPeak.cancel.description":
+    "“{title}” dejará de ejecutarse. Los archivos que ya haya modificado se conservarán.",
   "offPeak.delete.title": "¿Eliminar esta tarea en tiempo de inactividad?",
   "offPeak.delete.description":
     "Esta acción no se puede deshacer. Si la tarea está en cola o en ejecución, se detendrá de inmediato.",
@@ -6419,10 +6630,12 @@ const esES: Record<string, string> = {
     "El servicio de tareas en tiempo de inactividad no está disponible temporalmente. Inténtalo de nuevo más tarde.",
   "offPeak.error.generic": "La operación de la tarea en tiempo de inactividad falló.",
   "offPeak.create.title": "Nueva tarea en tiempo de inactividad",
-  "offPeak.create.subtitle": "Configura las instrucciones y cómo se ejecuta esta tarea durante el tiempo de inactividad.",
+  "offPeak.create.subtitle":
+    "Configura las instrucciones y cómo se ejecuta esta tarea durante el tiempo de inactividad.",
   "offPeak.create.defaultTitle": "Sin título",
   "offPeak.edit.title": "Editar tarea en tiempo de inactividad",
-  "offPeak.edit.subtitle": "Actualiza las instrucciones y cómo se ejecuta esta tarea durante el tiempo de inactividad.",
+  "offPeak.edit.subtitle":
+    "Actualiza las instrucciones y cómo se ejecuta esta tarea durante el tiempo de inactividad.",
   "offPeak.modelSelection.repairRequired":
     "La configuración del modelo debe actualizarse. Vuelve a elegir un modelo y guarda.",
   "modelSelection.invalidated.fallback":
@@ -6438,7 +6651,7 @@ const esES: Record<string, string> = {
   "offPeak.form.titlePlaceholder": "p. ej., refactorización nocturna",
   "offPeak.form.instructionsLabel": "Instrucciones",
   "offPeak.form.instructionsPlaceholder":
-    "Describe una tarea en la que ZCode pueda trabajar en segundo plano, incluido el resultado esperado y las restricciones…",
+    "Describe una tarea en la que DeepVibe pueda trabajar en segundo plano, incluido el resultado esperado y las restricciones…",
   "offPeak.form.permissionWarning":
     "Las ejecuciones en tiempo de inactividad no tienen supervisión. Las acciones que necesiten confirmación pondrán la tarea en pausa hasta que respondas.",
   "offPeak.form.modelLabel": "Modelo",
@@ -6457,12 +6670,15 @@ const esES: Record<string, string> = {
   "offPeak.history.col.instructions": "Instrucciones",
   "offPeak.history.delete": "Eliminar historial",
   "offPeak.history.durationMinutes": "{count} min",
-  "offPeak.form.fullAccessHint": "Cambia los permisos a Acceso total para reducir los fallos de las tareas",
+  "offPeak.form.fullAccessHint":
+    "Cambia los permisos a Acceso total para reducir los fallos de las tareas",
   "offPeak.discard.title": "¿Descartar el borrador de la tarea en tiempo de inactividad?",
-  "offPeak.discard.description": "Se perderán los cambios en la tarea en tiempo de inactividad actual.",
+  "offPeak.discard.description":
+    "Se perderán los cambios en la tarea en tiempo de inactividad actual.",
   "offPeak.discard.confirm": "Descartar",
   "offPeak.create.codingPlanOnly": "Solo para usuarios de Coding Plan",
-  "offPeak.create.availabilityUnavailable": "No se pudo verificar la disponibilidad. Actualiza e inténtalo de nuevo.",
+  "offPeak.create.availabilityUnavailable":
+    "No se pudo verificar la disponibilidad. Actualiza e inténtalo de nuevo.",
   "offPeak.create.limitReachedAt":
     "Se alcanzó el límite del plan gratuito. Podrás crear otra tarea en {time}.",
   "offPeak.create.remaining.hoursMinutes": "{hours} h {minutes} min",
@@ -6541,8 +6757,7 @@ const esES: Record<string, string> = {
   "automations.schedule.custom": "Cada {interval} {unit} a las {time}",
   "automations.schedule.customWeekly": "Cada {interval} semanas los {days} a las {time}",
   "automations.schedule.customMonthlyDates": "Cada {interval} meses el día {days} a las {time}",
-  "automations.schedule.customMonthlyWeekday":
-    "Cada {interval} meses el primer {day} a las {time}",
+  "automations.schedule.customMonthlyWeekday": "Cada {interval} meses el primer {day} a las {time}",
   "automations.schedule.customYearly": "Cada {interval} año(s) el {month}/{day} a las {time}",
   "automations.schedule.once": "Una sola vez",
   "automations.time.soon": "pronto",
@@ -6602,7 +6817,8 @@ const esES: Record<string, string> = {
   "automations.form.workspaceUnavailable":
     "Abre un proyecto disponible antes de crear una tarea programada.",
   "automations.form.recurring.label": "Repetir indefinidamente",
-  "automations.form.recurring.hint": "Desactívalo para detenerla tras un número fijo de ejecuciones.",
+  "automations.form.recurring.hint":
+    "Desactívalo para detenerla tras un número fijo de ejecuciones.",
   "automations.form.maxRuns.label": "Máximo de ejecuciones",
   "automations.form.maxRuns.placeholder": "p. ej., 5",
   "automations.form.cancel": "Cancelar",
@@ -6613,7 +6829,8 @@ const esES: Record<string, string> = {
   "automations.unsaved.discard": "Descartar",
   "automations.unsaved.save": "Guardar",
   "automations.runs.title": "Historial de ejecuciones",
-  "automations.runs.awakeHint": "Las tareas programadas solo se ejecutan mientras el equipo está activo.",
+  "automations.runs.awakeHint":
+    "Las tareas programadas solo se ejecutan mientras el equipo está activo.",
   "automations.runs.empty": "Aún no hay ejecuciones.",
   "automations.runs.col.triggered": "Iniciada",
   "automations.runs.col.trigger": "Origen",
@@ -6633,9 +6850,9 @@ const esES: Record<string, string> = {
   "automations.runs.nextPage": "Siguiente",
   // CUA (Computer Use)
   "chat.cuaReadiness.toolsNotLoaded":
-    "ZCode Computer Use aún se está preparando: sus herramientas todavía no se han cargado ({count} cargadas). Concede los permisos de abajo; las herramientas aparecerán cuando el Helper esté listo.",
+    "DeepVibe Computer Use aún se está preparando: sus herramientas todavía no se han cargado ({count} cargadas). Concede los permisos de abajo; las herramientas aparecerán cuando el Helper esté listo.",
   "chat.cuaReadiness.toolsPreparing":
-    "ZCode Computer Use aún se está preparando: sus herramientas todavía no se han cargado. Concede los permisos de abajo; las herramientas aparecerán cuando el Helper esté listo.",
+    "DeepVibe Computer Use aún se está preparando: sus herramientas todavía no se han cargado. Concede los permisos de abajo; las herramientas aparecerán cuando el Helper esté listo.",
   "chat.toolCall.cua.requestAccess": "Comprobar el acceso a Computer Use",
   "chat.toolCall.cua.appName": "Computer Use",
   "chat.toolCall.cua.group.completedLabel": "Computer Use",
@@ -6727,7 +6944,8 @@ const esES: Record<string, string> = {
   "chat.toolCall.cua.details.waited": "Se esperaron {duration} segundos",
   "chat.toolCall.cua.details.screenshotCaptured": "Pantalla capturada",
   "chat.toolCall.cua.details.screenshot": "Captura de pantalla",
-  "chat.toolCall.cua.details.screenshotUnavailable": "Datos de la captura de pantalla no disponibles",
+  "chat.toolCall.cua.details.screenshotUnavailable":
+    "Datos de la captura de pantalla no disponibles",
   "chat.toolCall.cua.details.openScreenshot": "Abrir la vista previa de la captura",
   "chat.toolCall.cua.details.scope": "Ámbito",
   "chat.toolCall.cua.details.fullScreen": "Pantalla completa",
@@ -6763,9 +6981,9 @@ const esES: Record<string, string> = {
   "cuaPermission.modal.restartButton": "Reiniciar el Helper",
   "cuaPermission.modal.restarting": "Reiniciando el Helper…",
   "cuaPermission.modal.restartFailed": "No se pudo reiniciar el Helper: {error}",
-  "cuaPermission.modal.relaunchAppButton": "Reiniciar ZCode",
+  "cuaPermission.modal.relaunchAppButton": "Reiniciar DeepVibe",
   "cuaPermission.modal.relaunchAppHint":
-    "¿Sigue sin funcionar después de reiniciar el Helper? Reinicia ZCode para volver a cargar por completo el proceso del Helper.",
+    "¿Sigue sin funcionar después de reiniciar el Helper? Reinicia DeepVibe para volver a cargar por completo el proceso del Helper.",
   "cuaPermission.status.granted": "Concedido",
   "cuaPermission.status.missing": "No concedido",
   "cuaPermission.status.unknown": "Desconocido",
@@ -6779,9 +6997,10 @@ const esES: Record<string, string> = {
   "cuaPermission.tools.agentUpdateRequired":
     "El agente conectado es demasiado antiguo para una comprobación segura. Actualízalo o reinícialo y vuelve a comprobar.",
   "cuaPermission.tools.untrustedRuntime":
-    "Se encontraron herramientas de Computer Use, pero no provienen del plugin verificado de ZCode. Revisa la instalación del plugin y vuelve a comprobar.",
+    "Se encontraron herramientas de Computer Use, pero no provienen del plugin verificado de DeepVibe. Revisa la instalación del plugin y vuelve a comprobar.",
   "cuaPermission.perm.accessibility": "Accesibilidad",
-  "cuaPermission.perm.accessibility.purpose": "Leer y controlar elementos de la interfaz + sintetizar entrada",
+  "cuaPermission.perm.accessibility.purpose":
+    "Leer y controlar elementos de la interfaz + sintetizar entrada",
   "cuaPermission.perm.screenRecording": "Grabación de pantalla",
   "cuaPermission.perm.screenRecording.purpose": "Capturar la pantalla",
   "cuaPermission.osFloorTitle":
@@ -6790,13 +7009,15 @@ const esES: Record<string, string> = {
     "Actualiza macOS antes de usarlo. La configuración de permisos no se puede completar en versiones anteriores.",
   "cuaPermission.ready": "Permisos listos",
   "cuaPermission.ready.sessionValidationHint":
-    "ZCode verificará las herramientas de Computer Use contra la sesión exacta cuando inicies tu primera sesión.",
+    "DeepVibe verificará las herramientas de Computer Use contra la sesión exacta cuando inicies tu primera sesión.",
   "settings.computerUse.title": "Computer Use",
   "settings.computerUse.toggleLabel": "Activar Computer Use",
   "settings.computerUse.toggleDescription":
     "Si lo activas, se habilita Computer Use: su servidor MCP y sus habilidades.",
-  "settings.computerUse.composerEntry.label": "Mostrar el botón de Computer Use en el cuadro de texto",
-  "settings.computerUse.composerEntry.description": "Si está desactivado, el botón del cuadro de texto se oculta.",
+  "settings.computerUse.composerEntry.label":
+    "Mostrar el botón de Computer Use en el cuadro de texto",
+  "settings.computerUse.composerEntry.description":
+    "Si está desactivado, el botón del cuadro de texto se oculta.",
   "settings.computerUse.composerEntry.requiresEnabled":
     "Activa Computer Use primero para mostrar este botón en el cuadro de texto.",
   "settings.computerUse.composerEntry.saveFailed": "No se pudo guardar: {error}",

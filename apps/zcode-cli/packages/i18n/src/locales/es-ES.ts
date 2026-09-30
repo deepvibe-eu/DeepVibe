@@ -15,7 +15,7 @@ Uso:
 Sin ningún comando, zcode abre la TUI a pantalla completa.
 
 Comandos:
-  app-server Ejecuta el servidor de aplicaciones stdio del protocolo de ZCode
+  app-server Ejecuta el servidor de aplicaciones stdio del protocolo de DeepVibe
   commands   Lista los comandos de barra personalizados (\`commands list\`)
   doctor     Inspecciona las suposiciones del entorno de ejecución y del empaquetado
   login [zai|bigmodel]  Inicia sesión mediante autorización en el navegador
@@ -287,7 +287,7 @@ Comandos de barra:
     },
     terminal: {
       requiresInteractive: "La TUI requiere un terminal interactivo.",
-      starting: "Iniciando ZCode... Ctrl+C para salir",
+      starting: "Iniciando DeepVibe... Ctrl+C para salir",
     },
     transcript: {
       compact: {

@@ -15,7 +15,7 @@ Verwendung:
 Ohne Befehl öffnet zcode die Vollbild-TUI.
 
 Befehle:
-  app-server ZCode Protocol stdio-App-Server ausführen
+  app-server DeepVibe Protocol stdio-App-Server ausführen
   commands   Benutzerdefinierte Slash-Befehle auflisten (\`commands list\`)
   doctor     Laufzeit- und Paketierungsannahmen prüfen
   login [zai|bigmodel]  Über Browser-Autorisierung anmelden
@@ -287,7 +287,7 @@ Slash-Befehle:
     },
     terminal: {
       requiresInteractive: "Die TUI benötigt ein interaktives Terminal.",
-      starting: "ZCode wird gestartet... Strg+C zum Beenden",
+      starting: "DeepVibe wird gestartet... Strg+C zum Beenden",
     },
     transcript: {
       compact: {

@@ -119,11 +119,12 @@ function shouldApplyLocaleBroadcastMessage(
 }
 
 function createIntl(locale: Locale): IntlInstance {
-  // noUncheckedIndexedAccess：用 ?? 回退到默认语言的翻译
-  const messages = MESSAGES[locale] ?? MESSAGES[DEFAULT_LOCALE]!;
+  // Fehlt ein Schlüssel in der aktiven Sprache, fällt er auf Englisch zurück (dann auf den Key).
+  const messages = MESSAGES[locale] ?? MESSAGES["en-US"]!;
+  const fallback = MESSAGES["en-US"]!;
   return {
     formatMessage({ id }, values) {
-      let msg = messages[id] ?? id;
+      let msg = messages[id] ?? fallback[id] ?? id;
       if (values) {
         for (const [key, val] of Object.entries(values)) {
           msg = msg.replaceAll(`{${key}}`, String(val));
