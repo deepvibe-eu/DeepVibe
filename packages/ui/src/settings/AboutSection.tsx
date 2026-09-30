@@ -1,5 +1,5 @@
 import { ExternalLink } from "lucide-react";
-import { ZCODE_VERSION } from "@zcode/shared";
+import { VIBE_PERSONA, ZCODE_VERSION } from "@zcode/shared";
 import kofiLogoUrl from "@/assets/provider-icons/ko-fi-logo.png";
 import { Button } from "@/components/ui/button.js";
 import { usePlatform } from "@/hooks/usePlatform.js";
@@ -35,7 +35,9 @@ export function AboutSection() {
 
       <div className="space-y-4 rounded-xl border border-border bg-card p-4 sm:p-6">
         <div className="flex flex-wrap items-baseline justify-between gap-2">
-          <span className="text-ui-base font-semibold text-foreground">DeepVibe</span>
+          <span className="text-ui-base font-semibold text-foreground">
+            {VIBE_PERSONA.productName}
+          </span>
           <span className="text-ui-base text-foreground-subtle">{ZCODE_VERSION}</span>
         </div>
         <p className="text-ui-base leading-6 text-foreground-subtle">

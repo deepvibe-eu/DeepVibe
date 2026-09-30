@@ -2069,9 +2069,9 @@ html[data-vibe-flavor="deepseek"].theme-zai-dark {
 
 /* KimiVibe: deep indigo/violet brand color */
 html[data-vibe-flavor="kimi"].theme-zai-light {
-  --color-brand: #5b3fd6;
+  --color-brand: #1a88ff;
 }
 
 html[data-vibe-flavor="kimi"].theme-zai-dark {
-  --color-brand: #9b7cff;
+  --color-brand: #66b0ff;
 }
