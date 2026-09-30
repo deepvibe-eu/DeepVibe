@@ -9,6 +9,7 @@
     "dev:desktop": "pnpm run dev:desktop:prod",
     "dev:desktop:test": "node scripts/dev-desktop-env.mjs test",
     "dev:desktop:deepseek": "node scripts/dev-desktop-env.mjs production --deepseek",
+    "dev:desktop:kimi": "node scripts/dev-desktop-env.mjs production --kimi",
     "dev:desktop:prod": "node scripts/dev-desktop-env.mjs production",
     "dev:desktop:bytecode": "node scripts/dev-desktop-env.mjs production --agent-bytecode",
     "dev:desktop:remote-prod": "node scripts/dev-desktop-remote-prod.mjs",

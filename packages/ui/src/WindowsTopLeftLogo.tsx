@@ -1,5 +1,5 @@
 import { cn } from "@/components/lib/utils.js";
-import appLogoUrl from "@/assets/brand/deepvibe-logo.png";
+import { APP_LOGO_URL as appLogoUrl } from "@/assets/brand/index.js";
 
 export function WindowsTopLeftLogo({
   className,

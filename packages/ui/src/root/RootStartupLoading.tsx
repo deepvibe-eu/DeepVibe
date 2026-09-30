@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import startupLogoUrl from "@/assets/brand/deepseek-whale-white.png";
+import { STARTUP_MARK_URL as startupLogoUrl } from "@/assets/brand/index.js";
 import { cn } from "@/components/lib/utils.js";
 
 interface RootStartupLoadingProps {

@@ -6,13 +6,16 @@
 
 import { spawn } from "node:child_process";
 import { readdirSync, statSync } from "node:fs";
-import { existsSync } from "node:fs";
+import { existsSync, copyFileSync, mkdirSync } from "node:fs";
 import { createRequire } from "node:module";
 import process from "node:process";
 import { dirname, join, resolve } from "node:path";
 import { pathToFileURL } from "node:url";
 import { collectRuntimeModuleClosureEntries } from "./runtime-dependency-closure.mjs";
-import { resolveDesktopProductIdentity } from "./desktop-product-identity.mjs";
+import {
+  resolveDesktopProductIdentity,
+  resolveDesktopProductFlavor,
+} from "./desktop-product-identity.mjs";
 import {
   findDesktopNativePackageViolations,
   parseAsarListWithPackState,
@@ -44,6 +47,7 @@ const DEFAULT_TARGET_ARCH = "arm64";
 const desktopDistDir = process.env.ZCODE_DESKTOP_DIST_DIR || "dist";
 const desktopDistRoot = resolve(desktopRoot, desktopDistDir);
 const desktopProductIdentity = resolveDesktopProductIdentity(process.env);
+const desktopProductFlavor = resolveDesktopProductFlavor(process.env);
 
 const osAliasMap = new Map([
   ["mac", "mac"],
@@ -734,6 +738,39 @@ async function main() {
   if (!skipBuild) {
     run(pnpmCommand, ["build"], buildEnv);
   }
+
+  // Flavor-aware static splash: copy the flavor's startup mark to the renderer public dir
+  // before electron-builder packages it. This ensures the HTML startup shell shows the
+  // correct logo for each flavor (Kimi → kimivibe-mark.png; DeepSeek → deepseek-whale-white.png).
+  runTimedSync("bundle:copy-startup-logo", () => {
+    const rendererPublicDir = resolve(desktopRoot, "src", "renderer", "public");
+    mkdirSync(rendererPublicDir, { recursive: true });
+    const targetPath = join(rendererPublicDir, "startup-logo.png");
+    let sourcePath = "";
+    if (desktopProductFlavor === "kimi") {
+      sourcePath = resolve(desktopRoot, "..", "ui", "src", "assets", "brand", "kimivibe-mark.png");
+    } else {
+      sourcePath = resolve(
+        desktopRoot,
+        "..",
+        "ui",
+        "src",
+        "assets",
+        "brand",
+        "deepseek-whale-white.png",
+      );
+    }
+    if (existsSync(sourcePath)) {
+      copyFileSync(sourcePath, targetPath);
+      console.log(
+        `[bundle] copied startup logo for flavor=${desktopProductFlavor} from ${sourcePath} to ${targetPath}`,
+      );
+    } else {
+      console.warn(
+        `[bundle] startup logo source not found for flavor=${desktopProductFlavor}: ${sourcePath}`,
+      );
+    }
+  });
 
   await runTimedAsync("bundle:electron-builder", () =>
     runElectronBuilderWithRetry(buildArgs, buildEnv),

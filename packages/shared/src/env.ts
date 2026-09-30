@@ -2,7 +2,7 @@ import type { ZCodeRuntimeEnv } from "./runtimeEnv.js";
 
 export type ZCodeEnv = "test" | "production";
 /** 安装包身份：决定应用名、app id、Electron 数据目录与更新策略；与后端环境 `ZCodeEnv` 是两个轴。 */
-export type ZCodeProductFlavor = "production" | "preview" | "deepseek";
+export type ZCodeProductFlavor = "production" | "preview" | "deepseek" | "kimi";
 export type ArmsRumEnv = "local" | "prod";
 
 // 非构建环境（如 e2e 测试的 mocha）下 define 不存在，用 typeof 检查 + fallback 避免 ReferenceError
@@ -27,7 +27,12 @@ export function normalizeZCodeProductFlavor(
   zcodeEnv: ZCodeEnv,
 ): ZCodeProductFlavor {
   const normalized = value?.trim().toLowerCase();
-  if (normalized === "production" || normalized === "preview" || normalized === "deepseek") {
+  if (
+    normalized === "production" ||
+    normalized === "preview" ||
+    normalized === "deepseek" ||
+    normalized === "kimi"
+  ) {
     return normalized;
   }
   return zcodeEnv === "production" ? "production" : "preview";
@@ -39,7 +44,7 @@ export const ZCODE_PRODUCT_FLAVOR = normalizeZCodeProductFlavor(
 );
 
 /** Anbieter-Bindung einer Vibe-App (Fëa): jede App ist fest auf genau einen Anbieter gelegt. */
-export type VibeFixedProviderTemplateId = "deepseek";
+export type VibeFixedProviderTemplateId = "deepseek" | "moonshot-kimi";
 
 /**
  * Kein Multihoster: jede Vibe-App bindet genau eine Fëa. DeepVibe (production) und die
@@ -53,6 +58,7 @@ const FIXED_PROVIDER_TEMPLATE_ID_BY_FLAVOR: Record<
   production: "deepseek",
   preview: "deepseek",
   deepseek: "deepseek",
+  kimi: "moonshot-kimi",
 };
 
 export const VIBE_FIXED_PROVIDER_TEMPLATE_ID =
@@ -76,6 +82,7 @@ const VIBE_PERSONA_BY_FLAVOR: Record<ZCodeProductFlavor, VibePersona> = {
   production: { name: "Seeky", productName: "DeepVibe" },
   preview: { name: "Seeky", productName: "DeepVibe" },
   deepseek: { name: "Seeky", productName: "DeepVibe" },
+  kimi: { name: "Kimi", productName: "KimiVibe" },
 };
 
 export const VIBE_PERSONA = VIBE_PERSONA_BY_FLAVOR[ZCODE_PRODUCT_FLAVOR];

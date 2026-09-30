@@ -1,5 +1,5 @@
 import { PanelLeftOpen } from "lucide-react";
-import appLogoUrl from "@/assets/brand/deepvibe-logo.png";
+import { APP_LOGO_URL as appLogoUrl } from "@/assets/brand/index.js";
 import { Button } from "@/components/ui/button.js";
 import { ControlHintTooltip } from "@/ControlHintTooltip.js";
 import { useZCodeIntl } from "@/i18n/IntlProvider.js";

@@ -12,6 +12,14 @@ export const ZCODE_PREVIEW_IDENTITY_ENV = "ZCODE_PREVIEW_IDENTITY";
  */
 export const ZCODE_DEEPSEEK_IDENTITY_ENV = "ZCODE_DEEPSEEK_IDENTITY";
 
+/**
+ * Build-Zeit-Schalter für die Kimi-Standalone-Identität: eigenes
+ * App-ID/Produktname, in dem nur Kimi (Moonshot) als Anbieter sichtbar ist.
+ * `ZCODE_PREVIEW_IDENTITY` hat Vorrang, falls beide gesetzt sind.
+ * `ZCODE_DEEPSEEK_IDENTITY` hat Vorrang vor Kimi, falls beide gesetzt sind.
+ */
+export const ZCODE_KIMI_IDENTITY_ENV = "ZCODE_KIMI_IDENTITY";
+
 const PRODUCTION_IDENTITY = Object.freeze({
   flavor: "production",
   appId: "eu.deepvibe.ide",
@@ -39,10 +47,20 @@ const DEEPSEEK_IDENTITY = Object.freeze({
   cuaHelperInstallVariant: "deepseek",
 });
 
+const KIMI_IDENTITY = Object.freeze({
+  flavor: "kimi",
+  appId: "eu.kimivibe.ide",
+  productName: "KimiVibe",
+  linuxExecutableName: "kimivibe",
+  linuxPackageName: "kimivibe",
+  cuaHelperInstallVariant: "kimi",
+});
+
 export const desktopProductIdentities = Object.freeze({
   production: PRODUCTION_IDENTITY,
   preview: PREVIEW_IDENTITY,
   deepseek: DEEPSEEK_IDENTITY,
+  kimi: KIMI_IDENTITY,
 });
 
 function normalizeDesktopZCodeEnv(env) {
@@ -81,15 +99,38 @@ export function isDeepSeekIdentityRequested(env = process.env) {
   );
 }
 
+/** 与 Preview/DeepSeek 相同的严格开关语义：只有 `1` 开启，空/`0` 关闭，其余构建期报错。 */
+export function isKimiIdentityRequested(env = process.env) {
+  const value = env[ZCODE_KIMI_IDENTITY_ENV]?.trim() ?? "";
+  if (value === "1") {
+    return true;
+  }
+  if (value === "" || value === "0") {
+    return false;
+  }
+  throw new Error(
+    `invalid ${ZCODE_KIMI_IDENTITY_ENV}=${env[ZCODE_KIMI_IDENTITY_ENV]}; expected 1 or 0`,
+  );
+}
+
 /**
  * 产品身份（flavor）与后端环境（`ZCODE_ENV`）是两个轴：
  * - `ZCODE_ENV=test` 一律是 Preview，测试后端不能顶着正式 `ZCode` 身份覆盖用户的正式安装；
  * - `ZCODE_ENV=production` 默认是正式身份，显式 `ZCODE_PREVIEW_IDENTITY=1` 时改用 Preview 身份。
  * 未知 `ZCODE_ENV` 继续按 test 处理，和共享层 normalizeZCodeEnv 的 fail-safe 默认值一致。
+ *
+ * Resolution order (explicit identity envs win over ZCODE_ENV default):
+ * 1. preview  (ZCODE_PREVIEW_IDENTITY=1)  — highest priority
+ * 2. kimi     (ZCODE_KIMI_IDENTITY=1)
+ * 3. deepseek (ZCODE_DEEPSEEK_IDENTITY=1)
+ * 4. production (ZCODE_ENV=production default) — lowest priority
  */
 export function resolveDesktopProductFlavor(env = process.env) {
   if (isPreviewIdentityRequested(env)) {
     return "preview";
+  }
+  if (isKimiIdentityRequested(env)) {
+    return "kimi";
   }
   if (isDeepSeekIdentityRequested(env)) {
     return "deepseek";
@@ -121,7 +162,13 @@ export function resolveWindowsAppUserModelIdForFlavor(flavor, runtime = { isPack
     return "eu.deepvibe.ide.dev";
   }
   const flavorKey =
-    flavor === "preview" ? "preview" : flavor === "deepseek" ? "deepseek" : "production";
+    flavor === "preview"
+      ? "preview"
+      : flavor === "deepseek"
+        ? "deepseek"
+        : flavor === "kimi"
+          ? "kimi"
+          : "production";
   return desktopProductIdentities[flavorKey].appId;
 }
 
