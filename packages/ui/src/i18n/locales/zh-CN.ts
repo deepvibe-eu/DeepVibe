@@ -2209,10 +2209,10 @@ const zhCN: Record<string, string> = {
   "settings.about.title": "关于与致谢",
   "settings.about.description": "版本、许可证，以及 DeepVibe 所基于的开源项目。",
   "settings.about.app.detail":
-    "DeepVibe —— 以 DeepSeek 为固定提供方的编程伙伴 IDE。每个应用只绑定一个提供方，作为伙伴而非代理。",
+    "{product} —— 以 {provider} 为固定提供方的编程伙伴 IDE。每个应用只绑定一个提供方，作为伙伴而非代理。",
   "settings.about.builtOn": "基于开源构建：",
   "settings.about.support.text":
-    "你可以请我们喝杯咖啡来支持我们的工作 —— 每一杯都让这只鲸鱼继续游下去。🐋",
+    "你可以请我们喝杯咖啡来支持我们的工作 —— 每一份支持都让这个项目继续前进。",
   "settings.about.support.button": "在 Ko-fi 上支持",
   "settings.about.trademark":
     "DeepVibe 是独立项目，与上述项目无隶属关系。DeepSeek、ZCode、MiniMax 与 Mavis 归各自所有者所有。",
@@ -4273,8 +4273,8 @@ const zhCN: Record<string, string> = {
   "chat.empty.createWorkspace.error.createFailed": "创建工作区失败。",
   "chat.emptyResult.title": "没有可展示内容",
   "chat.emptyResult.description": "这个任务没有生成聊天内容，可能是在模型返回正文前被停止了。",
-  "chat.placeholder.newTask": "向 DeepVibe 提问，使用 @ 添加上下文，使用 / 选择命令或能力",
-  "chat.placeholder.newTaskMobile": "向 DeepVibe 提问…",
+  "chat.placeholder.newTask": "随便提问，使用 @ 添加上下文，使用 / 选择命令或能力",
+  "chat.placeholder.newTaskMobile": "随便提问…",
   "chat.placeholder.followUpAsk": "提出后续修改要求",
   "chat.placeholder.followUpQueue": "继续输入以排队后续修改",
   "chat.placeholder.loading": "初始化任务中",

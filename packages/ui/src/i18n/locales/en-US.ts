@@ -2350,10 +2350,10 @@ const enUS: Record<string, string> = {
   "settings.about.description":
     "Version, licenses, and the open-source projects DeepVibe is built on.",
   "settings.about.app.detail":
-    "DeepVibe — the DeepSeek coding partner IDE. One provider per app, as a partner rather than an agent.",
+    "{product} — the {provider} coding partner IDE. One provider per app, as a partner rather than an agent.",
   "settings.about.builtOn": "Built on open source:",
   "settings.about.support.text":
-    "You can support our work by fueling us with caffeine — every cup keeps the whale swimming. 🐋",
+    "You can support our work by fueling us with caffeine — every contribution keeps the project going.",
   "settings.about.support.button": "Support on Ko-fi",
   "settings.about.trademark":
     "DeepVibe is an independent project and is not affiliated with the projects above. DeepSeek, ZCode, MiniMax and Mavis belong to their respective owners.",
@@ -4572,8 +4572,8 @@ const enUS: Record<string, string> = {
   "chat.emptyResult.description":
     "This task finished without any chat content. It may have been stopped before the model produced a response.",
   "chat.placeholder.newTask":
-    "Ask DeepVibe anything, @ to add context, / for commands or capabilities",
-  "chat.placeholder.newTaskMobile": "Ask DeepVibe anything…",
+    "Ask anything, @ to add context, / for commands or capabilities",
+  "chat.placeholder.newTaskMobile": "Ask anything…",
   "chat.placeholder.followUpAsk": "Ask for follow-up changes",
   "chat.placeholder.followUpQueue": "Keep typing to queue follow-up changes",
   "chat.placeholder.loading": "Initializing task...",

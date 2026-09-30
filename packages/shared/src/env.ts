@@ -71,6 +71,8 @@ export const IS_DEEPSEEK_STANDALONE = VIBE_FIXED_PROVIDER_TEMPLATE_ID === "deeps
 export interface VibePersona {
   readonly name: string;
   readonly productName: string;
+  /** Anzeigename des gebundenen Anbieters (DeepSeek/Kimi/Ollama/MiniMax/Claude). */
+  readonly providerLabel: string;
 }
 
 /**
@@ -79,10 +81,10 @@ export interface VibePersona {
  * Neue Flavors (kimi/mavis/llama/…) ergänzen hier ihren Eintrag.
  */
 const VIBE_PERSONA_BY_FLAVOR: Record<ZCodeProductFlavor, VibePersona> = {
-  production: { name: "Seeky", productName: "DeepVibe" },
-  preview: { name: "Seeky", productName: "DeepVibe" },
-  deepseek: { name: "Seeky", productName: "DeepVibe" },
-  kimi: { name: "Kimi", productName: "KimiVibe" },
+  production: { name: "Seeky", productName: "DeepVibe", providerLabel: "DeepSeek" },
+  preview: { name: "Seeky", productName: "DeepVibe", providerLabel: "DeepSeek" },
+  deepseek: { name: "Seeky", productName: "DeepVibe", providerLabel: "DeepSeek" },
+  kimi: { name: "Kimi", productName: "KimiVibe", providerLabel: "Kimi" },
 };
 
 export const VIBE_PERSONA = VIBE_PERSONA_BY_FLAVOR[ZCODE_PRODUCT_FLAVOR];

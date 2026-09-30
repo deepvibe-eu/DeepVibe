@@ -277,19 +277,27 @@ process.on("unhandledRejection", (reason) => {
   logger.error("unhandledRejection:", reason);
 });
 
+// Dev nutzt keinen electron-builder: Icon-Pfad hier flavor-abhängig wählen.
+const isKimiFlavor = ZCODE_PRODUCT_FLAVOR === "kimi";
 const iconPath =
   process.platform === "win32"
     ? app.isPackaged
       ? join(process.resourcesPath, "icon_windows.png")
-      : join(import.meta.dirname, "../../build/icon_windows.png")
+      : join(
+          import.meta.dirname,
+          `../../build/${isKimiFlavor ? "icon_kimi-windows" : "icon_windows"}.png`,
+        )
     : app.isPackaged
       ? join(process.resourcesPath, "icon.png")
-      : join(import.meta.dirname, "../../build/icon.png");
+      : join(import.meta.dirname, `../../build/${isKimiFlavor ? "icon_kimi" : "icon"}.png`);
 const linuxDesktopIntegrationIconPath =
   process.platform === "linux"
     ? app.isPackaged
       ? join(process.resourcesPath, "icon_512x512.png")
-      : join(import.meta.dirname, "../../build/icons/512x512.png")
+      : join(
+          import.meta.dirname,
+          `../../build/${isKimiFlavor ? "kimi-icons" : "icons"}/512x512.png`,
+        )
     : iconPath;
 let currentApplicationLocale: Locale = DEFAULT_LOCALE;
 let closeToTrayOnWindows = true;

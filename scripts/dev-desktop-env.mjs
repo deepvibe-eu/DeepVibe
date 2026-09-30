@@ -1,4 +1,5 @@
 import { spawn } from "node:child_process";
+import { copyFileSync, mkdirSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, resolve } from "node:path";
 
@@ -58,7 +59,19 @@ function run(command, args) {
   });
 }
 
+/** Dev hat kein electron-builder: Startmarke des Flavors vor dem Start ins Renderer-public legen. */
+function syncFlavorStartupLogo() {
+  const brandDir = resolve(repoRoot, "packages/ui/src/assets/brand");
+  const source = kimiIdentity
+    ? resolve(brandDir, "kimivibe-mark.png")
+    : resolve(brandDir, "deepseek-whale-white.png");
+  const targetDir = resolve(repoRoot, "packages/desktop/src/renderer/public");
+  mkdirSync(targetDir, { recursive: true });
+  copyFileSync(source, resolve(targetDir, "startup-logo.png"));
+}
+
 try {
+  syncFlavorStartupLogo();
   // The public dev scripts delegate here instead of invoking the package's
   // `dev` lifecycle directly, so pnpm will not run `pre-dev` automatically.
   // Preserve its runtime-asset preparation and stale `out` cleanup explicitly

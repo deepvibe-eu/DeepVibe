@@ -41,7 +41,10 @@ export function AboutSection() {
           <span className="text-ui-base text-foreground-subtle">{ZCODE_VERSION}</span>
         </div>
         <p className="text-ui-base leading-6 text-foreground-subtle">
-          {intl.formatMessage({ id: "settings.about.app.detail" })}
+          {intl.formatMessage(
+            { id: "settings.about.app.detail" },
+            { product: VIBE_PERSONA.productName, provider: VIBE_PERSONA.providerLabel },
+          )}
         </p>
 
         <div className="flex flex-wrap items-center gap-3 rounded-lg border border-border bg-surface px-3 py-2">
