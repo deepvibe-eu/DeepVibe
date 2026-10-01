@@ -748,7 +748,7 @@ async function main() {
     const targetPath = join(rendererPublicDir, "startup-logo.png");
     let sourcePath = "";
     if (desktopProductFlavor === "kimi") {
-      sourcePath = resolve(desktopRoot, "..", "ui", "src", "assets", "brand", "kimivibe-mark.png");
+      sourcePath = resolve(desktopRoot, "..", "ui", "src", "assets", "moonshot_white.png");
     } else {
       sourcePath = resolve(
         desktopRoot,

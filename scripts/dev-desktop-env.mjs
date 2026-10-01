@@ -63,7 +63,7 @@ function run(command, args) {
 function syncFlavorStartupLogo() {
   const brandDir = resolve(repoRoot, "packages/ui/src/assets/brand");
   const source = kimiIdentity
-    ? resolve(brandDir, "kimivibe-mark.png")
+    ? resolve(repoRoot, "packages/ui/src/assets/moonshot_white.png")
     : resolve(brandDir, "deepseek-whale-white.png");
   const targetDir = resolve(repoRoot, "packages/desktop/src/renderer/public");
   mkdirSync(targetDir, { recursive: true });
