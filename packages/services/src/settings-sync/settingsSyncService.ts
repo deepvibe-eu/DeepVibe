@@ -21,6 +21,7 @@ import type {
   SettingsSyncSourceRootSummary,
   SettingsSyncTaskImportResult,
 } from "@zcode/shared";
+import { VIBE_DATA_DIR_NAME } from "@zcode/shared";
 import {
   copyFile,
   cp,
@@ -426,7 +427,7 @@ function getWorkspaceZcodeSkillRoot(workspacePath: string): string {
 }
 
 function getUserZcodeSkillRoot(): string {
-  return join(resolveUserHomeDir(), ".zcode", "skills");
+  return join(resolveUserHomeDir(), VIBE_DATA_DIR_NAME, "skills");
 }
 
 function getWorkspaceZcodeCommandRoot(workspacePath: string): string {
@@ -434,7 +435,7 @@ function getWorkspaceZcodeCommandRoot(workspacePath: string): string {
 }
 
 function getUserZcodeCommandRoot(): string {
-  return join(resolveUserHomeDir(), ".zcode", "commands");
+  return join(resolveUserHomeDir(), VIBE_DATA_DIR_NAME, "commands");
 }
 
 function getWorkspaceZcodePluginRoot(workspacePath: string): string {
@@ -442,7 +443,7 @@ function getWorkspaceZcodePluginRoot(workspacePath: string): string {
 }
 
 function getUserZcodePluginRoot(): string {
-  return join(resolveUserHomeDir(), ".zcode", "plugins");
+  return join(resolveUserHomeDir(), VIBE_DATA_DIR_NAME, "plugins");
 }
 
 function getUserZcodeCliConfigPath(): string {

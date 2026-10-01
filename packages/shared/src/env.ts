@@ -90,6 +90,20 @@ const VIBE_PERSONA_BY_FLAVOR: Record<ZCodeProductFlavor, VibePersona> = {
 export const VIBE_PERSONA = VIBE_PERSONA_BY_FLAVOR[ZCODE_PRODUCT_FLAVOR];
 
 /**
+ * Name des Fëa-Datenordners unter dem Basisverzeichnis. DeepVibe behält `.zcode`
+ * (keine Migration); jede weitere Fëa bekommt einen eigenen Ordner, damit sich die
+ * Apps keine Datenbanken, Sessions oder Config teilen.
+ */
+const VIBE_DATA_DIR_NAME_BY_FLAVOR: Record<ZCodeProductFlavor, string> = {
+  production: ".zcode",
+  preview: ".zcode",
+  deepseek: ".zcode",
+  kimi: ".kimivibe",
+};
+
+export const VIBE_DATA_DIR_NAME = VIBE_DATA_DIR_NAME_BY_FLAVOR[ZCODE_PRODUCT_FLAVOR];
+
+/**
  * DeepVibe führt eine eigene Versionslinie (0.x); die ZCode-Mindestversion des Servers
  * (3.x) darf den Start nicht blockieren. Bewusst als `boolean` typisiert, damit der Wert
  * als Laufzeit-Schalter gilt (keine Konstanten-Faltung / Unreachable-Warnung).
