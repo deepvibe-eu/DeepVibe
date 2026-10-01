@@ -13,6 +13,8 @@ import { z } from "zod";
  * 保存文件的扩展名。`.dwf.ts` 而不是 `.ts`：编辑器按 TypeScript 高亮（frontmatter 是块注释，
  * 语法上合法），而 `.dwf` 这一段让扫描不必打开文件就能把它与项目源码区分开。
  */
+import { VIBE_DATA_DIR_NAME } from "@zcode/shared";
+
 export const SAVED_WORKFLOW_FILE_EXTENSION = ".dwf.ts";
 
 /** 项目作用域的存放目录（相对会话工作目录）。 */
@@ -28,7 +30,7 @@ export const WORKFLOW_DRAFTS_DIR = ".zcode/workflow-drafts";
  * 全局作用域的存放目录（相对 agent 进程的家目录）。落点 `~/.zcode/workflows/<name>.dwf.ts`
  * ——与 legacy Workflow 工具的用户根同一处，对所有项目可见。
  */
-export const SAVED_WORKFLOW_GLOBAL_DIR = ".zcode/workflows";
+export const SAVED_WORKFLOW_GLOBAL_DIR = `${VIBE_DATA_DIR_NAME}/workflows`;
 
 /**
  * 名字的合法形状。与旧 `Workflow` 工具的解析器同一条模式（script-workflow-tool-port.ts）——

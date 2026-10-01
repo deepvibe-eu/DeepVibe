@@ -447,7 +447,7 @@ function getUserZcodePluginRoot(): string {
 }
 
 function getUserZcodeCliConfigPath(): string {
-  return join(resolveUserHomeDir(), ".zcode", "cli", "config.json");
+  return join(resolveUserHomeDir(), VIBE_DATA_DIR_NAME, "cli", "config.json");
 }
 
 function getWorkspaceZcodeConfigPath(workspacePath: string): string {
@@ -459,7 +459,7 @@ function getClaudeUserAgentsFileSourcePath(): string {
 }
 
 function getUserZcodeAgentsFilePath(): string {
-  return join(resolveUserHomeDir(), ".zcode", "AGENTS.md");
+  return join(resolveUserHomeDir(), VIBE_DATA_DIR_NAME, "AGENTS.md");
 }
 
 function resolveTargetRootForScope(
