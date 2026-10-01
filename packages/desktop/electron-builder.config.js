@@ -677,6 +677,7 @@ export default {
   ],
   mac: {
     target: ["dmg", "zip"],
+    icon: isKimiFlavor ? "build/icon_kimi.icns" : "build/icon.icns",
     category: "public.app-category.developer-tools",
     artifactName: buildDesktopArtifactName("mac"),
     extendInfo: {
@@ -710,10 +711,12 @@ export default {
   },
   win: {
     target: ["nsis"],
+    icon: isKimiFlavor ? "build/icon_kimi.ico" : "build/icon.ico",
     artifactName: buildDesktopArtifactName("win"),
   },
   linux: {
     target: ["AppImage", "deb", "rpm", "pacman"],
+    icon: isKimiFlavor ? "build/kimi-icons" : "build/icons",
     artifactName: buildDesktopArtifactName("linux"),
     // desktop 包名是 scoped package（@zcode/desktop），electron-builder 默认会把
     // Linux executable/Icon 推成 @zcodedesktop。部分桌面环境无法按这个 icon name 命中

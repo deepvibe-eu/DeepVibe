@@ -1,7 +1,7 @@
 import deepvibeLogoUrl from "./deepvibe-logo.png";
 import deepseekWhaleBlackUrl from "./deepseek-whale-black.png";
 import deepseekWhaleWhiteUrl from "./deepseek-whale-white.png";
-import kimivibeMarkUrl from "./kimivibe-mark.png";
+import kimivibeLogoUrl from "./kimivibe-logo.png";
 import moonshotBlackUrl from "../moonshot_black.png";
 import moonshotWhiteUrl from "../moonshot_white.png";
 import { ZCODE_PRODUCT_FLAVOR } from "@zcode/shared";
@@ -9,7 +9,7 @@ import { ZCODE_PRODUCT_FLAVOR } from "@zcode/shared";
 export const APP_LOGO_URL = (() => {
   switch (ZCODE_PRODUCT_FLAVOR) {
     case "kimi":
-      return kimivibeMarkUrl;
+      return kimivibeLogoUrl;
     case "production":
     case "preview":
     case "deepseek":
@@ -21,7 +21,7 @@ export const APP_LOGO_URL = (() => {
 export const ABOUT_MARK_URL = (() => {
   switch (ZCODE_PRODUCT_FLAVOR) {
     case "kimi":
-      return kimivibeMarkUrl;
+      return moonshotWhiteUrl;
     case "production":
     case "preview":
     case "deepseek":
@@ -33,7 +33,7 @@ export const ABOUT_MARK_URL = (() => {
 export const STARTUP_MARK_URL = (() => {
   switch (ZCODE_PRODUCT_FLAVOR) {
     case "kimi":
-      return kimivibeMarkUrl;
+      return kimivibeLogoUrl;
     case "production":
     case "preview":
     case "deepseek":
