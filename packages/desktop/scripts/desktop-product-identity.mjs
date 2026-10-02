@@ -178,6 +178,18 @@ export function resolveDesktopProductIdentity(env = process.env) {
 }
 
 /**
+ * Linux executable / WM_CLASS name for a resolved flavor.
+ *
+ * Runtime code must resolve this from the compile-time flavor (`ZCODE_PRODUCT_FLAVOR`),
+ * never by re-reading `process.env` identity switches: `ZCODE_KIMI_IDENTITY`/`ZCODE_LAMA_IDENTITY`
+ * only exist while building and are absent once the app is packaged, so `process.env`
+ * resolution would silently fall back to `deepvibe`/`deepvibe-preview`.
+ */
+export function resolveLinuxExecutableNameForFlavor(flavor) {
+  return (desktopProductIdentities[flavor] ?? PRODUCTION_IDENTITY).linuxExecutableName;
+}
+
+/**
  * 产物文件名后缀标记的是后端环境而不是身份：`_TEST` 只出现在测试后端的安装包上。
  * 生产后端的 Preview 包靠 productName（`DeepVibe Preview-<version>-...`）与正式包区分。
  */

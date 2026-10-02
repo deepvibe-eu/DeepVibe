@@ -776,6 +776,15 @@ export default {
     executableName: desktopProductIdentity.linuxExecutableName,
     category: "Development",
     maintainer: "DeepVibe (RheaOS) <me@deepvibe.eu>",
+    // electron-builder 默认写 StartupWMClass=productName（z. B. LamaVibe），但运行态
+    // Electron 通过 --class 把 WM_CLASS 设成 executableName（lamavibe，见 src/main/index.ts）。
+    // 两者不一致时部分桌面环境无法把窗口关联到 .desktop，任务栏会退回默认图标。
+    // 这里显式对齐成同一个 executableName。
+    desktop: {
+      entry: {
+        StartupWMClass: desktopProductIdentity.linuxExecutableName,
+      },
+    },
   },
   deb: {
     // 生产版与 Preview 必须是两个 dpkg package；只改可执行名仍会让安装器把另一版本当成升级替换。

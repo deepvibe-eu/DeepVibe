@@ -4,6 +4,7 @@ import {
   isDeepSeekIdentityRequested,
   resolveDesktopProductFlavor,
   resolveDesktopProductIdentity,
+  resolveLinuxExecutableNameForFlavor,
 } from "../scripts/desktop-product-identity.mjs";
 
 test("DeepSeek-Standalone wird über ZCODE_DEEPSEEK_IDENTITY=1 gewählt", () => {
@@ -49,4 +50,13 @@ test("ohne Schalter bleibt die bisherige Auflösung erhalten", () => {
 
 test("ungültiger DeepSeek-Schalter schlägt im Build fehl", () => {
   assert.throws(() => isDeepSeekIdentityRequested({ ZCODE_DEEPSEEK_IDENTITY: "yes" }));
+});
+
+test("resolveLinuxExecutableNameForFlavor nutzt den Flavor, nicht process.env", () => {
+  assert.equal(resolveLinuxExecutableNameForFlavor("kimi"), "kimivibe");
+  assert.equal(resolveLinuxExecutableNameForFlavor("lama"), "lamavibe");
+  assert.equal(resolveLinuxExecutableNameForFlavor("deepseek"), "deepvibe-deepseek");
+  assert.equal(resolveLinuxExecutableNameForFlavor("preview"), "deepvibe-preview");
+  assert.equal(resolveLinuxExecutableNameForFlavor("production"), "deepvibe");
+  assert.equal(resolveLinuxExecutableNameForFlavor("unbekannt"), "deepvibe");
 });

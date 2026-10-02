@@ -131,7 +131,7 @@ import {
 } from "./desktopApplicationMenu.js";
 import { applyAppIcon } from "./desktopWindowChrome.js";
 import {
-  resolveDesktopProductIdentity,
+  resolveLinuxExecutableNameForFlavor,
   resolveWindowsAppUserModelIdForFlavor,
 } from "../../scripts/desktop-product-identity.mjs";
 import type { DesktopWindowSize } from "./desktopWindowSize.js";
@@ -265,10 +265,12 @@ if (!app.isPackaged && process.env.ZCODE_DISABLE_FIXED_REMOTE_DEBUGGING_PORT !==
 // Linux: WM_CLASS an den Paketnamen angleichen, damit Taskleiste/Dock das zugehörige
 // .desktop-Icon (gleicher Dateiname) zuverlässig zuordnen — sonst zeigt der Desktop
 // bei frameless/transparenten Fenstern ein Default-Icon.
+// Die Identität kommt aus dem Compile-Zeit-Flavor: die ZCODE_*_IDENTITY-Schalter gibt
+// es zur Laufzeit nicht mehr, process.env würde auf deepvibe/preview zurückfallen.
 if (process.platform === "linux") {
   app.commandLine.appendSwitch(
     "class",
-    resolveDesktopProductIdentity(process.env).linuxExecutableName,
+    resolveLinuxExecutableNameForFlavor(ZCODE_PRODUCT_FLAVOR),
   );
 }
 
