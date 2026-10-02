@@ -60,8 +60,11 @@ it uses `flavors/versions.json`.
 4. An invalid `flavors/versions.json` fails the build instead of silently
    falling back.
 
-## Out of scope
+## Update feed
 
-The update feed (`VIBE_UPDATE_FEED_URL`) is still a single hub URL. A follow-up
-has to decide whether each flavor updates from its own repository or from the
-shared hub; this spec only covers the version line.
+`VIBE_UPDATE_FEED_URL` (`packages/shared/src/env.ts`) is a per-flavor map: each
+Vibe app updates from its own public release repository (`deepvibe-eu/deepvibe`
+for the DeepVibe line, `deepvibe-eu/KimiVibe` for KimiVibe). A single shared hub
+would let KimiVibe download DeepVibe installers, because the version lines are
+independent. Every release workflow must publish a non-draft, non-prerelease
+`latest` release with the `latest*.yml` manifests in the flavor's own repo.

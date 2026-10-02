@@ -118,12 +118,20 @@ export const VIBE_FORCE_UPDATE_GATE_DISABLED: boolean = true;
 export const VIBE_SHOW_UPSTREAM_HELP_ENTRIES: boolean = false;
 
 /**
- * Update-Feed der Vibe-Familie (GH-generic): alle Installer liegen als Releases im
- * öffentlichen Hub-Repo. Ist der Wert gesetzt, benutzt der Updater diesen generischen
- * Feed statt des ZCode-Server-Manifests. `null` = ZCode-Manifest beibehalten.
+ * Update-Feed je Fëa: jede Vibe-App lädt ihre Installer aus ihrem eigenen
+ * öffentlichen Release-Repo. Ein gemeinsamer Hub würde sonst dazu führen, dass
+ * KimiVibe den DeepVibe-Installer zieht (die Versionen sind unabhängig).
+ * Ist der Wert gesetzt, benutzt der Updater diesen generischen Feed statt des
+ * ZCode-Server-Manifests. `null` = ZCode-Manifest beibehalten.
  */
-export const VIBE_UPDATE_FEED_URL: string | null =
-  "https://github.com/deepvibe-eu/deepvibe/releases/latest/download";
+const VIBE_UPDATE_FEED_URL_BY_FLAVOR: Record<ZCodeProductFlavor, string | null> = {
+  production: "https://github.com/deepvibe-eu/deepvibe/releases/latest/download",
+  preview: "https://github.com/deepvibe-eu/deepvibe/releases/latest/download",
+  deepseek: "https://github.com/deepvibe-eu/deepvibe/releases/latest/download",
+  kimi: "https://github.com/deepvibe-eu/KimiVibe/releases/latest/download",
+};
+
+export const VIBE_UPDATE_FEED_URL = VIBE_UPDATE_FEED_URL_BY_FLAVOR[ZCODE_PRODUCT_FLAVOR];
 export const ZCODE_APP_VERSION_ENV = "ZCODE_APP_VERSION" as const;
 export const ZCODE_BUILD_COMMIT_ID_ENV = "ZCODE_BUILD_COMMIT_ID" as const;
 

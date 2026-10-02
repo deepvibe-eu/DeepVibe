@@ -477,6 +477,10 @@ export default {
   extraMetadata: {
     version: buildMetadata.appVersion,
     zcodeProductFlavor: desktopProductIdentity.flavor,
+    // Laufzeit-package.json ist die Quelle für app.getName() und den .desktop-Comment.
+    // Ohne diese Felder trägt ein KimiVibe-Paket weiter „DeepVibe" aus der Desktop-package.json.
+    productName: desktopProductIdentity.productName,
+    description: `${desktopProductIdentity.productName} Desktop App`,
     homepage: "https://deepvibe.eu",
     author: {
       name: "DeepVibe (RheaOS)",
