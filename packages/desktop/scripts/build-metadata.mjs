@@ -3,6 +3,7 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { createRequire } from "node:module";
 import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import { resolveDesktopProductVersionFromEnvironment } from "./flavor-version.mjs";
 
 const require = createRequire(import.meta.url);
 const moduleDir = import.meta.dirname;
@@ -82,9 +83,14 @@ function resolveCommitId() {
 export function collectBuildMetadata() {
   const rootPackageJson = readJson(resolve(workspaceDir, "package.json"));
   const desktopPackageJson = readJson(resolve(desktopDir, "package.json"));
+  // 版本按 Flavor 解析：显式 ZCODE_APP_VERSION（发布 tag）> flavors/versions.json > 根 package.json。
+  const { version: resolvedAppVersion } = resolveDesktopProductVersionFromEnvironment({
+    workspaceDir,
+    rootVersion: rootPackageJson.version,
+  });
 
   return {
-    appVersion: normalizeVersion(rootPackageJson.version),
+    appVersion: normalizeVersion(resolvedAppVersion),
     buildCommitId: resolveCommitId(),
     buildTime: new Date().toISOString(),
     electronBuilderVersion: resolveInstalledPackageVersion(

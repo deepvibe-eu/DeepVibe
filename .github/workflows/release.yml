@@ -54,6 +54,9 @@ jobs:
       - name: Build and package
         env:
           ZCODE_ENV: production
+          # Tag-Version (v1.0.2 → 1.0.2) in das Produkt backen; sonst maßgeblich
+          # die registrierte Flavor-Version in flavors/versions.json.
+          ZCODE_APP_VERSION: ${{ github.event.inputs.tag || github.ref_name }}
           # Noch unsigniert: Signierung/Notarisierung folgt später über Secrets.
           CSC_IDENTITY_AUTO_DISCOVERY: "false"
         run: pnpm bundle:desktop -- --os ${{ matrix.target }} --arch ${{ matrix.arch }}

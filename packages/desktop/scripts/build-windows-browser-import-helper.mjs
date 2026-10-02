@@ -6,6 +6,10 @@ import { arch, platform } from "node:os";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { runCommand } from "../../../scripts/spawn-command.mjs";
+import {
+  normalizeAppVersion,
+  resolveDesktopProductVersionFromEnvironment,
+} from "./flavor-version.mjs";
 
 const scriptDir = dirname(fileURLToPath(import.meta.url));
 const desktopRoot = resolve(scriptDir, "..");
@@ -16,7 +20,13 @@ const targetKey = `win32-${targetArch}`;
 const outputDir = resolve(desktopRoot, `bundled-tools/${targetKey}/browser-import`);
 const outputPath = resolve(outputDir, "zcode-browser-import-helper.exe");
 const generatedAssemblyInfoPath = resolve(outputDir, "BrowserImportAssemblyInfo.g.cs");
-const appVersion = JSON.parse(readFileSync(resolve(workspaceRoot, "package.json"), "utf8")).version;
+const rootPackageJson = JSON.parse(readFileSync(resolve(workspaceRoot, "package.json"), "utf8"));
+// 与 build-metadata 用同一条 Flavor 版本解析，避免 helper 与安装包/About 版本不一致。
+const { version: resolvedAppVersion } = resolveDesktopProductVersionFromEnvironment({
+  workspaceDir: workspaceRoot,
+  rootVersion: rootPackageJson.version,
+});
+const appVersion = normalizeAppVersion(resolvedAppVersion);
 const buildCommit = (
   process.env.ZCODE_COMMIT ??
   execFileSync("git", ["rev-parse", "--short=8", "HEAD"], {

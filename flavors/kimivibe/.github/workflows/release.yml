@@ -52,6 +52,9 @@ jobs:
         env:
           ZCODE_ENV: production
           ZCODE_KIMI_IDENTITY: "1"
+          # Tag-Version (kimivibe-v1.0.2 → 1.0.2) in das Produkt backen; sonst
+          # maßgeblich die registrierte Flavor-Version in flavors/versions.json.
+          ZCODE_APP_VERSION: ${{ github.event.inputs.tag || github.ref_name }}
           CSC_IDENTITY_AUTO_DISCOVERY: "false"
         run: pnpm bundle:desktop -- --os ${{ matrix.target }} --arch ${{ matrix.arch }}
 
