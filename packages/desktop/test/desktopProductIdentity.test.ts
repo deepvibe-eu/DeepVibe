@@ -24,6 +24,24 @@ test("Preview-Identität hat Vorrang vor DeepSeek", () => {
   assert.equal(resolveDesktopProductFlavor(env), "preview");
 });
 
+test("LamaVibe wird über ZCODE_LAMA_IDENTITY=1 gewählt", () => {
+  const env = { ZCODE_ENV: "production", ZCODE_LAMA_IDENTITY: "1" };
+  assert.equal(resolveDesktopProductFlavor(env), "lama");
+  const identity = resolveDesktopProductIdentity(env);
+  assert.equal(identity.appId, "eu.lamavibe.ide");
+  assert.equal(identity.productName, "LamaVibe");
+  assert.equal(identity.linuxExecutableName, "lamavibe");
+});
+
+test("Kimi hat Vorrang vor Lama", () => {
+  const env = {
+    ZCODE_ENV: "production",
+    ZCODE_KIMI_IDENTITY: "1",
+    ZCODE_LAMA_IDENTITY: "1",
+  };
+  assert.equal(resolveDesktopProductFlavor(env), "kimi");
+});
+
 test("ohne Schalter bleibt die bisherige Auflösung erhalten", () => {
   assert.equal(resolveDesktopProductFlavor({ ZCODE_ENV: "production" }), "production");
   assert.equal(resolveDesktopProductFlavor({ ZCODE_ENV: "test" }), "preview");

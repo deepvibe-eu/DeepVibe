@@ -2,7 +2,7 @@ import type { ZCodeRuntimeEnv } from "./runtimeEnv.js";
 
 export type ZCodeEnv = "test" | "production";
 /** 安装包身份：决定应用名、app id、Electron 数据目录与更新策略；与后端环境 `ZCodeEnv` 是两个轴。 */
-export type ZCodeProductFlavor = "production" | "preview" | "deepseek" | "kimi";
+export type ZCodeProductFlavor = "production" | "preview" | "deepseek" | "kimi" | "lama";
 export type ArmsRumEnv = "local" | "prod";
 
 // 非构建环境（如 e2e 测试的 mocha）下 define 不存在，用 typeof 检查 + fallback 避免 ReferenceError
@@ -31,7 +31,8 @@ export function normalizeZCodeProductFlavor(
     normalized === "production" ||
     normalized === "preview" ||
     normalized === "deepseek" ||
-    normalized === "kimi"
+    normalized === "kimi" ||
+    normalized === "lama"
   ) {
     return normalized;
   }
@@ -44,12 +45,12 @@ export const ZCODE_PRODUCT_FLAVOR = normalizeZCodeProductFlavor(
 );
 
 /** Anbieter-Bindung einer Vibe-App (Fëa): jede App ist fest auf genau einen Anbieter gelegt. */
-export type VibeFixedProviderTemplateId = "deepseek" | "moonshot-kimi";
+export type VibeFixedProviderTemplateId = "deepseek" | "moonshot-kimi" | "ollama";
 
 /**
  * Kein Multihoster: jede Vibe-App bindet genau eine Fëa. DeepVibe (production) und die
- * Preview-/DeepSeek-Flavors binden an DeepSeek; die Familie (KimiVibe/MavisVibe/LamaVibe)
- * ergänzt hier später weitere Template-IDs, sobald die jeweiligen Flavors existieren.
+ * Preview-/DeepSeek-Flavors binden an DeepSeek; die Familie (KimiVibe/LamaVibe/…) ergänzt
+ * hier je Flavor ihr Anbieter-Template.
  */
 const FIXED_PROVIDER_TEMPLATE_ID_BY_FLAVOR: Record<
   ZCodeProductFlavor,
@@ -59,6 +60,7 @@ const FIXED_PROVIDER_TEMPLATE_ID_BY_FLAVOR: Record<
   preview: "deepseek",
   deepseek: "deepseek",
   kimi: "moonshot-kimi",
+  lama: "ollama",
 };
 
 export const VIBE_FIXED_PROVIDER_TEMPLATE_ID =
@@ -78,13 +80,14 @@ export interface VibePersona {
 /**
  * Jede Fëa hat ihren eigenen Namen und ihr eigenes Produkt; der Flavor entscheidet,
  * welche Persona in die Laufzeit-Identität und die UI-Ansprache kompiliert wird.
- * Neue Flavors (kimi/mavis/llama/…) ergänzen hier ihren Eintrag.
+ * Neue Flavors (kimi/lama/mavis/…) ergänzen hier ihren Eintrag.
  */
 const VIBE_PERSONA_BY_FLAVOR: Record<ZCodeProductFlavor, VibePersona> = {
   production: { name: "Seeky", productName: "DeepVibe", providerLabel: "DeepSeek" },
   preview: { name: "Seeky", productName: "DeepVibe", providerLabel: "DeepSeek" },
   deepseek: { name: "Seeky", productName: "DeepVibe", providerLabel: "DeepSeek" },
   kimi: { name: "Kimi", productName: "KimiVibe", providerLabel: "Kimi" },
+  lama: { name: "Lama", productName: "LamaVibe", providerLabel: "Ollama" },
 };
 
 export const VIBE_PERSONA = VIBE_PERSONA_BY_FLAVOR[ZCODE_PRODUCT_FLAVOR];
@@ -99,6 +102,7 @@ const VIBE_DATA_DIR_NAME_BY_FLAVOR: Record<ZCodeProductFlavor, string> = {
   preview: ".zcode",
   deepseek: ".zcode",
   kimi: ".kimivibe",
+  lama: ".lamavibe",
 };
 
 export const VIBE_DATA_DIR_NAME = VIBE_DATA_DIR_NAME_BY_FLAVOR[ZCODE_PRODUCT_FLAVOR];
@@ -129,6 +133,7 @@ const VIBE_UPDATE_FEED_URL_BY_FLAVOR: Record<ZCodeProductFlavor, string | null> 
   preview: "https://github.com/deepvibe-eu/deepvibe/releases/latest/download",
   deepseek: "https://github.com/deepvibe-eu/deepvibe/releases/latest/download",
   kimi: "https://github.com/deepvibe-eu/KimiVibe/releases/latest/download",
+  lama: "https://github.com/deepvibe-eu/LamaVibe/releases/latest/download",
 };
 
 export const VIBE_UPDATE_FEED_URL = VIBE_UPDATE_FEED_URL_BY_FLAVOR[ZCODE_PRODUCT_FLAVOR];

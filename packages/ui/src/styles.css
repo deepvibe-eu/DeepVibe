@@ -2075,3 +2075,12 @@ html[data-vibe-flavor="kimi"].theme-zai-light {
 html[data-vibe-flavor="kimi"].theme-zai-dark {
   --color-brand: #66b0ff;
 }
+
+/* LamaVibe: monochrome (Ollama) brand color */
+html[data-vibe-flavor="lama"].theme-zai-light {
+  --color-brand: #4a4a4a;
+}
+
+html[data-vibe-flavor="lama"].theme-zai-dark {
+  --color-brand: #d0d0d0;
+}

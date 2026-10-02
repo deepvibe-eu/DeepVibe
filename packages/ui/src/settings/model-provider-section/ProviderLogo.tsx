@@ -10,6 +10,7 @@ import bigModelLogo from "@/assets/provider-icons/logo-bigmodel.svg";
 import deepSeekLogo from "@/assets/brand/deepvibe-logo.png";
 import miniMaxLogo from "@/assets/provider-icons/model-provider-minimax.png";
 import moonshotKimiLogo from "@/assets/provider-icons/model-provider-moonshot-kimi.png";
+import ollamaLogo from "@/assets/provider-icons/model-provider-ollama.png";
 import openAiLogo from "@/assets/provider-icons/model-provider-openai.png";
 import xAiLogo from "@/assets/provider-icons/model-provider-xai.png";
 import xiaomiMimoLogo from "@/assets/provider-icons/model-provider-xiaomi-mimo.png";
@@ -34,6 +35,7 @@ const BUILTIN_PROVIDER_LOGO_ASSETS: Readonly<Record<string, BuiltinProviderLogoA
   bigmodel: { light: bigModelLogo },
   "start-plan": { light: startPlanLogo },
   "moonshot-kimi": { light: moonshotKimiLogo },
+  ollama: { light: ollamaLogo },
   minimax: { light: miniMaxLogo },
   deepseek: { light: deepSeekLogo },
   "alibaba-model-studio": { light: alibabaModelStudioLogo },

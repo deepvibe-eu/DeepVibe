@@ -10,9 +10,10 @@ const requestedEnv = process.argv[2]?.trim().toLowerCase();
 const agentBytecode = process.argv.slice(3).includes("--agent-bytecode");
 const deepseekIdentity = process.argv.slice(3).includes("--deepseek");
 const kimiIdentity = process.argv.slice(3).includes("--kimi");
+const lamaIdentity = process.argv.slice(3).includes("--lama");
 if (requestedEnv !== "test" && requestedEnv !== "production") {
   console.error(
-    "Usage: node scripts/dev-desktop-env.mjs <test|production> [--agent-bytecode] [--deepseek] [--kimi]",
+    "Usage: node scripts/dev-desktop-env.mjs <test|production> [--agent-bytecode] [--deepseek] [--kimi] [--lama]",
   );
   process.exit(1);
 }
@@ -33,6 +34,7 @@ function run(command, args) {
           ZCODE_ENV: requestedEnv,
           ZCODE_DEEPSEEK_IDENTITY: deepseekIdentity ? "1" : "0",
           ZCODE_KIMI_IDENTITY: kimiIdentity ? "1" : "0",
+          ZCODE_LAMA_IDENTITY: lamaIdentity ? "1" : "0",
           ZCODE_DESKTOP_AGENT_BYTECODE: agentBytecode ? "1" : "0",
         },
         process.execPath,
@@ -64,7 +66,9 @@ function syncFlavorStartupLogo() {
   const brandDir = resolve(repoRoot, "packages/ui/src/assets/brand");
   const source = kimiIdentity
     ? resolve(repoRoot, "packages/ui/src/assets/moonshot_white.png")
-    : resolve(brandDir, "deepseek-whale-white.png");
+    : lamaIdentity
+      ? resolve(repoRoot, "packages/ui/src/assets/Ollama.png")
+      : resolve(brandDir, "deepseek-whale-white.png");
   const targetDir = resolve(repoRoot, "packages/desktop/src/renderer/public");
   mkdirSync(targetDir, { recursive: true });
   copyFileSync(source, resolve(targetDir, "startup-logo.png"));

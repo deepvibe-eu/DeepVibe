@@ -20,6 +20,13 @@ export const ZCODE_DEEPSEEK_IDENTITY_ENV = "ZCODE_DEEPSEEK_IDENTITY";
  */
 export const ZCODE_KIMI_IDENTITY_ENV = "ZCODE_KIMI_IDENTITY";
 
+/**
+ * Build-Zeit-Schalter für die Lama-Standalone-Identität: eigenes
+ * App-ID/Produktname, in dem nur Ollama als Anbieter sichtbar ist.
+ * Die Reihenfolge der Identitäten ist: preview > kimi > lama > deepseek > production.
+ */
+export const ZCODE_LAMA_IDENTITY_ENV = "ZCODE_LAMA_IDENTITY";
+
 const PRODUCTION_IDENTITY = Object.freeze({
   flavor: "production",
   appId: "eu.deepvibe.ide",
@@ -56,11 +63,21 @@ const KIMI_IDENTITY = Object.freeze({
   cuaHelperInstallVariant: "kimi",
 });
 
+const LAMA_IDENTITY = Object.freeze({
+  flavor: "lama",
+  appId: "eu.lamavibe.ide",
+  productName: "LamaVibe",
+  linuxExecutableName: "lamavibe",
+  linuxPackageName: "lamavibe",
+  cuaHelperInstallVariant: "lama",
+});
+
 export const desktopProductIdentities = Object.freeze({
   production: PRODUCTION_IDENTITY,
   preview: PREVIEW_IDENTITY,
   deepseek: DEEPSEEK_IDENTITY,
   kimi: KIMI_IDENTITY,
+  lama: LAMA_IDENTITY,
 });
 
 function normalizeDesktopZCodeEnv(env) {
@@ -113,6 +130,20 @@ export function isKimiIdentityRequested(env = process.env) {
   );
 }
 
+/** 与 Preview/DeepSeek/Kimi 相同的严格开关语义：只有 `1` 开启，空/`0` 关闭，其余构建期报错。 */
+export function isLamaIdentityRequested(env = process.env) {
+  const value = env[ZCODE_LAMA_IDENTITY_ENV]?.trim() ?? "";
+  if (value === "1") {
+    return true;
+  }
+  if (value === "" || value === "0") {
+    return false;
+  }
+  throw new Error(
+    `invalid ${ZCODE_LAMA_IDENTITY_ENV}=${env[ZCODE_LAMA_IDENTITY_ENV]}; expected 1 or 0`,
+  );
+}
+
 /**
  * 产品身份（flavor）与后端环境（`ZCODE_ENV`）是两个轴：
  * - `ZCODE_ENV=test` 一律是 Preview，测试后端不能顶着正式 `ZCode` 身份覆盖用户的正式安装；
@@ -122,8 +153,9 @@ export function isKimiIdentityRequested(env = process.env) {
  * Resolution order (explicit identity envs win over ZCODE_ENV default):
  * 1. preview  (ZCODE_PREVIEW_IDENTITY=1)  — highest priority
  * 2. kimi     (ZCODE_KIMI_IDENTITY=1)
- * 3. deepseek (ZCODE_DEEPSEEK_IDENTITY=1)
- * 4. production (ZCODE_ENV=production default) — lowest priority
+ * 3. lama     (ZCODE_LAMA_IDENTITY=1)
+ * 4. deepseek (ZCODE_DEEPSEEK_IDENTITY=1)
+ * 5. production (ZCODE_ENV=production default) — lowest priority
  */
 export function resolveDesktopProductFlavor(env = process.env) {
   if (isPreviewIdentityRequested(env)) {
@@ -131,6 +163,9 @@ export function resolveDesktopProductFlavor(env = process.env) {
   }
   if (isKimiIdentityRequested(env)) {
     return "kimi";
+  }
+  if (isLamaIdentityRequested(env)) {
+    return "lama";
   }
   if (isDeepSeekIdentityRequested(env)) {
     return "deepseek";
@@ -168,7 +203,9 @@ export function resolveWindowsAppUserModelIdForFlavor(flavor, runtime = { isPack
         ? "deepseek"
         : flavor === "kimi"
           ? "kimi"
-          : "production";
+          : flavor === "lama"
+            ? "lama"
+            : "production";
   return desktopProductIdentities[flavorKey].appId;
 }
 

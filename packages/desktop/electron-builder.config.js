@@ -80,8 +80,44 @@ const desktopProductFlavor = resolveDesktopProductFlavor({
   ...process.env,
   ZCODE_ENV: builtinProviderConfig.environment,
 });
-// KimiVibe nutzt eigene Icon-Dateien; DeepVibe/preview die bisherigen.
+// KimiVibe und LamaVibe nutzen eigene Icon-Dateien; DeepVibe/preview die bisherigen.
 const isKimiFlavor = desktopProductFlavor === "kimi";
+const isLamaFlavor = desktopProductFlavor === "lama";
+const flavorIcons = isKimiFlavor
+  ? {
+      app: "build/icon_kimi.png",
+      windows: "build/icon_kimi-windows.png",
+      linuxDir: "build/kimi-icons",
+      linux512: "build/kimi-icons/512x512.png",
+      winTray: "build/icon_kimi.ico",
+      win: "build/icon_kimi.ico",
+      mac: "build/icon_kimi.icns",
+      macInstaller: "build/icon_kimi_installer.icns",
+      winInstaller: "build/icon_kimi_installer.ico",
+    }
+  : isLamaFlavor
+    ? {
+        app: "build/icon_lama.png",
+        windows: "build/icon_lama-windows.png",
+        linuxDir: "build/lama-icons",
+        linux512: "build/lama-icons/512x512.png",
+        winTray: "build/icon_lama.ico",
+        win: "build/icon_lama.ico",
+        mac: "build/icon_lama.icns",
+        macInstaller: "build/icon_lama_installer.icns",
+        winInstaller: "build/icon_lama_installer.ico",
+      }
+    : {
+        app: "build/icon.png",
+        windows: "build/icon_windows.png",
+        linuxDir: "build/icons",
+        linux512: "build/icons/512x512.png",
+        winTray: "build/icon.ico",
+        win: "build/icon.ico",
+        mac: "build/icon.icns",
+        macInstaller: "build/icon_installer.icns",
+        winInstaller: "build/icon_installer.ico",
+      };
 const nativeSearchReleasePlan = resolveNativeSearchReleasePlan({
   platform: targetPlatform.os,
   arch: targetPlatform.arch,
@@ -236,6 +272,17 @@ if (
 ) {
   throw new Error(
     "KimiVibe macOS packaging requires APPLE_SIGNING_IDENTITY or CSC_NAME when ZCODE_ENABLE_MAC_SIGN=1",
+  );
+}
+
+// LamaVibe 同样要求 macOS 签名时必须有证书
+if (
+  desktopProductIdentity.flavor === "lama" &&
+  process.env.ZCODE_ENABLE_MAC_SIGN === "1" &&
+  !macSigningIdentity
+) {
+  throw new Error(
+    "LamaVibe macOS packaging requires APPLE_SIGNING_IDENTITY or CSC_NAME when ZCODE_ENABLE_MAC_SIGN=1",
   );
 }
 
@@ -616,22 +663,22 @@ export default {
       to: "config/provider/zcode-builtin.json",
     },
     {
-      // Flavor-abhängiges App-Icon: KimiVibe bzw. DeepVibe.
-      from: isKimiFlavor ? "build/icon_kimi.png" : "build/icon.png",
+      // Flavor-abhängiges App-Icon.
+      from: flavorIcons.app,
       to: "icon.png",
     },
     ...(targetPlatform.os === "linux"
       ? [
           {
             // AppImage 用户级 hicolor 图标安装使用真实 512x512 资源，避免目录标称尺寸和 PNG IHDR 不一致。
-            from: isKimiFlavor ? "build/kimi-icons/512x512.png" : "build/icons/512x512.png",
+            from: flavorIcons.linux512,
             to: "icon_512x512.png",
           },
         ]
       : []),
     {
       // Windows 独立图标：开发态和打包态都统一走同一套任务栏/窗口图标资源。
-      from: isKimiFlavor ? "build/icon_kimi-windows.png" : "build/icon_windows.png",
+      from: flavorIcons.windows,
       to: "icon_windows.png",
     },
     ...(targetPlatform.os === "win32"
@@ -639,7 +686,7 @@ export default {
           {
             // Windows 托盘图标：Tray 在打包态只能稳定读取 resources 下的独立资源。
             // 这里不复用窗口 PNG，避免通知区域在高 DPI 下退化成模糊缩放图。
-            from: isKimiFlavor ? "build/icon_kimi.ico" : "build/icon.ico",
+            from: flavorIcons.winTray,
             to: "tray_icon.ico",
           },
         ]
@@ -681,7 +728,7 @@ export default {
   ],
   mac: {
     target: ["dmg", "zip"],
-    icon: isKimiFlavor ? "build/icon_kimi.icns" : "build/icon.icns",
+    icon: flavorIcons.mac,
     category: "public.app-category.developer-tools",
     artifactName: buildDesktopArtifactName("mac"),
     extendInfo: {
@@ -715,12 +762,12 @@ export default {
   },
   win: {
     target: ["nsis"],
-    icon: isKimiFlavor ? "build/icon_kimi.ico" : "build/icon.ico",
+    icon: flavorIcons.win,
     artifactName: buildDesktopArtifactName("win"),
   },
   linux: {
     target: ["AppImage", "deb", "rpm", "pacman"],
-    icon: isKimiFlavor ? "build/kimi-icons" : "build/icons",
+    icon: flavorIcons.linuxDir,
     artifactName: buildDesktopArtifactName("linux"),
     // desktop 包名是 scoped package（@zcode/desktop），electron-builder 默认会把
     // Linux executable/Icon 推成 @zcodedesktop。部分桌面环境无法按这个 icon name 命中
@@ -763,10 +810,7 @@ export default {
     // 使用自定义安装背景图。
     background: "build/dmg_background.png",
     // 安装盘图标统一使用安装专用素材，避免复用应用图标导致安装识别度不足。
-    icon:
-      desktopProductFlavor === "kimi"
-        ? "build/icon_kimi_installer.icns"
-        : "build/icon_installer.icns",
+    icon: flavorIcons.macInstaller,
     contents: [
       // 实验性调整：为隐藏资源文件显式指定图标坐标，尽量把它们移到角落区域。
       { x: 640, y: 56, type: "file", path: ".background.tiff" },
@@ -779,18 +823,9 @@ export default {
     oneClick: false,
     allowToChangeInstallationDirectory: true,
     // Windows 安装流程使用独立安装图标，和应用运行时图标解耦。
-    installerIcon:
-      desktopProductFlavor === "kimi"
-        ? "build/icon_kimi_installer.ico"
-        : "build/icon_installer.ico",
-    uninstallerIcon:
-      desktopProductFlavor === "kimi"
-        ? "build/icon_kimi_installer.ico"
-        : "build/icon_installer.ico",
-    installerHeaderIcon:
-      desktopProductFlavor === "kimi"
-        ? "build/icon_kimi_installer.ico"
-        : "build/icon_installer.ico",
+    installerIcon: flavorIcons.winInstaller,
+    uninstallerIcon: flavorIcons.winInstaller,
+    installerHeaderIcon: flavorIcons.winInstaller,
   },
   detectUpdateChannel: false,
   publish: {

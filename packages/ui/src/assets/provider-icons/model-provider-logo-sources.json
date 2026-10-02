@@ -64,6 +64,14 @@
       "normalization": "Official right-angle icon downsampled from 1024x1024 to 80x80 RGB."
     },
     {
+      "brand": "Ollama",
+      "file": "model-provider-ollama.png",
+      "providerIds": ["ollama"],
+      "sourceUrl": "repository-existing:packages/ui/src/assets/Ollama.png",
+      "sourceOwner": "Ollama",
+      "normalization": "Lama mark fitted into a 256x256 transparent square."
+    },
+    {
       "brand": "MiniMax",
       "file": "model-provider-minimax.png",
       "providerIds": ["minimax"],

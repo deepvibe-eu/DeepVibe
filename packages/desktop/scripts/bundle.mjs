@@ -749,6 +749,8 @@ async function main() {
     let sourcePath = "";
     if (desktopProductFlavor === "kimi") {
       sourcePath = resolve(desktopRoot, "..", "ui", "src", "assets", "moonshot_white.png");
+    } else if (desktopProductFlavor === "lama") {
+      sourcePath = resolve(desktopRoot, "..", "ui", "src", "assets", "Ollama.png");
     } else {
       sourcePath = resolve(
         desktopRoot,
