@@ -130,7 +130,10 @@ import {
   updateZCodeStdioTapDevMenuState,
 } from "./desktopApplicationMenu.js";
 import { applyAppIcon } from "./desktopWindowChrome.js";
-import { resolveWindowsAppUserModelIdForFlavor } from "../../scripts/desktop-product-identity.mjs";
+import {
+  resolveDesktopProductIdentity,
+  resolveWindowsAppUserModelIdForFlavor,
+} from "../../scripts/desktop-product-identity.mjs";
 import type { DesktopWindowSize } from "./desktopWindowSize.js";
 import { maybeWarnArchitectureMismatch } from "./desktopArchitectureGuard.js";
 import { maybeBlockStartupForForceUpdate } from "./forceUpdateGuard.js";
@@ -257,6 +260,16 @@ const localMediaPreviewPathRegistry = createLocalMediaPreviewPathRegistry();
 // 仅本地开发运行默认开启远程调试端口，并允许 e2e 通过环境变量交给 Chromedriver 接管。
 if (!app.isPackaged && process.env.ZCODE_DISABLE_FIXED_REMOTE_DEBUGGING_PORT !== "1") {
   app.commandLine.appendSwitch("remote-debugging-port", "9229");
+}
+
+// Linux: WM_CLASS an den Paketnamen angleichen, damit Taskleiste/Dock das zugehörige
+// .desktop-Icon (gleicher Dateiname) zuverlässig zuordnen — sonst zeigt der Desktop
+// bei frameless/transparenten Fenstern ein Default-Icon.
+if (process.platform === "linux") {
+  app.commandLine.appendSwitch(
+    "class",
+    resolveDesktopProductIdentity(process.env).linuxExecutableName,
+  );
 }
 
 app.setName(runtimeApplicationName);

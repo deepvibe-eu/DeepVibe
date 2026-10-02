@@ -87,6 +87,23 @@ export const LOCALE_DISPLAY_NAMES: Record<Locale, string> = {
   "ru-RU": "Русский",
 };
 
+/**
+ * Mappt einen BCP-47-Sprachcode (z. B. „de", „de-DE", „zh-Hans") auf eine unterstützte
+ * Locale. Unbekannte Sprachen ergeben `undefined` — der Aufrufer entscheidet den Fallback
+ * (Systemsprache → Englisch). Inhalte bleiben unberührt, nur die Sprache wird gewählt.
+ */
+export function resolveLocaleFromLanguageTag(tag: string | undefined): Locale | undefined {
+  const lower = tag?.trim().toLowerCase();
+  if (!lower) return undefined;
+  for (const locale of Object.keys(LOCALE_DISPLAY_NAMES) as Locale[]) {
+    const language = locale.toLowerCase().split("-")[0] ?? "";
+    if (lower === locale.toLowerCase() || lower === language || lower.startsWith(`${language}-`)) {
+      return locale;
+    }
+  }
+  return undefined;
+}
+
 /** ZCode 运行中继续输入时的交互行为 */
 export type ZCodeInteractionBehavior = "queue" | "guide";
 
