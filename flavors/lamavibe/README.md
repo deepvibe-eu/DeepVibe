@@ -1,15 +1,12 @@
+# LamaVibe
+
 <div align="center">
-  <img src="packages/ui/src/assets/Ollama.png" alt="LamaVibe" width="128" height="188" />
+  <img src="packages/desktop/build/README-images/LamaVibe_ru.png" alt="LamaVibe screenshot" width="auto" />
 </div>
+
 <p align="center">
   <a href="https://deepvibe.eu/lamavibe">lamavibe.eu</a>
 </p>
-
-<div align="center">
-  <img src="packages/desktop/build/README-images/LamaVibe_ru.png" alt="LamaVibe screenshot" width="820" />
-</div>
-
-# LamaVibe
 
 LamaVibe is the **Ollama build** of the _Vibe_ family — a fork of ZCode focused on a single provider: **Ollama** (local models). One model, one workspace, a partner — not an agent.
 

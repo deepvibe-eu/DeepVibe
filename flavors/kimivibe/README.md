@@ -1,15 +1,12 @@
+# KimiVibe
+
 <div align="center">
-  <img src="packages/ui/src/assets/kimi_animated.png" alt="KimiVibe" width="128" height="128" />
+  <img src="packages/desktop/build/README-images/KimiVibe_en.png" alt="KimiVibe screenshot" width="auto" />
 </div>
-<p align="center">
+
+<p align="right">
   <a href="https://deepvibe.eu/kimivibe">kimivibe.eu</a>
 </p>
-
-<div align="center">
-  <img src="packages/desktop/build/README-images/KimiVibe_en.png" alt="KimiVibe screenshot" width="820" />
-</div>
-
-# KimiVibe
 
 KimiVibe is the **Kimi build** of the *Vibe* family — a fork of ZCode focused on a single provider: **Kimi** (Moonshot AI). One model, one workspace, a partner — not an agent.
 

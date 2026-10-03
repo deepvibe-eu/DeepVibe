@@ -1,18 +1,15 @@
 # DeepVibe
 
 <div align="center">
-  <img src="packages/ui/src/assets/brand/deepvibe-logo.png" alt="DeepVibe" width="128" height="128" />
+  <img src="packages/desktop/build/README-images/DeepVibe_de.png" alt="DeepVibe screenshot" width="auto" />
 </div>
-<p align="center">
-  <a href="https://deepvibe.eu">deepvibe.eu</a>
-</p>
-<p align="center">
-  <a href="README.zh.md">简体中文</a> | English
-</p>
 
-<div align="center">
-  <img src="packages/desktop/build/README-images/DeepVibe_de.png" alt="DeepVibe screenshot" width="820" />
-</div>
+  <p align="center">
+    <a href="https://deepvibe.eu">deepvibe.eu</a>
+  </p>
+  <p align="center">
+    <a href="README.zh.md">简体中文</a> | English
+  </p>
 
 DeepVibe is a **fork of ZCode**, focused on a single provider: DeepSeek.
 
@@ -24,7 +21,7 @@ Built on ZCode (Apache-2.0); its license and NOTICE are preserved. DeepVibe is a
 
 This repository contains the clients, backend services, shared UI, and the CLI and runtime source code.
 
-The app interface ships in **English, Simplified Chinese, German, Spanish, French and Russian**.
+This app interface ships in **English, Simplified Chinese, German, Spanish, French and Russian**.
 
 ## Updates
 
