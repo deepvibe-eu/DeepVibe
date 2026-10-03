@@ -291,27 +291,25 @@ export class ProviderConfigResolver {
         enabled && accessEntitled && accountCurrent && providerIssues.length === 0;
       const isKeylessProvider = config.access?.type === "none";
       const models = orderedModelIds.map((modelId): ResolvedProviderModel => {
-        const resolvedModelConfig = effectiveModelRules.resolve({
+        const modelConfigInput = {
           providerId,
           templateId,
           modelId,
           apiType: config.api?.type,
           baseUrl: config.api?.baseUrl,
-        });
+        };
+        const resolvedModelConfig = effectiveModelRules.resolve(modelConfigInput);
         // Keylose lokale Provider (z. B. Ollama) haben keine verlässliche Tool-Capability: Die
         // generische Built-in-Regel setzt supportsToolCall=true, was Ollama mit HTTP 400
-        // "does not support tools" quittiert. Für keylose Provider Tool-Calls abschalten,
-        // damit Chat lokal funktioniert; Capability-Erkennung ist ein Folgeschritt.
-        const modelConfig = isKeylessProvider
-          ? resolvedModelConfig.withoutToolCallSupport()
-          : resolvedModelConfig;
-        const resolvedBuiltinConfig = input.zcodeBuiltinModelRules.resolve({
-          providerId,
-          templateId,
-          modelId,
-          apiType: config.api?.type,
-          baseUrl: config.api?.baseUrl,
-        });
+        // "does not support tools" quittiert. Default daher ohne Tool-Calls — ein expliziter
+        // Personal-Override (Settings-Toggle "Tool-Aufrufe") gewinnt aber.
+        const personalSupportsToolCall = input.personalModels.resolve(modelConfigInput).properties
+          ?.supportsToolCall;
+        const modelConfig =
+          isKeylessProvider && personalSupportsToolCall === undefined
+            ? resolvedModelConfig.withoutToolCallSupport()
+            : resolvedModelConfig;
+        const resolvedBuiltinConfig = input.zcodeBuiltinModelRules.resolve(modelConfigInput);
         const effectiveBuiltinConfig = isKeylessProvider
           ? resolvedBuiltinConfig.withoutToolCallSupport()
           : resolvedBuiltinConfig;

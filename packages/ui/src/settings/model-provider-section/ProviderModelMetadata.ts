@@ -21,6 +21,7 @@ export interface ProviderModelDraftValues {
   clearPersonalConfigValue?: boolean;
   /** 字段来源是用户意图，不依赖整份表单是否有效或数值是否恰好等于推荐。 */
   overriddenFieldsValue?: readonly string[];
+  supportsToolCallValue?: boolean;
   supportsJsonSchemaOutputValue?: boolean;
   supportsNativeWebSearchValue?: boolean;
   supportsMidConversationSystemValue?: boolean;
@@ -69,6 +70,7 @@ export function createProviderModelDraftValues(
     useRecommendedConfigValue: model.useRecommendedConfig !== false,
     clearPersonalConfigValue: false,
     overriddenFieldsValue: personalDraftFieldKeys(model.personalConfig),
+    supportsToolCallValue: properties.supportsToolCall ?? false,
     supportsJsonSchemaOutputValue: properties.supportsJsonSchemaOutput ?? false,
     supportsNativeWebSearchValue: properties.supportsNativeWebSearch ?? false,
     supportsMidConversationSystemValue: properties.supportsMidConversationSystem ?? false,
@@ -83,6 +85,7 @@ export function createProviderModelDraftValues(
 function personalDraftFieldKeys(config: ModelConfigObject): string[] {
   const result: string[] = [];
   for (const key of [
+    "supportsToolCall",
     "supportsJsonSchemaOutput",
     "supportsNativeWebSearch",
     "supportsMidConversationSystem",
@@ -178,7 +181,10 @@ export function resolveProviderModelDraftCommit({
       supportsPdf: draft.inputFormatValue.supportsPdf,
     },
     outputFormat: currentModel.config.properties?.outputFormat,
-    supportsToolCall: currentModel.config.properties?.supportsToolCall,
+    supportsToolCall:
+      draft.supportsToolCallValue ??
+      currentModel.config.properties?.supportsToolCall ??
+      false,
     supportsJsonSchemaOutput:
       draft.supportsJsonSchemaOutputValue ??
       currentModel.config.properties?.supportsJsonSchemaOutput ??
@@ -203,6 +209,7 @@ export function resolveProviderModelDraftCommit({
     assignMutable(personalProperties, "contextWindow", contextWindow);
   else deleteMutable(personalProperties, "contextWindow");
   for (const key of [
+    "supportsToolCall",
     "supportsJsonSchemaOutput",
     "supportsNativeWebSearch",
     "supportsMidConversationSystem",

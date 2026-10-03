@@ -348,6 +348,7 @@ export function ProviderModelMetadataDialog({
                 <div className="flex flex-wrap gap-2" data-model-capabilities-options="true">
                   {(
                     [
+                      "supportsToolCall",
                       "supportsJsonSchemaOutput",
                       "supportsNativeWebSearch",
                       "supportsMidConversationSystem",
