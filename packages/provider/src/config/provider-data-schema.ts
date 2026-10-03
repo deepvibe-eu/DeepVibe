@@ -38,6 +38,16 @@ export const completeApiKeyAccessDataSchema = apiKeyAccessDataSchema.extend({
   apiKey: nonBlankRequiredString,
 });
 
+// 本地/无需鉴权的 Provider（如 Ollama）：没有任何凭据字段，完整校验直接通过。
+// 没有这个类型时，Ollama 这类本地 Provider 会被 API-Key 必填校验挡住，
+// 于是 providerExecutable=false，模型即使启用也不可选。
+export const noAuthAccessDataSchema = z
+  .object({
+    type: z.literal("none"),
+  })
+  .strict();
+export const completeNoAuthAccessDataSchema = noAuthAccessDataSchema;
+
 export const completeZhipuAccountAccessDataSchema = z
   .object({
     type: z.literal("zhipu-account"),
@@ -55,10 +65,12 @@ export const zhipuAccountAccessDataSchema = z
 export const providerAccessDataSchema = z.discriminatedUnion("type", [
   apiKeyAccessDataSchema,
   zhipuAccountAccessDataSchema,
+  noAuthAccessDataSchema,
 ]);
 const completeProviderAccessDataSchema = z.discriminatedUnion("type", [
   completeApiKeyAccessDataSchema,
   completeZhipuAccountAccessDataSchema,
+  completeNoAuthAccessDataSchema,
 ]);
 
 export const completeProviderApiDataSchema = z

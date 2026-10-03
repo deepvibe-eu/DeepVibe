@@ -6,6 +6,7 @@ import {
   completeZhipuAccountAccessDataSchema,
   completeProviderApiDataSchema,
   completeProviderConfigDataSchema,
+  noAuthAccessDataSchema,
   type providerApiTypeDataSchema,
   type providerGroupDataSchema,
   type zhipuAccountModeDataSchema,
@@ -111,7 +112,39 @@ export class ZhipuAccountAccessConfig extends ConfigOverlay<ZhipuAccountAccessCo
   }
 }
 
-export type ProviderAccessConfig = ApiKeyAccessConfig | ZhipuAccountAccessConfig;
+export type ProviderAccessConfig =
+  | ApiKeyAccessConfig
+  | ZhipuAccountAccessConfig
+  | NoAuthAccessConfig;
+
+export type NoAuthAccessConfigInput = { readonly type?: "none" };
+
+export type NoAuthAccessConfigObject = Readonly<z.infer<typeof noAuthAccessDataSchema>>;
+
+/**
+ * 本地或无需鉴权的 Provider（z. B. Ollama unter http://localhost:11434/v1）。
+ * 没有 Key 字段，`validateComplete` 直接通过，这样 Provider 才能 executable 并被发布到 Registry。
+ */
+export class NoAuthAccessConfig extends ConfigOverlay<NoAuthAccessConfig> {
+  readonly type = "none" as const;
+
+  constructor(_input: NoAuthAccessConfigInput = {}) {
+    super();
+    Object.freeze(this);
+  }
+
+  overlay(_next: NoAuthAccessConfig): NoAuthAccessConfig {
+    return new NoAuthAccessConfig({ type: "none" });
+  }
+
+  validateComplete(path: readonly string[] = []): readonly ConfigValidationIssue[] {
+    return validateConfigSchema(noAuthAccessDataSchema, this.toJSON(), path);
+  }
+
+  toJSON(): NoAuthAccessConfigObject {
+    return { type: this.type };
+  }
+}
 
 export type ProviderAccessConfigObject = Readonly<z.infer<typeof providerAccessDataSchema>>;
 
@@ -505,6 +538,8 @@ function overlayProviderAccess(
       return current.overlay(next as ApiKeyAccessConfig);
     case "zhipu-account":
       return current.overlay(next as ZhipuAccountAccessConfig);
+    case "none":
+      return current.overlay(next as NoAuthAccessConfig);
   }
 }
 

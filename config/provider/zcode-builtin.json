@@ -232,7 +232,7 @@
           },
           "config": {
             "access": {
-              "type": "api-key"
+              "type": "none"
             },
             "api": {
               "type": "openai-chat-completions",

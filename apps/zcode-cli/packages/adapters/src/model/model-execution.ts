@@ -18,7 +18,7 @@ import {
   type ModelProviderId,
   type ModelRequestAuth,
 } from "@zcode/contracts";
-import type { RegistryProviderConfig } from "@zcode/provider";
+import { isApiKeyAccess, type RegistryProviderConfig } from "@zcode/provider";
 import { withOpenRouterAttributionHeaders } from "@zcode/shared";
 import { createAnthropicCompatFetch } from "./anthropic-stream-compat.js";
 import { createOpenAIResponsesJsonCompatFetch } from "./openai-responses-json-compat.js";
@@ -352,7 +352,9 @@ function toAiSdkProviderConfig(
   config: RegistryProviderConfig,
 ): AiSdkProviderConfig {
   const common = {
-    ...(config.access.type !== "zhipu-account" && config.access.apiKey
+    // 无鉴权 Provider（access.type === "none"，如 lokales Ollama）没有 apiKey 字段，
+    // 不能再用 `type !== "zhipu-account"` 直接取 key，否则类型与运行都会出错。
+    ...(isApiKeyAccess(config.access) && config.access.apiKey
       ? { apiKey: config.access.apiKey }
       : {}),
     baseURL: config.api.baseUrl,
