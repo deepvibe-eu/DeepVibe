@@ -751,6 +751,8 @@ async function main() {
       sourcePath = resolve(desktopRoot, "..", "ui", "src", "assets", "moonshot_white.png");
     } else if (desktopProductFlavor === "lama") {
       sourcePath = resolve(desktopRoot, "..", "ui", "src", "assets", "Ollama.png");
+    } else if (desktopProductFlavor === "klaus") {
+      sourcePath = resolve(desktopRoot, "..", "ui", "src", "assets", "Claude.png");
     } else {
       sourcePath = resolve(
         desktopRoot,

@@ -34,11 +34,29 @@ test("LamaVibe wird über ZCODE_LAMA_IDENTITY=1 gewählt", () => {
   assert.equal(identity.linuxExecutableName, "lamavibe");
 });
 
+test("KlausVibe wird über ZCODE_KLAUS_IDENTITY=1 gewählt", () => {
+  const env = { ZCODE_ENV: "production", ZCODE_KLAUS_IDENTITY: "1" };
+  assert.equal(resolveDesktopProductFlavor(env), "klaus");
+  const identity = resolveDesktopProductIdentity(env);
+  assert.equal(identity.appId, "eu.klausvibe.ide");
+  assert.equal(identity.productName, "KlausVibe");
+  assert.equal(identity.linuxExecutableName, "klausvibe");
+});
+
 test("Kimi hat Vorrang vor Lama", () => {
   const env = {
     ZCODE_ENV: "production",
     ZCODE_KIMI_IDENTITY: "1",
     ZCODE_LAMA_IDENTITY: "1",
+  };
+  assert.equal(resolveDesktopProductFlavor(env), "kimi");
+});
+
+test("Kimi hat Vorrang vor Klaus", () => {
+  const env = {
+    ZCODE_ENV: "production",
+    ZCODE_KIMI_IDENTITY: "1",
+    ZCODE_KLAUS_IDENTITY: "1",
   };
   assert.equal(resolveDesktopProductFlavor(env), "kimi");
 });
@@ -55,6 +73,7 @@ test("ungültiger DeepSeek-Schalter schlägt im Build fehl", () => {
 test("resolveLinuxExecutableNameForFlavor nutzt den Flavor, nicht process.env", () => {
   assert.equal(resolveLinuxExecutableNameForFlavor("kimi"), "kimivibe");
   assert.equal(resolveLinuxExecutableNameForFlavor("lama"), "lamavibe");
+  assert.equal(resolveLinuxExecutableNameForFlavor("klaus"), "klausvibe");
   assert.equal(resolveLinuxExecutableNameForFlavor("deepseek"), "deepvibe-deepseek");
   assert.equal(resolveLinuxExecutableNameForFlavor("preview"), "deepvibe-preview");
   assert.equal(resolveLinuxExecutableNameForFlavor("production"), "deepvibe");

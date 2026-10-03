@@ -80,9 +80,10 @@ const desktopProductFlavor = resolveDesktopProductFlavor({
   ...process.env,
   ZCODE_ENV: builtinProviderConfig.environment,
 });
-// KimiVibe und LamaVibe nutzen eigene Icon-Dateien; DeepVibe/preview die bisherigen.
+// KimiVibe, LamaVibe und KlausVibe nutzen eigene Icon-Dateien; DeepVibe/preview die bisherigen.
 const isKimiFlavor = desktopProductFlavor === "kimi";
 const isLamaFlavor = desktopProductFlavor === "lama";
+const isKlausFlavor = desktopProductFlavor === "klaus";
 const flavorIcons = isKimiFlavor
   ? {
       app: "build/icon_kimi.png",
@@ -107,17 +108,29 @@ const flavorIcons = isKimiFlavor
         macInstaller: "build/icon_lama_installer.icns",
         winInstaller: "build/icon_lama_installer.ico",
       }
-    : {
-        app: "build/icon.png",
-        windows: "build/icon_windows.png",
-        linuxDir: "build/icons",
-        linux512: "build/icons/512x512.png",
-        winTray: "build/icon.ico",
-        win: "build/icon.ico",
-        mac: "build/icon.icns",
-        macInstaller: "build/icon_installer.icns",
-        winInstaller: "build/icon_installer.ico",
-      };
+    : isKlausFlavor
+      ? {
+          app: "build/icon_klaus.png",
+          windows: "build/icon_klaus-windows.png",
+          linuxDir: "build/klaus-icons",
+          linux512: "build/klaus-icons/512x512.png",
+          winTray: "build/icon_klaus.ico",
+          win: "build/icon_klaus.ico",
+          mac: "build/icon_klaus.icns",
+          macInstaller: "build/icon_klaus_installer.icns",
+          winInstaller: "build/icon_klaus_installer.ico",
+        }
+      : {
+          app: "build/icon.png",
+          windows: "build/icon_windows.png",
+          linuxDir: "build/icons",
+          linux512: "build/icons/512x512.png",
+          winTray: "build/icon.ico",
+          win: "build/icon.ico",
+          mac: "build/icon.icns",
+          macInstaller: "build/icon_installer.icns",
+          winInstaller: "build/icon_installer.ico",
+        };
 const nativeSearchReleasePlan = resolveNativeSearchReleasePlan({
   platform: targetPlatform.os,
   arch: targetPlatform.arch,

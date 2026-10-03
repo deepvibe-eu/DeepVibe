@@ -2084,3 +2084,12 @@ html[data-vibe-flavor="lama"].theme-zai-light {
 html[data-vibe-flavor="lama"].theme-zai-dark {
   --color-brand: #d0d0d0;
 }
+
+/* KlausVibe: coral (Claude) brand color */
+html[data-vibe-flavor="klaus"].theme-zai-light {
+  --color-brand: #d97757;
+}
+
+html[data-vibe-flavor="klaus"].theme-zai-dark {
+  --color-brand: #d97757;
+}

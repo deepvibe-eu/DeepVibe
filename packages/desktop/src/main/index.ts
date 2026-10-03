@@ -296,7 +296,8 @@ process.on("unhandledRejection", (reason) => {
 // Dev nutzt keinen electron-builder: Icon-Pfad hier flavor-abhängig wählen.
 const isKimiFlavor = ZCODE_PRODUCT_FLAVOR === "kimi";
 const isLamaFlavor = ZCODE_PRODUCT_FLAVOR === "lama";
-const flavorIconSuffix = isKimiFlavor ? "kimi" : isLamaFlavor ? "lama" : "";
+const isKlausFlavor = ZCODE_PRODUCT_FLAVOR === "klaus";
+const flavorIconSuffix = isKimiFlavor ? "kimi" : isLamaFlavor ? "lama" : isKlausFlavor ? "klaus" : "";
 const iconPath =
   process.platform === "win32"
     ? app.isPackaged
