@@ -104,6 +104,9 @@ interface CreateSessionFacadeDeps {
   configuredMcpServers: Record<string, McpServerConfig>;
   configuredDefaultModelSelection?: ModelSelection;
   executionPort: ExecutionPort;
+  listProviderModels: (
+    providerId: string,
+  ) => Promise<{ readonly id: string; readonly displayName?: string }[]>;
   localSettingStore?: LocalSettingStorePort;
   logger: Logger;
   loggerFactory: LoggerFactory;
@@ -421,18 +424,10 @@ export function createSessionFacade(deps: CreateSessionFacadeDeps): SessionFacad
         },
       );
     },
-    listProviderModels: async (input, options) => {
-      const provider = deps.providerRegistry.getProvider(input.providerId);
-      if (!provider) {
-        throw new Error(`Provider not found: ${input.providerId}`);
-      }
-      return deps.runtime.listProviderModels(
-        { providerId: input.providerId, providerConfig: provider.config },
-        {
-          abortSignal: options?.abortSignal,
-          traceContext: options?.traceContext ?? deps.traceContext,
-        },
-      );
+    listProviderModels: async (input) => {
+      // 模型发现不属于 core：core 不能依赖 provider。这里直接用 Bootstrap 的
+      // Provider-Registry + Model-Adapter，符合 I/O 收敛在适配器层的边界。
+      return deps.listProviderModels(input.providerId);
     },
     setMode: async (mode: CollaborationMode) => {
       const previousMode = deps.runtime.getMode();

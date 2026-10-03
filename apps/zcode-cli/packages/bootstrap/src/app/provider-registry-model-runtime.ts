@@ -20,7 +20,7 @@ export interface ProviderRegistryModelSource {
   onDidChange(listener: () => void): () => void;
 }
 
-type ApiProviderModelAdapter = Pick<AiSdkModelAdapter, "createModel">;
+type ApiProviderModelAdapter = Pick<AiSdkModelAdapter, "createModel" | "listModels">;
 
 interface ApiProviderModelRuntimeOptions {
   readonly registry: ProviderRegistryModelSource;
@@ -51,6 +51,16 @@ export class ApiProviderModelRuntime {
     const registryModel = this.#registry.getModel(providerId, modelId);
     if (!registryModel) throw new Error("Registry Selection 校验与 Model 索引结果不一致");
     return this.#createRegistryModel(provider, registryModel, target);
+  };
+
+  listProviderModels = async (
+    providerId: string,
+  ): Promise<{ readonly id: string; readonly displayName?: string }[]> => {
+    const provider = this.#registry.getProvider(providerId);
+    if (!provider) {
+      throw new Error(`Provider not found: ${providerId}`);
+    }
+    return this.#modelAdapter.listModels({ providerConfig: provider.config });
   };
 
   start(): void {

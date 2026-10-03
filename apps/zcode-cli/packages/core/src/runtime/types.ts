@@ -315,8 +315,6 @@ export interface AgentRuntimeDeps {
   sessionStore?: SessionStorePort;
   sessionMailboxPort?: SessionMailboxPort;
   modelFactory: RuntimeModelFactory;
-  /** 模型适配器，用于直接调用 Provider API（如列出模型）。 */
-  modelAdapter?: AiSdkModelAdapter;
   /** 可选宿主能力：解析未来执行的显式意图；不用于修改已冻结 Model。 */
   resolveEffectiveModelSelection?: (selection: ModelSelection) => EffectiveModelSelectionResult;
   modelIoDir?: string;
