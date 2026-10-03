@@ -4,6 +4,7 @@ import { manualModelConfigSchema } from "./manual-model-config.js";
 export { manualModelConfigSchema, type ManualModelConfig } from "./manual-model-config.js";
 import {
   apiKeyAccessDataSchema,
+  noAuthAccessDataSchema,
   personalProviderApiDataSchema,
   providerConfigDataSchema,
   providerGroupDataSchema,
@@ -97,7 +98,12 @@ export const providerTemplateConfigRuleSchema = providerTemplateDataSchema.exten
   config: providerConfigDataSchema
     .pick({ logo: true, access: true, api: true, builtinModelIds: true })
     .extend({
-      access: apiKeyAccessDataSchema.omit({ apiKey: true }).nullable().optional(),
+      // Template 声明默认 Access：API-Key-Typen ohne Key (User trägt ihn nach)
+      // oder `none` für lokale Provider (z. B. Ollama), die gar keinen Key brauchen.
+      access: z
+        .union([apiKeyAccessDataSchema.omit({ apiKey: true }), noAuthAccessDataSchema])
+        .nullable()
+        .optional(),
     }),
 });
 export const builtinProviderConfigRuleSchema = providerConfigRuleSchema.extend({
