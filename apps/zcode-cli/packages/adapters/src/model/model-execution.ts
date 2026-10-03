@@ -184,7 +184,16 @@ export class AiSdkModelExecution {
     };
   }): AiSdkBoundModelResolution {
     const snapshot = this.captureModelSnapshot(input);
-    const optionMaps = compileModelOptionMaps(input.optionSpecs);
+    // Keylose lokale Provider (access "none", z. B. Ollama): Wir kennen die Thinking-Fähigkeit
+    // unbekannter lokaler Modelle nicht. ZCodes Catch-All-Reasoning-Map würde sonst
+    // vendor-spezifische thinking/enable_thinking/reasoning_effort-Felder senden, die z. B.
+    // qwen2.5-coder mit HTTP 400 „does not support thinking" ablehnt. Deshalb die Reasoning-Map
+    // auf ein No-op-Patch setzen; maxOutputTokens und alle anderen Optionen bleiben erhalten.
+    const optionSpecs =
+      input.providerConfig.access.type === "none"
+        ? { ...input.optionSpecs, reasoningLevel: { map: "{}" } }
+        : input.optionSpecs;
+    const optionMaps = compileModelOptionMaps(optionSpecs);
     return {
       // 这里只构造不执行请求的基础 Model；真正请求必须通过 resolveRequest 绑定完整 options。
       resolved: this.resolveSnapshot(snapshot, undefined, undefined, undefined),
