@@ -1,5 +1,9 @@
 # KlausVibe
 
+<div align="center">
+  <img src="packages/desktop/build/README-images/KlausVibe_fr.png" alt="KlausVibe screenshot" width="auto" />
+</div>
+
 <p align="center">
   <a href="https://deepvibe.eu/klausvibe">klausvibe.eu</a>
 </p>
