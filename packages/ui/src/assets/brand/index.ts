@@ -6,6 +6,7 @@ import moonshotBlackUrl from "../moonshot_black.png";
 import moonshotWhiteUrl from "../moonshot_white.png";
 import ollamaUrl from "../Ollama.png";
 import claudeUrl from "../Claude.png";
+import claudeMarkUrl from "../Claude-mark.png";
 import { ZCODE_PRODUCT_FLAVOR } from "@zcode/shared";
 
 export const APP_LOGO_URL = (() => {
@@ -15,7 +16,7 @@ export const APP_LOGO_URL = (() => {
     case "lama":
       return ollamaUrl;
     case "klaus":
-      return claudeUrl;
+      return claudeMarkUrl;
     case "production":
     case "preview":
     case "deepseek":
@@ -47,7 +48,7 @@ export const STARTUP_MARK_URL = (() => {
     case "lama":
       return ollamaUrl;
     case "klaus":
-      return claudeUrl;
+      return claudeMarkUrl;
     case "production":
     case "preview":
     case "deepseek":

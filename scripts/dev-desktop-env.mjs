@@ -71,7 +71,7 @@ function syncFlavorStartupLogo() {
     : lamaIdentity
       ? resolve(repoRoot, "packages/ui/src/assets/Ollama.png")
       : klausIdentity
-        ? resolve(repoRoot, "packages/ui/src/assets/Claude.png")
+        ? resolve(repoRoot, "packages/ui/src/assets/Claude-mark.png")
         : resolve(brandDir, "deepseek-whale-white.png");
   const targetDir = resolve(repoRoot, "packages/desktop/src/renderer/public");
   mkdirSync(targetDir, { recursive: true });
