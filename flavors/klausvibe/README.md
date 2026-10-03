@@ -1,12 +1,8 @@
-<div align="center">
-  <img src="packages/desktop/build/README-images/KlausVibe_ru.png" alt="KlausVibe screenshot" width="auto" />
-</div>
+# KlausVibe
 
 <p align="center">
   <a href="https://deepvibe.eu/klausvibe">klausvibe.eu</a>
 </p>
-
-# KlausVibe
 
 KlausVibe is the **Claude build** of the _Vibe_ family — a fork of ZCode focused on a single provider: **Claude** (Anthropic). One model, one workspace, a partner — not an agent.
 
