@@ -13,9 +13,10 @@ import {
   ModelConfig,
   ModelConfigRules,
   type NoAuthAccessConfig,
+  ProviderApiConfig,
+  ProviderConfig,
   type ZhipuAccountAccessConfig,
   type ModelId,
-  type ProviderConfig,
   type ProviderConfigRule,
   ProviderConfigMap,
   type ProviderTemplateMap,
@@ -187,6 +188,31 @@ export interface ProviderConfigResolution {
   readonly issues: readonly ConfigValidationIssue[];
 }
 
+/**
+ * Keylose Provider (`access.type === "none"`, z. B. lokales Ollama) können keinen API-Key tragen.
+ * Der einzige keylose Transport im Runtime-Adapter ist OpenAI-compatible; `anthropic-messages`
+ * und `openai-responses` bauen Clients, die einen Key erzwingen, und brechen sonst zur Laufzeit
+ * mit „API key is missing" ab. Ältere/manuell gesetzte Personal-Overlays können einen solchen
+ * falschen `api.type` tragen; hier wird er auf den einzig möglichen keylosen Transport normalisiert,
+ * damit Settings-Anzeige und Registry denselben Wert sehen.
+ */
+function normalizeKeylessProviderApi(providers: ProviderConfigMap): ProviderConfigMap {
+  return providers.mapConfigs((config) => {
+    if (config.access?.type !== "none") return config;
+    if (!config.api?.type || config.api.type === "openai-chat-completions") return config;
+    return new ProviderConfig({
+      group: config.group,
+      logo: config.logo,
+      access: config.access,
+      api: new ProviderApiConfig({ ...config.api.toJSON(), type: "openai-chat-completions" }),
+      builtinModelIds: config.builtinModelIds,
+      personalModelIds: config.personalModelIds,
+      modelOrder: config.modelOrder,
+      visibility: config.visibility,
+    });
+  });
+}
+
 export class ProviderConfigResolver {
   resolve(input: ProviderConfigResolverInput): ProviderConfigResolution {
     const accountProviders = new ProviderConfigMap(
@@ -213,7 +239,9 @@ export class ProviderConfigResolver {
         : undefined;
       return template ? template.overlay(personal) : personal;
     });
-    const effectiveProviders = effectiveBuiltinProviders.overlay(templatePersonalProviders);
+    const effectiveProviders = normalizeKeylessProviderApi(
+      effectiveBuiltinProviders.overlay(templatePersonalProviders),
+    );
     const effectiveModelRules = ModelConfigRules.composeEffective(
       input.zcodeBuiltinModelRules,
       input.personalModels,
