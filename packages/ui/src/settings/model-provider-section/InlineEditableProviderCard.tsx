@@ -24,6 +24,7 @@ import {
   ProviderConnectionSection,
   ProviderModelsSection,
 } from "./ProviderCardSections.js";
+import type { ProviderModelListResult } from "./providerModelDiscoveryTypes.js";
 import { resolveModelProviderDisplayName } from "./constants.js";
 import { useProviderDetailFeedback } from "./ProviderDetailFeedback.js";
 import { useIdleTrigger } from "./useIdleTrigger.js";
@@ -144,6 +145,7 @@ export function InlineEditableProviderCard({
   onDeletePersonalModel,
   onDelete,
   onTestModel,
+  onListModels,
   onReorderModelIds,
   readOnlyEndpoints,
   presetApiKeyUrl,
@@ -171,6 +173,7 @@ export function InlineEditableProviderCard({
   onDeletePersonalModel?: (providerId: string, modelId: string) => Promise<unknown>;
   onDelete?: () => void | Promise<void>;
   onTestModel?: (providerId: string, modelId: string) => Promise<ModelConnectivityResult>;
+  onListModels?: (providerId: string) => Promise<ProviderModelListResult>;
   onReorderModelIds?: (modelIds: string[]) => Promise<void>;
   readOnlyEndpoints?: boolean;
   presetApiKeyUrl?: string;
@@ -848,6 +851,7 @@ export function InlineEditableProviderCard({
           providerAccess={provider.config.access}
           models={models}
           onTestModel={onTestModel ? handleTestModel : undefined}
+          onListModels={onListModels}
           onModelCommit={handleModelCommit}
           onModelEnabledChange={handleModelEnabledChange}
           onDeleteModel={handleDeleteModel}

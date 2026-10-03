@@ -3493,6 +3493,10 @@ const deDE: Record<string, string> = {
   "settings.modelProvider.modelsEmpty":
     "Es sind keine Modelle konfiguriert. Füge ein Modell hinzu, um es im Chat zu verwenden.",
   "settings.modelProvider.addModel": "Modell hinzufügen",
+  "settings.modelProvider.loadModels": "Modelle laden",
+  "settings.modelProvider.loadModelsPlaceholder": "Modell auswählen…",
+  "settings.modelProvider.loadModelsEmpty": "Bei diesem Anbieter wurden keine Modelle gefunden.",
+  "settings.modelProvider.loadModelsError": "Modelle konnten von diesem Anbieter nicht geladen werden.",
   "settings.modelProvider.modelId": "Modell-ID",
   "settings.modelProvider.modelDisplayName": "Anzeigename",
   "settings.modelProvider.modelApiFormat.anthropic": "Anthropic Messages",

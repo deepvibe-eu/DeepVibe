@@ -31,6 +31,8 @@ import {
   ModelConfigRestoreButton,
 } from "@/settings/model-provider-section/ProviderModelMetadataDialogActions.js";
 import { modelEditorControlStyle } from "@/settings/model-provider-section/modelEditorControlStyle.js";
+import { ProviderModelDiscoveryPicker } from "@/settings/model-provider-section/ProviderModelDiscoveryPicker.js";
+import type { ProviderModelListLoader } from "@/settings/model-provider-section/providerModelDiscoveryTypes.js";
 import { cn } from "@/components/lib/utils.js";
 import {
   ModelConfigHelp,
@@ -61,6 +63,7 @@ export function ProviderModelMetadataDialog({
   saving = false,
   modelDefaultsLoaded = false,
   onModelIdBlur,
+  modelListLoader,
 }: {
   mode?: "add" | "edit";
   open: boolean;
@@ -79,6 +82,8 @@ export function ProviderModelMetadataDialog({
   saving?: boolean;
   modelDefaultsLoaded?: boolean;
   onModelIdBlur?: () => void;
+  /** Lädt die am Provider-Endpoint verfügbaren Modelle für die Auswahl. */
+  modelListLoader?: ProviderModelListLoader;
 }) {
   const { intl } = useZCodeIntl();
   const [validationAttempt, setValidationAttempt] = useState(0);
@@ -197,6 +202,17 @@ export function ProviderModelMetadataDialog({
                   onCompositionEnd={handleCompositionEnd}
                   onKeyDown={handleTechnicalInputKeyDown}
                 />
+                {mode === "add" && !modelIdReadOnly && modelListLoader ? (
+                  <ProviderModelDiscoveryPicker
+                    currentModelId={draft.idValue}
+                    disabled={saving}
+                    loadModels={modelListLoader}
+                    onSelectModelId={(modelId) => {
+                      onDraftChange({ idValue: modelId });
+                      onModelIdBlur?.();
+                    }}
+                  />
+                ) : null}
               </div>
             </div>
           </ModelSettingsGroup>

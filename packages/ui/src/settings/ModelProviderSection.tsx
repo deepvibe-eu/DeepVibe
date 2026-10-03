@@ -269,6 +269,7 @@ export function ModelProviderSection({
     saveDisplayOrder,
     reorderableProviderIds,
     testModelConnectivity,
+    listModels,
     providerSettingsView,
   } = useModelProviders({
     workspacePath,
@@ -1057,6 +1058,13 @@ export function ModelProviderSection({
     [testModelConnectivity],
   );
 
+  const handleListModels = useCallback(
+    (providerId: string) => {
+      return listModels(providerId);
+    },
+    [listModels],
+  );
+
   // 首屏慢网时之前直接 return null，导致整块模型供应商页空白，
   // 已有的左侧分组 loading 和刷新按钮 loading 都没有机会渲染。
   // 这里改为始终先渲染布局壳子，再按分组展示 loading，避免用户误以为页面坏了。
@@ -1156,6 +1164,7 @@ export function ModelProviderSection({
           // Provider 的 Effective 模型无法写入 Personal modelOrder。模型调序独立于成员来源。
           onReorderProviderModels={reorderProviderModels}
           onTestModel={handleTestModel}
+          onListModels={handleListModels}
           onCodingPlanLogin={handleCodingPlanLogin}
           onRetryCodingPlan={() => {
             // 取 Key 失败不等于登录失效；沿用 Host 手动刷新，不清除 OAuth 或重新登录。

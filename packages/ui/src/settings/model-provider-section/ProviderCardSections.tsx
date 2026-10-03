@@ -40,6 +40,7 @@ import { ModelRowInput } from "./ProviderFormControls.js";
 import { PresetProviderApiKeyBanner } from "./PresetProviderApiKeyBanner.js";
 import { type ProviderModelDraftValues } from "@/settings/model-provider-section/ProviderModelMetadata.js";
 import { ProviderModelMetadataDialog } from "@/settings/model-provider-section/ProviderModelMetadataDialog.js";
+import type { DiscoveredProviderModel } from "@/settings/model-provider-section/providerModelDiscoveryTypes.js";
 import {
   ProviderApiFormatSelect,
   resolveProviderConnectionApiFormatDisplayLabel,
@@ -350,6 +351,7 @@ export function ProviderModelsSection({
   providerAccess,
   models,
   onTestModel,
+  onListModels,
   onModelCommit,
   onModelEnabledChange,
   onDeleteModel,
@@ -363,6 +365,9 @@ export function ProviderModelsSection({
   providerAccess?: ProviderConfigObject["access"];
   models: ProviderSettingsFormModel[];
   onTestModel?: (model: string) => Promise<ModelConnectivityResult>;
+  onListModels?: (providerId: string) => Promise<{
+    readonly models: readonly DiscoveredProviderModel[];
+  }>;
   onModelCommit: (
     originalModelId: string,
     model: ProviderSettingsFormModel,
@@ -569,6 +574,11 @@ export function ProviderModelsSection({
           onOpenChange={handleAddDialogOpenChange}
           onDraftChange={updateAddDraft}
           onCommit={commitAddDraft}
+          modelListLoader={
+            onListModels
+              ? () => onListModels(providerId).then((result) => result.models)
+              : undefined
+          }
           saving={addSaving}
           modelConfigResolutionPending={editor.pending}
           modelDefaultsLoaded={editor.defaultsLoaded}
