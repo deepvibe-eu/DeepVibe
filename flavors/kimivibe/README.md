@@ -1,9 +1,13 @@
 <div align="center">
-  <img src="../../packages/ui/src/assets/kimi_animated.png" alt="KimiVibe" width="128" height="128" />
+  <img src="packages/ui/src/assets/kimi_animated.png" alt="KimiVibe" width="128" height="128" />
 </div>
 <p align="center">
   <a href="https://deepvibe.eu/kimivibe">kimivibe.eu</a>
 </p>
+
+<div align="center">
+  <img src="packages/desktop/build/README-images/KimiVibe_en.png" alt="KimiVibe screenshot" width="820" />
+</div>
 
 # KimiVibe
 

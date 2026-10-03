@@ -1,9 +1,13 @@
 <div align="center">
-  <img src="../../packages/ui/src/assets/Ollama.png" alt="LamaVibe" width="128" height="188" />
+  <img src="packages/ui/src/assets/Ollama.png" alt="LamaVibe" width="128" height="188" />
 </div>
 <p align="center">
   <a href="https://deepvibe.eu/lamavibe">lamavibe.eu</a>
 </p>
+
+<div align="center">
+  <img src="packages/desktop/build/README-images/LamaVibe_ru.png" alt="LamaVibe screenshot" width="820" />
+</div>
 
 # LamaVibe
 
