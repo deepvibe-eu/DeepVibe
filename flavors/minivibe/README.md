@@ -1,5 +1,9 @@
 # MiniVibe
 
+<div align="center">
+  <img src="packages/desktop/build/README-images/MiniVibe.png" alt="MiniVibe screenshot" width="auto" />
+</div>
+
 <p align="center">
   <a href="https://deepvibe.eu/minivibe">minivibe.eu</a>
 </p>
