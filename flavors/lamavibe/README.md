@@ -27,6 +27,19 @@ pnpm dev:desktop:lama
 ZCODE_LAMA_IDENTITY=1 pnpm bundle:desktop -- --os linux --arch x64
 ```
 
+## Using local models
+
+LamaVibe talks to your local [Ollama](https://ollama.com) server at `http://localhost:11434/v1`. The built-in **Ollama (Local)** provider needs **no API key**.
+
+1. Make sure Ollama is running and you have at least one chat model, e.g. `ollama pull qwen2.5-coder:7b`.
+2. Open **Settings → Model providers → Ollama (Local) → Add model**.
+3. Click **Load models** to list the models installed on your machine and pick one (or type the model ID).
+4. Keep the API format at **OpenAI-compatible (chat completions)**.
+
+**Tool calls:** Under *Advanced → Capabilities* you will find a **Tool calls** switch. It is **off by default for local providers**, because most local models either do not support function calling or expose it differently. Only switch it on if your model really supports Ollama tool calls — otherwise Ollama rejects the request with HTTP 400 `does not support tools`. For plain chat, leave it off.
+
+**Embedding models** such as `nomic-embed-*` are meant for memory and semantic search (embeddings), not for chatting — pick a chat model for a thread.
+
 ## License & attribution
 
 Built on ZCode (Apache-2.0); the license and NOTICE are preserved. LamaVibe is an independent project and is not affiliated with ZCode/Z.ai or Ollama. Ollama is a trademark of its owner; the logo is used with the operator's permission.
