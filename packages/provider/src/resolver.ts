@@ -289,21 +289,32 @@ export class ProviderConfigResolver {
       const accountCurrent = input.accountStates?.[providerId]?.current !== false;
       const providerExecutable =
         enabled && accessEntitled && accountCurrent && providerIssues.length === 0;
+      const isKeylessProvider = config.access?.type === "none";
       const models = orderedModelIds.map((modelId): ResolvedProviderModel => {
-        const modelConfig = effectiveModelRules.resolve({
+        const resolvedModelConfig = effectiveModelRules.resolve({
           providerId,
           templateId,
           modelId,
           apiType: config.api?.type,
           baseUrl: config.api?.baseUrl,
         });
-        const effectiveBuiltinConfig = input.zcodeBuiltinModelRules.resolve({
+        // Keylose lokale Provider (z. B. Ollama) haben keine verlässliche Tool-Capability: Die
+        // generische Built-in-Regel setzt supportsToolCall=true, was Ollama mit HTTP 400
+        // "does not support tools" quittiert. Für keylose Provider Tool-Calls abschalten,
+        // damit Chat lokal funktioniert; Capability-Erkennung ist ein Folgeschritt.
+        const modelConfig = isKeylessProvider
+          ? resolvedModelConfig.withoutToolCallSupport()
+          : resolvedModelConfig;
+        const resolvedBuiltinConfig = input.zcodeBuiltinModelRules.resolve({
           providerId,
           templateId,
           modelId,
           apiType: config.api?.type,
           baseUrl: config.api?.baseUrl,
         });
+        const effectiveBuiltinConfig = isKeylessProvider
+          ? resolvedBuiltinConfig.withoutToolCallSupport()
+          : resolvedBuiltinConfig;
         const registryModelResult = createRegistryModelConfig(modelConfig, [
           ...providerPath,
           "models",

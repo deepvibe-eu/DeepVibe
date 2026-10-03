@@ -79,11 +79,15 @@ class ExecutableModel implements Model {
   }
 
   private prepareRequest(request: ModelRequest): ModelExecutionRequest {
-    validateRequestProperties(this.properties, request);
+    // 模型不支持 tool call 时不抛错，而是不带工具发送：本地模型（Ollama）常常没有工具能力，
+    // 照常发送 tools 会被 Provider 以 400 "does not support tools" 拒绝。是否带工具由
+    // Registry 的 supportsToolCall 决定（keyless Provider 在 Resolver 中被置为 false）。
+    const tools = this.properties.supportsToolCall ? request.tools : [];
+    validateRequestProperties(this.properties, { ...request, tools });
     const requestOptions = request.options ?? {};
     return {
       messages: request.messages,
-      tools: request.tools,
+      tools,
       responseJsonSchema: request.responseJsonSchema,
       abortSignal: request.abortSignal,
       options: {

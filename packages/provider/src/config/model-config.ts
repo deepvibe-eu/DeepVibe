@@ -321,6 +321,25 @@ export class ModelConfig extends ConfigOverlay<ModelConfig> {
     });
   }
 
+  /**
+   * Deaktiviert Tool-Calls, ohne andere Properties/Specs zu verändern.
+   *
+   * Für keylose lokale Provider (z. B. Ollama), deren Tool-Fähigkeit wir nicht kennen:
+   * Die generische Built-in-Regel setzt `supportsToolCall: true` und führt sonst zu einem
+   * Provider-400 („does not support tools"). Chat bleibt nutzbar.
+   */
+  withoutToolCallSupport(): ModelConfig {
+    if (this.properties?.supportsToolCall !== true) return this;
+    return new ModelConfig({
+      enabled: this.enabled,
+      properties: new ModelPropertiesConfig({
+        ...this.properties.toJSON(),
+        supportsToolCall: false,
+      }),
+      optionSpecs: this.optionSpecs,
+    });
+  }
+
   validateComplete(path: readonly string[] = []): readonly ConfigValidationIssue[] {
     return validateConfigSchema(completeModelConfigDataSchema, this.toJSON(), path);
   }
