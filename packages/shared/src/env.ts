@@ -2,7 +2,7 @@ import type { ZCodeRuntimeEnv } from "./runtimeEnv.js";
 
 export type ZCodeEnv = "test" | "production";
 /** 安装包身份：决定应用名、app id、Electron 数据目录与更新策略；与后端环境 `ZCodeEnv` 是两个轴。 */
-export type ZCodeProductFlavor = "production" | "preview" | "deepseek" | "kimi" | "lama" | "klaus";
+export type ZCodeProductFlavor = "production" | "preview" | "deepseek" | "kimi" | "lama" | "klaus" | "mini";
 export type ArmsRumEnv = "local" | "prod";
 
 // 非构建环境（如 e2e 测试的 mocha）下 define 不存在，用 typeof 检查 + fallback 避免 ReferenceError
@@ -33,7 +33,8 @@ export function normalizeZCodeProductFlavor(
     normalized === "deepseek" ||
     normalized === "kimi" ||
     normalized === "lama" ||
-    normalized === "klaus"
+    normalized === "klaus" ||
+    normalized === "mini"
   ) {
     return normalized;
   }
@@ -46,7 +47,7 @@ export const ZCODE_PRODUCT_FLAVOR = normalizeZCodeProductFlavor(
 );
 
 /** Anbieter-Bindung einer Vibe-App (Fëa): jede App ist fest auf genau einen Anbieter gelegt. */
-export type VibeFixedProviderTemplateId = "deepseek" | "moonshot-kimi" | "ollama" | "anthropic";
+export type VibeFixedProviderTemplateId = "deepseek" | "moonshot-kimi" | "ollama" | "anthropic" | "minimax";
 
 /**
  * Kein Multihoster: jede Vibe-App bindet genau eine Fëa. DeepVibe (production) und die
@@ -63,6 +64,7 @@ const FIXED_PROVIDER_TEMPLATE_ID_BY_FLAVOR: Record<
   kimi: "moonshot-kimi",
   lama: "ollama",
   klaus: "anthropic",
+  mini: "minimax",
 };
 
 export const VIBE_FIXED_PROVIDER_TEMPLATE_ID =
@@ -91,6 +93,7 @@ const VIBE_PERSONA_BY_FLAVOR: Record<ZCodeProductFlavor, VibePersona> = {
   kimi: { name: "Kimi", productName: "KimiVibe", providerLabel: "Kimi" },
   lama: { name: "Lama", productName: "LamaVibe", providerLabel: "Ollama" },
   klaus: { name: "Klaus", productName: "KlausVibe", providerLabel: "Claude" },
+  mini: { name: "Mini", productName: "MiniVibe", providerLabel: "MiniMax" },
 };
 
 export const VIBE_PERSONA = VIBE_PERSONA_BY_FLAVOR[ZCODE_PRODUCT_FLAVOR];
@@ -107,6 +110,7 @@ const VIBE_DATA_DIR_NAME_BY_FLAVOR: Record<ZCodeProductFlavor, string> = {
   kimi: ".kimivibe",
   lama: ".lamavibe",
   klaus: ".klausvibe",
+  mini: ".minivibe",
 };
 
 export const VIBE_DATA_DIR_NAME = VIBE_DATA_DIR_NAME_BY_FLAVOR[ZCODE_PRODUCT_FLAVOR];
@@ -139,6 +143,7 @@ const VIBE_UPDATE_FEED_URL_BY_FLAVOR: Record<ZCodeProductFlavor, string | null> 
   kimi: "https://github.com/deepvibe-eu/KimiVibe/releases/latest/download",
   lama: "https://github.com/deepvibe-eu/LamaVibe/releases/latest/download",
   klaus: "https://github.com/deepvibe-eu/KlausVibe/releases/latest/download",
+  mini: "https://github.com/deepvibe-eu/MiniVibe/releases/latest/download",
 };
 
 export const VIBE_UPDATE_FEED_URL = VIBE_UPDATE_FEED_URL_BY_FLAVOR[ZCODE_PRODUCT_FLAVOR];

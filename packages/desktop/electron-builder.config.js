@@ -80,10 +80,11 @@ const desktopProductFlavor = resolveDesktopProductFlavor({
   ...process.env,
   ZCODE_ENV: builtinProviderConfig.environment,
 });
-// KimiVibe, LamaVibe und KlausVibe nutzen eigene Icon-Dateien; DeepVibe/preview die bisherigen.
+// KimiVibe, LamaVibe, KlausVibe und MiniVibe nutzen eigene Icon-Dateien; DeepVibe/preview die bisherigen.
 const isKimiFlavor = desktopProductFlavor === "kimi";
 const isLamaFlavor = desktopProductFlavor === "lama";
 const isKlausFlavor = desktopProductFlavor === "klaus";
+const isMiniFlavor = desktopProductFlavor === "mini";
 const flavorIcons = isKimiFlavor
   ? {
       app: "build/icon_kimi.png",
@@ -120,7 +121,19 @@ const flavorIcons = isKimiFlavor
           macInstaller: "build/icon_klaus_installer.icns",
           winInstaller: "build/icon_klaus_installer.ico",
         }
-      : {
+      : isMiniFlavor
+        ? {
+            app: "build/icon_mini.png",
+            windows: "build/icon_mini-windows.png",
+            linuxDir: "build/mini-icons",
+            linux512: "build/mini-icons/512x512.png",
+            winTray: "build/icon_mini.ico",
+            win: "build/icon_mini.ico",
+            mac: "build/icon_mini.icns",
+            macInstaller: "build/icon_mini_installer.icns",
+            winInstaller: "build/icon_mini_installer.ico",
+          }
+        : {
           app: "build/icon.png",
           windows: "build/icon_windows.png",
           linuxDir: "build/icons",

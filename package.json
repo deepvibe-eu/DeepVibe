@@ -12,6 +12,7 @@
     "dev:desktop:kimi": "node scripts/dev-desktop-env.mjs production --kimi",
     "dev:desktop:lama": "node scripts/dev-desktop-env.mjs production --lama",
     "dev:desktop:klaus": "node scripts/dev-desktop-env.mjs production --klaus",
+    "dev:desktop:mini": "node scripts/dev-desktop-env.mjs production --mini",
     "dev:desktop:prod": "node scripts/dev-desktop-env.mjs production",
     "dev:desktop:bytecode": "node scripts/dev-desktop-env.mjs production --agent-bytecode",
     "dev:desktop:remote-prod": "node scripts/dev-desktop-remote-prod.mjs",

@@ -58,6 +58,9 @@ const isLamaPackagedRuntime = !isLocalDevelopmentRuntime && ZCODE_PRODUCT_FLAVOR
 // KlausVibe braucht wie Preview/DeepSeek/Kimi/Lama einen eigenen App-Namen/UserData-Pfad,
 // damit es neben DeepVibe installiert werden kann.
 const isKlausPackagedRuntime = !isLocalDevelopmentRuntime && ZCODE_PRODUCT_FLAVOR === "klaus";
+// MiniVibe braucht wie Preview/DeepSeek/Kimi/Lama/Klaus einen eigenen App-Namen/UserData-Pfad,
+// damit es neben DeepVibe installiert werden kann.
+const isMiniPackagedRuntime = !isLocalDevelopmentRuntime && ZCODE_PRODUCT_FLAVOR === "mini";
 
 function readRuntimeEnvOverride(name: string): string | undefined {
   return process.env[name]?.trim() || undefined;
@@ -85,7 +88,9 @@ export const runtimeApplicationName =
             ? "LamaVibe"
             : isKlausPackagedRuntime
               ? "KlausVibe"
-              : "DeepVibe");
+              : isMiniPackagedRuntime
+                ? "MiniVibe"
+                : "DeepVibe");
 // Electron 的 app.getPath("home") 不一定跟随测试进程里的 HOME 覆盖。
 // e2e 默认工作区依赖 home 路径，因此提供显式覆盖，避免测试写到开发者真实 ~/ZCodeProject。
 export const runtimeHomePath = readRuntimeEnvOverride("ZCODE_DESKTOP_HOME_DIR");
@@ -582,7 +587,9 @@ export function buildHostProcessEnv(hostProcessLocalEnv: Record<string, string>)
             ? { ZCODE_CUA_HELPER_INSTALL_VARIANT: "lama" }
             : isKlausPackagedRuntime
               ? { ZCODE_CUA_HELPER_INSTALL_VARIANT: "klaus" }
-              : {}),
+              : isMiniPackagedRuntime
+                ? { ZCODE_CUA_HELPER_INSTALL_VARIANT: "mini" }
+                : {}),
     // Dynamic Workflow 灰度的本地覆盖：Main 决策后写入，production 包为空对象（继承值已在上面删除）。
     ...dynamicWorkflowModeHostEnv,
     // 模型请求默认 header 由 agent 进程构造，过去只继承 shell env 导致桌面启动时拿不到 app 版本。

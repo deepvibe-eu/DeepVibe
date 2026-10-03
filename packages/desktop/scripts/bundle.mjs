@@ -753,6 +753,8 @@ async function main() {
       sourcePath = resolve(desktopRoot, "..", "ui", "src", "assets", "Ollama.png");
     } else if (desktopProductFlavor === "klaus") {
       sourcePath = resolve(desktopRoot, "..", "ui", "src", "assets", "Claude-mark.png");
+    } else if (desktopProductFlavor === "mini") {
+      sourcePath = resolve(desktopRoot, "..", "ui", "src", "assets", "MiniMax-splash.png");
     } else {
       sourcePath = resolve(
         desktopRoot,

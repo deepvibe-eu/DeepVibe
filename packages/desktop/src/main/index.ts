@@ -297,7 +297,8 @@ process.on("unhandledRejection", (reason) => {
 const isKimiFlavor = ZCODE_PRODUCT_FLAVOR === "kimi";
 const isLamaFlavor = ZCODE_PRODUCT_FLAVOR === "lama";
 const isKlausFlavor = ZCODE_PRODUCT_FLAVOR === "klaus";
-const flavorIconSuffix = isKimiFlavor ? "kimi" : isLamaFlavor ? "lama" : isKlausFlavor ? "klaus" : "";
+const isMiniFlavor = ZCODE_PRODUCT_FLAVOR === "mini";
+const flavorIconSuffix = isKimiFlavor ? "kimi" : isLamaFlavor ? "lama" : isKlausFlavor ? "klaus" : isMiniFlavor ? "mini" : "";
 const iconPath =
   process.platform === "win32"
     ? app.isPackaged
