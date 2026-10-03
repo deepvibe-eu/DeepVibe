@@ -2145,6 +2145,27 @@ export type ZCodeProviderTestModelConnectivityResult = z.infer<
   typeof zcodeProviderTestModelConnectivityResultSchema
 >;
 
+export const zcodeProviderListModelsParamsSchema = z
+  .object({
+    workspace: zcodeWorkspaceRefSchema,
+    providerId: z.string(),
+  })
+  .strict();
+export const zcodeProviderListModelsResultSchema = z
+  .object({
+    models: z.array(
+      z
+        .object({
+          id: z.string(),
+          displayName: z.string().optional(),
+        })
+        .strict(),
+    ).readonly(),
+  })
+  .strict();
+export type ZCodeProviderListModelsParams = z.infer<typeof zcodeProviderListModelsParamsSchema>;
+export type ZCodeProviderListModelsResult = z.infer<typeof zcodeProviderListModelsResultSchema>;
+
 export const zcodeProviderUpdateAccountConfigParamsSchema = z
   .object({
     revision: nonEmptyString,
@@ -3613,6 +3634,7 @@ export const zcodeProtocolMethods = {
   workspaceGenerateText: "workspace/generateText",
   workspaceCancelGenerateText: "workspace/cancelGenerateText",
   providerTestModelConnectivity: "provider/testModelConnectivity",
+  providerListModels: "provider/listModels",
   mcpList: "mcp/list",
   pluginsList: "plugins/list",
   pluginsReferenceCatalog: "plugins/referenceCatalog",

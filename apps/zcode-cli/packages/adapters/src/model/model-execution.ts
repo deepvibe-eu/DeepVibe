@@ -167,6 +167,61 @@ export class AiSdkModelExecution {
     this.baseTransport = options.transport;
   }
 
+  async listModels(input: {
+    readonly providerConfig: RegistryProviderConfig;
+  }): Promise<{ readonly id: string; readonly displayName?: string }[]> {
+    const { providerConfig } = input;
+    const baseUrl = providerConfig.api.baseUrl.replace(/\/$/u, "");
+    const url = `${baseUrl}/models`;
+
+    const headers: Record<string, string> = {
+      Accept: "application/json",
+    };
+
+    if (isApiKeyAccess(providerConfig.access) && providerConfig.access.apiKey) {
+      headers[AUTHORIZATION_HEADER_NAME] = `Bearer ${providerConfig.access.apiKey}`;
+    }
+
+    const fetch = this.baseTransport ?? globalThis.fetch;
+    const response = await fetch(url, {
+      method: "GET",
+      headers,
+    });
+
+    if (!response.ok) {
+      const bodyText = await response.text().catch(() => "");
+      throw new Error(
+        `Provider model list request failed: ${response.status} ${response.statusText}${bodyText ? ` - ${bodyText.slice(0, 200)}` : ""}`,
+      );
+    }
+
+    const data = await response.json() as Record<string, unknown>;
+    const modelIds = new Set<string>();
+
+    if (Array.isArray(data.data)) {
+      for (const item of data.data) {
+        if (item && typeof item === "object" && "id" in item && typeof item.id === "string") {
+          modelIds.add(item.id);
+        }
+      }
+    } else if (Array.isArray(data.models)) {
+      for (const item of data.models) {
+        if (item && typeof item === "object") {
+          if (typeof item.name === "string") {
+            modelIds.add(item.name);
+          } else if (typeof item.model === "string") {
+            modelIds.add(item.model);
+          } else if (typeof item.id === "string") {
+            modelIds.add(item.id);
+          }
+        }
+      }
+    }
+
+    const sortedIds = Array.from(modelIds).sort();
+    return sortedIds.map((id) => ({ id }));
+  }
+
   /**
    * 固定一个 Model 创建时使用的 Provider 静态事实。
    *

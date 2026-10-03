@@ -185,7 +185,7 @@ import { rebuildProjection } from "./message-persistence.js";
 import { recordPendingModelChange } from "./timeline-persistence.js";
 import { persistPendingModelChangeTimeline } from "./timeline-persistence.js";
 import { persistAssistantTimelinePartForSession } from "./timeline-persistence.js";
-import { generateWorkspaceText, testModelConnectivity } from "./workspace-generate-text.js";
+import { generateWorkspaceText, listProviderModels, testModelConnectivity } from "./workspace-generate-text.js";
 import { maybeStartGoalSummaryTitleGeneration } from "./goal-summary-title.js";
 import { maybeStartSessionTitleGenerationFromExternalInput } from "./session-title.js";
 import { setCustomSessionTitle } from "./session-title.js";
@@ -215,6 +215,7 @@ export function installAgentRuntimeMethods(ctor: AgentRuntimeConstructor): void 
   proto.setCustomSessionTitle = setCustomSessionTitle;
   proto.maybeStartGoalSummaryTitleGeneration = maybeStartGoalSummaryTitleGeneration;
   proto.testModelConnectivity = testModelConnectivity;
+  proto.listProviderModels = listProviderModels;
   proto.recordExternalUserPrompt = recordExternalUserPrompt;
   proto.getActiveTurnInfo = getActiveTurnInfo;
   proto.getTools = getTools;

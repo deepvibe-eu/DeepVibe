@@ -749,7 +749,7 @@ export async function createZCodeApp(options: ZCodeAppOptions): Promise<ZCodeApp
               extraRoots: configResult.config.skills.roots,
               extraResolvedRoots: [...pluginOutcome.skillRoots, ...bundledSkillRoots],
               disabledPaths: [
-                ...collectDisabledPaths(configResult.config.skillOverrides),
+                ...collectDisabledSkillPaths(configResult.config.skillOverrides),
                 // 动态工作流关闭时不提供 dynamic-workflows 技能：
                 // 十个工具都不在场，再让模型读到「怎么写工作流脚本」只会诱导它去调不存在的工具。
                 ...(runtimeConfig.dynamicWorkflowEnabled === false
@@ -761,6 +761,7 @@ export async function createZCodeApp(options: ZCodeAppOptions): Promise<ZCodeApp
       mcpPort,
       eventSink: options.eventSink,
       modelFactory,
+      modelAdapter,
       modelIoDir,
       providerRuntimeHeadersPort: options.providerRuntimeHeadersPort,
       resolveEffectiveModelSelection: options.resolveEffectiveModelSelection,

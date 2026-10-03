@@ -656,6 +656,10 @@ export interface AgentRuntime {
     input: ModelConnectivityTestInput,
     options?: { abortSignal?: AbortSignal; traceContext?: TraceContext },
   ): Promise<void>;
+  listProviderModels(
+    input: { providerId: string; providerConfig: RegistryProviderConfig },
+    options?: { abortSignal?: AbortSignal; traceContext?: TraceContext },
+  ): Promise<{ readonly id: string; readonly displayName?: string }[]>;
   isProjectMemoryEnabled(): boolean;
   /** 缺省等待最多 60 秒；null 等待全部已调度提取结束，不设置 drain deadline。 */
   drainMemoryExtractions(timeoutMs?: number | null): Promise<void>;

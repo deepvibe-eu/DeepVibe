@@ -113,6 +113,12 @@ export class AiSdkModelAdapter {
     this.modelIoFullRetentionEnabled = enabled;
   }
 
+  async listModels(input: {
+    readonly providerConfig: RegistryProviderConfig;
+  }): Promise<{ readonly id: string; readonly displayName?: string }[]> {
+    return this.execution.listModels(input);
+  }
+
   addStatusSink(sink: ModelStatusSink): void {
     const current = this.statusSink;
     if (!current || current === sink) {

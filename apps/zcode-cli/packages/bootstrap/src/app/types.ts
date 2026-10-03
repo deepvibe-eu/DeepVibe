@@ -534,6 +534,10 @@ export interface ZCodeApp {
     input: { selection: ModelSelection },
     options?: { abortSignal?: AbortSignal; traceContext?: TraceContext },
   ): Promise<void>;
+  listProviderModels(
+    input: { providerId: string },
+    options?: { abortSignal?: AbortSignal; traceContext?: TraceContext },
+  ): Promise<{ readonly id: string; readonly displayName?: string }[]>;
   expertWorkflowStatus(options?: {
     abortSignal?: AbortSignal;
     definitionId?: string;

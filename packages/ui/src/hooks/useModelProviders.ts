@@ -211,6 +211,20 @@ export function useModelProviders(target: {
     ],
   );
 
+  const listModels = useCallback(
+    async (providerId: string): Promise<{ readonly models: readonly { readonly id: string; readonly displayName?: string }[] }> => {
+      return providerSettingsService.listModels({
+        workspacePath: target.workspacePath,
+        providerId,
+        modelId: "",
+      });
+    },
+    [
+      providerSettingsService,
+      target.workspacePath,
+    ],
+  );
+
   return {
     modelProviders: effectiveModelProviders,
     providerTemplates: providerSettingsView?.providerTemplates ?? [],
@@ -232,6 +246,7 @@ export function useModelProviders(target: {
     reorderProviderModels,
     saveDisplayOrder,
     testModelConnectivity,
+    listModels,
     providerSettingsView,
   };
 }

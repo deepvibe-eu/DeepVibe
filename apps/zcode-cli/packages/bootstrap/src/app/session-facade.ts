@@ -52,6 +52,7 @@ type SessionFacade = Pick<
   | "disconnectMcpServer"
   | "generateWorkspaceText"
   | "testModelConnectivity"
+  | "listProviderModels"
   | "forkFromCheckpoint"
   | "getMode"
   | "getModel"
@@ -414,6 +415,19 @@ export function createSessionFacade(deps: CreateSessionFacadeDeps): SessionFacad
       );
       await deps.runtime.testModelConnectivity(
         { ...input, selection },
+        {
+          abortSignal: options?.abortSignal,
+          traceContext: options?.traceContext ?? deps.traceContext,
+        },
+      );
+    },
+    listProviderModels: async (input, options) => {
+      const provider = deps.providerRegistry.getProvider(input.providerId);
+      if (!provider) {
+        throw new Error(`Provider not found: ${input.providerId}`);
+      }
+      return deps.runtime.listProviderModels(
+        { providerId: input.providerId, providerConfig: provider.config },
         {
           abortSignal: options?.abortSignal,
           traceContext: options?.traceContext ?? deps.traceContext,

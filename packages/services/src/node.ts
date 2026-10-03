@@ -1618,7 +1618,7 @@ export function createLocalServices(options: {
     },
   );
   let providerConnectivityAgentService:
-    | Pick<IZCodeAgentService, "testModelConnectivity">
+    | Pick<IZCodeAgentService, "testModelConnectivity" | "listProviderModels">
     | undefined;
   const providerRuntime = createProviderRuntimeFromConfigRuntime({
     configRuntime: providerConfigRuntime,
@@ -1634,6 +1634,12 @@ export function createLocalServices(options: {
         return providerConnectivityAgentService.testModelConnectivity(input);
       },
     }),
+    listModels: async (input) => {
+      if (!providerConnectivityAgentService) {
+        throw new Error("Agent Service 尚未完成模型列表能力装配");
+      }
+      return providerConnectivityAgentService.listProviderModels(input);
+    },
     disposeAccountSource: () => {
       disposeAccountProviderInvalidation();
       accountProviderRefreshErrorDispose();

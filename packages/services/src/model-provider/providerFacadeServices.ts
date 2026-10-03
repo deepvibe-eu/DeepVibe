@@ -68,6 +68,10 @@ export interface IProviderSettingsService {
   testModelConnectivity(
     input: ProviderSettingsConnectivityRequest,
   ): Promise<ModelConnectivityResult>;
+  /** 从 Provider 端点获取可用模型列表。 */
+  listModels(input: ProviderSettingsConnectivityRequest): Promise<{
+    readonly models: readonly { readonly id: string; readonly displayName?: string }[];
+  }>;
 }
 
 export const IProviderSettingsService = createServiceDescriptor<IProviderSettingsService>(
@@ -106,10 +110,15 @@ export const IModelSelectionService = createServiceDescriptor<IModelSelectionSer
   ServiceChannels.ModelSelection,
 );
 
+export type ProviderSettingsListModelsTester = (
+  input: ProviderSettingsConnectivityTestInput,
+) => Promise<{ readonly models: readonly { readonly id: string; readonly displayName?: string }[] }>;
+
 export function createProviderSettingsService(
   facade: ProviderSettingsFacade,
   ensureReady: () => Promise<void> = async () => {},
   testConnectivity?: ProviderSettingsConnectivityTester,
+  listModels?: ProviderSettingsListModelsTester,
 ): IProviderSettingsService {
   return {
     onDidChange: toEvent((listener) => facade.onDidChange(listener)),
@@ -200,6 +209,27 @@ export function createProviderSettingsService(
         };
       }
       return testConnectivity({
+        workspacePath: input.workspacePath,
+        ...(input.workspaceIdentity ? { workspaceIdentity: input.workspaceIdentity } : {}),
+        providerId: input.providerId,
+        modelId: input.modelId,
+      });
+    },
+    listModels: async (input) => {
+      await ensureReady();
+      if (!listModels) {
+        throw new Error("当前 Environment 未装配模型列表能力");
+      }
+      await facade.waitForProviderOperations(input.providerId);
+      const provider = facade
+        .getView()
+        .providers.find((item) => item.providerId === input.providerId);
+      if (!provider || !provider.enabled) {
+        return {
+          models: [],
+        };
+      }
+      return listModels({
         workspacePath: input.workspacePath,
         ...(input.workspaceIdentity ? { workspaceIdentity: input.workspaceIdentity } : {}),
         providerId: input.providerId,

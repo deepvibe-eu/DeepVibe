@@ -14,6 +14,7 @@ import type {
   SessionEvent,
   TraceContext,
 } from "../deps.js";
+import type { RegistryProviderConfig } from "@zcode/provider";
 import type { AgentRuntimeInternal } from "../internal.js";
 import { createRefreshRuntimeHeadersBeforeModelAttempt } from "./model-runtime-headers.js";
 import { recordModelUsageFact } from "./usage-observability.js";
@@ -99,6 +100,23 @@ export async function testModelConnectivity(
     },
   );
   if (!finished) throw new Error("模型连通性测试流在 finish 事件前结束");
+}
+
+export interface ListProviderModelsInput {
+  providerId: string;
+  providerConfig: RegistryProviderConfig;
+}
+
+export async function listProviderModels(
+  this: AgentRuntimeInternal,
+  input: ListProviderModelsInput,
+  options?: { abortSignal?: AbortSignal; traceContext?: TraceContext },
+): Promise<{ readonly id: string; readonly displayName?: string }[]> {
+  const modelAdapter = (this as unknown as { modelAdapter?: { listModels: (input: { providerConfig: RegistryProviderConfig }) => Promise<{ readonly id: string; readonly displayName?: string }[]> } }).modelAdapter;
+  if (!modelAdapter) {
+    throw new Error("Model adapter not available for listing models");
+  }
+  return modelAdapter.listModels({ providerConfig: input.providerConfig });
 }
 
 export async function generateWorkspaceText(

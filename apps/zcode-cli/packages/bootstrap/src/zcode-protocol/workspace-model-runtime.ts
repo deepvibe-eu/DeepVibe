@@ -2,6 +2,7 @@
 import { createInMemorySessionEventStore } from "@zcode/adapters/storage";
 import type { ModelSelection } from "@zcode/contracts";
 import {
+  zcodeProviderListModelsParamsSchema,
   zcodeProviderTestModelConnectivityParamsSchema,
   zcodeWorkspaceReadPresentationParamsSchema,
   type ZCodeWorkspaceRef,
@@ -61,6 +62,36 @@ export async function testProviderModelConnectivity(
       { abortSignal },
     );
     return { success: true as const };
+  } finally {
+    if (!active) await app.close?.();
+  }
+}
+
+export async function listProviderModels(
+  context: ZCodeProtocolAgentServerContext,
+  rawParams: unknown,
+  abortSignal?: AbortSignal,
+) {
+  const params = parseParams(zcodeProviderListModelsParamsSchema, rawParams);
+  await context.deps.refreshProviderRegistry?.("provider-list-models");
+  const active = Array.from(context.sessions.values()).find(
+    (record) => record.workspace.workspaceKey === params.workspace.workspaceKey,
+  );
+  const app =
+    active?.app ??
+    (await createWorkspaceZCodeApp(context, params.workspace, {
+      env: context.deps.env,
+      eventStore: createInMemorySessionEventStore(),
+      runtimeConfig: { workingDirectory: params.workspace.workspacePath },
+      sessionStore: context.deps.sessionStore,
+      version: context.deps.version,
+    }));
+  try {
+    const models = await app.listProviderModels(
+      { providerId: params.providerId },
+      { abortSignal },
+    );
+    return { models };
   } finally {
     if (!active) await app.close?.();
   }
