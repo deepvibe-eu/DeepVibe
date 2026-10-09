@@ -12,7 +12,7 @@ const KO_FI_URL = "https://ko-fi.com/modestcoder";
 /**
  * „Über & Danksagung": Version, Lizenzen und die Projekte, auf denen DeepVibe aufbaut.
  * Die harten Lizenztexte liegen zusätzlich in NOTICE/THIRD-PARTY-NOTICES; diese Seite
- * macht sie für Nutzer sichtbar (Apache-2.0 ZCode, MIT MiniMax Code/Mavis).
+ * macht sie für Nutzer sichtbar (Apache-2.0 ZCode, MIT MiniMax Code).
  */
 export function AboutSection() {
   const platform = usePlatform();
@@ -88,7 +88,7 @@ export function AboutSection() {
               onClick={() => openExternal(MINIMAX_CODE_REPO_URL)}
             >
               <ExternalLink data-icon="inline-start" aria-hidden="true" />
-              MiniMax Code / Mavis · MIT
+              MiniMax Code · MIT
             </Button>
           </div>
         </div>
