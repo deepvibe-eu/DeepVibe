@@ -2429,6 +2429,17 @@ const esES: Record<string, string> = {
   "settings.migration.reason.session_not_found_or_workspace_mismatch":
     "No se encontró la sesión de origen o ya no coincide con el filtro de espacio de trabajo actual.",
   "settings.usageTitle": "Estadísticas de uso",
+  "settings.about.title": "Acerca de y créditos",
+  "settings.about.description":
+    "Versión, licencias y los proyectos de código abierto sobre los que se construye DeepVibe.",
+  "settings.about.app.detail":
+    "{product} — el IDE compañero de programación de {provider}. Un proveedor por app, como compañero en lugar de agente.",
+  "settings.about.builtOn": "Construido sobre código abierto:",
+  "settings.about.support.text":
+    "Puedes apoyar nuestro trabajo invitándonos a un café.",
+  "settings.about.support.button": "Apoyar en Ko-fi",
+  "settings.about.trademark":
+    "DeepVibe es un proyecto independiente y no está afiliado a los proyectos anteriores. DeepSeek, ZCode y MiniMax pertenecen a sus respectivos propietarios.",
   "settings.usageDescription":
     "Consulta la actividad aproximada y el uso de modelos agregados a partir de las sesiones locales.",
   "resourceManager.storage.summaryTotal": "Total usado por DeepVibe",

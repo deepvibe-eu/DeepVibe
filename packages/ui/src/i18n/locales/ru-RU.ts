@@ -2395,6 +2395,17 @@ const ruRU: Record<string, string> = {
   "settings.migration.reason.session_not_found_or_workspace_mismatch":
     "Исходный сеанс не найден или больше не соответствует текущему фильтру по рабочей области.",
   "settings.usageTitle": "Статистика использования",
+  "settings.about.title": "О программе и благодарности",
+  "settings.about.description":
+    "Версия, лицензии и открытые проекты, на которых основан DeepVibe.",
+  "settings.about.app.detail":
+    "{product} — IDE-партнёр для программирования с {provider}. Один провайдер на приложение, как партнёр, а не агент.",
+  "settings.about.builtOn": "Основано на открытом исходном коде:",
+  "settings.about.support.text":
+    "Вы можете поддержать нашу работу, угостив нас кофе.",
+  "settings.about.support.button": "Поддержать на Ko-fi",
+  "settings.about.trademark":
+    "DeepVibe — независимый проект и не связан с перечисленными выше проектами. DeepSeek, ZCode и MiniMax принадлежат их соответствующим владельцам.",
   "settings.usageDescription":
     "Просматривайте примерную активность и использование моделей, собранные из локальных сеансов.",
   "resourceManager.storage.summaryTotal": "Всего занято DeepVibe",

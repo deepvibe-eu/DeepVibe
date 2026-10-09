@@ -2355,7 +2355,7 @@ const enUS: Record<string, string> = {
   "settings.about.support.text": "You can support our work by fueling us with caffeine.",
   "settings.about.support.button": "Support on Ko-fi",
   "settings.about.trademark":
-    "DeepVibe is an independent project and is not affiliated with the projects above. DeepSeek, ZCode, MiniMax and Mavis belong to their respective owners.",
+    "DeepVibe is an independent project and is not affiliated with the projects above. DeepSeek, ZCode and MiniMax belong to their respective owners.",
   "settings.usageDescription":
     "Review rough activity and model usage aggregated from local sessions.",
   "resourceManager.storage.summaryTotal": "Total used by DeepVibe",

@@ -2214,7 +2214,7 @@ const zhCN: Record<string, string> = {
   "settings.about.support.text": "你可以请我们喝杯咖啡来支持我们的工作。",
   "settings.about.support.button": "在 Ko-fi 上支持",
   "settings.about.trademark":
-    "DeepVibe 是独立项目，与上述项目无隶属关系。DeepSeek、ZCode、MiniMax 与 Mavis 归各自所有者所有。",
+    "DeepVibe 是独立项目，与上述项目无隶属关系。DeepSeek、ZCode 与 MiniMax 归各自所有者所有。",
   "settings.usageDescription": "查看会话活跃度与模型用量的粗略统计。",
   "resourceManager.storage.summaryTotal": "DeepVibe 总占用",
   "resourceManager.storage.scanning": "正在计算…",
