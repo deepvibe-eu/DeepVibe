@@ -13,7 +13,7 @@
 
 DeepVibe is a **fork of ZCode**, focused on a single provider: DeepSeek.
 
-ZCode is an excellent multi-provider agentic workspace. DeepVibe intentionally does one thing differently — **one provider per app**. Every model has its own character and system prompt, and we think that character deserves its own IDE instead of a switch in a dropdown. Therefore the *Vibe* family will offer a specialized app for each provider — DeepVibe (DeepSeek), LamaVibe (Ollama), KimiVibe (Kimi), MavisVibe (MiniMax), and so on. Every provider is a partner, not an agent.
+ZCode is an excellent multi-provider agentic workspace. DeepVibe intentionally does one thing differently — **one provider per app**. Every model has its own character and system prompt, and we think that character deserves its own IDE instead of a switch in a dropdown. Therefore the *Vibe* family will offer a specialized app for each provider — DeepVibe (DeepSeek), LamaVibe (Ollama), KimiVibe (Kimi), MiniVibe (MiniMax), and so on. Every provider is a partner, not an agent.
 
 That is why this project exists **alongside** ZCode, not instead of it: ZCode for the multi-provider workflow; the Vibe apps for people who want one model, one workspace, one partner.
 
@@ -22,6 +22,25 @@ Built on ZCode (Apache-2.0); its license and NOTICE are preserved. DeepVibe is a
 This repository contains the clients, backend services, shared UI, and the CLI and runtime source code.
 
 This app interface ships in **English, Simplified Chinese, German, Spanish, French and Russian**.
+
+## Install
+
+Prebuilt installers are on the [releases page](https://github.com/deepvibe-eu/DeepVibe/releases):
+macOS `.dmg`/`.zip` (Apple Silicon), Windows `.exe`, and Linux `.AppImage`/`.deb`/`.rpm`/`.pkg.tar.zst`/`.tar.gz`.
+On macOS and Linux you can also install with Homebrew:
+
+```sh
+brew tap deepvibe-eu/tap
+brew trust --formula deepvibe-eu/tap/deepvibe
+brew install deepvibe
+```
+
+> **macOS (Apple Silicon):** the build is currently **unsigned** (no paid Apple Developer Program),
+> so Gatekeeper warns on first launch. The app *is* ad-hoc signed, so it launches normally — just open
+> it once via **right-click → Open**, or clear the quarantine flag:
+> ```sh
+> xattr -dr com.apple.quarantine /Applications/DeepVibe.app
+> ```
 
 ## Updates
 
