@@ -1,0 +1,27 @@
+# Maintainer: modest coder <me@modestcoder.eu>
+pkgname=deepvibe-bin
+pkgver=1.0.2
+pkgrel=1
+pkgdesc='The (unofficial) DeepSeek coding partner IDE'
+arch=('x86_64')
+url='https://deepvibe.eu'
+license=('Apache-2.0')
+depends=('gtk3' 'nss' 'libxss' 'libxtst' 'at-spi2-core' 'libnotify' 'xdg-utils' 'libsecret')
+provides=('deepvibe')
+conflicts=('deepvibe')
+options=('!strip')
+source=("${pkgname}-${pkgver}.AppImage::https://github.com/deepvibe-eu/DeepVibe/releases/download/v${pkgver}/DeepVibe-${pkgver}-linux-x86_64.AppImage"
+        'deepvibe.desktop'
+        'deepvibe.png')
+sha256sums=('dbb13c8193890b7db57628c800c7f91794c41aefdb46e4fd69e254b4c3e2fd34'
+            'SKIP'
+            'SKIP')
+
+package() {
+  install -d "$pkgdir/opt/$pkgname"
+  install -Dm755 "$srcdir/${pkgname}-${pkgver}.AppImage" "$pkgdir/opt/$pkgname/deepvibe.AppImage"
+  install -Dm644 "$srcdir/deepvibe.desktop" "$pkgdir/usr/share/applications/deepvibe.desktop"
+  install -Dm644 "$srcdir/deepvibe.png" "$pkgdir/usr/share/icons/hicolor/512x512/apps/deepvibe.png"
+  install -d "$pkgdir/usr/bin"
+  ln -s "/opt/$pkgname/deepvibe.AppImage" "$pkgdir/usr/bin/deepvibe"
+}

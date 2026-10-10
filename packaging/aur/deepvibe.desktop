@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=DeepVibe
+Comment=The (unofficial) DeepSeek coding partner IDE
+Exec=deepvibe %U
+Icon=deepvibe
+Terminal=false
+Type=Application
+Categories=Development;IDE;
+Keywords=ide;deepseek;coding;agent;
+StartupNotify=true
+StartupWMClass=DeepVibe

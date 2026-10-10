@@ -1,0 +1,42 @@
+name: deepvibe
+title: DeepVibe
+base: core24
+version: "1.0.2"
+summary: The (unofficial) DeepSeek coding partner IDE
+description: |
+  DeepVibe is an unofficial coding partner IDE for DeepSeek, based on ZCode
+  (Apache-2.0). One provider per app, as a partner rather than an agent.
+
+  Note: this is a classic-confinement snap. Like other IDEs (e.g. VSCode) it
+  needs access to the host toolchain (git, node, shells) — the classic
+  confinement is what makes that possible without the Flatpak sandbox problem.
+
+grade: stable
+confinement: classic
+architectures:
+  - build-on: amd64
+    build-for: amd64
+
+apps:
+  deepvibe:
+    command: bin/deepvibe
+    desktop: usr/share/applications/deepvibe.desktop
+
+parts:
+  deepvibe:
+    plugin: dump
+    # Build from the released, unpacked Linux app (top-level dir "DeepVibe/").
+    source: https://github.com/deepvibe-eu/DeepVibe/releases/download/v1.0.2/DeepVibe-1.0.2-linux-x64.tar.gz
+    source-type: tar
+    override-build: |
+      craftctl default
+      mkdir -p "$CRAFT_PART_INSTALL/opt/deepvibe"
+      cp -a DeepVibe/. "$CRAFT_PART_INSTALL/opt/deepvibe/"
+      chmod +x "$CRAFT_PART_INSTALL/opt/deepvibe/deepvibe"
+      mkdir -p "$CRAFT_PART_INSTALL/bin"
+      printf '#!/bin/sh\nexec /opt/deepvibe/deepvibe "$@"\n' > "$CRAFT_PART_INSTALL/bin/deepvibe"
+      chmod +x "$CRAFT_PART_INSTALL/bin/deepvibe"
+      install -d "$CRAFT_PART_INSTALL/usr/share/applications"
+      install -Dm644 snap/gui/deepvibe.desktop "$CRAFT_PART_INSTALL/usr/share/applications/deepvibe.desktop"
+      install -d "$CRAFT_PART_INSTALL/usr/share/icons/hicolor/512x512/apps"
+      install -Dm644 snap/gui/deepvibe.png "$CRAFT_PART_INSTALL/usr/share/icons/hicolor/512x512/apps/deepvibe.png"
