@@ -16,7 +16,7 @@
 # Refresh the hashes with packaging/homebrew/print-checksums.sh.
 class Deepvibe < Formula
   desc "The (unofficial) DeepSeek coding partner IDE"
-  homepage "https://github.com/deepvibe-eu/DeepVibe"
+  homepage "https://deepvibe.eu"
   version "1.0.2"
   license "Apache-2.0"
 
