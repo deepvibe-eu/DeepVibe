@@ -57,8 +57,21 @@ jobs:
           # Tag-Version (v1.0.2 → 1.0.2) in das Produkt backen; sonst maßgeblich
           # die registrierte Flavor-Version in flavors/versions.json.
           ZCODE_APP_VERSION: ${{ github.event.inputs.tag || github.ref_name }}
-          # Noch unsigniert: Signierung/Notarisierung folgt später über Secrets.
+          # Signierung/Notarisierung schalten sich automatisch ein, sobald die
+          # Apple-Secrets gesetzt sind; ohne Secrets bleibt der Build unsigniert
+          # (Default, unverändert). Benötigte Repository-Secrets:
+          #   APPLE_SIGNING_IDENTITY    "Developer ID Application: … (TEAMID)"
+          #   APPLE_CERTIFICATE_P12     base64 des .p12 (Developer ID Application)
+          #   APPLE_CERTIFICATE_PASSWORD
+          #   APPLE_ID / APPLE_APP_SPECIFIC_PASSWORD / APPLE_TEAM_ID  (Notarisierung)
+          ZCODE_ENABLE_MAC_SIGN: ${{ secrets.APPLE_SIGNING_IDENTITY != '' && '1' || '0' }}
           CSC_IDENTITY_AUTO_DISCOVERY: "false"
+          CSC_LINK: ${{ secrets.APPLE_CERTIFICATE_P12 }}
+          CSC_KEY_PASSWORD: ${{ secrets.APPLE_CERTIFICATE_PASSWORD }}
+          APPLE_SIGNING_IDENTITY: ${{ secrets.APPLE_SIGNING_IDENTITY }}
+          APPLE_ID: ${{ secrets.APPLE_ID }}
+          APPLE_APP_SPECIFIC_PASSWORD: ${{ secrets.APPLE_APP_SPECIFIC_PASSWORD }}
+          APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
         run: pnpm bundle:desktop -- --os ${{ matrix.target }} --arch ${{ matrix.arch }}
 
       - name: Publish release assets

@@ -153,6 +153,16 @@ const macSigningIdentity =
   rawMacSigningIdentity?.replace(/^Developer ID Application:\s*/, "") ?? null;
 const shouldEnableMacSigning =
   process.env.ZCODE_ENABLE_MAC_SIGN === "1" && Boolean(macSigningIdentity);
+// 只有在签名开启且 Apple 凭据齐全时才让 electron-builder 走内置公证；
+// 否则保持未签名/未公证，本地和没有 Secrets 的 CI 仍能正常出包。
+// Built-in notarization handles app -> staple -> dmg/zip ordering correctly.
+const shouldNotarize =
+  shouldEnableMacSigning &&
+  Boolean(
+    process.env.APPLE_ID &&
+      process.env.APPLE_APP_SPECIFIC_PASSWORD &&
+      process.env.APPLE_TEAM_ID,
+  );
 const workspaceRoot = resolve(import.meta.dirname, "../..");
 const desktopPackageRoot = import.meta.dirname;
 const runtimeModuleLookupRoots = [
@@ -767,10 +777,9 @@ export default {
     // electron-builder 也不会自动切到 hardened runtime / entitlement 这套发布参数。
     // 这里显式收拢到环境开关，保证本地开发不被签名配置绑死，CI 发布时再按需打开。
     identity: shouldEnableMacSigning ? macSigningIdentity : null,
-    // macOS 产物采用“build 阶段签名 + 独立公证阶段”的两段式流水线。
-    // 如果这里不显式关闭 electron-builder 内置 notarize，它会在 build 阶段读取 Apple 凭据后直接尝试公证，
-    // 并强制要求 APPLE_APP_SPECIFIC_PASSWORD，导致 build 还没产出 DMG 就提前失败。
-    notarize: false,
+    // 仅在凭据齐全时开启内置公证（见上方 shouldNotarize）；凭据缺失时保持 false，
+    // 避免 build 阶段找不到 APPLE_APP_SPECIFIC_PASSWORD 而在产出 DMG 前提前失败。
+    notarize: shouldNotarize,
     hardenedRuntime: shouldEnableMacSigning,
     gatekeeperAssess: false,
     entitlements: "build/entitlements.mac.plist",
