@@ -1,0 +1,26 @@
+pkgbase = deepvibe-bin
+	pkgdesc = The (unofficial) DeepSeek coding partner IDE
+	pkgver = 1.0.2
+	pkgrel = 1
+	url = https://deepvibe.eu
+	arch = x86_64
+	license = Apache-2.0
+	depends = gtk3
+	depends = nss
+	depends = libxss
+	depends = libxtst
+	depends = at-spi2-core
+	depends = libnotify
+	depends = xdg-utils
+	depends = libsecret
+	provides = deepvibe
+	conflicts = deepvibe
+	options = !strip
+	source = deepvibe-bin-1.0.2.AppImage::https://github.com/deepvibe-eu/DeepVibe/releases/download/v1.0.2/DeepVibe-1.0.2-linux-x86_64.AppImage
+	source = deepvibe.desktop
+	source = deepvibe.png
+	sha256sums = dbb13c8193890b7db57628c800c7f91794c41aefdb46e4fd69e254b4c3e2fd34
+	sha256sums = SKIP
+	sha256sums = SKIP
+
+pkgname = deepvibe-bin
