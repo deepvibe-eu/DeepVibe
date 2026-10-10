@@ -47,7 +47,10 @@ echo "==> Staging /opt/deepvibe"
 cp -a "$WORK/DeepVibe/." "$PRIME/opt/deepvibe/"
 chmod +x "$PRIME/opt/deepvibe/deepvibe"
 
-printf '#!/bin/sh\nexec /opt/deepvibe/deepvibe "$@"\n' > "$PRIME/bin/deepvibe"
+# Reference the app inside the snap via $SNAP, not the host /opt path:
+# inside the snap the payload lives at $SNAP/opt/deepvibe, and a host-absolute
+# /opt path only exists on the machine that built the snap.
+printf '#!/bin/sh\nexec "$SNAP/opt/deepvibe/deepvibe" "$@"\n' > "$PRIME/bin/deepvibe"
 chmod +x "$PRIME/bin/deepvibe"
 
 cp "$HERE/gui/deepvibe.desktop" "$PRIME/usr/share/applications/deepvibe.desktop"

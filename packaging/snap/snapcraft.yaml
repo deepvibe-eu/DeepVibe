@@ -34,7 +34,7 @@ parts:
       cp -a DeepVibe/. "$CRAFT_PART_INSTALL/opt/deepvibe/"
       chmod +x "$CRAFT_PART_INSTALL/opt/deepvibe/deepvibe"
       mkdir -p "$CRAFT_PART_INSTALL/bin"
-      printf '#!/bin/sh\nexec /opt/deepvibe/deepvibe "$@"\n' > "$CRAFT_PART_INSTALL/bin/deepvibe"
+      printf '#!/bin/sh\nexec "$SNAP/opt/deepvibe/deepvibe" "$@"\n' > "$CRAFT_PART_INSTALL/bin/deepvibe"
       chmod +x "$CRAFT_PART_INSTALL/bin/deepvibe"
       install -d "$CRAFT_PART_INSTALL/usr/share/applications"
       install -Dm644 snap/gui/deepvibe.desktop "$CRAFT_PART_INSTALL/usr/share/applications/deepvibe.desktop"
