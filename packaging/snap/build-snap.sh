@@ -77,9 +77,11 @@ architectures:
 apps:
   deepvibe:
     command: bin/deepvibe
-    desktop: usr/share/applications/deepvibe.desktop
 EOF
 
+# Desktop integration comes from meta/gui/deepvibe.desktop (+ .png); the
+# store rejects a `desktop:` key in the final snap.yaml.
 echo "==> Building $OUT"
-mksquashfs "$PRIME" "$OUT" -noappend -comp xz -all-root -no-xattrs >/dev/null
+# -no-fragments is what the Snap Store's squashfs check expects.
+mksquashfs "$PRIME" "$OUT" -noappend -comp xz -no-fragments -all-root -no-xattrs >/dev/null
 ls -lh "$OUT"

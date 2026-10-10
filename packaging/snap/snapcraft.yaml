@@ -20,7 +20,6 @@ architectures:
 apps:
   deepvibe:
     command: bin/deepvibe
-    desktop: usr/share/applications/deepvibe.desktop
 
 parts:
   deepvibe:
