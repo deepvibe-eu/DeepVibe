@@ -18,10 +18,12 @@ sha256sums=('dbb13c8193890b7db57628c800c7f91794c41aefdb46e4fd69e254b4c3e2fd34'
             'SKIP')
 
 package() {
-  install -d "$pkgdir/opt/$pkgname"
-  install -Dm755 "$srcdir/${pkgname}-${pkgver}.AppImage" "$pkgdir/opt/$pkgname/deepvibe.AppImage"
+  # Install the AppImage under /usr/lib (a valid ELF path) rather than /opt,
+  # so it passes namcap's "ELF files outside of a valid path" check.
+  install -d "$pkgdir/usr/lib/$pkgname"
+  install -Dm755 "$srcdir/${pkgname}-${pkgver}.AppImage" "$pkgdir/usr/lib/$pkgname/deepvibe.AppImage"
   install -Dm644 "$srcdir/deepvibe.desktop" "$pkgdir/usr/share/applications/deepvibe.desktop"
   install -Dm644 "$srcdir/deepvibe.png" "$pkgdir/usr/share/icons/hicolor/512x512/apps/deepvibe.png"
   install -d "$pkgdir/usr/bin"
-  ln -s "/opt/$pkgname/deepvibe.AppImage" "$pkgdir/usr/bin/deepvibe"
+  ln -s "/usr/lib/$pkgname/deepvibe.AppImage" "$pkgdir/usr/bin/deepvibe"
 }
