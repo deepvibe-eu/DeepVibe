@@ -57,21 +57,13 @@ jobs:
           # Tag-Version (v1.0.2 → 1.0.2) in das Produkt backen; sonst maßgeblich
           # die registrierte Flavor-Version in flavors/versions.json.
           ZCODE_APP_VERSION: ${{ github.event.inputs.tag || github.ref_name }}
-          # Signierung/Notarisierung schalten sich automatisch ein, sobald die
-          # Apple-Secrets gesetzt sind; ohne Secrets bleibt der Build unsigniert
-          # (Default, unverändert). Benötigte Repository-Secrets:
-          #   APPLE_SIGNING_IDENTITY    "Developer ID Application: … (TEAMID)"
-          #   APPLE_CERTIFICATE_P12     base64 des .p12 (Developer ID Application)
-          #   APPLE_CERTIFICATE_PASSWORD
-          #   APPLE_ID / APPLE_APP_SPECIFIC_PASSWORD / APPLE_TEAM_ID  (Notarisierung)
-          ZCODE_ENABLE_MAC_SIGN: ${{ secrets.APPLE_SIGNING_IDENTITY != '' && '1' || '0' }}
+          # 未签名发布:macOS 在 afterPack 阶段做 ad-hoc 签名(arm64 需要)。
+          # 真正的 Developer-ID 签名/公证以后再接:必须一次性提供全部变量,缺一即
+          # 构建失败 —— ZCODE_ENABLE_MAC_SIGN=1、APPLE_SIGNING_IDENTITY、
+          # CSC_LINK(base64 .p12)、CSC_KEY_PASSWORD、APPLE_ID、
+          # APPLE_APP_SPECIFIC_PASSWORD、APPLE_TEAM_ID。
+          # (不要以空值传入 CSC_*/APPLE_*,否则 electron-builder 会报 "not a file".)
           CSC_IDENTITY_AUTO_DISCOVERY: "false"
-          CSC_LINK: ${{ secrets.APPLE_CERTIFICATE_P12 }}
-          CSC_KEY_PASSWORD: ${{ secrets.APPLE_CERTIFICATE_PASSWORD }}
-          APPLE_SIGNING_IDENTITY: ${{ secrets.APPLE_SIGNING_IDENTITY }}
-          APPLE_ID: ${{ secrets.APPLE_ID }}
-          APPLE_APP_SPECIFIC_PASSWORD: ${{ secrets.APPLE_APP_SPECIFIC_PASSWORD }}
-          APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
         run: pnpm bundle:desktop -- --os ${{ matrix.target }} --arch ${{ matrix.arch }}
 
       - name: Publish release assets
