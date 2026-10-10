@@ -776,7 +776,14 @@ export default {
     // z-code 之前只有本地未签名打包配置，CI 即使注入了证书变量，
     // electron-builder 也不会自动切到 hardened runtime / entitlement 这套发布参数。
     // 这里显式收拢到环境开关，保证本地开发不被签名配置绑死，CI 发布时再按需打开。
-    identity: shouldEnableMacSigning ? macSigningIdentity : null,
+    // 没有 Developer ID 时不能完全跳过签名：Apple Silicon(arm64) 会直接
+    // 拒绝启动未签名的二进制。用 "-" 走 ad-hoc 签名，保证应用在 arm64 上
+    // 至少能启动（首次打开仍有 Gatekeeper 提示，但不致于打不开）。
+    // Without a Developer ID we must not skip signing entirely: macOS on
+    // arm64 refuses to launch unsigned binaries, so fall back to ad-hoc
+    // signing ("-"). The app then starts (with a Gatekeeper prompt) instead
+    // of not launching at all.
+    identity: shouldEnableMacSigning ? macSigningIdentity : "-",
     // 仅在凭据齐全时开启内置公证（见上方 shouldNotarize）；凭据缺失时保持 false，
     // 避免 build 阶段找不到 APPLE_APP_SPECIFIC_PASSWORD 而在产出 DMG 前提前失败。
     notarize: shouldNotarize,
