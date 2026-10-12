@@ -1449,6 +1449,19 @@ const ruRU: Record<string, string> = {
   "codeViewer.svgPreview": "Предпросмотр",
   "codeViewer.svgSource": "Код",
   "codeViewer.wrapLines": "Переносить строки",
+  "codeViewer.editMode": "Редактировать",
+  "codeViewer.viewMode": "Просмотр",
+  "codeViewer.undo": "Отменить",
+  "codeViewer.redo": "Повторить",
+  "codeViewer.save": "Сохранить",
+  "codeViewer.saving": "Сохранение…",
+  "codeViewer.saved": "Файл сохранён",
+  "codeViewer.saveFailed": "Не удалось сохранить файл: {error}",
+  "codeViewer.saveStale":
+    "Файл был изменён на диске после открытия. Перезагрузите его перед сохранением.",
+  "codeViewer.reload": "Перезагрузить",
+  "codeViewer.unsavedChanges": "Несохранённые изменения",
+  "codeViewer.editorUnavailable": "Редактор кода сейчас недоступен.",
   "codeBlock.mermaid.ariaLabel": "Диаграмма Mermaid",
   "codeBlock.wrapLines": "Переносить строки",
   "codeBlock.copyCode": "Копировать код",
@@ -2396,13 +2409,11 @@ const ruRU: Record<string, string> = {
     "Исходный сеанс не найден или больше не соответствует текущему фильтру по рабочей области.",
   "settings.usageTitle": "Статистика использования",
   "settings.about.title": "О программе и благодарности",
-  "settings.about.description":
-    "Версия, лицензии и открытые проекты, на которых основан DeepVibe.",
+  "settings.about.description": "Версия, лицензии и открытые проекты, на которых основан DeepVibe.",
   "settings.about.app.detail":
     "{product} — IDE-партнёр для программирования с {provider}. Один провайдер на приложение, как партнёр, а не агент.",
   "settings.about.builtOn": "Основано на открытом исходном коде:",
-  "settings.about.support.text":
-    "Вы можете поддержать нашу работу, угостив нас кофе.",
+  "settings.about.support.text": "Вы можете поддержать нашу работу, угостив нас кофе.",
   "settings.about.support.button": "Поддержать на Ko-fi",
   "settings.about.trademark":
     "DeepVibe — независимый проект и не связан с перечисленными выше проектами. DeepSeek, ZCode и MiniMax принадлежат их соответствующим владельцам.",

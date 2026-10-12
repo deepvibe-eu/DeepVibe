@@ -496,6 +496,7 @@ export function createFileService(options: CreateFileServiceOptions = {}): IFile
           totalBytes: fileStat.size,
           truncated: false,
           isBinary: false,
+          mtimeMs: fileStat.mtimeMs,
         };
       }
       const targetLength = clampReadLength(params.length);
@@ -517,6 +518,7 @@ export function createFileService(options: CreateFileServiceOptions = {}): IFile
           totalBytes: fileStat.size,
           truncated: offset + bytesRead < fileStat.size,
           isBinary,
+          mtimeMs: fileStat.mtimeMs,
         };
       } finally {
         await handle.close();

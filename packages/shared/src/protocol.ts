@@ -44,6 +44,11 @@ export interface FileTextSlice {
   totalBytes: number;
   truncated: boolean;
   isBinary: boolean;
+  /**
+   * 本次读取观测到的文件 mtime。UI 编辑器保存时把它原样回传为 expectedMtimeMs，
+   * 写入前若磁盘 mtime 已变（例如 Agent 写入）则拒绝覆盖（write_file_stale）。
+   */
+  mtimeMs: number;
 }
 
 export interface FileMediaPreview {

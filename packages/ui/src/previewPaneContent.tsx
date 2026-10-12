@@ -10,6 +10,8 @@ import type { CodePreviewSettings } from "@/store/index.js";
 import type { CodeCommentLabels } from "@/components/ui/code-viewer.js";
 import { MarkdownPreviewContent } from "@/previewPaneMarkdownContent.js";
 import { CodeContent } from "@/previewPaneCodeContent.js";
+import { EditableCodeContent } from "@/previewPaneCodeEditor.js";
+import type { CodeEditorHandle } from "@/components/ui/code-editor.js";
 import { ImagePreviewContent, SvgPreviewContent } from "@/previewPaneImageContent.js";
 import { PreviewPaneMediaContent } from "@/previewPaneMediaContent.js";
 import { PdfPreviewContent } from "@/previewPanePdfContent.js";
@@ -74,6 +76,13 @@ interface PreviewPaneContentProps {
   onDeleteCodeComment?: (commentId: string) => void;
   onScroll?: UIEventHandler<HTMLDivElement>;
   scrollContainerRef?: Ref<HTMLDivElement>;
+  /** In-app editor state, owned by PreviewPane (see docs/preview-code-editor.md). */
+  editMode: boolean;
+  editorContent: string | null;
+  editorResetKey: string;
+  onEditorChange: (value: string) => void;
+  onEditorSave?: () => void;
+  editorHandleRef?: Ref<CodeEditorHandle>;
 }
 
 function isSvgPath(path?: string): boolean {
@@ -130,6 +139,12 @@ export function PreviewPaneContent({
   onDeleteCodeComment,
   onScroll,
   scrollContainerRef,
+  editMode,
+  editorContent,
+  editorResetKey,
+  onEditorChange,
+  onEditorSave,
+  editorHandleRef,
 }: PreviewPaneContentProps) {
   const { intl } = useZCodeIntl();
   const fileMissingMessage = intl.formatMessage({ id: "codeViewer.fileMissing" });
@@ -410,6 +425,25 @@ export function PreviewPaneContent({
       : null;
   const isMarkdownFile = fileLanguage === "markdown";
   const isSvgFile = isSvgPath(source.path);
+
+  // Edit mode always wins over the markdown/SVG previews: the user asked to edit the source.
+  if (source.type === "file" && editMode && editorContent !== null) {
+    return (
+      <EditableCodeContent
+        ref={editorHandleRef}
+        resetKey={editorResetKey}
+        value={editorContent}
+        language={fileLanguage}
+        isDark={resolvedTheme === "dark"}
+        fontSizePx={codePreviewSettings.fontSizePx}
+        showLineNumbers={codePreviewSettings.showLineNumbers}
+        wrapLongLines={wrapLongLines}
+        onChange={onEditorChange}
+        {...(onEditorSave ? { onSave: onEditorSave } : {})}
+      />
+    );
+  }
+
   if (source.type !== "code-review" && isMarkdownFile && markdownViewMode === "preview") {
     return (
       <MarkdownPreviewContent

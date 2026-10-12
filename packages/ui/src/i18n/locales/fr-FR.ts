@@ -1473,6 +1473,19 @@ const frFR: Record<string, string> = {
   "codeViewer.svgPreview": "Aperçu",
   "codeViewer.svgSource": "Code",
   "codeViewer.wrapLines": "Retour à la ligne automatique",
+  "codeViewer.editMode": "Modifier",
+  "codeViewer.viewMode": "Afficher",
+  "codeViewer.undo": "Annuler",
+  "codeViewer.redo": "Rétablir",
+  "codeViewer.save": "Enregistrer",
+  "codeViewer.saving": "Enregistrement…",
+  "codeViewer.saved": "Fichier enregistré",
+  "codeViewer.saveFailed": "Impossible d'enregistrer le fichier : {error}",
+  "codeViewer.saveStale":
+    "Le fichier a été modifié sur le disque depuis son ouverture. Rechargez-le avant d'enregistrer.",
+  "codeViewer.reload": "Recharger",
+  "codeViewer.unsavedChanges": "Modifications non enregistrées",
+  "codeViewer.editorUnavailable": "L'éditeur de code est actuellement indisponible.",
   "codeBlock.mermaid.ariaLabel": "Diagramme Mermaid",
   "codeBlock.wrapLines": "Retour à la ligne automatique",
   "codeBlock.copyCode": "Copier le code",
@@ -2440,8 +2453,7 @@ const frFR: Record<string, string> = {
   "settings.about.app.detail":
     "{product} — l'IDE partenaire de codage {provider}. Un fournisseur par application, comme partenaire plutôt qu'agent.",
   "settings.about.builtOn": "Basé sur l'open source :",
-  "settings.about.support.text":
-    "Vous pouvez soutenir notre travail en nous offrant un café.",
+  "settings.about.support.text": "Vous pouvez soutenir notre travail en nous offrant un café.",
   "settings.about.support.button": "Soutenir sur Ko-fi",
   "settings.about.trademark":
     "DeepVibe est un projet indépendant et n'est pas affilié aux projets ci-dessus. DeepSeek, ZCode et MiniMax appartiennent à leurs propriétaires respectifs.",

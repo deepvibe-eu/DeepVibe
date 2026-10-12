@@ -14,11 +14,15 @@ import {
 import type { EditorInfo } from "@zcode/shared";
 import {
   ChevronRightIcon,
-  Ellipsis,
-  EyeIcon,
-  ExternalLinkIcon,
-  FileCode2Icon,
   CopyIcon,
+  Ellipsis,
+  ExternalLinkIcon,
+  EyeIcon,
+  FileCode2Icon,
+  PencilIcon,
+  Redo2Icon,
+  SaveIcon,
+  Undo2Icon,
 } from "lucide-react";
 import { nanoid } from "nanoid";
 import { Button } from "@/components/ui/button.js";
@@ -41,6 +45,7 @@ import {
   type MediaCodeViewerSource,
 } from "@/lib/codeViewer.js";
 import type { PdfViewerSource } from "@/components/ui/pdf-viewer.js";
+import type { CodeEditorHandle } from "@/components/ui/code-editor.js";
 import { normalizeCodeViewerSource } from "@/lib/codeViewerSource.js";
 import { FileDisplayIcon, resolveFileDisplayDescriptor } from "@/lib/fileDisplay.js";
 import { getPathLeaf, isAbsoluteFilePath } from "@/lib/path.js";
@@ -551,6 +556,10 @@ export function PreviewPane({
   const [markdownViewMode, setMarkdownViewMode] = useState<"preview" | "code">("preview");
   const [svgViewMode, setSvgViewMode] = useState<"preview" | "code">("preview");
   const [wrapLongLinesOverride, setWrapLongLinesOverride] = useState<boolean | null>(null);
+  const [editMode, setEditMode] = useState(false);
+  const [editorDraftContent, setEditorDraftContent] = useState<string | null>(null);
+  const [editorSaving, setEditorSaving] = useState(false);
+  const editorHandleRef = useRef<CodeEditorHandle | null>(null);
   const [breadcrumbMaskState, setBreadcrumbMaskState] = useState<BreadcrumbMaskState>("none");
   const breadcrumbScrollRef = useRef<HTMLDivElement | null>(null);
   const breadcrumbContentRef = useRef<HTMLDivElement | null>(null);
@@ -632,6 +641,16 @@ export function PreviewPane({
   const canCreateCodeComment = Boolean(
     source?.type !== "code-review" && source?.path && sourceWorkspacePath,
   );
+  // Edit is offered for plain text file previews only; truncated reads produce a null
+  // filePreview upstream, and a binary read must never be written back.
+  const canEditFile = Boolean(
+    source?.type === "file" && source.path && filePreview && !filePreview.isBinary,
+  );
+  const editorDirty =
+    editMode &&
+    editorDraftContent !== null &&
+    filePreview !== null &&
+    editorDraftContent !== filePreview.content;
   const displayOptions = useMemo(
     () =>
       getPreviewPaneDisplayOptions(source, {
@@ -880,6 +899,8 @@ export function PreviewPane({
     setFilePreview(null);
     setFileTooLarge(false);
     setError(null);
+    setEditMode(false);
+    setEditorDraftContent(null);
     setLoadingInitial(Boolean(fileSource));
     if (scrollContainerRef.current) {
       scrollContainerRef.current.scrollTop = 0;
@@ -1506,6 +1527,112 @@ export function PreviewPane({
     }
   };
 
+  const handleToggleEditMode = useCallback(() => {
+    if (editMode) {
+      setEditMode(false);
+      return;
+    }
+    if (!filePreview || filePreview.isBinary) {
+      return;
+    }
+    // Keep an existing draft so leaving and re-entering edit mode does not lose work.
+    setEditorDraftContent((current) => current ?? filePreview.content);
+    setEditMode(true);
+  }, [editMode, filePreview]);
+
+  const handleEditorChange = useCallback((value: string) => {
+    setEditorDraftContent(value);
+  }, []);
+
+  const handleEditorReload = useCallback(() => {
+    const path = source?.path;
+    if (!path) {
+      return;
+    }
+
+    void fileService
+      .readTextFile({ path, offset: 0, length: FILE_VIEWER_MAX_TEXT_BYTES })
+      .then((result) => {
+        const next = resolvePreviewPaneTextFileResult(result);
+        setFilePreview(next.filePreview);
+        setFileTooLarge(next.fileTooLarge);
+        if (next.filePreview) {
+          setEditorDraftContent(next.filePreview.content);
+        } else {
+          setEditMode(false);
+          setEditorDraftContent(null);
+        }
+      })
+      .catch((reloadError: unknown) => {
+        logger.error(`[PreviewPane] 重新加载文件失败 path=${path}:`, reloadError);
+        toast(
+          intl.formatMessage(
+            { id: "codeViewer.saveFailed" },
+            {
+              error: reloadError instanceof Error ? reloadError.message : String(reloadError),
+            },
+          ),
+          { variant: "warning" },
+        );
+      });
+  }, [fileService, intl, source?.path]);
+
+  const handleEditorSave = useCallback(async () => {
+    const path = source?.path;
+    if (!path || !filePreview || editorDraftContent === null) {
+      return;
+    }
+    if (editorDraftContent === filePreview.content) {
+      return;
+    }
+
+    setEditorSaving(true);
+    try {
+      // expectedMtimeMs is the mtime the buffer was read at; the service refuses the write
+      // with write_file_stale if another writer (e.g. the agent) moved ahead.
+      const { mtimeMs } = await fileService.writeTextFile({
+        path,
+        content: editorDraftContent,
+        expectedMtimeMs: filePreview.mtimeMs,
+      });
+      const byteLength = new TextEncoder().encode(editorDraftContent).length;
+      setFilePreview((previous) =>
+        previous
+          ? {
+              ...previous,
+              content: editorDraftContent,
+              mtimeMs,
+              bytesRead: byteLength,
+              totalBytes: byteLength,
+              truncated: false,
+              isBinary: false,
+            }
+          : previous,
+      );
+      toast(intl.formatMessage({ id: "codeViewer.saved" }));
+    } catch (saveError) {
+      const rawMessage = saveError instanceof Error ? saveError.message : String(saveError);
+      logger.error(`[PreviewPane] 保存文件失败 path=${path}:`, saveError);
+      if (rawMessage.includes("write_file_stale")) {
+        toast(intl.formatMessage({ id: "codeViewer.saveStale" }), {
+          variant: "warning",
+          actionLabel: intl.formatMessage({ id: "codeViewer.reload" }),
+          onAction: handleEditorReload,
+        });
+      } else {
+        toast(intl.formatMessage({ id: "codeViewer.saveFailed" }, { error: rawMessage }), {
+          variant: "warning",
+        });
+      }
+    } finally {
+      setEditorSaving(false);
+    }
+  }, [editorDraftContent, filePreview, fileService, handleEditorReload, intl, source?.path]);
+
+  const handleEditorSaveRequest = useCallback(() => {
+    void handleEditorSave();
+  }, [handleEditorSave]);
+
   const handleOpenDiffFilePreview = () => {
     if (!diffFilePreviewSource) {
       return;
@@ -1588,6 +1715,73 @@ export function PreviewPane({
                 })}
               </span>
             </Button>
+          ) : null}
+          {canEditFile ? (
+            <Button
+              type="button"
+              size="icon-md"
+              variant="ghost"
+              className="shrink-0 text-foreground-subtle hover:text-foreground"
+              aria-pressed={editMode}
+              title={intl.formatMessage({
+                id: editMode ? "codeViewer.viewMode" : "codeViewer.editMode",
+              })}
+              aria-label={intl.formatMessage({
+                id: editMode ? "codeViewer.viewMode" : "codeViewer.editMode",
+              })}
+              onClick={handleToggleEditMode}
+            >
+              {editMode ? <EyeIcon className="size-3.5" /> : <PencilIcon className="size-3.5" />}
+            </Button>
+          ) : null}
+          {editMode ? (
+            <>
+              <Button
+                type="button"
+                size="icon-md"
+                variant="ghost"
+                className="shrink-0 text-foreground-subtle hover:text-foreground"
+                title={intl.formatMessage({ id: "codeViewer.undo" })}
+                aria-label={intl.formatMessage({ id: "codeViewer.undo" })}
+                onClick={() => editorHandleRef.current?.undo()}
+              >
+                <Undo2Icon className="size-3.5" />
+              </Button>
+              <Button
+                type="button"
+                size="icon-md"
+                variant="ghost"
+                className="shrink-0 text-foreground-subtle hover:text-foreground"
+                title={intl.formatMessage({ id: "codeViewer.redo" })}
+                aria-label={intl.formatMessage({ id: "codeViewer.redo" })}
+                onClick={() => editorHandleRef.current?.redo()}
+              >
+                <Redo2Icon className="size-3.5" />
+              </Button>
+              <Button
+                type="button"
+                size="icon-md"
+                variant={editorDirty ? "default" : "ghost"}
+                className={cn(
+                  "shrink-0",
+                  !editorDirty && "text-foreground-subtle hover:text-foreground",
+                )}
+                disabled={!editorDirty || editorSaving}
+                title={
+                  editorSaving
+                    ? intl.formatMessage({ id: "codeViewer.saving" })
+                    : editorDirty
+                      ? `${intl.formatMessage({ id: "codeViewer.save" })} — ${intl.formatMessage({
+                          id: "codeViewer.unsavedChanges",
+                        })}`
+                      : intl.formatMessage({ id: "codeViewer.save" })
+                }
+                aria-label={intl.formatMessage({ id: "codeViewer.save" })}
+                onClick={handleEditorSaveRequest}
+              >
+                <SaveIcon className="size-3.5" />
+              </Button>
+            </>
           ) : null}
           {/* 图片和 patch 这类预览没有任何显示选项，继续渲染触发器会打开空菜单，所以只在存在菜单项时显示更多按钮。*/}
           {hasMoreMenu || source.path ? (
@@ -1796,6 +1990,12 @@ export function PreviewPane({
             // 折叠侧边面板卸载重内容前必须保存该容器的位置。
             onScroll={handlePreviewContentScroll}
             scrollContainerRef={scrollContainerRef}
+            editMode={editMode}
+            editorContent={editorDraftContent}
+            editorResetKey={source?.path ?? source?.title ?? "editor"}
+            onEditorChange={handleEditorChange}
+            onEditorSave={handleEditorSaveRequest}
+            editorHandleRef={editorHandleRef}
           />
         ) : (
           <PreviewPaneDeferredHeavyContent style={deferredBodyStyle} />
