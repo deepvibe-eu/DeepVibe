@@ -893,6 +893,9 @@ export default {
   },
   nsis: {
     oneClick: false,
+    // 每用户安装会因权限不足写不进（至少一个）图标和脚本，导致安装中断
+    // → 强制全机安装（写 Program Files，需要管理员/UAC），不再提供“仅为我安装”。
+    perMachine: true,
     allowToChangeInstallationDirectory: true,
     // Windows 安装流程使用独立安装图标，和应用运行时图标解耦。
     installerIcon: flavorIcons.winInstaller,
