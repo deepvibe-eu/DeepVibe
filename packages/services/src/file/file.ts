@@ -33,6 +33,16 @@ export interface IFileService {
   createDefaultWorkspace(): Promise<{ path: string }>;
   createScratchWorkspace(params: { name: string }): Promise<{ path: string }>;
   readTextFile(params: { path: string; offset?: number; length?: number }): Promise<FileTextSlice>;
+  /**
+   * 覆盖写入文本文件，供 UI 编辑器保存使用。原子写入（临时文件 + rename，见 atomicWriteText）。
+   * expectedMtimeMs：调用方上次读取到的 mtime；期间文件被改动（例如 Agent 写入）则拒绝覆盖并抛错，
+   * 与 CLI 的 read-before-write / write_file_stale 行为一致。返回写入后的 mtime，供调用方刷新基线。
+   */
+  writeTextFile(params: {
+    path: string;
+    content: string;
+    expectedMtimeMs?: number;
+  }): Promise<{ mtimeMs: number }>;
   readMediaPreview(params: { path: string; maxBytes?: number }): Promise<FileMediaPreview>;
   /**
    * 按偏移读取文件的一段原始字节，供大二进制文件（如 PDF）按需分段加载。

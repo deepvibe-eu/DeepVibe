@@ -27,6 +27,7 @@ import {
   transformWorkspaceFileSearchIgnore,
   writeWorkspaceFileSearchIgnore,
 } from "./workspaceFileIgnore.js";
+import { atomicWriteText } from "../fs/atomicFileUtils.js";
 import { createServiceLogger } from "../logger/serviceLogger.js";
 import { getConversationWorkspaceDir } from "../paths.js";
 const DEFAULT_TEXT_READ_BYTES = 128 * 1024;
@@ -520,6 +521,42 @@ export function createFileService(options: CreateFileServiceOptions = {}): IFile
       } finally {
         await handle.close();
       }
+    },
+    async writeTextFile(params: {
+      path: string;
+      content: string;
+      expectedMtimeMs?: number;
+    }): Promise<{ mtimeMs: number }> {
+      const { path, content, expectedMtimeMs } = params;
+      // Staleness guard: the caller passes the mtime it read the file at; if
+      // the file changed since (e.g. the agent wrote to it in the meantime),
+      // refuse to overwrite. Mirrors the CLI's read-before-write /
+      // write_file_stale behaviour.
+      let existingMtimeMs: number | undefined;
+      try {
+        const existing = await stat(path);
+        if (!existing.isFile()) {
+          throw new Error(`Path is not a file: ${path}`);
+        }
+        existingMtimeMs = existing.mtimeMs;
+      } catch (error) {
+        if ((error as NodeJS.ErrnoException).code !== "ENOENT") {
+          throw error;
+        }
+      }
+      if (expectedMtimeMs !== undefined) {
+        if (existingMtimeMs === undefined) {
+          throw new Error(`write_file_stale: ${path} no longer exists`);
+        }
+        if (existingMtimeMs !== expectedMtimeMs) {
+          throw new Error(
+            `write_file_stale: ${path} changed on disk (expected mtime ${expectedMtimeMs}, got ${existingMtimeMs})`,
+          );
+        }
+      }
+      await atomicWriteText(path, content);
+      const written = await stat(path);
+      return { mtimeMs: written.mtimeMs };
     },
     async readFileRange(params: {
       path: string;
