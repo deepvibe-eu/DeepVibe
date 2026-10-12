@@ -129,24 +129,27 @@ export function PreviewPaneOfficeEpubContent({
   return (
     <div className="flex h-full min-h-0 flex-col">
       <div className="flex shrink-0 items-center gap-2 border-b border-border px-3 py-2 text-ui-base text-foreground-subtle">
-        <span className="min-w-0 flex-1 truncate text-foreground">
+        <span className="min-w-0 truncate text-foreground">
           {preview.title ?? getPathLeaf(sourcePath)}
         </span>
-        {preview.author ? <span className="shrink-0 truncate">· {preview.author}</span> : null}
-        <div className="ml-auto flex shrink-0 items-center gap-1">
+        {preview.author ? (
+          <span className="min-w-0 shrink truncate">· {preview.author}</span>
+        ) : null}
+        <div className="ml-auto flex shrink-0 items-center overflow-hidden rounded-lg border border-border bg-input">
           <Button
             type="button"
             size="icon-sm"
             variant="ghost"
+            className="rounded-none text-foreground"
             disabled={!canGoPrevious}
             title={intl.formatMessage({ id: "codeViewer.epub.prevChapter" })}
             aria-label={intl.formatMessage({ id: "codeViewer.epub.prevChapter" })}
             onClick={() => setChapterIndex((current) => Math.max(0, current - 1))}
           >
-            <ChevronLeftIcon className="size-3" />
+            <ChevronLeftIcon className="size-3.5" />
           </Button>
           <select
-            className="h-6 max-w-[45%] truncate rounded-sm border border-border bg-input px-1 text-ui-base text-foreground outline-none"
+            className="h-6 max-w-[45%] truncate border-x border-border bg-transparent px-1 text-ui-base text-foreground outline-none"
             value={chapterIndex}
             title={intl.formatMessage(
               { id: "codeViewer.epub.chapters" },
@@ -168,12 +171,13 @@ export function PreviewPaneOfficeEpubContent({
             type="button"
             size="icon-sm"
             variant="ghost"
+            className="rounded-none text-foreground"
             disabled={!canGoNext}
             title={intl.formatMessage({ id: "codeViewer.epub.nextChapter" })}
             aria-label={intl.formatMessage({ id: "codeViewer.epub.nextChapter" })}
             onClick={() => setChapterIndex((current) => Math.min(chapters.length - 1, current + 1))}
           >
-            <ChevronRightIcon className="size-3" />
+            <ChevronRightIcon className="size-3.5" />
           </Button>
         </div>
       </div>
