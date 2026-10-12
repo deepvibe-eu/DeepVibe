@@ -1434,6 +1434,8 @@ const deDE: Record<string, string> = {
   "codeViewer.officeUnavailable": "Diese Office-Datei kann nicht in der Vorschau angezeigt werden.",
   "codeViewer.epubUnavailable": "Dieses eBook konnte nicht geöffnet werden.",
   "codeViewer.epub.chapters": "Kapitel: {count}",
+  "codeViewer.epub.prevChapter": "Vorheriges Kapitel",
+  "codeViewer.epub.nextChapter": "Nächstes Kapitel",
   "codeViewer.officeTooLarge": "Diese Office-Datei ist zu groß für die Vorschau (maximal 25 MB).",
   "codeViewer.excel.sheetTabs": "Arbeitsblätter der Arbeitsmappe",
   "codeViewer.loadingPptx": "Präsentationsvorschau wird geladen…",

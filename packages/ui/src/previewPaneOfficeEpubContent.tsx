@@ -1,15 +1,16 @@
 "use client";
 
+import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { Button } from "@/components/ui/button.js";
 import { useZCodeIntl } from "@/i18n/IntlProvider.js";
-import { parseEpubPreview, type ParsedEpubPreview } from "@/lib/epubPreview.js";
+import { parseEpubPreview, type EpubChapter, type ParsedEpubPreview } from "@/lib/epubPreview.js";
 import { installDocumentLinkSafety } from "@/lib/officeFilePreview.js";
 import { getPathLeaf } from "@/lib/path.js";
 import { logger } from "@/logger.js";
 
 function buildEpubStyle(preview: ParsedEpubPreview, isDark: boolean): string {
   const foreground = isDark ? "#e6e6e6" : "#1f2328";
-  const border = isDark ? "#3a3a3a" : "#e5e7eb";
   const link = isDark ? "#6ea8fe" : "#2563eb";
   // Reader reset runs before the book stylesheet (so the book controls its own typography);
   // the readability pass runs after it so dark mode stays legible even when the book hard-codes
@@ -17,7 +18,6 @@ function buildEpubStyle(preview: ParsedEpubPreview, isDark: boolean): string {
   const reset = [
     'html{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}',
     "img,svg,video{max-width:100%;height:auto}",
-    `.zcode-epub-chapter+.zcode-epub-chapter{margin-top:28px;padding-top:28px;border-top:1px solid ${border}}`,
   ].join("");
   const readability = [
     "html,body{background:transparent}",
@@ -27,17 +27,19 @@ function buildEpubStyle(preview: ParsedEpubPreview, isDark: boolean): string {
   return `${reset}\n${preview.css}\n${readability}`;
 }
 
-function buildEpubSrcDoc(preview: ParsedEpubPreview, isDark: boolean): string {
-  const sections = preview.chapters
-    .map((chapter) => `<section class="zcode-epub-chapter">${chapter.html}</section>`)
-    .join("");
-  // The book lives in a sandboxed iframe so its styles cannot leak into the app shell; images
+function buildEpubChapterSrcDoc(
+  preview: ParsedEpubPreview,
+  chapter: EpubChapter,
+  isDark: boolean,
+): string {
+  // One chapter per document keeps the DOM small for very long books (hundreds of spine items).
+  // The chapter lives in a sandboxed iframe so its styles cannot leak into the app shell; images
   // are already inlined as data URLs by the parser, so no origin access is required to render.
   return [
     '<!doctype html><html><head><meta charset="utf-8">',
     '<meta name="viewport" content="width=device-width, initial-scale=1">',
     `<style>${buildEpubStyle(preview, isDark)}</style></head><body>`,
-    sections,
+    chapter.html,
     "</body></html>",
   ].join("");
 }
@@ -58,6 +60,7 @@ export function PreviewPaneOfficeEpubContent({
   const { intl } = useZCodeIntl();
   const iframeRef = useRef<HTMLIFrameElement | null>(null);
   const [preview, setPreview] = useState<ParsedEpubPreview | null>(null);
+  const [chapterIndex, setChapterIndex] = useState(0);
   const [parseError, setParseError] = useState(false);
 
   useEffect(() => {
@@ -67,9 +70,11 @@ export function PreviewPaneOfficeEpubContent({
 
     void parseEpubPreview(buffer)
       .then((parsed) => {
-        if (!disposed) {
-          setPreview(parsed);
+        if (disposed) {
+          return;
         }
+        setPreview(parsed);
+        setChapterIndex(0);
       })
       .catch((error: unknown) => {
         if (disposed) {
@@ -84,10 +89,13 @@ export function PreviewPaneOfficeEpubContent({
     };
   }, [buffer, sourcePath]);
 
+  const chapters = preview?.chapters ?? [];
+  const chapter = chapters[chapterIndex] ?? null;
   const srcDoc = useMemo(
-    () => (preview ? buildEpubSrcDoc(preview, isDark) : ""),
-    [isDark, preview],
+    () => (preview && chapter ? buildEpubChapterSrcDoc(preview, chapter, isDark) : ""),
+    [chapter, isDark, preview],
   );
+
   const handleFrameLoad = useCallback(() => {
     const document = iframeRef.current?.contentDocument;
     if (document?.body) {
@@ -105,7 +113,7 @@ export function PreviewPaneOfficeEpubContent({
     );
   }
 
-  if (!preview) {
+  if (!preview || !chapter) {
     return (
       <div
         aria-busy="true"
@@ -115,21 +123,63 @@ export function PreviewPaneOfficeEpubContent({
     );
   }
 
+  const canGoPrevious = chapterIndex > 0;
+  const canGoNext = chapterIndex < chapters.length - 1;
+
   return (
     <div className="flex h-full min-h-0 flex-col">
       <div className="flex shrink-0 items-center gap-2 border-b border-border px-3 py-2 text-ui-base text-foreground-subtle">
-        <span className="truncate text-foreground">{preview.title ?? getPathLeaf(sourcePath)}</span>
-        {preview.author ? <span className="truncate">· {preview.author}</span> : null}
-        <span className="ml-auto shrink-0">
-          {intl.formatMessage(
-            { id: "codeViewer.epub.chapters" },
-            { count: preview.chapters.length },
-          )}
+        <span className="min-w-0 flex-1 truncate text-foreground">
+          {preview.title ?? getPathLeaf(sourcePath)}
         </span>
+        {preview.author ? <span className="shrink-0 truncate">· {preview.author}</span> : null}
+        <div className="ml-auto flex shrink-0 items-center gap-1">
+          <Button
+            type="button"
+            size="icon-sm"
+            variant="ghost"
+            disabled={!canGoPrevious}
+            title={intl.formatMessage({ id: "codeViewer.epub.prevChapter" })}
+            aria-label={intl.formatMessage({ id: "codeViewer.epub.prevChapter" })}
+            onClick={() => setChapterIndex((current) => Math.max(0, current - 1))}
+          >
+            <ChevronLeftIcon className="size-3" />
+          </Button>
+          <select
+            className="h-6 max-w-[45%] truncate rounded-sm border border-border bg-input px-1 text-ui-base text-foreground outline-none"
+            value={chapterIndex}
+            title={intl.formatMessage(
+              { id: "codeViewer.epub.chapters" },
+              { count: chapters.length },
+            )}
+            aria-label={intl.formatMessage(
+              { id: "codeViewer.epub.chapters" },
+              { count: chapters.length },
+            )}
+            onChange={(event) => setChapterIndex(Number(event.target.value))}
+          >
+            {chapters.map((item, index) => (
+              <option key={item.id} value={index}>
+                {`${index + 1}. ${item.title ?? getPathLeaf(item.href)}`}
+              </option>
+            ))}
+          </select>
+          <Button
+            type="button"
+            size="icon-sm"
+            variant="ghost"
+            disabled={!canGoNext}
+            title={intl.formatMessage({ id: "codeViewer.epub.nextChapter" })}
+            aria-label={intl.formatMessage({ id: "codeViewer.epub.nextChapter" })}
+            onClick={() => setChapterIndex((current) => Math.min(chapters.length - 1, current + 1))}
+          >
+            <ChevronRightIcon className="size-3" />
+          </Button>
+        </div>
       </div>
       <iframe
         ref={iframeRef}
-        title={preview.title ?? sourcePath}
+        title={chapter.title ?? preview.title ?? sourcePath}
         sandbox="allow-same-origin"
         onLoad={handleFrameLoad}
         srcDoc={srcDoc}

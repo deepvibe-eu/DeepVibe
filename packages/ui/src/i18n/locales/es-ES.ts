@@ -1423,6 +1423,8 @@ const esES: Record<string, string> = {
   "codeViewer.officeUnavailable": "Este archivo de Office no se puede previsualizar.",
   "codeViewer.epubUnavailable": "No se pudo abrir este libro electrónico.",
   "codeViewer.epub.chapters": "Capítulos: {count}",
+  "codeViewer.epub.prevChapter": "Capítulo anterior",
+  "codeViewer.epub.nextChapter": "Capítulo siguiente",
   "codeViewer.officeTooLarge":
     "Este archivo de Office es demasiado grande para previsualizarlo (25 MB como máximo).",
   "codeViewer.excel.sheetTabs": "Hojas del libro",

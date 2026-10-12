@@ -1272,6 +1272,8 @@ const zhCN: Record<string, string> = {
   "codeViewer.officeUnavailable": "暂时无法预览这个 Office 文件。",
   "codeViewer.epubUnavailable": "无法打开此电子书。",
   "codeViewer.epub.chapters": "章节：{count}",
+  "codeViewer.epub.prevChapter": "上一章",
+  "codeViewer.epub.nextChapter": "下一章",
   "codeViewer.officeTooLarge": "Office 文件超过 25 MB，无法预览。",
   "codeViewer.excel.sheetTabs": "工作表",
   "codeViewer.loadingPptx": "正在加载演示文稿预览...",

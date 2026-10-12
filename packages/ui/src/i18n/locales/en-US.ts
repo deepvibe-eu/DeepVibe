@@ -1381,6 +1381,8 @@ const enUS: Record<string, string> = {
   "codeViewer.officeUnavailable": "This Office file cannot be previewed.",
   "codeViewer.epubUnavailable": "This eBook could not be opened.",
   "codeViewer.epub.chapters": "Chapters: {count}",
+  "codeViewer.epub.prevChapter": "Previous chapter",
+  "codeViewer.epub.nextChapter": "Next chapter",
   "codeViewer.officeTooLarge": "This Office file is too large to preview (maximum 25 MB).",
   "codeViewer.excel.sheetTabs": "Workbook sheets",
   "codeViewer.loadingPptx": "Loading presentation preview...",

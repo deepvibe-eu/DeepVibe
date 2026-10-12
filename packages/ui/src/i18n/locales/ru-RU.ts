@@ -1408,6 +1408,8 @@ const ruRU: Record<string, string> = {
   "codeViewer.officeUnavailable": "Предпросмотр этого файла Office недоступен.",
   "codeViewer.epubUnavailable": "Не удалось открыть эту электронную книгу.",
   "codeViewer.epub.chapters": "Глав: {count}",
+  "codeViewer.epub.prevChapter": "Предыдущая глава",
+  "codeViewer.epub.nextChapter": "Следующая глава",
   "codeViewer.officeTooLarge":
     "Этот файл Office слишком большой для предпросмотра (не более 25 МБ).",
   "codeViewer.excel.sheetTabs": "Листы книги",

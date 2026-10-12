@@ -30,7 +30,10 @@ and rendered by `previewPaneOfficeEpubContent.tsx`.
 - `lib/epubPreview.ts` unzips the EPUB (fflate) and returns a render model: title/author/
   language, the spine in reading order with each XHTML `<body>`, the book stylesheets, and
   images rewritten to `data:` URLs.
-- The book is rendered inside a **sandboxed iframe** (`sandbox="allow-same-origin"`, no
+- The reader renders **one spine chapter at a time** — long books have hundreds of chapters,
+  so a single document per chapter keeps the DOM small. The header offers previous/next
+  buttons and a chapter picker (chapter `<title>`, falling back to the file leaf).
+- The chapter is rendered inside a **sandboxed iframe** (`sandbox="allow-same-origin"`, no
   `allow-scripts`) so book CSS cannot leak into the app shell and book scripts cannot run.
   Same-origin lets `installDocumentLinkSafety` neutralise links: internal `#` anchors stay,
   external links route to the controlled browser opener.
