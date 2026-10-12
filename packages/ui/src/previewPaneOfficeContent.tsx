@@ -19,6 +19,11 @@ const LazyLegacyDocContent = lazy(async () => {
   return { default: module.PreviewPaneOfficeLegacyDocContent };
 });
 
+const LazyEpubContent = lazy(async () => {
+  const module = await import("@/previewPaneOfficeEpubContent.js");
+  return { default: module.PreviewPaneOfficeEpubContent };
+});
+
 class OfficePreviewErrorBoundary extends Component<
   {
     children: ReactNode;
@@ -90,6 +95,9 @@ export function PreviewPaneOfficeContent({
   const errorMessage = intl.formatMessage({
     id: "codeViewer.officeUnavailable",
   });
+  const epubErrorMessage = intl.formatMessage({
+    id: "codeViewer.epubUnavailable",
+  });
   const buffer = useMemo(
     () => (preview ? decodeBase64ToArrayBuffer(preview.dataBase64) : null),
     [preview],
@@ -122,6 +130,14 @@ export function PreviewPaneOfficeContent({
           <LazyDocxContent
             buffer={buffer}
             errorMessage={errorMessage}
+            onOpenBrowserUrl={onOpenBrowserUrl}
+            sourcePath={sourcePath}
+          />
+        ) : kind === "epub" ? (
+          <LazyEpubContent
+            buffer={buffer}
+            errorMessage={epubErrorMessage}
+            isDark={resolvedTheme === "dark"}
             onOpenBrowserUrl={onOpenBrowserUrl}
             sourcePath={sourcePath}
           />

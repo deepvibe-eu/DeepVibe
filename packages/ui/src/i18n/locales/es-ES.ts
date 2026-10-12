@@ -1421,6 +1421,8 @@ const esES: Record<string, string> = {
   "codeViewer.pdf.zoomIn": "Acercar",
   "codeViewer.pdf.zoomOut": "Alejar",
   "codeViewer.officeUnavailable": "Este archivo de Office no se puede previsualizar.",
+  "codeViewer.epubUnavailable": "No se pudo abrir este libro electrónico.",
+  "codeViewer.epub.chapters": "Capítulos: {count}",
   "codeViewer.officeTooLarge":
     "Este archivo de Office es demasiado grande para previsualizarlo (25 MB como máximo).",
   "codeViewer.excel.sheetTabs": "Hojas del libro",
@@ -1459,6 +1461,7 @@ const esES: Record<string, string> = {
   "codeViewer.viewCode": "Ver código",
   "codeViewer.viewDiff": "Ver diff",
   "codeViewer.openSourcePreview": "Vista previa del código fuente",
+  "codeViewer.openInBrowser": "Abrir en el navegador",
   "codeViewer.markdownMode": "Markdown",
   "codeViewer.markdownPreview": "Vista previa",
   "codeViewer.markdownSource": "Fuente",

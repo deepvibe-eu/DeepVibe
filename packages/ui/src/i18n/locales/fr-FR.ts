@@ -1430,6 +1430,8 @@ const frFR: Record<string, string> = {
   "codeViewer.pdf.zoomIn": "Zoom avant",
   "codeViewer.pdf.zoomOut": "Zoom arrière",
   "codeViewer.officeUnavailable": "Ce fichier Office ne peut pas être prévisualisé.",
+  "codeViewer.epubUnavailable": "Impossible d'ouvrir ce livre numérique.",
+  "codeViewer.epub.chapters": "Chapitres : {count}",
   "codeViewer.officeTooLarge":
     "Ce fichier Office est trop volumineux pour être prévisualisé (maximum 25 Mo).",
   "codeViewer.excel.sheetTabs": "Feuilles du classeur",
@@ -1466,6 +1468,7 @@ const frFR: Record<string, string> = {
   "codeViewer.viewCode": "Afficher le code",
   "codeViewer.viewDiff": "Afficher le diff",
   "codeViewer.openSourcePreview": "Aperçu de la source",
+  "codeViewer.openInBrowser": "Ouvrir dans le navigateur",
   "codeViewer.markdownMode": "Markdown",
   "codeViewer.markdownPreview": "Aperçu",
   "codeViewer.markdownSource": "Source",

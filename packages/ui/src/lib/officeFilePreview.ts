@@ -1,4 +1,4 @@
-export type OfficeFilePreviewKind = "excel" | "docx" | "doc";
+export type OfficeFilePreviewKind = "excel" | "docx" | "doc" | "epub";
 
 export interface DocxPreviewFit {
   scale: number;
@@ -9,6 +9,7 @@ export interface DocxPreviewFit {
 const EXCEL_FILE_EXTENSIONS = [".xlsx", ".xlsm", ".xls"] as const;
 const DOCX_FILE_EXTENSIONS = [".docx"] as const;
 const LEGACY_DOC_FILE_EXTENSIONS = [".doc"] as const;
+const EPUB_FILE_EXTENSIONS = [".epub"] as const;
 
 export function getOfficeFilePreviewKind(path?: string): OfficeFilePreviewKind | null {
   if (!path) {
@@ -24,6 +25,9 @@ export function getOfficeFilePreviewKind(path?: string): OfficeFilePreviewKind |
   }
   if (EXCEL_FILE_EXTENSIONS.some((extension) => normalizedPath.endsWith(extension))) {
     return "excel";
+  }
+  if (EPUB_FILE_EXTENSIONS.some((extension) => normalizedPath.endsWith(extension))) {
+    return "epub";
   }
   return null;
 }

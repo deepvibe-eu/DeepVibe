@@ -1406,6 +1406,8 @@ const ruRU: Record<string, string> = {
   "codeViewer.pdf.zoomIn": "Увеличить масштаб",
   "codeViewer.pdf.zoomOut": "Уменьшить масштаб",
   "codeViewer.officeUnavailable": "Предпросмотр этого файла Office недоступен.",
+  "codeViewer.epubUnavailable": "Не удалось открыть эту электронную книгу.",
+  "codeViewer.epub.chapters": "Глав: {count}",
   "codeViewer.officeTooLarge":
     "Этот файл Office слишком большой для предпросмотра (не более 25 МБ).",
   "codeViewer.excel.sheetTabs": "Листы книги",
@@ -1442,6 +1444,7 @@ const ruRU: Record<string, string> = {
   "codeViewer.viewCode": "Показать код",
   "codeViewer.viewDiff": "Показать дифф",
   "codeViewer.openSourcePreview": "Предпросмотр исходного кода",
+  "codeViewer.openInBrowser": "Открыть в браузере",
   "codeViewer.markdownMode": "Markdown",
   "codeViewer.markdownPreview": "Предпросмотр",
   "codeViewer.markdownSource": "Исходник",

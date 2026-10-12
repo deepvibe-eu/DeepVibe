@@ -19,6 +19,7 @@ import {
   ExternalLinkIcon,
   EyeIcon,
   FileCode2Icon,
+  GlobeIcon,
   PencilIcon,
   Redo2Icon,
   SaveIcon,
@@ -125,6 +126,15 @@ function isMarkdownFilePath(path?: string): boolean {
 
   const normalizedPath = path.toLowerCase();
   return normalizedPath.endsWith(".md") || normalizedPath.endsWith(".markdown");
+}
+
+function isHtmlFilePath(path?: string): boolean {
+  if (!path) {
+    return false;
+  }
+
+  const normalizedPath = path.toLowerCase();
+  return normalizedPath.endsWith(".html") || normalizedPath.endsWith(".htm");
 }
 
 function isPreviewPaneMissingFileError(error: unknown): boolean {
@@ -651,6 +661,10 @@ export function PreviewPane({
     editorDraftContent !== null &&
     filePreview !== null &&
     editorDraftContent !== filePreview.content;
+  // HTML has no inline render inside the pane (too small to preview a site faithfully); offer
+  // the OS default browser instead, same as the website open action.
+  const browserOpenPath = source?.path && isHtmlFilePath(source.path) ? source.path : null;
+  const canOpenInBrowser = Boolean(browserOpenPath && platform.openExternalFile);
   const displayOptions = useMemo(
     () =>
       getPreviewPaneDisplayOptions(source, {
@@ -1633,6 +1647,30 @@ export function PreviewPane({
     void handleEditorSave();
   }, [handleEditorSave]);
 
+  const handleOpenInBrowser = useCallback(() => {
+    const path = browserOpenPath;
+    const openExternalFile = platform.openExternalFile;
+    if (!path || !openExternalFile) {
+      return;
+    }
+
+    const reportFailure = (error: unknown) => {
+      logger.warn("[PreviewPane] 浏览器打开文件失败", {
+        path,
+        error: error instanceof Error ? error.message : String(error),
+      });
+      toast(intl.formatMessage({ id: "chat.previewCards.openExternalFailed" }));
+    };
+
+    void openExternalFile(path)
+      .then((result) => {
+        if (!result.success) {
+          reportFailure(result.error ?? "unknown-error");
+        }
+      })
+      .catch(reportFailure);
+  }, [browserOpenPath, intl, platform]);
+
   const handleOpenDiffFilePreview = () => {
     if (!diffFilePreviewSource) {
       return;
@@ -1888,6 +1926,19 @@ export function PreviewPane({
                 ) : null}
               </DropdownMenuContent>
             </DropdownMenu>
+          ) : null}
+          {canOpenInBrowser ? (
+            <Button
+              type="button"
+              size="icon-md"
+              variant="ghost"
+              className="shrink-0 text-foreground-subtle hover:text-foreground"
+              title={intl.formatMessage({ id: "codeViewer.openInBrowser" })}
+              aria-label={intl.formatMessage({ id: "codeViewer.openInBrowser" })}
+              onClick={handleOpenInBrowser}
+            >
+              <GlobeIcon className="size-3.5" />
+            </Button>
           ) : null}
           {/* 第一期 PPTX 明确为只读预览，不展示任何编辑入口。 */}
           <Button
