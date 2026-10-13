@@ -35,6 +35,11 @@ brew trust --formula deepvibe-eu/tap/deepvibe
 brew install deepvibe
 ```
 
+Also available through:
+
+- **Windows (winget):** `winget install deepvibe-eu.DeepVibe` — catalog entry under review.
+- **Arch Linux (AUR):** `deepvibe-bin` — submission pending.
+
 > **macOS (Apple Silicon):** the build is currently **unsigned** (no paid Apple Developer Program),
 > so Gatekeeper warns on first launch. The app *is* ad-hoc signed, so it launches normally — just open
 > it once via **right-click → Open**, or clear the quarantine flag:
