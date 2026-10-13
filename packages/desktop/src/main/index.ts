@@ -268,10 +268,15 @@ if (!app.isPackaged && process.env.ZCODE_DISABLE_FIXED_REMOTE_DEBUGGING_PORT !==
 // Die Identität kommt aus dem Compile-Zeit-Flavor: die ZCODE_*_IDENTITY-Schalter gibt
 // es zur Laufzeit nicht mehr, process.env würde auf deepvibe/preview zurückfallen.
 if (process.platform === "linux") {
-  app.commandLine.appendSwitch(
-    "class",
-    resolveLinuxExecutableNameForFlavor(ZCODE_PRODUCT_FLAVOR),
-  );
+  app.commandLine.appendSwitch("class", resolveLinuxExecutableNameForFlavor(ZCODE_PRODUCT_FLAVOR));
+}
+
+// Linux: frameless/transparent Fenster zittern beim nativen Resize mit dem Standard-ANGLE/OpenGL-Backend;
+// ANGLE/Vulkan ist ruhig (electron/electron#52866). Nur Linux betroffen; macOS/Windows unverändert.
+// Escape-Hatch für Rechner ohne nutzbaren Vulkan-Treiber: ZCODE_DISABLE_VULKAN_BACKEND=1.
+if (process.platform === "linux" && process.env.ZCODE_DISABLE_VULKAN_BACKEND !== "1") {
+  app.commandLine.appendSwitch("use-angle", "vulkan");
+  app.commandLine.appendSwitch("enable-features", "Vulkan,DefaultANGLEVulkan,VulkanFromANGLE");
 }
 
 app.setName(runtimeApplicationName);
@@ -298,7 +303,15 @@ const isKimiFlavor = ZCODE_PRODUCT_FLAVOR === "kimi";
 const isLamaFlavor = ZCODE_PRODUCT_FLAVOR === "lama";
 const isKlausFlavor = ZCODE_PRODUCT_FLAVOR === "klaus";
 const isMiniFlavor = ZCODE_PRODUCT_FLAVOR === "mini";
-const flavorIconSuffix = isKimiFlavor ? "kimi" : isLamaFlavor ? "lama" : isKlausFlavor ? "klaus" : isMiniFlavor ? "mini" : "";
+const flavorIconSuffix = isKimiFlavor
+  ? "kimi"
+  : isLamaFlavor
+    ? "lama"
+    : isKlausFlavor
+      ? "klaus"
+      : isMiniFlavor
+        ? "mini"
+        : "";
 const iconPath =
   process.platform === "win32"
     ? app.isPackaged
