@@ -95,6 +95,8 @@ export interface AppProps {
   onResolveConversationWorkspace?: () => Promise<string>;
   onOpenWorkspace: () => void;
   onOpenFolderFromWorkspaceMenu: () => void;
+  /** Open (or activate) a specific project folder — the workspace switcher's "switch to" path. */
+  onOpenProject?: (path: string) => void;
   onOpenRemoteWorkspace?: () => void;
   onCreateScratchWorkspace: (name: string) => Promise<string | null>;
   remoteConnectionInProgress?: boolean;

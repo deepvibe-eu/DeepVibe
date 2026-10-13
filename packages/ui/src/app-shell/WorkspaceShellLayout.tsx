@@ -35,6 +35,7 @@ import { DesktopTopOverlay } from "@/DesktopTopOverlay.js";
 import { DesktopWindowFrame } from "@/DesktopWindowFrame.js";
 import { WorkspacePluginPreview } from "@/WorkspacePluginPreview.js";
 import { useIsOfficeMode } from "@/hooks/useInterfaceMode.js";
+import { useAvailableRecentProjects } from "@/hooks/useAvailableRecentProjects.js";
 import { GitBranchSwitcher } from "@/GitBranchSwitcher.js";
 import { ScopedErrorBoundary } from "@/ErrorBoundary.js";
 
@@ -214,6 +215,7 @@ export const WorkspaceShellLayout = memo(function WorkspaceShellLayoutComponent(
   onResolveConversationWorkspace,
   onOpenWorkspace,
   onOpenFolderFromWorkspaceMenu,
+  onOpenProject,
   onOpenRemoteWorkspace,
   onCreateScratchWorkspace,
   allowOpenWorkspace = true,
@@ -1165,6 +1167,8 @@ export const WorkspaceShellLayout = memo(function WorkspaceShellLayoutComponent(
   // Git 分支切换器，与旧 ChatView 空态 contextHeaderContent 同构。壳级能力
   // （workspaceTabs / 远程连接回调）在此闭合，pane 只收 ReactNode。
   // onSelectWorkspace 语义与旧版一致：切到目标 workspace 的新草稿。
+  // Switcher data: recent project folders that still exist on disk (probed, fail-open).
+  const availableRecentProjects = useAvailableRecentProjects(workspaceAbsPath, workspaceIdentity);
   const draftComposerHeader = useMemo(
     () => (
       <>
@@ -1182,6 +1186,8 @@ export const WorkspaceShellLayout = memo(function WorkspaceShellLayoutComponent(
           }
           onSelectConversationWorkspace={handleSelectConversationWorkspace}
           onOpenFolder={onOpenFolderFromWorkspaceMenu}
+          recentProjects={availableRecentProjects}
+          onOpenProject={onOpenProject}
           allowOpenWorkspace={allowOpenWorkspace}
           allowRemoteWorkspace={allowRemoteWorkspace}
           remoteWorkspaceSessions={remoteWorkspaceSessions}
@@ -1234,6 +1240,8 @@ export const WorkspaceShellLayout = memo(function WorkspaceShellLayoutComponent(
       remoteWorkspaceSessions,
       workspaceAbsPath,
       workspaceIdentity,
+      availableRecentProjects,
+      onOpenProject,
       workspaceTabs,
     ],
   );

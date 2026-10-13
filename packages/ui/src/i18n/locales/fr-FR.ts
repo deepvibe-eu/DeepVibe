@@ -4760,6 +4760,7 @@ const frFR: Record<string, string> = {
   "chat.empty.selectProject": "Sélectionner un projet",
   "chat.empty.workOutsideProject": "Travailler hors d’un projet",
   "chat.empty.detachProject": "Retirer la sélection du projet actuel",
+  "chat.empty.workspaceSwitchTo": "Basculer vers",
   "chat.empty.workspaceSearchPlaceholder": "Rechercher des espaces de travail",
   "chat.empty.workspaceSearchEmpty": "Aucun espace de travail correspondant",
   "chat.empty.cliMenu": "Choisir un CLI",

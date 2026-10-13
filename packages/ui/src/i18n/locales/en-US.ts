@@ -4578,6 +4578,7 @@ const enUS: Record<string, string> = {
   "chat.empty.selectProject": "Select project",
   "chat.empty.workOutsideProject": "Work outside a project",
   "chat.empty.detachProject": "Remove current project selection",
+  "chat.empty.workspaceSwitchTo": "Switch to",
   "chat.empty.workspaceSearchPlaceholder": "Search workspaces",
   "chat.empty.workspaceSearchEmpty": "No matching workspaces",
   "chat.empty.cliMenu": "Choose CLI",

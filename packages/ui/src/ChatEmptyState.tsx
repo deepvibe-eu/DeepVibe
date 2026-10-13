@@ -176,6 +176,8 @@ export function ChatEmptyWorkspacePreviewMenu({
   onSelectWorkspace,
   onSelectConversationWorkspace,
   onOpenFolder,
+  recentProjects = [],
+  onOpenProject,
   allowOpenWorkspace = true,
   allowRemoteWorkspace = true,
   remoteWorkspaceSessions = [],
@@ -196,6 +198,10 @@ export function ChatEmptyWorkspacePreviewMenu({
   onSelectWorkspace: (workspaceTab: ChatEmptyWorkspaceMenuTab) => void;
   onSelectConversationWorkspace: () => void | Promise<void>;
   onOpenFolder: () => void;
+  /** Recent project folders that still exist on disk; shown as "switch to" targets when not already open. */
+  recentProjects?: string[];
+  /** Open (or activate) a specific project folder — the app's single open-workspace path. */
+  onOpenProject?: (path: string) => void;
   allowOpenWorkspace?: boolean;
   allowRemoteWorkspace?: boolean;
   remoteWorkspaceSessions?: RemoteWorkspaceSessionEntry[];
@@ -253,6 +259,23 @@ export function ChatEmptyWorkspacePreviewMenu({
       }),
     [homeWorkspaceLabel, workspaceSearchQuery, workspaceTabs],
   );
+  // "Switch to" targets: recent folders that still exist and are not already an open tab. Opening one
+  // reuses onOpenProject — the app's single open-workspace path — which also adds it to the sidebar.
+  const switchTargets = useMemo(() => {
+    if (!onOpenProject || recentProjects.length === 0) {
+      return [];
+    }
+    const openPaths = new Set(workspaceTabs.map((workspaceTab) => workspaceTab.workspacePath));
+    const query = workspaceSearchQuery.trim().toLowerCase();
+    return recentProjects.filter((path) => {
+      if (openPaths.has(path)) {
+        return false;
+      }
+      return (
+        !query || getWorkspaceListTitle(path, homeWorkspaceLabel).toLowerCase().includes(query)
+      );
+    });
+  }, [homeWorkspaceLabel, onOpenProject, recentProjects, workspaceSearchQuery, workspaceTabs]);
   const currentWorkspaceTitle = isConversationWorkspace
     ? intl.formatMessage({ id: "chat.empty.selectProject" })
     : getWorkspaceTriggerTitle(workspacePath, homeWorkspaceLabel);
@@ -388,6 +411,22 @@ export function ChatEmptyWorkspacePreviewMenu({
             <div className="px-2 py-2 text-ui-base text-foreground-subtlest">
               {intl.formatMessage({ id: "chat.empty.workspaceSearchEmpty" })}
             </div>
+          ) : null}
+
+          {switchTargets.length > 0 ? (
+            <>
+              <div className="px-2 pb-0.5 pt-1.5 text-ui-base text-foreground-subtlest">
+                {intl.formatMessage({ id: "chat.empty.workspaceSwitchTo" })}
+              </div>
+              {switchTargets.map((path) => (
+                <DropdownMenuItem key={path} onSelect={() => onOpenProject?.(path)}>
+                  <Folder className="size-4 text-foreground-subtle" />
+                  <span className="min-w-0 flex-1 truncate">
+                    {getWorkspaceListTitle(path, homeWorkspaceLabel)}
+                  </span>
+                </DropdownMenuItem>
+              ))}
+            </>
           ) : null}
 
           <DropdownMenuSeparator />

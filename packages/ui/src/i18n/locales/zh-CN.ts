@@ -4277,6 +4277,7 @@ const zhCN: Record<string, string> = {
   "chat.empty.selectProject": "选择项目",
   "chat.empty.workOutsideProject": "不在项目中工作",
   "chat.empty.detachProject": "取消选择当前项目",
+  "chat.empty.workspaceSwitchTo": "切换到",
   "chat.empty.workspaceSearchPlaceholder": "搜索工作区",
   "chat.empty.workspaceSearchEmpty": "没有匹配的工作区",
   "chat.empty.cliMenu": "选择 CLI",

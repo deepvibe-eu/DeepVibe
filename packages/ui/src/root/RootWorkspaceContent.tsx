@@ -28,6 +28,8 @@ interface RootWorkspaceContentProps {
   handleResolveConversationWorkspace: NonNullable<AppProps["onResolveConversationWorkspace"]>;
   handleOpenWorkspace: AppProps["onOpenWorkspace"];
   handleOpenFolderFromWorkspaceMenu: AppProps["onOpenFolderFromWorkspaceMenu"];
+  /** Open (or activate) a specific project folder for the workspace switcher. */
+  handleSelectProject?: (path: string) => void;
   handleOpenRemoteWorkspace?: AppProps["onOpenRemoteWorkspace"];
   handleCreateScratchWorkspace: AppProps["onCreateScratchWorkspace"];
   remoteConnectionInProgress?: AppProps["remoteConnectionInProgress"];
@@ -66,6 +68,7 @@ export function RootWorkspaceContent({
   handleResolveConversationWorkspace,
   handleOpenWorkspace,
   handleOpenFolderFromWorkspaceMenu,
+  handleSelectProject,
   handleOpenRemoteWorkspace,
   handleCreateScratchWorkspace,
   remoteConnectionInProgress,
@@ -160,6 +163,7 @@ export function RootWorkspaceContent({
                 onResolveConversationWorkspace={handleResolveConversationWorkspace}
                 onOpenWorkspace={handleOpenWorkspace}
                 onOpenFolderFromWorkspaceMenu={handleOpenFolderFromWorkspaceMenu}
+                onOpenProject={handleSelectProject}
                 onOpenRemoteWorkspace={handleOpenRemoteWorkspace}
                 onCreateScratchWorkspace={handleCreateScratchWorkspace}
                 remoteConnectionInProgress={remoteConnectionInProgress}

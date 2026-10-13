@@ -1048,6 +1048,7 @@ function RootInner({
             handleResolveConversationWorkspace={handleResolveConversationWorkspace}
             handleOpenWorkspace={handleOpenWorkspace}
             handleOpenFolderFromWorkspaceMenu={handleOpenFolderFromWorkspaceMenu}
+            handleSelectProject={handleSelectProject}
             handleOpenRemoteWorkspace={
               allowRemoteWorkspace ? handleOpenRemoteConnection : undefined
             }

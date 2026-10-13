@@ -4669,6 +4669,7 @@ const ruRU: Record<string, string> = {
   "chat.empty.selectProject": "Выберите проект",
   "chat.empty.workOutsideProject": "Работать вне проекта",
   "chat.empty.detachProject": "Убрать выбранный проект",
+  "chat.empty.workspaceSwitchTo": "Переключиться на",
   "chat.empty.workspaceSearchPlaceholder": "Поиск рабочих областей",
   "chat.empty.workspaceSearchEmpty": "Рабочие области не найдены",
   "chat.empty.cliMenu": "Выберите CLI",

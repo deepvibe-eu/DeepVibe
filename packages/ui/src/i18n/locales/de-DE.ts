@@ -4743,6 +4743,7 @@ const deDE: Record<string, string> = {
   "chat.empty.selectProject": "Projekt auswählen",
   "chat.empty.workOutsideProject": "Außerhalb eines Projekts arbeiten",
   "chat.empty.detachProject": "Aktuelle Projektauswahl entfernen",
+  "chat.empty.workspaceSwitchTo": "Wechseln zu",
   "chat.empty.workspaceSearchPlaceholder": "Arbeitsbereiche suchen",
   "chat.empty.workspaceSearchEmpty": "Keine passenden Arbeitsbereiche",
   "chat.empty.cliMenu": "CLI wählen",
