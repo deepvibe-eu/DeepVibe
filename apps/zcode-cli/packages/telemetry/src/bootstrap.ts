@@ -10,6 +10,7 @@ import type {
   TelemetryIdentitySnapshot,
   TelemetryResourceContext,
 } from "@zcode/contracts/telemetry";
+import { VIBE_DATA_DIR_NAME } from "@zcode/shared";
 import type { ModelStatusSink } from "@zcode/contracts/model";
 import { NoopAgentExecutionTelemetry } from "./agent-trace-runtime.js";
 
@@ -225,7 +226,7 @@ async function resolveStandaloneDeviceMid(
 ): Promise<string | undefined> {
   const stateFile = zcodeHome
     ? join(zcodeHome, "v2", "telemetry-state.json")
-    : join(homedir(), ".zcode", "v2", "telemetry-state.json");
+    : join(homedir(), VIBE_DATA_DIR_NAME, "v2", "telemetry-state.json");
   const pending = pendingStandaloneDeviceMidByStateFile.get(stateFile);
   if (pending) return pending;
   const resolution = resolveStandaloneDeviceMidFromFile(stateFile);

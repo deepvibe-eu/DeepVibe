@@ -99,19 +99,23 @@ const VIBE_PERSONA_BY_FLAVOR: Record<ZCodeProductFlavor, VibePersona> = {
 export const VIBE_PERSONA = VIBE_PERSONA_BY_FLAVOR[ZCODE_PRODUCT_FLAVOR];
 
 /**
- * Name des Fëa-Datenordners unter dem Basisverzeichnis. DeepVibe behält `.zcode`
- * (keine Migration); jede weitere Fëa bekommt einen eigenen Ordner, damit sich die
- * Apps keine Datenbanken, Sessions oder Config teilen.
+ * Name des Fëa-Datenordners unter dem Basisverzeichnis. Jede Fëa bekommt einen eigenen Ordner,
+ * damit sich die Apps keine Datenbanken, Sessions oder Config teilen. DeepVibe hieß früher
+ * `.zcode`; bestehende Installationen werden beim Start einmalig von `~/.zcode` nach
+ * `~/.deepvibe` umbenannt (`packages/desktop/src/main/desktopLegacyDataRootMigration.ts`).
  */
 const VIBE_DATA_DIR_NAME_BY_FLAVOR: Record<ZCodeProductFlavor, string> = {
-  production: ".zcode",
-  preview: ".zcode",
-  deepseek: ".zcode",
+  production: ".deepvibe",
+  preview: ".deepvibe",
+  deepseek: ".deepvibe",
   kimi: ".kimivibe",
   lama: ".lamavibe",
   klaus: ".klausvibe",
   mini: ".minivibe",
 };
+
+/** Früherer gemeinsamer Datenordner; nur DeepVibe migriert ihn einmalig (siehe Migration). */
+export const VIBE_LEGACY_DATA_DIR_NAME = ".zcode";
 
 export const VIBE_DATA_DIR_NAME = VIBE_DATA_DIR_NAME_BY_FLAVOR[ZCODE_PRODUCT_FLAVOR];
 

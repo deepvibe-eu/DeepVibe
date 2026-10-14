@@ -12,6 +12,7 @@ import type {
   SkillSyncImportResult,
   SkillSyncRemoteStatusResult,
 } from "@zcode/shared";
+import { VIBE_DATA_DIR_NAME } from "@zcode/shared";
 import type { ISkillSyncService } from "./skillSync.js";
 import { createSkillSyncArchive, extractSkillSyncArchive } from "./skillSyncArchive.js";
 import { normalizeSkillSyncRelativePath, resolveSkillSyncPathWithin } from "./skillSyncPath.js";
@@ -131,7 +132,7 @@ function resolveUserHomeDir(): string {
 }
 
 function getUserZcodeSkillRoot(): string {
-  return join(resolveUserHomeDir(), ".zcode", "skills");
+  return join(resolveUserHomeDir(), VIBE_DATA_DIR_NAME, "skills");
 }
 
 function getUserAgentsSkillRoot(): string {

@@ -92,6 +92,7 @@ import {
   type ZCodeDeliveryKind,
   type ZCodeMessagePart,
   type ZCodeMessageWithParts,
+  VIBE_DATA_DIR_NAME,
   type ModelSelection,
   type ZCodePermissionOption,
   type ZCodePermissionRequestParams,
@@ -244,7 +245,7 @@ function formatZCodeAgentLogDate(now: Date): string {
 
 function resolveZCodeAgentCurrentLogFilePath(now = new Date()): string {
   const configuredLogDir = process.env.ZCODE_LOG_DIR?.trim();
-  const logDir = configuredLogDir || join(homedir(), ".zcode", "cli", "log");
+  const logDir = configuredLogDir || join(homedir(), VIBE_DATA_DIR_NAME, "cli", "log");
   return join(logDir, `zcode-${formatZCodeAgentLogDate(now)}.jsonl`);
 }
 
