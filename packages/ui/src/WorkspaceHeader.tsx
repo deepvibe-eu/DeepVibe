@@ -49,6 +49,7 @@ export function WorkspaceHeader({
   isMacDesktop,
   isMacFullscreen,
   isWindowsDesktop,
+  hasNativeWindowFrame,
 
   isDesktop,
   simplifyForNarrowRemote = false,
@@ -92,6 +93,8 @@ export function WorkspaceHeader({
   isMacDesktop?: boolean;
   isMacFullscreen?: boolean;
   isWindowsDesktop?: boolean;
+  /** 系统已绘制原生标题栏（Wayland）：不保留窗控偏移，也不绘制自绘窗控。 */
+  hasNativeWindowFrame?: boolean;
   reserveWindowControls?: boolean;
   windowsWindowControlsRightPaddingPx?: number;
   isDesktop?: boolean;
@@ -115,9 +118,12 @@ export function WorkspaceHeader({
   allowOpenWorkspace?: boolean;
 }) {
   const [selectedEditor, setSelectedEditor] = useState<EditorInfo | null>(null);
-  const shouldOffsetHeaderForWindowControls = !isSidebarVisible;
+  // 原生标题栏（Wayland）由系统绘制，renderer 不预留窗控偏移、也不渲染自绘窗控。
+  const shouldOffsetHeaderForWindowControls = !isSidebarVisible && !hasNativeWindowFrame;
   // Linux 与 Windows 共用内联窗控，不再预留旧悬浮窗控的标题栏区域。
-  const usesInlineWindowControls = Boolean(isWindowsDesktop || (isDesktop && !isMacDesktop));
+  const usesInlineWindowControls = Boolean(
+    !hasNativeWindowFrame && (isWindowsDesktop || (isDesktop && !isMacDesktop)),
+  );
 
   let headerWindowControlsPaddingClass: string | false = false;
   if (shouldOffsetHeaderForWindowControls) {

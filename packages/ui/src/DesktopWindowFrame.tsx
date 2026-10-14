@@ -9,6 +9,7 @@ export const DesktopWindowFrame = memo(function DesktopWindowFrameComponent({
   isDesktop = false,
   isMacDesktop = false,
   isWindowsDesktop = false,
+  hasNativeWindowFrame = false,
   headerTestId: _headerTestId,
   showHeader: _showHeader = isDesktop,
 }: {
@@ -21,6 +22,8 @@ export const DesktopWindowFrame = memo(function DesktopWindowFrameComponent({
   isDesktop?: boolean;
   isMacDesktop?: boolean;
   isWindowsDesktop?: boolean;
+  /** 系统已绘制原生窗口边框（Wayland）：不叠加 renderer 外层圆角/裁切。 */
+  hasNativeWindowFrame?: boolean;
   headerTestId?: string;
   showHeader?: boolean;
 }) {
@@ -36,7 +39,9 @@ export const DesktopWindowFrame = memo(function DesktopWindowFrameComponent({
         // Linux BrowserWindow 的不透明底色会把最外层恢复为直角。
         // 外壳 16px 与内层 12px 面板及 4px inset 构成同心圆。Linux 合成器在原生拖拽/缩放时
         // 可能短暂丢失 overflow 圆角，额外使用同半径 clip-path 固定合成裁切；最大化时两者一起归零。
+        // 使用原生窗口边框时（Wayland）外沿由系统绘制，renderer 再叠加圆角只会在窗口内露出底角。
         isLinuxDesktop &&
+          !hasNativeWindowFrame &&
           "rounded-[16px] [clip-path:inset(0_round_16px)] platform-linux-window-maximized:rounded-none platform-linux-window-maximized:[clip-path:inset(0)]",
         // Web/Windows/Linux 都没有 macOS vibrancy 作为透明底层兜底，
         // 如果继续走半透明 alt 背景，会和浏览器或系统窗口底色混出异常灰块。

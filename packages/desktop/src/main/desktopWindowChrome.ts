@@ -18,6 +18,7 @@ import {
   PlatformChannels,
 } from "@zcode/shared";
 import { loadWindow, type WindowBootstrapOptions } from "./desktopHostProcess.js";
+import { resolveHasNativeWindowFrame } from "../shared/desktopNativeWindowFrame.js";
 import {
   buildWindowsTitleBarOverlayForZoomLevel,
   hasCustomWindowsControls,
@@ -150,6 +151,19 @@ function buildDesktopWindowVisualOptions() {
       // Windows 窗口操作由 renderer 绘制，禁用原生标题栏，避免出现两套按钮。
       frame: false,
       backgroundMaterial: "acrylic" as const,
+    };
+  }
+
+  // Linux/Wayland (Test): Dort ist das frameless+transparente Fenster instabil (Ecken/Jitter beim Bewegen
+  // und Resize). Unter Wayland testweise die native Dekoration verwenden; X11 bleibt frameless wie bisher.
+  // Renderer liest dieselbe Erkennung über IPlatformService.hasNativeWindowFrame und blendet dann die
+  // eigenen Fensterknöpfe/Titelbar-Offsets aus (sonst doppelte Knöpfe).
+  if (resolveHasNativeWindowFrame({ platform: process.platform, env: process.env })) {
+    return {
+      frame: true,
+      // 原生边框窗口不透明；显式深色底，配合 index.html 的深色启动壳，避免启动瞬间露出
+      // Electron 默认白底（frameless 分支靠透明背景解决，这里不能透明）。
+      backgroundColor: "#000000",
     };
   }
 
@@ -574,7 +588,7 @@ export function createBrowserWindow(options: {
     minWidth: MIN_DESKTOP_WINDOW_WIDTH,
     // 1280x720 桌面环境的可用高度通常低于 768，过高的最小高度会导致用户无法继续缩小窗口。
     minHeight: MIN_DESKTOP_WINDOW_HEIGHT,
-    title: options.title,
+    title: options.title ?? app.name,
     icon: options.iconPath,
     // Linux frameless 后部分桌面环境仍可能显示 Electron 原生菜单栏，自动隐藏避免顶部出现两套菜单。
     autoHideMenuBar: isLinuxDesktopWindow(),
@@ -612,6 +626,13 @@ export function createBrowserWindow(options: {
   win.on("maximize", () => syncDesktopWindowChromeState(win));
   win.on("unmaximize", () => syncDesktopWindowChromeState(win));
   attachWindowsWindowRepaint(win);
+
+  // 页面 <title> 一旦加载就会覆盖 BrowserWindow 的初始 title，Wayland 原生标题栏因此显示
+  // renderer index.html 里的 "ZCode"。主窗口统一保留运行时应用名（index.ts 已 app.setName）。
+  win.on("page-title-updated", (event) => {
+    event.preventDefault();
+    win.setTitle(app.name);
+  });
   const pendingWebviewCodingPlanGuestFlags: boolean[] = [];
 
   win.webContents.once("did-finish-load", () => {

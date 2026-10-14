@@ -30,6 +30,11 @@ export function DesktopWindowControls() {
       unsubscribe?.();
     };
   }, [platform]);
+  // Wayland 使用原生窗口边框时系统已绘制最小化/最大化/关闭，renderer 再画会出现两套按钮。
+  // 这里是所有自绘窗控的唯一出口，作为兜底避免个别调用方漏掉 hasNativeWindowFrame 判断。
+  if (platform.hasNativeWindowFrame) {
+    return null;
+  }
   const items = [
     {
       id: "minimize",

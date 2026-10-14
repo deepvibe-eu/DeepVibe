@@ -2,6 +2,8 @@ interface WorkspaceShellWindowChromeOptions {
   isMacDesktop?: boolean;
   isWindowsDesktop?: boolean;
   isLinuxDesktop?: boolean;
+  /** 系统已绘制原生窗口边框（Wayland）：面板圆角不再需要与外层 frameless 外壳同心。 */
+  hasNativeWindowFrame?: boolean;
   macOSMajorVersion?: number | null;
   isWindowsMaximized: boolean;
   supportsNativeRoundedCorners: boolean | null;
@@ -9,19 +11,22 @@ interface WorkspaceShellWindowChromeOptions {
 
 type WorkspaceShellPlatformRadiusOptions = Pick<
   WorkspaceShellWindowChromeOptions,
-  "isMacDesktop" | "isWindowsDesktop" | "isLinuxDesktop" | "macOSMajorVersion"
+  "isMacDesktop" | "isWindowsDesktop" | "isLinuxDesktop" | "hasNativeWindowFrame" | "macOSMajorVersion"
 >;
 
 export function resolveWorkspaceShellPanelRadiusPx({
   isMacDesktop,
   isWindowsDesktop,
+  hasNativeWindowFrame,
   macOSMajorVersion,
 }: WorkspaceShellPlatformRadiusOptions): number {
   if (isWindowsDesktop) return 5;
   // 忽略 macOS 版本会让 Sequoia 的内层 12px 圆角与原生窗口小圆角不协调。
   // 保留 4px 外层留白，旧系统和未知版本用 6px，明确识别 Tahoe 26+ 才用 12px。
   if (isMacDesktop) return (macOSMajorVersion ?? 0) >= 26 ? 12 : 6;
-  return 12;
+  // Linux: Wayland 使用原生窗口边框时不承担系统外沿 → 6px（Nutzer-Entscheid 2026-10-14, „rund genug"）。
+  // 仍为 frameless（X11）时保持 12px，与 DesktopWindowFrame 的 16px 外壳 + 4px 留白构成同心圆角。
+  return hasNativeWindowFrame ? 6 : 12;
 }
 
 export function resolveWorkspaceShellResizeHandleInsetPx(
@@ -34,11 +39,17 @@ export function resolveWorkspaceShellWindowChromeClass({
   isMacDesktop,
   isWindowsDesktop,
   isLinuxDesktop,
+  hasNativeWindowFrame,
   macOSMajorVersion,
   supportsNativeRoundedCorners,
 }: WorkspaceShellWindowChromeOptions): string {
-  // Linux 与设置页一致使用 xl；面板已有独立留白，不承担系统窗口外沿。
-  if (isLinuxDesktop) return "rounded-xl border border-border";
+  // Linux: Wayland 原生边框下用 6px（与面板半径一致，不承担系统外沿）；
+  // X11 frameless 仍用 xl(12px)，与设置页和 16px 外壳保持同心。
+  if (isLinuxDesktop) {
+    return hasNativeWindowFrame
+      ? "rounded-[6px] border border-border"
+      : "rounded-xl border border-border";
+  }
   if (!isWindowsDesktop) {
     const radius = resolveWorkspaceShellPanelRadiusPx({ isMacDesktop, macOSMajorVersion });
     return radius === 6 ? "rounded-[6px] border border-border" : "rounded-xl border border-border";

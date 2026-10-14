@@ -35,6 +35,7 @@ export function OccupationOnboardingVisual({
   const borderRadius = resolveWorkspaceShellPanelRadiusPx({
     isMacDesktop,
     isWindowsDesktop,
+    hasNativeWindowFrame: platform.hasNativeWindowFrame === true,
     macOSMajorVersion,
   });
   const { intl } = useZCodeIntl();

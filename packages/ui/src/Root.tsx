@@ -1013,7 +1013,9 @@ function RootInner({
       {remoteConnectionDialog}
       {directoryBrowserDialog}
       <OccupationOnboarding
-        showWindowControls={Boolean(isWindowsDesktop || (isDesktop && !isMacDesktop))}
+        showWindowControls={Boolean(
+          !platform.hasNativeWindowFrame && (isWindowsDesktop || (isDesktop && !isMacDesktop)),
+        )}
         showChildrenWhileLoading={!workspaceShellPath && isSettingsTabActive}
         isMacDesktop={isMacDesktop}
         isWindowsDesktop={isWindowsDesktop}

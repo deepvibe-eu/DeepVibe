@@ -8,6 +8,10 @@ export function createDesktopPlatform(options: {
 }): IPlatformService {
   return {
     canSelectFilePath: true,
+    // preload 在 contextBridge 建立前用与 main 相同的 Wayland 判定注入；非 Wayland 或旧 preload 为 false。
+    hasNativeWindowFrame:
+      (window as Window & { __ZCODE_HAS_NATIVE_WINDOW_FRAME__?: boolean })
+        .__ZCODE_HAS_NATIVE_WINDOW_FRAME__ === true,
     createLocalMediaPreviewUrl: buildLocalMediaPreviewUrl,
     isLocalDevelopmentRuntime: options.isLocalDevelopmentRuntime,
     selectDirectory: () => window.zcode.selectDirectory(),

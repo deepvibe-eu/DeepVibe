@@ -3,6 +3,7 @@ import type { ErrorInfo, ReactNode } from "react";
 import type { Locale } from "@zcode/shared";
 import { DEFAULT_LOCALE, LOCALE_DISPLAY_NAMES } from "@zcode/shared";
 import { DesktopWindowFrame } from "@/DesktopWindowFrame.js";
+import { useOptionalPlatform } from "@/hooks/usePlatform.js";
 import zhCN from "@/i18n/locales/zh-CN.js";
 import enUS from "@/i18n/locales/en-US.js";
 import { logger } from "@/logger.js";
@@ -120,6 +121,9 @@ function ErrorFallback({
   isWindowsDesktop?: boolean;
 }) {
   const errorSummary = error.message.trim() || formatBoundaryMessage("appError.unknown");
+  // 崩溃回退可能渲染在 PlatformProvider 之外（AppErrorBoundary 在 Root 之上），此处用可选读取，
+  // 拿不到平台时按无原生边框处理，避免回退页自己再抛出。
+  const hasNativeWindowFrame = useOptionalPlatform()?.hasNativeWindowFrame === true;
 
   return (
     <DesktopWindowFrame
@@ -127,6 +131,7 @@ function ErrorFallback({
       isDesktop={isDesktop}
       isMacDesktop={isMacDesktop}
       isWindowsDesktop={isWindowsDesktop}
+      hasNativeWindowFrame={hasNativeWindowFrame}
     >
       <div className="flex h-full min-h-0 justify-center overflow-y-auto p-6">
         <div

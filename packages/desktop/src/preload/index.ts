@@ -9,6 +9,7 @@ import {
   installArmsRumBridgeIpcForward,
   scheduleArmsEventBridgePatch,
 } from "../shared/armsRumBridgeForward.js";
+import { resolveHasNativeWindowFrame } from "../shared/desktopNativeWindowFrame.js";
 
 // ARMS frame preload 闭包内的 send 不会随后序 ipcRenderer.send 补丁生效，须同步包装 Bridge.send
 installArmsRumBridgeIpcForward(ipcRenderer);
@@ -26,6 +27,12 @@ function parseDeviceIdFromArgs(): string {
 
 // 在 contextBridge 建立之前就暴露同步值，让 renderer 在 React 渲染前就能读到
 contextBridge.exposeInMainWorld("__ZCODE_DEVICE_ID__", parseDeviceIdFromArgs());
+// 与 main 进程同一 Wayland 判定：renderer 首帧即知道是否使用原生窗口边框，避免先画出
+// 自绘窗控再隐藏造成的闪烁。
+contextBridge.exposeInMainWorld(
+  "__ZCODE_HAS_NATIVE_WINDOW_FRAME__",
+  resolveHasNativeWindowFrame({ platform: process.platform, env: process.env }),
+);
 
 import type {
   AppSettings,

@@ -306,8 +306,11 @@ export function SettingsPage({
     [isDesktop, isMacDesktop, isWindowsDesktop],
   );
   const isLinuxDesktop = Boolean(isDesktop && !isMacDesktop && !isWindowsDesktop);
-  const usesInlineWindowControls = Boolean(isWindowsDesktop || isLinuxDesktop);
   const platform = usePlatform();
+  // 原生窗口边框（Wayland）下系统绘制窗控，设置页不再绘制内联窗控或预留右侧偏移。
+  const usesInlineWindowControls = Boolean(
+    !platform.hasNativeWindowFrame && (isWindowsDesktop || isLinuxDesktop),
+  );
   const [activeSection, setActiveSection] = useState<SettingsSectionId>(() => {
     const initialSection = consumeInitialSettingsSection("general");
     const visibleInitialSection = resolveSettingsSectionForPlatform(
@@ -1366,6 +1369,7 @@ export function SettingsPage({
         isDesktop={isDesktop}
         isMacDesktop={isMacDesktop}
         isWindowsDesktop={isWindowsDesktop}
+        hasNativeWindowFrame={Boolean(platform.hasNativeWindowFrame)}
       >
         <div
           data-testid={TID_SETTINGS_PAGE}
@@ -1567,7 +1571,12 @@ export function SettingsPage({
               className={cn(
                 "relative flex flex-col min-h-0 h-full border border-border bg-background",
                 // Windows 设置页已有 4px 外层留白，不再承担系统窗口外沿；圆角与主工作区统一为 5px。
-                isWindowsDesktop ? "rounded-[5px]" : "rounded-xl",
+                // Linux: Wayland 原生边框 → 6px（与主工作区一致）；X11 frameless → xl(12px)。
+                isWindowsDesktop
+                  ? "rounded-[5px]"
+                  : isLinuxDesktop && platform.hasNativeWindowFrame
+                    ? "rounded-[6px]"
+                    : "rounded-xl",
               )}
             >
               {!usesInlineWindowControls ? (

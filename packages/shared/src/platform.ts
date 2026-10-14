@@ -530,6 +530,15 @@ export interface IPlatformService {
   /** 当前平台的文件选择框是否能返回 agent 可访问的本地绝对路径 */
   canSelectFilePath?: boolean;
 
+  /**
+   * 当前桌面窗口是否使用操作系统原生标题栏/边框。
+   *
+   * Wayland 下 frameless+transparent 窗口不稳定（移动/缩放时抖动、圆角丢失），main 进程改用
+   * `frame:true`。此时 renderer 不得再绘制自绘窗控，也不得为窗控预留标题栏偏移，否则会出现
+   * 原生与自绘两套窗口按钮。Web / 非 Wayland 平台为缺省 false。
+   */
+  hasNativeWindowFrame?: boolean;
+
   /** 打开系统目录选择框，返回选中路径或 null */
   selectDirectory(): Promise<string | null>;
 
