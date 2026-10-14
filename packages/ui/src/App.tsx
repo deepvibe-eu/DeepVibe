@@ -107,6 +107,8 @@ export function App({
   onResolveConversationWorkspace,
   onOpenWorkspace,
   onOpenFolderFromWorkspaceMenu,
+  /** Workspace-Switcher: Öffnen eines Recents aus dem Composer-Menü. */
+  onOpenProject,
   onOpenRemoteWorkspace,
   onCreateScratchWorkspace,
   remoteConnectionInProgress = false,
@@ -1152,6 +1154,7 @@ export function App({
         onResolveConversationWorkspace={onResolveConversationWorkspace}
         onOpenWorkspace={onOpenWorkspace}
         onOpenFolderFromWorkspaceMenu={onOpenFolderFromWorkspaceMenu}
+        onOpenProject={onOpenProject}
         onOpenRemoteWorkspace={onOpenRemoteWorkspace}
         onCreateScratchWorkspace={onCreateScratchWorkspace}
         remoteConnectionInProgress={remoteConnectionInProgress}
