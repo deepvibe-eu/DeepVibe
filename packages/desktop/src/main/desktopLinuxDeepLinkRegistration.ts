@@ -8,8 +8,10 @@ import {
   type LinuxDeepLinkRegistrationLogger,
 } from "./desktopLinuxXdg.js";
 
-const LINUX_DEEP_LINK_DESKTOP_FILE = "zcode.desktop";
 const LINUX_DEEP_LINK_MIME_TYPE = "x-scheme-handler/zcode";
+// 桌面文件名必须等于窗口 WM class（`--class`），Wayland 的 app_id 按文件名匹配 .desktop。
+// 早期版本写的是 zcode.desktop；遗留条目在注册时清理，避免旧 ID 继续遮蔽并显示占位图标。
+const LINUX_DEEP_LINK_LEGACY_DESKTOP_FILE = "zcode.desktop";
 // 归属标记：用于识别用户级 zcode.desktop 是否由本应用写入（历史所有版本都带这行 Comment）。
 const LINUX_DESKTOP_ENTRY_OWNERSHIP_MARKER = "Comment=DeepVibe Desktop App";
 
@@ -23,6 +25,8 @@ interface RegisterLinuxDeepLinkProtocolOptions {
   executablePath: string;
   homeDir: string;
   productName?: string;
+  /** Linux-Executable-/WM-Class-Name der Fëa (z. B. `deepvibe`), auch für Datei- und Icon-Namen. */
+  linuxExecutableName: string;
   iconSourcePath?: string;
   env?: LinuxDesktopEnv;
   argv?: string[];
@@ -107,10 +111,12 @@ function createLinuxDeepLinkDesktopEntry(params: {
   executablePath: string;
   args?: string[];
   productName?: string;
-  iconName?: string;
+  linuxExecutableName: string;
 }): string {
   const productName = params.productName ?? "DeepVibe";
-  const iconName = params.iconName ?? "zcode";
+  // Icon 与 StartupWMClass 必须是 WM class（`--class`），不是展示名：
+  // 否则窗口无法与 .desktop 关联，Dock 只显示占位图标。展示名只用于 Name=。
+  const linuxExecutableName = params.linuxExecutableName;
   const command = {
     executablePath: params.executablePath,
     args: params.args ?? [],
@@ -122,10 +128,10 @@ function createLinuxDeepLinkDesktopEntry(params: {
     `Exec=${formatDesktopExec(command)}`,
     "Terminal=false",
     "Type=Application",
-    `Icon=${iconName}`,
+    `Icon=${linuxExecutableName}`,
     "Categories=Development;",
     `MimeType=${LINUX_DEEP_LINK_MIME_TYPE};`,
-    `StartupWMClass=${productName}`,
+    `StartupWMClass=${linuxExecutableName}`,
     "",
   ].join("\n");
 }
@@ -151,9 +157,12 @@ function resolveLinuxSystemApplicationDirs(env?: { XDG_DATA_DIRS?: string }): st
   return dataDirs.map((dir) => join(dir, "applications"));
 }
 
-function findSystemLevelDesktopEntryPath(systemApplicationDirs: string[]): string | undefined {
+function findSystemLevelDesktopEntryPath(
+  systemApplicationDirs: string[],
+  desktopFileName: string,
+): string | undefined {
   for (const dir of systemApplicationDirs) {
-    const candidate = join(dir, LINUX_DEEP_LINK_DESKTOP_FILE);
+    const candidate = join(dir, desktopFileName);
     // 边界：目录或损坏的路径不应被当成有效系统级条目，否则纯 AppImage 用户
     // 的用户级注册会被病态路径误抑制。只有普通文件才参与遮蔽判断。
     try {
@@ -188,23 +197,23 @@ function removeOwnedUserDesktopEntry(
     return;
   }
   if (!isOwnedDesktopEntry(desktopFilePath)) {
-    logger.warn("[deep-link] Linux 用户级 zcode.desktop 非本应用写入，保留不清理", {
+    logger.warn("[deep-link] Linux 用户级 desktop entry 非本应用写入，保留不清理", {
       desktopFilePath,
     });
     return;
   }
   try {
     rmSync(desktopFilePath);
-    logger.info("[deep-link] 已清理遗留的用户级 zcode.desktop，恢复系统级条目", {
+    logger.info("[deep-link] 已清理遗留的用户级 desktop entry，恢复系统级条目", {
       desktopFilePath,
     });
   } catch (error) {
-    logger.warn("[deep-link] 清理遗留用户级 zcode.desktop 失败", { desktopFilePath, error });
+    logger.warn("[deep-link] 清理遗留用户级 desktop entry 失败", { desktopFilePath, error });
   }
 }
 
-function resolveLinuxDeepLinkDesktopFilePath(dataDir: string): string {
-  return join(dataDir, "applications", LINUX_DEEP_LINK_DESKTOP_FILE);
+function resolveLinuxDeepLinkDesktopFilePath(dataDir: string, desktopFileName: string): string {
+  return join(dataDir, "applications", desktopFileName);
 }
 
 function writeFileIfChanged(path: string, content: string): boolean {
@@ -224,11 +233,13 @@ export function registerLinuxDeepLinkProtocol(options: RegisterLinuxDeepLinkProt
     argv: options.argv,
   });
   const dataDir = resolveLinuxUserDataDir({ env: options.env, homeDir: options.homeDir });
-  const desktopFilePath = resolveLinuxDeepLinkDesktopFilePath(dataDir);
+  const desktopFileName = `${options.linuxExecutableName}.desktop`;
+  const desktopFilePath = resolveLinuxDeepLinkDesktopFilePath(dataDir, desktopFileName);
   const applicationsDir = dirname(desktopFilePath);
   const desktopEntry = createLinuxDeepLinkDesktopEntry({
     ...command,
     productName: options.productName,
+    linuxExecutableName: options.linuxExecutableName,
   });
   let protocolRegistered = false;
   const runCommand = options.runCommand ?? runXdgCommand;
@@ -243,6 +254,7 @@ export function registerLinuxDeepLinkProtocol(options: RegisterLinuxDeepLinkProt
   // 用户手写的自定义 zcode.desktop（无归属标记）不受影响，保留不清理。
   const systemDesktopEntryPath = findSystemLevelDesktopEntryPath(
     options.systemApplicationDirs ?? resolveLinuxSystemApplicationDirs(options.env),
+    desktopFileName,
   );
 
   try {
@@ -256,13 +268,21 @@ export function registerLinuxDeepLinkProtocol(options: RegisterLinuxDeepLinkProt
     } else {
       changed = writeFileIfChanged(desktopFilePath, desktopEntry);
     }
+    // 早期 DeepVibe 写的是 zcode.desktop；清掉本应用写入的遗留用户级条目，
+    // 否则旧文件名仍占用处理器，且与新 WM class 不一致。
+    if (desktopFileName !== LINUX_DEEP_LINK_LEGACY_DESKTOP_FILE) {
+      removeOwnedUserDesktopEntry(
+        resolveLinuxDeepLinkDesktopFilePath(dataDir, LINUX_DEEP_LINK_LEGACY_DESKTOP_FILE),
+        options.logger,
+      );
+    }
     // AppImage 直跑不会像 deb 安装包一样稳定写入系统 desktop entry。
     // deep link 是 OAuth/支付/工作区打开的核心链路，必须先完成用户级协议处理器刷新；
     // 图标安装是可选增强，放到核心注册成功后独立降级，避免扩大登录回调失败域。
     const updateResult = runCommand("update-desktop-database", [applicationsDir]);
     const defaultResult = runCommand("xdg-mime", [
       "default",
-      LINUX_DEEP_LINK_DESKTOP_FILE,
+      desktopFileName,
       LINUX_DEEP_LINK_MIME_TYPE,
     ]);
 
@@ -319,6 +339,7 @@ export function registerLinuxDeepLinkProtocol(options: RegisterLinuxDeepLinkProt
     ? null
     : installLinuxAppImageDesktopIconBestEffort({
         dataDir,
+        iconName: options.linuxExecutableName,
         env: options.env,
         iconSourcePath: options.iconSourcePath,
         logger: options.logger,

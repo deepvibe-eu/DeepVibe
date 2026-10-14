@@ -8,6 +8,7 @@ import {
   type OAuthProviderId,
   type OAuthStateRegistration,
   PlatformChannels,
+  ZCODE_PRODUCT_FLAVOR,
 } from "@zcode/shared";
 import {
   extractWorkspaceOpenPath,
@@ -18,6 +19,7 @@ import {
   isShareImportUrl,
 } from "./desktopDeepLinkUrl.js";
 import { registerLinuxDeepLinkProtocol } from "./desktopLinuxDeepLinkRegistration.js";
+import { resolveLinuxExecutableNameForFlavor } from "../../scripts/desktop-product-identity.mjs";
 
 interface DeepLinkWorkspaceGateOptions {
   canOpenWorkspace?: (workspacePath: string) => boolean;
@@ -435,6 +437,7 @@ export function registerDeepLinkProtocol(
       executablePath: process.execPath,
       homeDir: app.getPath("home"),
       productName: app.name,
+      linuxExecutableName: resolveLinuxExecutableNameForFlavor(ZCODE_PRODUCT_FLAVOR),
       iconSourcePath: options.iconPath,
       env: process.env,
       argv: process.argv,
