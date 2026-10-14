@@ -1,3 +1,4 @@
+import "./desktopLegacyDataRootMigration.js";
 import { createLocalTtftExporter } from "./localTtftExporter.js";
 /* eslint-disable max-lines */
 import "./desktopEarlyDataBaseDirBootstrap.js";
@@ -1929,7 +1930,11 @@ app.on("open-url", (event, url) => {
 });
 const gotTheLock = app.requestSingleInstanceLock(createDeepLinkSingleInstanceData(process.argv));
 if (!gotTheLock) {
-  app.quit();
+  // 根因（2026-10-13 日志）：第二个实例拿不到单实例锁时只调了 app.quit()，但模块初始化会
+  // 继续往下跑（深链协议注册、runtime env 准备等），直到 app ready 后才异步退出。
+  // 结果两个 DeepVibe 进程短时并存，用户会以为“旧版本还在运行、关不掉”。
+  // 拿不到锁必须立即硬退出，不能继续初始化。
+  app.exit(0);
 }
 app.on("second-instance", (_event, argv, _workingDirectory, additionalData) => {
   if (
