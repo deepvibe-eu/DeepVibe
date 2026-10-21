@@ -1,5 +1,5 @@
 import type { BackgroundBashOutputResult } from "@zcode/shared";
-import type { RuntimeInputPresentation } from "@zcode/contracts";
+import type { CompactContextOutput, ContextStatusOutput, RuntimeInputPresentation } from "@zcode/contracts";
 import type {
   CompactPhase,
   CompactReason,
@@ -172,6 +172,14 @@ export interface AgentRuntimeTurnMethods {
     messageIdMap: Map<MessageId, MessageId>;
   }>;
   autoCompactIfNeeded(
+    turnTraceContext: TraceContext,
+    events: SessionEvent[],
+    abortSignal: AbortSignal | undefined,
+    context: AutoCompactLoopContext,
+  ): Promise<AutoCompactOutcome>;
+  getCompactContextStatus(): ContextStatusOutput;
+  requestAgentCompact(input: { instructions?: string }): CompactContextOutput;
+  agentCompactIfRequested(
     turnTraceContext: TraceContext,
     events: SessionEvent[],
     abortSignal: AbortSignal | undefined,

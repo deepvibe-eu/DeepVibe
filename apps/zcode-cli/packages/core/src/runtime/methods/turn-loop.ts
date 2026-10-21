@@ -97,6 +97,28 @@ export async function runRegularTurnLoop(
       });
     }
     if (autoCompactOutcome === "compacted") {
+      // Auto-Compact hat bereits aufgeräumt; eine noch offene Agent-Anforderung ist damit
+      // gegenstandslos und darf nicht sofort eine zweite Kompression auslösen.
+      this.pendingAgentCompact = undefined;
+      recordCompactSuccess(state, rapidRefill);
+      recordCompactHistoryRound(state);
+    }
+    throwIfTurnAborted(state.turnAbortSignal);
+
+    const agentCompactOutcome = await this.agentCompactIfRequested(
+      state.turnTraceContext,
+      state.events,
+      state.turnAbortSignal,
+      {
+        compactReason: CompactReason.ContextLimit,
+        modelStepIndex: state.modelStepCount,
+        phase: compactPhase,
+        rapidRefill,
+        model: state.model,
+        turnRequestState: state.turnRequestState,
+      },
+    );
+    if (agentCompactOutcome === "compacted") {
       recordCompactSuccess(state, rapidRefill);
       recordCompactHistoryRound(state);
     }

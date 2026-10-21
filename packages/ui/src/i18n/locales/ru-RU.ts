@@ -4804,6 +4804,7 @@ const ruRU: Record<string, string> = {
   "chat.contextUsageDescription":
     "Текст запроса, вызовы инструментов и ответы используют одно окно контекста.",
   "chat.contextUsage.cacheHitRate": "Средний процент попаданий в кэш",
+  "chat.contextUsage.compactNow": "Сжать сейчас",
   "chat.contextUsage.breakdown": "Источники контекста",
   "chat.contextUsage.breakdown.messages": "Сообщения",
   "chat.contextUsage.breakdown.systemPrompt": "Системный запрос",

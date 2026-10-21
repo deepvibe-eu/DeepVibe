@@ -295,15 +295,19 @@ export {
   createCompactBoundaryId,
   estimateMessageTokens,
   formatCompactSummary,
+  getAgentCompactFloorPercent,
   getAutoCompactThreshold,
+  getAutoCompactThresholdPercent,
   getMessagesToSummarize,
   getUsageTotalTokens,
   hasEnoughMessagesToCompact,
   maybeLocalMicrocompactMessages,
+  shouldAllowAgentCompact,
   shouldAutoCompact,
   buildDefaultMicrocompactThreshold,
 } from "../compact/index.js";
 export type { AutoCompactPolicyConfig } from "../compact/index.js";
+export type { AgentCompactDecision, AgentCompactRejectionReason } from "../compact/index.js";
 export type { AutoCompactTokenOverride } from "../compact/index.js";
 export type { LocalMicrocompactPolicyConfig } from "../compact/index.js";
 export {

@@ -4899,6 +4899,7 @@ const frFR: Record<string, string> = {
   "chat.contextUsageDescription":
     "Le texte de l’invite, les appels d’outil et les réponses partagent tous cette fenêtre de contexte.",
   "chat.contextUsage.cacheHitRate": "Taux de succès moyen du cache",
+  "chat.contextUsage.compactNow": "Compacter maintenant",
   "chat.contextUsage.breakdown": "Sources du contexte",
   "chat.contextUsage.breakdown.messages": "Messages",
   "chat.contextUsage.breakdown.systemPrompt": "Invite système",

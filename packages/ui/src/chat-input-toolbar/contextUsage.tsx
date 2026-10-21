@@ -22,6 +22,7 @@ import {
 } from "@/components/ai-elements/context.js";
 import { cn } from "@/components/lib/utils.js";
 import { Progress } from "@/components/ui/progress.js";
+import { Button } from "@/components/ui/button.js";
 import { useOptionalTabStore } from "@/store/TabStoreProvider.js";
 import { isSettingsTab } from "@/store/tabStore.js";
 import { ControlHintTooltip } from "@/ControlHintTooltip.js";
@@ -236,9 +237,11 @@ export function ChatContextUsage({
   codingPlanUsageRemaining,
   startPlanBalance,
   taskUsage,
-  selectedProvider: _selectedProvider,
+  selectedProvider,
   intl,
   locale,
+  onSendCompressionCommand,
+  compressionDisabled,
 }: {
   codingPlanUsageRemaining?: ChatCodingPlanUsageRemainingConfig;
   startPlanBalance?: ChatStartPlanBalanceConfig;
@@ -293,11 +296,19 @@ export function ChatContextUsage({
   );
   const handleQuotaResetDialogOpenChange = useCallback((open: boolean) => {
     quotaResetDialogOpenRef.current = open;
-    setQuotaResetDialogOpen(open);
+    setContextOpen(open);
     if (!open) {
       setContextOpen(false);
     }
   }, []);
+  const handleCompactNow = useCallback(() => {
+    if (!onSendCompressionCommand || compressionDisabled) return;
+    // 面板内按钮不会像 hover-leave 一样自动收起，先 close 再派发 /compact。
+    runContextPanelActionWithClose({
+      action: () => onSendCompressionCommand(getContextCompressionCommand(selectedProvider)),
+      close: () => setContextOpen(false),
+    });
+  }, [compressionDisabled, onSendCompressionCommand, selectedProvider]);
   const renderableTaskUsage = getRenderableTaskUsage(taskUsage);
   const codingPlanUsageRemainingWithClose = useMemo<
     ChatCodingPlanUsageRemainingConfig | undefined
@@ -983,6 +994,17 @@ export function ChatContextUsage({
                 </div>
               ) : null}
             </>
+          ) : null}
+          {onSendCompressionCommand && renderableTaskUsage ? (
+            <Button
+              className="w-full"
+              disabled={compressionDisabled === true}
+              onClick={handleCompactNow}
+              size="sm"
+              variant="outline"
+            >
+              {intl.formatMessage({ id: "chat.contextUsage.compactNow" })}
+            </Button>
           ) : null}
           {codingPlanUsageRemainingWithClose && hasCodingPlanUsageRemaining ? (
             <ChatCodingPlanUsageRemainingPanel

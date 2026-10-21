@@ -29,7 +29,6 @@ import {
 } from "../helpers/index.js";
 import type { TurnResult, RunModelTextRequestOptions } from "../types.js";
 import type { Model } from "../deps.js";
-import type { ProviderContextUsageSnapshot } from "../types.js";
 import type { AgentRuntimeInternal } from "../internal.js";
 import { autoCompactDecisionLogContext } from "./compact-log-context.js";
 import { resolveNormalRequestMaxOutputTokens } from "./model-token-limits.js";
@@ -190,14 +189,7 @@ export async function autoCompactIfNeeded(
 ): Promise<AutoCompactOutcome> {
   throwIfTurnAborted(abortSignal);
 
-  const config: AutoCompactPolicyConfig = {
-    contextWindow: context.model.properties.contextWindow,
-    ...this.config.compact,
-    maxOutputTokens: resolveNormalRequestMaxOutputTokens({
-      modelMaxOutputTokens: context.model.optionSpecs.maxOutputTokens.max,
-    }),
-    modelContextBudgetStrategy: this.config.modelContextBudgetStrategy,
-  };
+  const config: AutoCompactPolicyConfig = buildCompactPolicyConfig(this, context.model);
   const activeEntries = context.turnRequestState.entries;
   const activeProjection = buildRuntimeProviderRequestMessages(this, {
     entries: activeEntries,
@@ -310,7 +302,21 @@ export async function autoCompactIfNeeded(
   }
 }
 
-function buildProviderUsageTokenOverride(
+export function buildCompactPolicyConfig(
+  runtime: AgentRuntimeInternal,
+  model: Model,
+): AutoCompactPolicyConfig {
+  return {
+    contextWindow: model.properties.contextWindow,
+    ...runtime.config.compact,
+    maxOutputTokens: resolveNormalRequestMaxOutputTokens({
+      modelMaxOutputTokens: model.optionSpecs.maxOutputTokens.max,
+    }),
+    modelContextBudgetStrategy: runtime.config.modelContextBudgetStrategy,
+  };
+}
+
+export function buildProviderUsageTokenOverride(
   messages: RunModelTextRequestOptions["messages"],
   sourceEntries: readonly (RuntimeMessageEntry | undefined)[],
 ): AutoCompactTokenOverride | undefined {

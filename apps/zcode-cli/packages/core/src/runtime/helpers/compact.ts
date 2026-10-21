@@ -41,6 +41,8 @@ export function defaultCompactPhaseForTrigger(trigger: CompactTrigger): CompactP
       return CompactPhase.PreRequest;
     case CompactTrigger.Reactive:
       return CompactPhase.Reactive;
+    case CompactTrigger.Agent:
+      return CompactPhase.MidTurn;
     case CompactTrigger.Manual:
     case CompactTrigger.Partial:
     case CompactTrigger.SessionMemory:
@@ -54,6 +56,8 @@ export function defaultCompactReasonForTrigger(trigger: CompactTrigger): Compact
       return CompactReason.ContextLimit;
     case CompactTrigger.Reactive:
       return CompactReason.ProviderOverflow;
+    case CompactTrigger.Agent:
+      return CompactReason.ContextLimit;
     case CompactTrigger.Manual:
     case CompactTrigger.Partial:
       return CompactReason.UserRequested;

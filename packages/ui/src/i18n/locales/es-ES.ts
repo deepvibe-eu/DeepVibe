@@ -4865,6 +4865,7 @@ const esES: Record<string, string> = {
   "chat.contextUsageDescription":
     "El texto del prompt, las llamadas a herramienta y las respuestas comparten esta ventana de contexto.",
   "chat.contextUsage.cacheHitRate": "Tasa media de aciertos de caché",
+  "chat.contextUsage.compactNow": "Comprimir ahora",
   "chat.contextUsage.breakdown": "Fuentes del contexto",
   "chat.contextUsage.breakdown.messages": "Mensajes",
   "chat.contextUsage.breakdown.systemPrompt": "Prompt del sistema",

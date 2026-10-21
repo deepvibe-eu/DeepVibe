@@ -4,6 +4,7 @@
 
 import {
   AMEND_WORKFLOW_TOOL_NAME,
+  COMPACT_CONTEXT_TOOL_NAME,
   CREATE_WORKFLOW_TOOL_NAME,
   EVAL_WORKFLOW_SNIPPET_TOOL_NAME,
   GET_WORKFLOW_RUN_TOOL_NAME,
@@ -49,6 +50,7 @@ import {
   enterPlanModeToolEntry,
   exitPlanModeToolEntry,
 } from "./plan-mode.js";
+import { compactContextToolEntry, contextStatusToolEntry } from "./context-compact.js";
 import { askUserQuestionToolEntry } from "./ask-user-question.js";
 import { sendMessageToolEntry } from "./send-message.js";
 import { respondToCoordinatorToolEntry } from "./respond-to-coordinator.js";
@@ -133,6 +135,10 @@ export const builtInTools: ToolEntry[] = [
   // `subagent_model`。不进 WORKFLOW_CHILD_DISALLOWED_TOOLS
   // ——那条禁令的理由是 alwaysAsk 在 child 里无窗可弹，只读查询不适用。
   listModelsToolEntry,
+  // Kontext-/Kompressions-Steuerung: Status immer; CompactContext nur, wenn der Per-Task-Schalter
+  // es erlaubt (Gate im Loop unten).
+  contextStatusToolEntry,
+  compactContextToolEntry,
   // workflowToolEntry,
 ];
 
@@ -183,6 +189,8 @@ interface RegisterBuiltInToolsOptions {
   includeDynamicWorkflow?: boolean;
   /** node_repl（js）默认关闭，由官方 browser-use 插件启用。 */
   includeNodeRepl?: boolean;
+  /** Per-Task-Schalter: false blendet `CompactContext` aus (Auto-Compact bleibt unberührt). */
+  agentCompactEnabled?: boolean;
   /** browser-use 说明和 agent.browsers 注入由官方 browser-use 插件 + 宿主 browser bridge 共同启用。 */
   includeBrowserUse?: boolean;
   embeddedSearchEnabled?: boolean;
@@ -256,6 +264,12 @@ export function registerBuiltInTools(
     if (
       options.includeDynamicWorkflow === false &&
       DYNAMIC_WORKFLOW_TOOL_NAMES.has(entry.metadata.name)
+    ) {
+      continue;
+    }
+    if (
+      entry.metadata.name === COMPACT_CONTEXT_TOOL_NAME &&
+      options.agentCompactEnabled === false
     ) {
       continue;
     }

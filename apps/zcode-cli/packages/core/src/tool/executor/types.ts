@@ -44,6 +44,7 @@ import type {
   ReadFileStateMap,
   ToolBatchEvent,
   BackgroundTaskControlPort,
+  CompactControlPort,
   ToolExecutionResult,
   ToolRuntimeScope,
 } from "../types.js";
@@ -108,6 +109,7 @@ export interface ToolExecutorOptions {
   offPeakPort?: OffPeakPort;
   sessionStore?: SessionStorePort;
   sessionModePort?: SessionModePort;
+  compactControlPort?: CompactControlPort;
   workflowPort?: WorkflowPort;
   /** workflow run 端口；按工具名查表时 CreateWorkflow 的后台生命周期提供者。 */
   dynamicWorkflowRunPort?: DynamicWorkflowRunPort;
@@ -214,6 +216,7 @@ export interface ToolExecutorDeps {
   offPeakPort?: OffPeakPort;
   sessionStore?: SessionStorePort;
   sessionModePort?: SessionModePort;
+  compactControlPort?: CompactControlPort;
   workflowPort?: WorkflowPort;
   /** workflow run 端口；按工具名查表时 CreateWorkflow 的后台生命周期提供者。 */
   dynamicWorkflowRunPort?: DynamicWorkflowRunPort;

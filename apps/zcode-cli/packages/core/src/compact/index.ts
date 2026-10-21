@@ -16,14 +16,19 @@ export {
 } from "./manual.js";
 export {
   AUTOCOMPACT_BUFFER_TOKENS,
+  DEFAULT_AGENT_COMPACT_FLOOR_PERCENT,
   DEFAULT_AUTOCOMPACT_THRESHOLD_PERCENT,
   DEFAULT_AUTOCOMPACT_OUTPUT_RESERVE_TOKENS,
   DEFAULT_COMPACT_CONTEXT_WINDOW,
   MAX_CONSECUTIVE_AUTOCOMPACT_FAILURES,
   MAX_OUTPUT_TOKENS_FOR_SUMMARY,
+  getAgentCompactFloorPercent,
+  getAgentCompactFloorTokens,
   getAutoCompactOutputReserveTokens,
   getAutoCompactThreshold,
+  getAutoCompactThresholdPercent,
   getEffectiveContextWindowSize,
+  shouldAllowAgentCompact,
   shouldAutoCompact,
 } from "./policy.js";
 export {
@@ -42,7 +47,12 @@ export type {
   CompactModelMessage,
   TokenUsageLike,
 } from "./manual.js";
-export type { AutoCompactDecision, AutoCompactPolicyConfig } from "./policy.js";
+export type {
+  AgentCompactDecision,
+  AgentCompactRejectionReason,
+  AutoCompactDecision,
+  AutoCompactPolicyConfig,
+} from "./policy.js";
 export type { AutoCompactTokenOverride, AutoCompactTokenSource } from "./policy.js";
 export type {
   LocalMicrocompactBoundaryPayload,

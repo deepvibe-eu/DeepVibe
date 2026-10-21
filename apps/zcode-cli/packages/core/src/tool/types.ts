@@ -17,6 +17,8 @@ import type {
   ModelContentProtection,
   Model,
   CoordinatorResponsePort,
+  CompactContextOutput,
+  ContextStatusOutput,
   DynamicWorkflowRunPort,
   DynamicWorkflowSnippetPort,
   ModelCatalogPort,
@@ -128,6 +130,13 @@ export interface BackgroundTaskControlPort {
   ): Promise<BackgroundTaskControlStopResult>;
 }
 
+export interface CompactControlPort {
+  getContextStatus(): Promise<ContextStatusOutput> | ContextStatusOutput;
+  requestAgentCompact(
+    input: { instructions?: string },
+  ): Promise<CompactContextOutput> | CompactContextOutput;
+}
+
 export interface ToolExecutionContext {
   toolCallId: string;
   /**
@@ -169,6 +178,8 @@ export interface ToolExecutionContext {
   offPeakPort?: OffPeakPort;
   sessionStore?: SessionStorePort;
   sessionModePort?: SessionModePort;
+  /** Kompression: Kontextstatus lesen und (bei erlaubtem Per-Task-Schalter) anfordern. */
+  compactControlPort?: CompactControlPort;
   workflowPort?: WorkflowPort;
   /** workflow run 提交端口；缺席则 CreateWorkflow 回占位诊断而不启动。 */
   dynamicWorkflowRunPort?: DynamicWorkflowRunPort;

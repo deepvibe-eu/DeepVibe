@@ -83,6 +83,8 @@ function registerRuntimeBuiltInTools(runtime: AgentRuntimeInternal, deps: AgentR
     // ResumeWorkflowRun 已免确认但因「child 内不得再编排」仍在列）在 helper
     // 里与 turn 级名单合并，见 tool-allowlist.ts 的根因注释。
     disallowedTools: resolveRuntimeDisallowedTools(runtime.config),
+    // Per-Task-Schalter: blendet CompactContext aus, wenn die Aufgabe es nicht erlaubt.
+    agentCompactEnabled: runtime.config.compact?.agentCompactEnabled !== false,
   });
 }
 
@@ -192,6 +194,10 @@ function createRuntimeToolExecutor(
     offPeakPort: deps.offPeakPort,
     sessionStore: deps.sessionStore,
     sessionModePort: createRuntimeSessionModePort(runtime),
+    compactControlPort: {
+      getContextStatus: () => runtime.getCompactContextStatus(),
+      requestAgentCompact: (input) => runtime.requestAgentCompact(input),
+    },
     workflowPort: deps.workflowPort,
     dynamicWorkflowRunPort: deps.dynamicWorkflowRunPort,
     dynamicWorkflowSnippetPort: deps.dynamicWorkflowSnippetPort,

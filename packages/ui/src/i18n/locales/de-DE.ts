@@ -4883,6 +4883,7 @@ const deDE: Record<string, string> = {
   "chat.contextUsageDescription":
     "Prompt-Text, Tool-Aufrufe und Antworten teilen sich dieses Kontextfenster.",
   "chat.contextUsage.cacheHitRate": "Durchschnittliche Cache-Trefferrate",
+  "chat.contextUsage.compactNow": "Jetzt komprimieren",
   "chat.contextUsage.breakdown": "Kontextquellen",
   "chat.contextUsage.breakdown.messages": "Nachrichten",
   "chat.contextUsage.breakdown.systemPrompt": "System-Prompt",

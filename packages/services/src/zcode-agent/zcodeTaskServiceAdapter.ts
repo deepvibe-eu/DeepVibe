@@ -5750,6 +5750,7 @@ function timelineStatusValue(value: unknown): ZCodeTimelineStatus | undefined {
 function timelineTriggerValue(value: unknown): ZCodeTimelineTrigger | undefined {
   return value === "manual" ||
     value === "auto" ||
+    value === "agent" ||
     value === "reactive" ||
     value === "partial" ||
     value === "session_memory"

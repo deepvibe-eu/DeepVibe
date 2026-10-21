@@ -9,6 +9,7 @@ import type { MessageId, PartId, ToolCallId, TraceId, TurnId } from "../interfac
 export const CompactTrigger = {
   Manual: "manual",
   Auto: "auto",
+  Agent: "agent",
   Partial: "partial",
   Reactive: "reactive",
   SessionMemory: "session_memory",
@@ -105,6 +106,7 @@ const compactTimelinePayloadInputSchema = z
     trigger: z.enum([
       CompactTrigger.Manual,
       CompactTrigger.Auto,
+      CompactTrigger.Agent,
       CompactTrigger.Partial,
       CompactTrigger.Reactive,
       CompactTrigger.SessionMemory,
@@ -182,6 +184,7 @@ export const compactBoundaryPayloadSchema = z
     trigger: z.enum([
       CompactTrigger.Manual,
       CompactTrigger.Auto,
+      CompactTrigger.Agent,
       CompactTrigger.Partial,
       CompactTrigger.Reactive,
       CompactTrigger.SessionMemory,

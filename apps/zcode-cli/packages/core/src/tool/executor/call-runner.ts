@@ -411,6 +411,7 @@ async function executeToolCallImpl(
       offPeakPort: deps.offPeakPort,
       sessionStore: deps.sessionStore,
       sessionModePort: deps.sessionModePort,
+      compactControlPort: deps.compactControlPort,
       workflowPort: deps.workflowPort,
       dynamicWorkflowRunPort: deps.dynamicWorkflowRunPort,
       dynamicWorkflowSnippetPort: deps.dynamicWorkflowSnippetPort,

@@ -125,6 +125,8 @@ export interface AgentRuntimeInternal
   lastAssistantCompletedAtMs?: number;
   lastEmittedLocalDate?: string;
   autoCompactConsecutiveFailures: number;
+  /** Vom Agent angeforderte Kompression; wird am nächsten Turn-Loop-Boundary konsumiert. */
+  pendingAgentCompact?: { instructions?: string };
   runtimeCommandQueue: RuntimeCommandQueue;
   runtimeCommandDrainActive: boolean;
   activeForegroundExecution?: ActiveForegroundExecutionState;
