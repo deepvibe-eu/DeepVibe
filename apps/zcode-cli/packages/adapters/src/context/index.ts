@@ -102,12 +102,16 @@ async function resolveUserInstructions(
   const projectRoot = options.projectRoot ?? (await findProjectRoot(options.workingDirectory));
 
   const defaultUserInstructionFile = await findDefaultUserInstructionFile(priorityFiles, env);
+  // Persona-Memo: kurze Stil-/Charakter-Notiz, die bei jedem Turn mitgeladen wird und
+  // dadurch eine Kontext-Kompression überlebt (die Historie wird zusammengefasst, diese Datei nicht).
+  const personaMemoFile = await findUserPersonaMemoFile(env);
   const workspaceInstructionFile = await findInstructionFile(
     options.workingDirectory,
     projectRoot,
     priorityFiles,
   );
   const candidates = dedupeInstructionFileCandidates([
+    personaMemoFile ? { ...personaMemoFile, scope: "user" as const } : undefined,
     defaultUserInstructionFile
       ? { ...defaultUserInstructionFile, scope: "user" as const }
       : undefined,
@@ -240,6 +244,16 @@ async function findDefaultUserInstructionFile(
     return { filePath, fileName: "AGENTS.md" };
   }
 
+  return undefined;
+}
+
+async function findUserPersonaMemoFile(
+  env: NodeJS.ProcessEnv,
+): Promise<{ filePath: string; fileName: string } | undefined> {
+  const filePath = join(resolveUserHomeDir(env), VIBE_DATA_DIR_NAME, "PERSONA.md");
+  if (await isFile(filePath)) {
+    return { filePath, fileName: "PERSONA.md" };
+  }
   return undefined;
 }
 
