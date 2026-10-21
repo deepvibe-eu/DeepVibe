@@ -17,13 +17,13 @@
 class Deepvibe < Formula
   desc "The (unofficial) DeepSeek coding partner IDE"
   homepage "https://deepvibe.eu"
-  version "1.0.4"
+  version "1.0.5"
   license "Apache-2.0"
 
   on_macos do
     on_arm do
-      url "https://github.com/deepvibe-eu/DeepVibe/releases/download/v1.0.4/DeepVibe-1.0.4-mac-arm64.zip"
-      sha256 "7f4edd9eba6824243a7a8a5c6cbf9988595cfc9d4d0035e7957d88cdfd129486"
+      url "https://github.com/deepvibe-eu/DeepVibe/releases/download/v1.0.5/DeepVibe-1.0.5-mac-arm64.zip"
+      sha256 "a3cc3cdfa209334bb18ed6871639f7dbee3b4a53d2cacf47d64576906d9a0e9e"
     end
 
     def install
@@ -34,12 +34,12 @@ class Deepvibe < Formula
 
   on_linux do
     on_intel do
-      url "https://github.com/deepvibe-eu/DeepVibe/releases/download/v1.0.4/DeepVibe-1.0.4-linux-x86_64.AppImage"
-      sha256 "f582fb11fbffbcf54352f8bb6c41e62e5da08680b1318b8c707d20bf38d691a8"
+      url "https://github.com/deepvibe-eu/DeepVibe/releases/download/v1.0.5/DeepVibe-1.0.5-linux-x86_64.AppImage"
+      sha256 "c06c02b28638678791e2b44ef2f07dd0638ec711ff6ce25ea54c033a76d49c47"
     end
 
     def install
-      bin.install "DeepVibe-1.0.4-linux-x86_64.AppImage" => "deepvibe"
+      bin.install "DeepVibe-1.0.5-linux-x86_64.AppImage" => "deepvibe"
     end
   end
 end
