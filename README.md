@@ -50,6 +50,7 @@ Also available through:
 ## Updates
 
 - 2026-9-23: Updated to DeepVibe v1.0.1.
+- 2026-10-21: Updated to DeepVibe v1.0.5 (agent-requested compaction, persona memo).
 
 ## Setup
 
