@@ -1776,9 +1776,11 @@ const TimelineMarkerRowView = memo(function TimelineMarkerRowView({
                 ? "interrupted"
                 : marker.status === "failed"
                   ? "failed"
-                  : marker.origin === "auto" && !automaticOptimization
-                    ? "completedAuto"
-                    : "completed";
+                  : marker.origin === "agent"
+                    ? "completedAgent"
+                    : marker.origin === "auto" && !automaticOptimization
+                      ? "completedAuto"
+                      : "completed";
         return {
           icon: MARKER_ARCHIVE_ICON,
           label: intl.formatMessage({ id: `${scope}.${statusMessage}` }),

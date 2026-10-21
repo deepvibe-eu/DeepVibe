@@ -135,12 +135,14 @@ export function mapCompactMarkerStatus(
   }
 }
 
-// CompactTrigger → marker.origin：manual 之外（auto/partial/reactive/session_memory）
-// 一律归 auto —— UI 只区分「用户点的」与「系统触发的」。
+// CompactTrigger → marker.origin：manual/agent 各自可见，其余系统触发
+// （auto/partial/reactive/session_memory）归 auto。
 export function mapCompactMarkerOrigin(
   trigger: CompactTrigger,
 ): Extract<TimelineMarkerPayload, { type: "compact" }>["origin"] {
-  return trigger === "manual" ? "manual" : "auto";
+  if (trigger === "manual") return "manual";
+  if (trigger === "agent") return "agent";
+  return "auto";
 }
 
 // 旧 GoalStatus → v4 GoalState.status。

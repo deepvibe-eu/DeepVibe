@@ -4941,6 +4941,7 @@ const deDE: Record<string, string> = {
   "chat.modelChange.switched": "Modell gewechselt: {from} → {to}",
   "chat.modelChange.using": "Verwendet {model}",
   "chat.contextCompaction.completedAuto": "Kontext automatisch komprimiert",
+  "chat.contextCompaction.completedAgent": "Kontext auf Agent-Anforderung komprimiert",
   "chat.contextCompaction.failed": "Kontextkomprimierung fehlgeschlagen",
   "chat.contextCompaction.interrupted": "Kontextkomprimierung unterbrochen",
   "chat.contextCompaction.retry": "Wiederholen",

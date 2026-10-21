@@ -4922,6 +4922,7 @@ const esES: Record<string, string> = {
   "chat.modelChange.switched": "Modelo cambiado: {from} → {to}",
   "chat.modelChange.using": "Usando {model}",
   "chat.contextCompaction.completedAuto": "Contexto comprimido automáticamente",
+  "chat.contextCompaction.completedAgent": "Contexto comprimido a petición del agente",
   "chat.contextCompaction.failed": "La compresión del contexto falló",
   "chat.contextCompaction.interrupted": "Compresión del contexto interrumpida",
   "chat.contextCompaction.retry": "Reintentar",

@@ -332,7 +332,7 @@ export type HookInvocationRow = z.infer<typeof hookInvocationRowSchema>;
 export const timelineMarkerPayloadSchema = z.union([
   z.object({
     type: z.literal("compact"),
-    origin: z.enum(["manual", "auto"]),
+    origin: z.enum(["manual", "auto", "agent"]),
     status: z.enum(["running", "success", "failed", "noop", "cancelled"]),
     tokensBefore: z.number().optional(),
     tokensAfter: z.number().optional(),

@@ -150,12 +150,20 @@ Tool-Batch — sie wird am Loop-Boundary konsumiert (wie Auto-Compact).
   (nutzt `getContextCompressionCommand()` → `/compact`-Pfad, `compressionDisabled` respektiert) +
   i18n in 6 Sprachen.
 
+**Umgesetzt (2026-10-21, 1.0.6-Vorbereitung):**
+- **Timeline-Label:** `TimelineMarkerPayload.origin` kennt jetzt `"agent"`; `mapCompactMarkerOrigin`
+  mappt `CompactTrigger.Agent` darauf und die UI zeigt `chat.contextCompaction.completedAgent`
+  (6 Locales) statt „automatisch komprimiert".
+- **Policy-Unit-Tests:** `apps/zcode-cli/packages/core/test/compact-policy.test.ts`
+  (`pnpm --dir apps/zcode-cli/packages/core test`, Node-Test-Runner via `tsx`), 5 Tests grün:
+  effektives Fenster, Prozent-Clamps, Buffer-Deckel, Auto-Entscheidungsgründe, Agent-Floor/Schalter/
+  Rate-Limit/Circuit-Breaker.
+
 **Offen:**
 - App-Settings (`autoCompactThresholdPercent`, `agentCompactAllowedByDefault`) und **Per-Task-Checkbox**:
   brauchen eine Erweiterung der `ZCodeSessionRuntimePreferences`-Kette
   (`packages/shared` Protocol + Host-Resolver + Settings-UI) bzw. der Session-Create-Preferences.
-- Timeline-Label für Trigger `agent` (prüfen, ob die bestehende Karte den Trigger schon anzeigt).
-- Tests (Policy-Unit + Turn-Loop-Boundary).
+- Turn-Loop-Boundary-Test (braucht einen Runtime-Harness; Policy-Tests decken die Entscheidungen ab).
 
 ## File map
 

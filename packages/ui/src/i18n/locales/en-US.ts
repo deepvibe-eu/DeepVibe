@@ -4764,6 +4764,7 @@ const enUS: Record<string, string> = {
   "chat.modelChange.switched": "Model switched {from} → {to}",
   "chat.modelChange.using": "Using {model}",
   "chat.contextCompaction.completedAuto": "Context automatically compressed",
+  "chat.contextCompaction.completedAgent": "Context compressed at the agent's request",
   "chat.contextCompaction.failed": "Context compression failed",
   "chat.contextCompaction.interrupted": "Context compression interrupted",
   "chat.contextCompaction.retry": "Retry",

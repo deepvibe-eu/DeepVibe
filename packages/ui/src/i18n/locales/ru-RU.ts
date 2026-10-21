@@ -4860,6 +4860,7 @@ const ruRU: Record<string, string> = {
   "chat.modelChange.switched": "Модель изменена: {from} → {to}",
   "chat.modelChange.using": "Используется {model}",
   "chat.contextCompaction.completedAuto": "Контекст сжат автоматически",
+  "chat.contextCompaction.completedAgent": "Контекст сжат по запросу агента",
   "chat.contextCompaction.failed": "Не удалось сжать контекст",
   "chat.contextCompaction.interrupted": "Сжатие контекста прервано",
   "chat.contextCompaction.retry": "Повторить",
