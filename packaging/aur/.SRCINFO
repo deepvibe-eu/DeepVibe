@@ -1,6 +1,6 @@
 pkgbase = deepvibe-bin
 	pkgdesc = The (unofficial) DeepSeek coding partner IDE
-	pkgver = 1.0.5
+	pkgver = 1.0.6
 	pkgrel = 1
 	url = https://deepvibe.eu
 	arch = x86_64
@@ -16,10 +16,10 @@ pkgbase = deepvibe-bin
 	provides = deepvibe
 	conflicts = deepvibe
 	options = !strip
-	source = deepvibe-bin-1.0.5.AppImage::https://github.com/deepvibe-eu/DeepVibe/releases/download/v1.0.5/DeepVibe-1.0.5-linux-x86_64.AppImage
+	source = deepvibe-bin-1.0.6.AppImage::https://github.com/deepvibe-eu/DeepVibe/releases/download/v1.0.6/DeepVibe-1.0.6-linux-x86_64.AppImage
 	source = deepvibe.desktop
 	source = deepvibe.png
-	sha256sums = c06c02b28638678791e2b44ef2f07dd0638ec711ff6ce25ea54c033a76d49c47
+	sha256sums = 6fe1153076ee3e252aa425b207a7b08f8dc85487ef22ec07acbf559fd31e6bda
 	sha256sums = SKIP
 	sha256sums = SKIP
 
