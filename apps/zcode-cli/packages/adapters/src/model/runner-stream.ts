@@ -85,6 +85,7 @@ import {
   readModelFailureErrorPhase,
 } from "./runner-telemetry.js";
 import { repairReasoningHistoryAfterSignatureRejection } from "./reasoning-history-normalization.js";
+import { createReasoningLoopGuard, ReasoningLoopDetectedError } from "./reasoning-loop-guard.js";
 
 type StreamFailurePhase = "request_setup" | "response_body";
 
@@ -161,6 +162,12 @@ export async function* runStreamText(input: {
       attempt,
     );
     const toolCallAssembler = new StreamingToolCallAssembler({ logger: input.logger });
+    const reasoningLoopGuard = createReasoningLoopGuard();
+    const observeReasoningDelta = (visibleEvent: ModelStreamEvent): void => {
+      if (visibleEvent.type !== "reasoning_delta") return;
+      if (!reasoningLoopGuard.observe(visibleEvent.text)) return;
+      throw new ReasoningLoopDetectedError(reasoningLoopGuard.sample());
+    };
     let streamIterator: AsyncIterator<TextStreamPart<ToolSet>> | undefined;
     let streamReachedNaturalEnd = false;
     let attemptFailed = false;
@@ -428,6 +435,7 @@ export async function* runStreamText(input: {
         }
         if (event.visibleEvents.length > 0) {
           for (const visibleEvent of event.visibleEvents) {
+            observeReasoningDelta(visibleEvent);
             const observation = observeVisibleStreamEvent(visibleEvent, Date.now() - startedAt);
             await publishVisibleMilestones(observation);
             streamOutputCommitted = streamOutputCommitted || observation.outputCommitted;
@@ -455,6 +463,7 @@ export async function* runStreamText(input: {
         emittedRetryBoundaryEvent || flushedEvents.emittedRetryBoundaryEvent;
       if (flushedEvents.visibleEvents.length > 0) {
         for (const visibleEvent of flushedEvents.visibleEvents) {
+          observeReasoningDelta(visibleEvent);
           const observation = observeVisibleStreamEvent(visibleEvent, Date.now() - startedAt);
           await publishVisibleMilestones(observation);
           streamOutputCommitted = streamOutputCommitted || observation.outputCommitted;
@@ -464,6 +473,7 @@ export async function* runStreamText(input: {
 
       for (const pendingEvent of pendingRetrySafeEvents.splice(0)) {
         emittedEvent = true;
+        observeReasoningDelta(pendingEvent);
         const observation = observeVisibleStreamEvent(pendingEvent, Date.now() - startedAt);
         await publishVisibleMilestones(observation);
         streamOutputCommitted = streamOutputCommitted || observation.outputCommitted;
@@ -666,6 +676,13 @@ export async function* runStreamText(input: {
       }
 
       const completedAt = Date.now();
+
+      if (error instanceof ReasoningLoopDetectedError) {
+        // Core erkennt `retryable` und verwirft die bereits gestreamte (degenerierte)
+        // Assistant-Ausgabe, bevor es vom letzten sicheren Anker neu startet.
+        throw error;
+      }
+
       const retryWithRepairedHistory =
         !emittedRetryBoundaryEvent && repairThinkingSignatureRejection(error);
       if (retryWithRepairedHistory) {

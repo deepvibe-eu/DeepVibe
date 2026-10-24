@@ -32,11 +32,46 @@ export function normalizeReasoningHistory(
   messages: ModelInputMessage[],
   targetModel?: { modelId: ModelId; providerId: ModelProviderId },
 ): ModelInputMessage[] {
-  const compatibleHistory = removeCrossModelReasoning(messages, targetModel);
+  // Vorherige Turns brauchen kein Thinking: Anthropic verlangt signierte
+  // Reasoning-Blöcke nur innerhalb desselben Turns (Tool-Result-Fortsetzung).
+  // Werden sie trotzdem mitgeschickt, liest das Modell seinen eigenen Denktext —
+  // inklusive degenerierter Wiederholungen („The. The.") — und setzt den Loop fort.
+  const withoutPreviousTurnReasoning = removePreviousTurnReasoning(messages);
+  const compatibleHistory = removeCrossModelReasoning(withoutPreviousTurnReasoning, targetModel);
   const withoutOrphans = removeReasoningOnlyAssistants(compatibleHistory);
   const withoutTrailingReasoning = removeTrailingReasoning(withoutOrphans);
   const withoutWhitespaceOnlyAssistants = removeWhitespaceOnlyAssistants(withoutTrailingReasoning);
   return repairEmptyAssistantContent(withoutWhitespaceOnlyAssistants);
+}
+
+/**
+ * Entfernt Reasoning-Blöcke aus Assistant-Nachrichten, die vor der letzten
+ * User-Nachricht liegen. Reasoning im aktuellen Turn bleibt erhalten, weil
+ * Anthropic es für Tool-Result-Fortsetzungen signiert erwartet.
+ */
+function removePreviousTurnReasoning(messages: ModelInputMessage[]): ModelInputMessage[] {
+  let lastUserIndex = -1;
+  for (let index = messages.length - 1; index >= 0; index -= 1) {
+    if (messages[index]?.role === "user") {
+      lastUserIndex = index;
+      break;
+    }
+  }
+  // Ohne User-Nachricht (z. B. reiner System-Prompt) nichts anfassen.
+  if (lastUserIndex <= 0) return messages;
+
+  let result: ModelInputMessage[] | undefined;
+  for (let index = 0; index < lastUserIndex; index += 1) {
+    const message = messages[index]!;
+    if (message.role !== "assistant" || !Array.isArray(message.content)) continue;
+
+    const content = message.content.filter((block) => block.type !== "reasoning");
+    if (content.length === message.content.length) continue;
+
+    result ??= messages.slice();
+    result[index] = { ...message, content };
+  }
+  return result ?? messages;
 }
 
 function removeRejectedReasoning(messages: ModelInputMessage[]): ModelInputMessage[] {
