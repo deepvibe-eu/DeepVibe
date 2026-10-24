@@ -1,6 +1,7 @@
 import { ModelErrorCode, ModelProtocolError } from "@zcode/contracts";
 import {
   normalizeModelSelection,
+  preferredReasoningLevel,
   type ModelSelection,
   type Provider,
   type ProviderModel,
@@ -193,7 +194,7 @@ function toModelOption(provider: Provider, model: ProviderModel): ZCodeModelOpti
     maxOutputTokens: optionSpecs.maxOutputTokens.max,
     reasoning: {
       levels: reasoning.values.map((level) => ({ value: level, label: level })),
-      defaultLevel: reasoning.values.at(-1),
+      defaultLevel: preferredReasoningLevel(reasoning.values),
     },
     properties: {
       inputFormat: properties.inputFormat,

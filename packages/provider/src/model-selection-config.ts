@@ -54,7 +54,21 @@ export function resolveInitialModelSelection(input: {
   return { source: "none" };
 }
 
-/** 仅在用户主动选模型或全新初始化时构造最高档；不能用于恢复/重解析已有选择。 */
+// Neue Auswahlen starten nicht in der höchsten Stufe: `max` bleibt bewusst
+// opt-in, weil ein übergroßes Denkbudget Loops begünstigt (siehe Reasoning-
+// Loop-Guard) und unnötig Tokens verbrennt. `high` ist der beste Kompromiss;
+// kennt ein Modell kein `high`, greift die nächstniedrigere bekannte Stufe.
+const DEFAULT_REASONING_LEVEL_PREFERENCE = ["high", "medium", "low"] as const;
+
+/** Bevorzugte Startstufe für eine neue Auswahl; unbekannte Werte fallen auf die höchste zurück. */
+export function preferredReasoningLevel(values: readonly string[]): string | undefined {
+  for (const preferred of DEFAULT_REASONING_LEVEL_PREFERENCE) {
+    if (values.includes(preferred)) return preferred;
+  }
+  return values.at(-1);
+}
+
+/** Nur für aktive Modellwahl oder Neuinitialisierung; nicht zum Wiederherstellen bestehender Auswahlen. */
 export function completeNewModelSelection(
   registry: ModelSelectionCompletionView,
   selection: ModelSelection,
@@ -62,7 +76,9 @@ export function completeNewModelSelection(
   const model = registry.providers
     .find((provider) => provider.providerId === selection.providerId)
     ?.models.find((candidate) => candidate.modelId === selection.modelId);
-  const reasoningLevel = model?.config.optionSpecs.reasoningLevel.values.at(-1);
+  const reasoningLevel = model
+    ? preferredReasoningLevel(model.config.optionSpecs.reasoningLevel.values)
+    : undefined;
   if (!reasoningLevel) return undefined;
   return {
     providerId: selection.providerId,
