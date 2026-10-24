@@ -51,6 +51,7 @@ Also available through:
 
 - 2026-9-23: Updated to DeepVibe v1.0.1.
 - 2026-10-21: Updated to DeepVibe v1.0.5 (agent-requested compaction, persona memo).
+- 2026-10-24: Updated to DeepVibe v1.0.6 (reasoning-loop fix, agent compaction label, high reasoning default).
 
 ## Setup
 
