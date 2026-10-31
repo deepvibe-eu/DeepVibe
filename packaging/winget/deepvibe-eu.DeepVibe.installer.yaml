@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://aka.ms/winget-manifest.installer.1.6.0.schema.json
 PackageIdentifier: deepvibe-eu.DeepVibe
-PackageVersion: 1.0.6
+PackageVersion: 1.0.7
 Platform:
 - Windows.Desktop
 MinimumOSVersion: 10.0.0.0
@@ -11,11 +11,11 @@ InstallModes:
 - silent
 - silentWithProgress
 UpgradeBehavior: install
-ReleaseDate: 2026-10-24
+ReleaseDate: 2026-10-31
 Installers:
 - Architecture: x64
-  InstallerUrl: https://github.com/deepvibe-eu/DeepVibe/releases/download/v1.0.6/DeepVibe-1.0.6-win-x64.exe
-  InstallerSha256: 30006737182F6F28801DA1AFB7BD75AC983D3B99BFD0598FEFE5A7C76434FC36
+  InstallerUrl: https://github.com/deepvibe-eu/DeepVibe/releases/download/v1.0.7/DeepVibe-1.0.7-win-x64.exe
+  InstallerSha256: 26D813F1BC01030E230217AA8FB4B3E28029F5A44A8066DE07BE735BC860C1E2
   InstallerSwitches:
     Silent: /S
     SilentWithProgress: /S
