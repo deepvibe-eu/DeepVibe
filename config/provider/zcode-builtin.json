@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "revision": 31,
+  "revision": 32,
   "config": {
     "providerConfigRules": {
       "templateRules": [
@@ -151,13 +151,42 @@
         {
           "templateId": "moonshot-kimi",
           "templateNameMap": {
-            "zh-CN": "Kimi",
-            "en-US": "Kimi"
+            "zh-CN": "Kimi（国际）",
+            "en-US": "Kimi (International)"
           },
           "config": {
             "access": {
               "type": "api-key",
-              "apiKeyManagementUrl": "https://platform.kimi.com/console/api-keys"
+              "apiKeyManagementUrl": "https://platform.moonshot.ai/console/api-keys"
+            },
+            "api": {
+              "type": "anthropic-messages",
+              "baseUrl": "https://api.moonshot.ai/anthropic"
+            },
+            "builtinModelIds": [
+              "kimi-k3",
+              "kimi-k2.7-code",
+              "kimi-k2.6",
+              "kimi-k2.7-code-highspeed",
+              "k3",
+              "k3-256k"
+            ],
+            "logo": {
+              "type": "builtin",
+              "key": "moonshot-kimi"
+            }
+          }
+        },
+        {
+          "templateId": "moonshot-kimi-cn",
+          "templateNameMap": {
+            "zh-CN": "Kimi（中国）",
+            "en-US": "Kimi (China)"
+          },
+          "config": {
+            "access": {
+              "type": "api-key",
+              "apiKeyManagementUrl": "https://platform.moonshot.cn/console/api-keys"
             },
             "api": {
               "type": "anthropic-messages",
@@ -4438,7 +4467,7 @@
         {
           "modelMatch": ".*(?:kimi-k3|k3|k3-256k)(?:[.\\-:/\\[].*)?",
           "apiTypeMatch": "anthropic-messages",
-          "baseUrlMatch": "(?:https://api\\.moonshot\\.cn/anthropic)",
+          "baseUrlMatch": "(?:https://api\\.moonshot\\.(?:cn|ai)/anthropic)",
           "config": {
             "properties": {
               "requiresMfjsToolSchema": true
@@ -6436,6 +6465,48 @@
           "modelId": "MiniMax-M3.1-Flash-Preview",
           "config": {
             "enabled": true
+          }
+        },
+        {
+          "modelId": "kimi-k3",
+          "templateId": "moonshot-kimi-cn",
+          "config": {
+            "enabled": true
+          }
+        },
+        {
+          "modelId": "kimi-k2.7-code",
+          "templateId": "moonshot-kimi-cn",
+          "config": {
+            "enabled": true
+          }
+        },
+        {
+          "modelId": "kimi-k2.6",
+          "templateId": "moonshot-kimi-cn",
+          "config": {
+            "enabled": true
+          }
+        },
+        {
+          "modelId": "k3",
+          "templateId": "moonshot-kimi-cn",
+          "config": {
+            "enabled": false
+          }
+        },
+        {
+          "modelId": "k3-256k",
+          "templateId": "moonshot-kimi-cn",
+          "config": {
+            "enabled": false
+          }
+        },
+        {
+          "templateId": "moonshot-kimi-cn",
+          "modelId": "kimi-k2.7-code-highspeed",
+          "config": {
+            "enabled": false
           }
         }
       ],
