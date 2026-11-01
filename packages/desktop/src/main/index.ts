@@ -2307,7 +2307,11 @@ app.whenReady().then(async () => {
   const forceUpdateGuardResult =
     ZCODE_PRODUCT_FLAVOR === "production" && !skipForceUpdateForLocalDevRuntime
       ? await maybeBlockStartupForForceUpdate({
-          locale: currentApplicationLocale,
+          // Ohne gespeicherte Locale ist currentApplicationLocale noch DEFAULT_LOCALE (zh-CN).
+          // Der Update-Prompt soll dann die Systemsprache zeigen, nicht Chinesisch.
+          locale: loadedBootstrapLocale
+            ? currentApplicationLocale
+            : resolveSystemApplicationLocale(),
           logger,
           endpointOrigin: await resolveCurrentZCodeEndpointOrigin(),
           onBlocked: () => {

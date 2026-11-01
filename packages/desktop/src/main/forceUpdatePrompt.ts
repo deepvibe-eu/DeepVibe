@@ -66,6 +66,34 @@ function buildForceUpdatePromptMessages(locale: Locale) {
     };
   }
 
+  if (locale === "de-DE") {
+    return {
+      checkingTitle: "Suche nach Updates",
+      checkingMessage: "Lass dieses Fenster offen, während DeepVibe nach Updates sucht.",
+      downloadingTitle: "Update wird geladen",
+      downloadingVersionTitle: "Update v{version} wird geladen",
+      downloadingMessage: "DeepVibe installiert das Update nach dem Download automatisch.",
+      readyTitle: "Update geladen",
+      readyMessage: "DeepVibe bereitet den Neustart und die Installation vor.",
+      installingTitle: "Update wird installiert",
+      installingMessage: "DeepVibe startet gleich neu, um die Installation abzuschließen.",
+      errorTitle: "Automatisches Update fehlgeschlagen",
+      errorMessage: "Du kannst es erneut versuchen oder manuell aktualisieren.",
+      devSkippedTitle: "Automatisches Update im Dev-Build nicht verfügbar",
+      devSkippedMessage:
+        "Automatische Updates gibt es nur in gepackten Apps. Nutze das manuelle Update oder teste einen gepackten Build.",
+      confirmCloseTitle: "Update läuft",
+      confirmCloseMessage:
+        "Wenn du das Fenster schließt, wird der laufende Update-Vorgang abgebrochen; die alte Version kommt weiterhin nicht in die App. Du kannst warten oder schließen und beenden.",
+      confirmCloseButton: "Trotzdem schließen",
+      continueUpdateButton: "Weiter aktualisieren",
+      retryButton: "Erneut versuchen",
+      checkingButton: "Prüfe...",
+      downloadingButton: "Lade...",
+      installingButton: "Installiere...",
+    };
+  }
+
   return {
     checkingTitle: "Checking for updates",
     checkingMessage: "Keep this window open while DeepVibe checks for updates.",

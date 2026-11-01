@@ -3,7 +3,7 @@ import { existsSync, readFileSync } from "node:fs";
 import { arch, hostname, platform, release, type, version as osVersion } from "node:os";
 import { join } from "node:path";
 import {
-  DEFAULT_LOCALE,
+  VIBE_PERSONA,
   type Locale,
   ZCODE_BUILD_TIME,
   ZCODE_COMMIT,
@@ -52,7 +52,7 @@ interface AboutSnapshotOptions {
   };
 }
 
-const ABOUT_APPLICATION_NAME = "ZCode Desktop App";
+const ABOUT_APPLICATION_NAME = VIBE_PERSONA.productName;
 // 自定义 About 内容本体是 256x280；原生窗口如果同尺寸会让内容贴满透明窗口边界。
 // 这里给 BrowserWindow 额外留出背景呼吸空间，避免正式 About 看起来比 demo 更局促。
 const ABOUT_WINDOW_WIDTH = 256;
@@ -67,19 +67,47 @@ const ABOUT_MESSAGES: Record<
     copyright: (year: number) => string;
   }
 > = {
-  "zh-CN": {
-    aboutTitle: "关于 ZCode",
-    versionLabel: "版本",
-    okButtonLabel: "确定",
-    optimizedForAppleSilicon: "已针对 Apple Silicon 优化。",
-    copyright: (year) => `版权所有 © ${year} ZCode。`,
+  "de-DE": {
+    aboutTitle: `Über ${ABOUT_APPLICATION_NAME}`,
+    versionLabel: "Version",
+    okButtonLabel: "OK",
+    optimizedForAppleSilicon: "Für Apple Silicon optimiert.",
+    copyright: (year) => `© ${year} ${ABOUT_APPLICATION_NAME}.`,
   },
   "en-US": {
-    aboutTitle: "About ZCode",
+    aboutTitle: `About ${ABOUT_APPLICATION_NAME}`,
     versionLabel: "version",
     okButtonLabel: "OK",
     optimizedForAppleSilicon: "Optimized for Apple Silicon.",
-    copyright: (year) => `Copyright © ${year} ZCode.`,
+    copyright: (year) => `Copyright © ${year} ${ABOUT_APPLICATION_NAME}.`,
+  },
+  "es-ES": {
+    aboutTitle: `Acerca de ${ABOUT_APPLICATION_NAME}`,
+    versionLabel: "versión",
+    okButtonLabel: "Aceptar",
+    optimizedForAppleSilicon: "Optimizado para Apple Silicon.",
+    copyright: (year) => `© ${year} ${ABOUT_APPLICATION_NAME}.`,
+  },
+  "fr-FR": {
+    aboutTitle: `À propos de ${ABOUT_APPLICATION_NAME}`,
+    versionLabel: "version",
+    okButtonLabel: "OK",
+    optimizedForAppleSilicon: "Optimisé pour Apple Silicon.",
+    copyright: (year) => `© ${year} ${ABOUT_APPLICATION_NAME}.`,
+  },
+  "ru-RU": {
+    aboutTitle: `О ${ABOUT_APPLICATION_NAME}`,
+    versionLabel: "версия",
+    okButtonLabel: "ОК",
+    optimizedForAppleSilicon: "Оптимизировано для Apple Silicon.",
+    copyright: (year) => `© ${year} ${ABOUT_APPLICATION_NAME}.`,
+  },
+  "zh-CN": {
+    aboutTitle: `关于 ${ABOUT_APPLICATION_NAME}`,
+    versionLabel: "版本",
+    okButtonLabel: "确定",
+    optimizedForAppleSilicon: "已针对 Apple Silicon 优化。",
+    copyright: (year) => `版权所有 © ${year} ${ABOUT_APPLICATION_NAME}。`,
   },
 };
 
@@ -98,7 +126,7 @@ function normalizePackageVersion(version: string | undefined): string {
 }
 
 function getAboutMessages(locale: Locale): (typeof ABOUT_MESSAGES)[Locale] {
-  return ABOUT_MESSAGES[locale] ?? ABOUT_MESSAGES[DEFAULT_LOCALE];
+  return ABOUT_MESSAGES[locale] ?? ABOUT_MESSAGES["en-US"];
 }
 
 function readJsonFile<T>(filePath: string): T | null {
@@ -192,14 +220,14 @@ export function formatAboutDetail(snapshot: AboutSnapshot): string {
 
 function formatAboutCopyright(
   year = new Date().getFullYear(),
-  locale: Locale = DEFAULT_LOCALE,
+  locale: Locale = "en-US",
 ): string {
   return getAboutMessages(locale).copyright(year);
 }
 
 function formatAboutOptimizationLine(
   snapshot: Pick<AboutSnapshot, "osPlatform" | "osArch">,
-  locale: Locale = DEFAULT_LOCALE,
+  locale: Locale = "en-US",
 ): string {
   if (snapshot.osPlatform === "darwin" && snapshot.osArch === "arm64") {
     return getAboutMessages(locale).optimizedForAppleSilicon;
@@ -216,7 +244,7 @@ function resolveAboutIconPath(isPackaged: boolean): string {
 
 export async function showAboutDialog(
   parentWindow?: BrowserWindow,
-  locale: Locale = DEFAULT_LOCALE,
+  locale: Locale = "en-US",
 ): Promise<MessageBoxReturnValue> {
   const { app, BrowserWindow } = await import("electron");
   const snapshot = createAboutSnapshot({

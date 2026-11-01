@@ -7,6 +7,7 @@ import {
   TID_LOGIN_TRIGGER,
   TID_LOGOUT_BUTTON,
   TID_TASK_SETTINGS_BUTTON,
+  VIBE_PERSONA,
 } from "@zcode/shared";
 import { ControlHintTooltip } from "@/ControlHintTooltip.js";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar.js";
@@ -33,7 +34,6 @@ import {
   Maximize,
   Palette,
   Settings,
-  User,
   ZoomIn,
   ZoomOut,
 } from "lucide-react";
@@ -135,6 +135,7 @@ export const WorkspaceSidebarFooter = memo(function WorkspaceSidebarFooterCompon
   const isRestoringOAuthSession = useZCodeStore((state) => state.isRestoringOAuthSession);
   const profileBadge = getSidebarProfileBadge(user, intl.formatMessage);
   const avatarFallbackText = getAvatarFallbackText(user);
+  const productInitial = VIBE_PERSONA.productName.trim()[0]?.toUpperCase() ?? "D";
   const avatarKey = user?.avatarUrl ?? user?.id ?? "guest";
   const showAuthRestoreLoading = !user && isRestoringOAuthSession;
   const usageSummaryState = useWorkspaceSidebarFooterUsageSummaryState({
@@ -158,18 +159,20 @@ export const WorkspaceSidebarFooter = memo(function WorkspaceSidebarFooterCompon
               <span className="sr-only">{intl.formatMessage({ id: "common.loading" })}</span>
             </>
           ) : (
-            <User className="size-4" />
+            <span className="text-ui-sm font-semibold">{productInitial}</span>
           )}
         </AvatarFallback>
       </Avatar>
-      <div className="min-w-0 flex-1 overflow-hidden text-left">
-        <div className="flex min-w-0 items-center gap-1.5">
-          <span className="min-w-0 truncate text-ui-base font-semibold text-foreground">
-            {profileBadge}
-          </span>
-          {user ? <WorkspaceSidebarFooterPlanBadge state={usageSummaryState} /> : null}
+      {user ? (
+        <div className="min-w-0 flex-1 overflow-hidden text-left">
+          <div className="flex min-w-0 items-center gap-1.5">
+            <span className="min-w-0 truncate text-ui-base font-semibold text-foreground">
+              {profileBadge}
+            </span>
+            <WorkspaceSidebarFooterPlanBadge state={usageSummaryState} />
+          </div>
         </div>
-      </div>
+      ) : null}
     </>
   );
   const settingsButtonLabel =
@@ -227,9 +230,14 @@ export const WorkspaceSidebarFooter = memo(function WorkspaceSidebarFooterCompon
               type="button"
               variant="ghost"
               size={"lg"}
-              className="min-w-0 flex-1 justify-start gap-2 overflow-hidden rounded-tl-2xl rounded-bl-2xl border-0 pl-0"
+              className={cn(
+                "min-w-0 justify-start gap-2 overflow-hidden rounded-tl-2xl rounded-bl-2xl border-0 pl-0",
+                user ? "flex-1" : "flex-none",
+              )}
               data-testid={TID_LOGIN_TRIGGER}
-              aria-label={profileBadge}
+              aria-label={
+                user ? profileBadge : intl.formatMessage({ id: "settings.title" })
+              }
             >
               {/* Button 默认 shrink-0 且带 whitespace-nowrap，超长用户名会把 footer 撑出 sidebar。
                 这里让触发按钮和文本列都允许收缩，并只在用户名自身做单行截断。 */}
