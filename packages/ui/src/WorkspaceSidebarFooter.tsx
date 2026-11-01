@@ -37,6 +37,7 @@ import {
   ZoomIn,
   ZoomOut,
 } from "lucide-react";
+import { APP_LOGO_URL } from "@/assets/brand/index.js";
 import { usePlatform } from "@/hooks/usePlatform.js";
 import { useZCodeIntl } from "@/i18n/IntlProvider.js";
 import { useShortcutCommandLabel } from "@/shortcuts/useShortcutBindings.js";
@@ -135,7 +136,6 @@ export const WorkspaceSidebarFooter = memo(function WorkspaceSidebarFooterCompon
   const isRestoringOAuthSession = useZCodeStore((state) => state.isRestoringOAuthSession);
   const profileBadge = getSidebarProfileBadge(user, intl.formatMessage);
   const avatarFallbackText = getAvatarFallbackText(user);
-  const productInitial = VIBE_PERSONA.productName.trim()[0]?.toUpperCase() ?? "D";
   const avatarKey = user?.avatarUrl ?? user?.id ?? "guest";
   const showAuthRestoreLoading = !user && isRestoringOAuthSession;
   const usageSummaryState = useWorkspaceSidebarFooterUsageSummaryState({
@@ -159,7 +159,7 @@ export const WorkspaceSidebarFooter = memo(function WorkspaceSidebarFooterCompon
               <span className="sr-only">{intl.formatMessage({ id: "common.loading" })}</span>
             </>
           ) : (
-            <span className="text-ui-sm font-semibold">{productInitial}</span>
+            avatarFallbackText
           )}
         </AvatarFallback>
       </Avatar>
@@ -231,8 +231,10 @@ export const WorkspaceSidebarFooter = memo(function WorkspaceSidebarFooterCompon
               variant="ghost"
               size={"lg"}
               className={cn(
-                "min-w-0 justify-start gap-2 overflow-hidden rounded-tl-2xl rounded-bl-2xl border-0 pl-0",
-                user ? "flex-1" : "flex-none",
+                "min-w-0 gap-2 overflow-hidden rounded-tl-2xl rounded-bl-2xl border-0 pl-0",
+                user
+                  ? "flex-1 justify-start"
+                  : "flex-1 justify-end bg-black/20 pr-3 hover:bg-black/30",
               )}
               data-testid={TID_LOGIN_TRIGGER}
               aria-label={
@@ -241,7 +243,17 @@ export const WorkspaceSidebarFooter = memo(function WorkspaceSidebarFooterCompon
             >
               {/* Button 默认 shrink-0 且带 whitespace-nowrap，超长用户名会把 footer 撑出 sidebar。
                 这里让触发按钮和文本列都允许收缩，并只在用户名自身做单行截断。 */}
-              {profileContent}
+              {user ? (
+                profileContent
+              ) : showAuthRestoreLoading ? (
+                <Loader2 className="size-4 animate-spin" />
+              ) : (
+                <img
+                  src={APP_LOGO_URL}
+                  alt={VIBE_PERSONA.productName}
+                  className="h-5 w-5 shrink-0 object-contain"
+                />
+              )}
             </Button>
           </DropdownMenuTrigger>
           {/* 菜单内容保持挂载，避免每次点击头像菜单都重建 footer 内部状态。*/}
