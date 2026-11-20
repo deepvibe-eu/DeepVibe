@@ -39,14 +39,9 @@ export function extractPrebuiltArchive({ archivePath, archiveExt, extractDir, cw
   mkdirSync(extractDir, { recursive: true });
   if (archiveExt === "zip") {
     if (process.platform === "win32") {
-      runCommand("powershell.exe", [
-        "-NoProfile",
-        "-NonInteractive",
-        "-ExecutionPolicy",
-        "Bypass",
-        "-Command",
-        `Expand-Archive -LiteralPath '${archivePath.replaceAll("'", "''")}' -DestinationPath '${extractDir.replaceAll("'", "''")}' -Force`,
-      ]);
+      // Windows' bsdtar extracts zip archives without PowerShell's Archive module,
+      // whose ExtractToDirectory overload differs between .NET Framework and .NET.
+      runCommand("tar", ["-xf", archivePath, "-C", extractDir], { cwd });
       return;
     }
 
