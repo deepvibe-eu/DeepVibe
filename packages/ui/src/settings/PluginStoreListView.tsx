@@ -64,7 +64,15 @@ export function PluginStoreListView({
   // 旧版会话恢复入口退出市场；统一过滤所有浏览投影，旧缓存/精选也不能重新露出。
   // 完整 ID 只命中官方插件，插件管理页继续使用原始条目管理已有安装。
   const items = useMemo(
-    () => allItems.filter((item) => item.id !== RETIRED_STORE_PLUGIN_ID),
+    () =>
+      allItems.filter(
+        (item) =>
+          item.id !== RETIRED_STORE_PLUGIN_ID &&
+          // DeepVibe verkauft keine Coding-Plans: kostenpflichtige Katalogeinträge
+          // werden ausgeblendet. Bereits installierte bleiben sichtbar, damit sie
+          // weiter verwaltet/entfernt werden können.
+          (item.installed || item.listing?.requiresPaidPlan !== true),
+      ),
     [allItems],
   );
 
