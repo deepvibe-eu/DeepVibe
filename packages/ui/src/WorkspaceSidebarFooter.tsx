@@ -231,10 +231,10 @@ export const WorkspaceSidebarFooter = memo(function WorkspaceSidebarFooterCompon
               variant="ghost"
               size={"lg"}
               className={cn(
-                "min-w-0 gap-2 overflow-hidden rounded-tl-2xl rounded-bl-2xl border-0 pl-0",
+                "min-w-0 gap-2 overflow-hidden rounded-tr-l rounded-br-l border-0 pl-0",
                 user
-                  ? "flex-1 justify-start"
-                  : "flex-1 justify-end bg-black/20 pr-3 hover:bg-black/30",
+                  ? "flex-1 justify-end"
+                  : "flex-1 justify-start bg-black/20 pr-3 hover:bg-black/30",
               )}
               data-testid={TID_LOGIN_TRIGGER}
               aria-label={
@@ -251,7 +251,7 @@ export const WorkspaceSidebarFooter = memo(function WorkspaceSidebarFooterCompon
                 <img
                   src={APP_LOGO_URL}
                   alt={VIBE_PERSONA.productName}
-                  className="h-5 w-5 shrink-0 object-contain"
+                  className="h-8 w-8 shrink-0 object-contain"
                 />
               )}
             </Button>
