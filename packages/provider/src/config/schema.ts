@@ -15,7 +15,6 @@ import {
 import {
   builtinModelConfigRulesSchema,
   personalModelConfigRulesSchema,
-  builtinProviderConfigRulesSchema,
   personalProviderConfigRulesSchema,
   providerConfigRuleSchema,
   providerTemplateConfigRuleSchema,
@@ -42,14 +41,53 @@ export function parseProviderTemplateMap(input: unknown): ProviderTemplateMap {
   return createTemplateRules(z.array(providerTemplateConfigRuleSchema).parse(input));
 }
 
+const builtinRulesEnvelopeSchema = z
+  .object({
+    providerRules: z.array(z.unknown()),
+    templateRules: z.array(z.unknown()),
+  })
+  .strict();
+
+/**
+ * Vorwärtskompatibel: Eine neuere CDN-Konfiguration kann Regeln enthalten, die diese
+ * App-Version noch nicht kennt (z. B. einen neuen Zhipu-Plan). Eine einzelne unbekannte
+ * Regel darf nicht das ganze Provider-Release ungültig machen; wir überspringen sie und
+ * behalten alle verständlichen Regeln.
+ */
 export function parseZCodeBuiltinProviderConfigRules(input: unknown): {
   providers: ProviderConfigMap;
   providerTemplates: ProviderTemplateMap;
 } {
-  const parsed = builtinProviderConfigRulesSchema.parse(input);
+  const envelope = builtinRulesEnvelopeSchema.parse(input);
+  const providerRules: ProviderConfigRuleData[] = [];
+  envelope.providerRules.forEach((rule, index) => {
+    const parsed = builtinProviderConfigRuleSchema.safeParse(rule);
+    if (!parsed.success) {
+      const issue = parsed.error.issues[0];
+      console.warn(
+        `[provider-config] ignoring builtin provider rule ${index}: ${issue?.path.join(".") ?? "root"} (${issue?.code ?? "invalid"})`,
+      );
+      return;
+    }
+    providerRules.push(parsed.data);
+  });
+
+  const templateRules: ProviderTemplateConfigRuleData[] = [];
+  envelope.templateRules.forEach((rule, index) => {
+    const parsed = providerTemplateConfigRuleSchema.safeParse(rule);
+    if (!parsed.success) {
+      const issue = parsed.error.issues[0];
+      console.warn(
+        `[provider-config] ignoring builtin template rule ${index}: ${issue?.path.join(".") ?? "root"} (${issue?.code ?? "invalid"})`,
+      );
+      return;
+    }
+    templateRules.push(parsed.data);
+  });
+
   return {
-    providers: createProviderRules(parsed.providerRules),
-    providerTemplates: createTemplateRules(parsed.templateRules),
+    providers: createProviderRules(providerRules),
+    providerTemplates: createTemplateRules(templateRules),
   };
 }
 
