@@ -29,10 +29,8 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        /* Deckkraft des großen Startlogos (Wasserzeichen) — hier zentral tunebar. */
-        --startup-logo-opacity: 0.1;
-        /* 原生边框窗口（Wayland）不再透出深色底，见 desktopWindowChrome.ts；启动壳自带深色背景，
-           避免 Electron 默认白底直接闪现。 */
+        /* Wayland natively framed windows no longer show a dark backdrop; keep the
+           start shell dark to avoid a white Electron flash. */
         background: linear-gradient(180deg, #000000 0%, #151718 100%);
         transition: opacity 0.16s ease;
       }
@@ -42,57 +40,61 @@
         opacity: 0;
       }
 
-      /* 不再使用小图标卡片：整个窗口用深色品牌底，Logo 占 ~80% 高度直接居中。 */
       .startup-logo-shell {
         position: relative;
         display: flex;
+        width: 96px;
+        height: 96px;
         align-items: center;
         justify-content: center;
-        height: var(--startup-logo-height, 80vh);
-        max-width: 90vw;
+        border-radius: 24px;
+        background: linear-gradient(180deg, #000000 0%, #151718 100%);
+        box-shadow:
+          0 20px 25px -5px rgb(0 0 0 / 0.2),
+          0 8px 10px -6px rgb(0 0 0 / 0.2);
+        transform: scale(0.72);
         opacity: 0;
-        transform: scale(0.94);
         animation: startup-logo-pop 0.72s cubic-bezier(0.22, 1, 0.36, 1) forwards;
         transform-origin: center;
       }
 
+      .startup-logo-shell::before {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        content: "";
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: inherit;
+      }
+
       .startup-logo {
-        height: 100%;
-        width: auto;
-        max-width: 90vw;
-        object-fit: contain;
-        /* 只作背景水印：低调地“ins App-Icon hineinschrumpfen” während des Starts.
-           Für keinen Shrink: animation-Zeile entfernen (dann greift die Basis-Deckkraft). */
-        opacity: var(--startup-logo-opacity, 0.1);
-        animation: shrink-to-zero 7s forwards;
+        width: 56px;
+        height: auto;
+        color: #ffffff;
       }
 
       @keyframes startup-logo-pop {
         0% {
           opacity: 0;
-          transform: scale(0.94);
+          transform: scale(0.72);
         }
 
-        45% {
+        38% {
           opacity: 1;
-          transform: scale(1.01);
+          transform: scale(1.045);
+        }
+
+        58% {
+          transform: scale(0.985);
+        }
+
+        76% {
+          transform: scale(1.008);
         }
 
         100% {
           opacity: 1;
           transform: scale(1);
-        }
-      }
-
-      @keyframes shrink-to-zero {
-        0% {
-          transform: scale(1);
-          opacity: var(--startup-logo-opacity, 0.1);
-        }
-
-        100% {
-          transform: scale(0);
-          opacity: 0;
         }
       }
 
@@ -100,10 +102,6 @@
         .startup-logo-shell {
           opacity: 1;
           transform: scale(1);
-          animation: none;
-        }
-
-        .startup-logo {
           animation: none;
         }
       }

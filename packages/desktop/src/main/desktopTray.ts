@@ -13,19 +13,20 @@ let desktopTray: Tray | null = null;
 let rebuildDesktopTrayContextMenu: (() => void) | null = null;
 
 function resolveDesktopTrayIconPath() {
+  const fileName = process.platform === "win32" ? "tray_icon.ico" : "icon.png";
   return app.isPackaged
-    ? join(process.resourcesPath, "tray_icon.ico")
-    : join(import.meta.dirname, "../../build/icon.ico");
+    ? join(process.resourcesPath, fileName)
+    : join(import.meta.dirname, `../../build/${fileName}`);
 }
 
-export function createWindowsDesktopTray(options: {
+export function createDesktopTray(options: {
   getLocale: () => Locale;
   showCurrentWindow: () => Promise<void> | void;
   executeDesktopCommand: (command: DesktopCommandId) => Promise<unknown>;
   quitApp: () => void;
   logger: { warn: (...args: unknown[]) => void };
 }) {
-  if (process.platform !== "win32") {
+  if (process.platform !== "win32" && process.platform !== "linux") {
     return null;
   }
 
@@ -106,6 +107,11 @@ export function createWindowsDesktopTray(options: {
   return desktopTray;
 }
 
-export function updateWindowsDesktopTrayMenu() {
+export function updateDesktopTrayMenu() {
   rebuildDesktopTrayContextMenu?.();
+}
+
+/** Ob die Tray aktuell existiert (für Close-to-Tray auf Linux). */
+export function hasDesktopTray(): boolean {
+  return desktopTray !== null;
 }

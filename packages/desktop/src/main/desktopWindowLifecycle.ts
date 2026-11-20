@@ -369,6 +369,8 @@ export function handleDesktopWindowCloseRequest(options: {
   forceQuit: boolean;
   explicitQuitRequested?: boolean;
   closeToTrayOnWindows?: boolean;
+  /** Linux: nur in die Tray schließen, wenn eine Tray existiert. */
+  hasDesktopTray?: () => boolean;
   isLastWindow: boolean;
   label: string;
   logger: { info: (...args: unknown[]) => void };
@@ -377,12 +379,14 @@ export function handleDesktopWindowCloseRequest(options: {
   requestQuit: () => void;
   hideWindow?: () => void;
 }) {
-  if (
-    options.platform === "win32" &&
-    options.closeToTrayOnWindows &&
-    !options.forceQuit &&
-    !options.explicitQuitRequested
-  ) {
+  const closeToTray =
+    options.platform === "win32"
+      ? options.closeToTrayOnWindows === true
+      : options.platform === "linux"
+        ? options.hasDesktopTray?.() === true
+        : false;
+
+  if (closeToTray && !options.forceQuit && !options.explicitQuitRequested) {
     options.logger.info(`[createWindow] window close hidden to tray (${options.label})`);
     options.hideWindow?.();
     return true;
